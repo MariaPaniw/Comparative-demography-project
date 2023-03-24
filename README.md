@@ -12,7 +12,7 @@ Ultimately, the goal is to develop this repository to make all data and analyses
 We are building integral and matrix population models from vital rates that are parameterized as a function of climatic and/or biotic variables. We then quantify how sensitive λ is to changes in these variables. 
 
 ## File overview
-You can find two R code templates, one is for matrix population models, and the other is for integral projection models. Both are an example of how to parameterize vital-rate functions using coefficients and covariate inputs to then build a population model and compute sensitivities. Both templates are provided as an R Markdown file, an R script, and pdf.
+You can find two R code templates, one is for matrix population models, and the other is for integral projection models. Both are an example of how to parameterize vital-rate functions using coefficients and covariate inputs to then build a population model and compute sensitivities. Both templates are provided as an R Markdown file, an R script, and pdf. The "covariates.csv" file is needed in order to run the codes.
 
 ## R code
 The code is divided into 5 parts.
