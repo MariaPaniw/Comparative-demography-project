@@ -16,7 +16,7 @@ library(boot)
 # Coefficients (can be supplied as a list; written as R objects; or directly integrated into the functions below)
 
 # LOAD GLM BAYESIAN MODEL PARAMETERS
-load("~IPM_example_marmots/outputBay1_latent3.rda")
+load("~/IPM_example_marmots/outputBay1_latent3.rda")
 
 mcmc=out1J$mean # use mean values here
 
