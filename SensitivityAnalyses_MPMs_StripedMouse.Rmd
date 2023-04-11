@@ -13,7 +13,8 @@ The data files needed for running the code below, as well as the original files 
 
 The following estimates and code are from two papers on African striped mice (Rhabdomys pumilio):
 
-- Nater et al. 
+- Nater et al. 2016; https://doi.org/10.1111/oik.03384
+- Nater et al. 2018; https://doi.org/10.1111/1365-2656.12888
 
 
 The first paper established the vital rate models. The second paper ran updated versions of the vital rate models, incorporated them into a stage-structured matrix population model, and performed a variety of analyses of the MPM. The striped mouse has a short life cycle, and both vital rate predictions and the MPM have a monthly time interval. 
