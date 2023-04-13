@@ -48,7 +48,7 @@ So that is not quite what you need yet, but it contains everything you need to w
 The function inputs are a matrix of posterior samples (`MCMC.mat`), a string called `effect` that specifies the covariate to make predictions for, and an integer `RepAgeClass` which determines which age class the vital rate predictions should apply to. Age class 1 represents young of the year, age classes  2, 3, 4, and 5 represents adult foxes aged 1, 2, 3, and 4+ years. 
 
 
-```{r}
+```{r, eval = FALSE}
 library(coda)
 
 ## Making vital rate predictions depending on (standardized) env. covariates
@@ -148,7 +148,7 @@ GooseEff <- cov.predict(MCMC.mat, 'Goose', 3)
 
 The dataframes returned by the function can then be used to plot vital rates as a function of covariates: 
 
-```{r}
+```{r, eval = FALSE}
 library(ggplot2)
 library(viridis)
 
