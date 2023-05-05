@@ -1,7 +1,7 @@
 ---
 title: "Sensitivity analyses"
 author: "Esin Ickin, Chloé Nater"
-date: "4/13/2023"
+date: "5/04/2023"
 output: html_document
 ---
 
@@ -48,7 +48,7 @@ So that is not quite what you need yet, but it contains everything you need to w
 The function inputs are a matrix of posterior samples (`MCMC.mat`), a string called `effect` that specifies the covariate to make predictions for, and an integer `RepAgeClass` which determines which age class the vital rate predictions should apply to. Age class 1 represents young of the year, age classes  2, 3, 4, and 5 represents adult foxes aged 1, 2, 3, and 4+ years. 
 
 
-```{r, eval = FALSE}
+```{r}
 library(coda)
 
 ## Making vital rate predictions depending on (standardized) env. covariates
@@ -148,7 +148,7 @@ GooseEff <- cov.predict(MCMC.mat, 'Goose', 3)
 
 The dataframes returned by the function can then be used to plot vital rates as a function of covariates: 
 
-```{r, eval = FALSE}
+```{r}
 library(ggplot2)
 library(viridis)
 
@@ -335,14 +335,360 @@ ggplot(sim.results, aes(x = SimYear, y = Ntot, group = SimNo)) + geom_line(color
 
 ```
 
-## 4) Scaled sensitivity analyses 
+
+## 4) Simplified prediction- and matrix functions
+
+The code above is from Nater et al.'s original work. The vital rate prediction function was aimed at predicting over the entire range of only one covariate at a time, and the matrix projection directly uses the time-specific vital rate estimates from the run IPM. Neither are ideal for the specific application here. 
+For that reason, we write alternative functions for predicting vital rates based on environmental conditions and collating them into projection matrices. 
+
+### 4.1) Vital rate functions
+First, we'll define functions for calculating the different vital rates based on specific values of standardized and de-trended environmental covariates (reindeer carcass availability, sea ice extent, and goose abundance).
+Note that most vital rates were estimated including linear time trends and random year effects in addition. The functions below are set up in a way that they will make calculations based on the average year in the time series and with a random effect of 0 when year and random effect are not specified, and use specified years and/or random effects when these are specified. 
+
+Here's how this looks for pregnancy rate:
+
+```{r}
+## Predicting pregnancy rate (Psi)
+Psi.predict <- function(par.a, par.b, par.c,
+                        betaRC.Psi, betaSI.Psi,
+                        betaY.Psi, epsilon.Psi = 0,
+                        age,
+                        reindeerCov, seaIceCov,
+                        year = 2008){
+  
+  # Determine year index
+  yearIdx <- year - 1997 + 1
+  
+  # Calculate linear predictor on link scale
+  logit.eta <- par.b*(par.c - age) + betaY.Psi*(yearIdx-12) + betaRC.Psi*reindeerCov + betaSI.Psi*seaIceCov + epsilon.Psi
+  
+  # Back-calculate & return
+  eta <- boot::inv.logit(logit.eta)
+  Psi <- par.a*eta 
+  
+  return(Psi)
+}
+
+## Demonstration (using average year and no random effects)
+Psi.predict(par.a = median(MCMC.mat[,"par.a"]),
+            par.b = median(MCMC.mat[,"par.b"]),
+            par.c = median(MCMC.mat[,"par.c"]),
+            betaRC.Psi = median(MCMC.mat[,"betaRC.Psi"]),
+            betaSI.Psi = median(MCMC.mat[,"betaSI.Psi"]),
+            betaY.Psi = median(MCMC.mat[,"betaY.Psi"]),
+            age = 4,
+            reindeerCov = 0, seaIceCov = 0) 
+
+## Demonstration (using a specific year and corresponding random effect)
+test.year <- 2015
+test.year.idx <- test.year - 1997 + 1 # year index used in IPM
+RE.name <- paste0("epsilon.Psi[", test.year.idx, "]") # parameter name for corresponding random effect
+
+Psi.predict(par.a = median(MCMC.mat[,"par.a"]),
+            par.b = median(MCMC.mat[,"par.b"]),
+            par.c = median(MCMC.mat[,"par.c"]),
+            betaRC.Psi = median(MCMC.mat[,"betaRC.Psi"]),
+            betaSI.Psi = median(MCMC.mat[,"betaSI.Psi"]),
+            betaY.Psi = median(MCMC.mat[,"betaY.Psi"]),
+            epsilon.Psi = median(MCMC.mat[,RE.name]),
+            age = 4,
+            reindeerCov = 0, seaIceCov = 0,
+            year = test.year) 
+
+```
+
+So if we wanted to retrieve the actual Psi for a specific year, we could now specify the year, the corresponding random effect, and also pass the observed covariate effects from that specific year (contained in ArcticFoxIPM_EnvCov.rds).
+
+We can specify similar functions for all other vital rates too:
+
+```{r}
+## Predicting litter size (rho)
+rho.predict <- function(mean.rho, a.eff1,
+                        betaRC.rho, betaSI.rho,
+                        betaY.rho, epsilon.rho = 0,
+                        age,
+                        reindeerCov, seaIceCov,
+                        year = 2008){
+  
+  # Determine year index
+  yearIdx <- year - 1997 + 1
+  
+  # Calculate linear predictor on link scale
+  log.rho <- log(mean.rho) + a.eff1*age + betaY.rho*(yearIdx-12) + betaSI.rho*seaIceCov + betaRC.rho*reindeerCov + epsilon.rho
+
+  # Back-calculate & return
+  rho <- exp(log.rho)
+  
+  return(rho)
+}
+
+## Predicting denning survival
+S0.predict <- function(S0,
+                       betaRC.m0, betaSI.m0,
+                       betaY.m0, epsilon.m0 = 0,
+                       reindeerCov, seaIceCov,
+                       year = 2008){
+  
+  # Determine year index
+  yearIdx <- year - 1997 + 1
+  
+  # Calculate linear predictor on link scale (log hazard rate)
+  log.m0 <- log(-log(S0)) + betaY.m0*(yearIdx-12) + betaRC.m0*reindeerCov + betaSI.m0*seaIceCov + epsilon.m0
+    
+  # Back-calculate & return
+  m0 <- exp(log.m0) # mortality hazard rate
+  S0 <- exp(-m0) # survival probability
+    
+  return(m0)
+}
+
+## Predicting annual survival (juveniles and adults)
+S.predict <- function(Mu.mH_j, Mu.mH_a, Mu.mO_j, Mu.mO_a,
+                      betaRC.mO, betaSI.mO, betaG.mO, 
+                      betaHP.mH, betaY.mO, 
+                      epsilon.mO = 0, epsilon.mH = 0,
+                      reindeerCov, seaIceCov, gooseCov,
+                      year = 2008, HuntingLevel){
+  
+  # Determine year index
+  yearIdx <- year - 1997 + 1
+  
+  # Make variable HPeriod based on "HuntingLevel"
+  if(HuntingLevel %in% 1:2){
+    HPeriod <- HuntingLevel - 1
+  }else{
+    stop("Invalid HuntingLevel provided. Set to either 1 (first period, higher hunting pressure) or 2 (second period, lower hunting pressure).")
+  }
+  
+  # Calculate linear predictors on link scale (log hazard rates)
+  
+  # Hunting mortality
+  log.mH <- c(log(Mu.mH_j) + betaHP.mH*HPeriod + epsilon.mH, # Juveniles
+              log(Mu.mH_a) + betaHP.mH*HPeriod + epsilon.mH) # Adults
+  
+  # Natural mortality
+  log.mO <- c(log(Mu.mO_j) + betaY.mO*(yearIdx-12) + betaRC.mO*reindeerCov + betaG.mO*gooseCov + betaSI.mO*seaIceCov + epsilon.mO, # Juveniles
+              log(Mu.mO_a) + betaY.mO*(yearIdx-12) + betaRC.mO*reindeerCov + betaSI.mO*seaIceCov + epsilon.mO) # Adults
+              
+    
+  # Back-calculate & return
+  mH <- exp(log.mH) # Hunting mortality hazard rate
+  mO <- exp(log.mO) # Natural mortality hazard rate
+  S <- exp(-(mH + mO)) # Survival probability
+  names(S) <- c("Juveniles", "Adults")
+  
+  return(S)
+}
+```
+
+The function for predicting survival (`S.predict`) has a few more inputs than the others because it calculates four mortality hazard rates (hunting and natural mortality of juveniles and adults) and derives annual survival from them. Natural mortality is modeled as a function of environmental covariates (reindeer carcasses and sea ice for both age classes, and geese additionally for the juveniles). Hunting mortality was estimated for two separate periods of time. If you set the argument `HuntingLevel` to 1, you will get estimates for the first period, which had higher hunting pressure, and if you set it to 2, you will get estimates for the second period, which had lower hunting pressure. Unlike the other functions, this one returns a vector with two elements corresponding to juvenile and adult annual survival: 
+
+```{r}
+## Period with more hunting
+S.predict(Mu.mH_j = median(MCMC.mat[,"Mu.mH[2]"]), 
+          Mu.mH_a = median(MCMC.mat[,"Mu.mH[1]"]), 
+          Mu.mO_j = median(MCMC.mat[,"Mu.mO[2]"]), 
+          Mu.mO_a = median(MCMC.mat[,"Mu.mO[1]"]),
+          betaRC.mO = median(MCMC.mat[,"betaRC.mO"]), 
+          betaSI.mO = median(MCMC.mat[,"betaSI.mO"]), 
+          betaG.mO = median(MCMC.mat[,"betaG.mO"]), 
+          betaHP.mH = median(MCMC.mat[,"betaHP.mH"]), 
+          betaY.mO = median(MCMC.mat[,"betaY.mO"]), 
+          reindeerCov = 0, seaIceCov = 0, gooseCov = 0,
+          HuntingLevel = 1)
+
+## Period with less hunting
+S.predict(Mu.mH_j = median(MCMC.mat[,"Mu.mH[2]"]), 
+          Mu.mH_a = median(MCMC.mat[,"Mu.mH[1]"]), 
+          Mu.mO_j = median(MCMC.mat[,"Mu.mO[2]"]), 
+          Mu.mO_a = median(MCMC.mat[,"Mu.mO[1]"]),
+          betaRC.mO = median(MCMC.mat[,"betaRC.mO"]), 
+          betaSI.mO = median(MCMC.mat[,"betaSI.mO"]), 
+          betaG.mO = median(MCMC.mat[,"betaG.mO"]), 
+          betaHP.mH = median(MCMC.mat[,"betaHP.mH"]), 
+          betaY.mO = median(MCMC.mat[,"betaY.mO"]), 
+          reindeerCov = 0, seaIceCov = 0, gooseCov = 0,
+          HuntingLevel = 2)
+
+```
+The relationship between survival probability (S) and hunting and natural mortality (mH and mO) is given as: S = exp(-(mH + mO)).
+This may matter for your sensitivity calulations. 
+
+
+### 4.2) Projection matrix assembly
+
+Next, we define a function for assembling the projection matrix from the vital rates we have calculated using the prediction functions above:
+
+```{r}
+assemble.arcticFoxMPM <- function(S0, Sj, Sa, 
+                                  Psi2, Psi3, Psi4, Psi5,
+                                  rho2, rho3, rho4, rho5){
+  
+  # Set number of stages
+  n.stage <- 5
+  
+  # Assemble and return projection matrix
+  mpm <- matrix(c(Sj*0.5*Psi2*rho2*S0, Sj, 0, 0, 0,
+                  Sa*0.5*Psi3*rho3*S0, 0, Sa, 0, 0,
+                  Sa*0.5*Psi4*rho4*S0, 0, 0, Sa, 0,
+                  Sa*0.5*Psi5*rho5*S0, 0, 0, 0, Sa,
+                  Sa*0.5*Psi5*rho5*S0, 0, 0, 0, Sa),
+                  nrow = n.stage, ncol = n.stage)
+  return(mpm)
+}
+```
+
+For convenience, we may now want to combine vital rate prediction and matrix assembly into yet one more function (a "wrapper" function). Like so:
+
+```{r}
+make.arcticFoxMPM <- function(reindeerCov, seaIceCov, gooseCov,
+                              year = 2008, HuntingLevel,
+                              randomEff,
+                              epsilon.Psi = 0,
+                              epsilon.rho = 0,
+                              epsilon.m0 = 0,
+                              epsilon.mH = 0,
+                              epsilon.mO = 0
+                              ){
+  
+  ## Define random effect levels based on argument "randomEff"
+  if(randomEff == "match"){
+     yearIdx <- year - 1997 + 1
+     epsilon.Psi.use <- median(MCMC.mat[, paste0("epsilon.Psi[", yearIdx+1, "]")])
+     epsilon.rho.use <- median(MCMC.mat[, paste0("epsilon.rho[", yearIdx+1, "]")])
+     epsilon.m0.use <- median(MCMC.mat[, paste0("epsilon.m0[", yearIdx+1, "]")])
+     epsilon.mH.use <- median(MCMC.mat[, paste0("epsilon.mH[", yearIdx, "]")])
+     epsilon.mO.use <- median(MCMC.mat[, paste0("epsilon.mO[", yearIdx, "]")])
+  }
+  
+  if(randomEff == "ignore"){
+     epsilon.Psi.use <- 0
+     epsilon.rho.use <- 0
+     epsilon.m0.use <- 0
+     epsilon.mH.use <- 0
+     epsilon.mO.use <- 0
+  }
+  
+  if(randomEff == "define"){
+     epsilon.Psi.use <- epsilon.Psi
+     epsilon.rho.use <- epsilon.rho
+     epsilon.m0.use <- epsilon.m0
+     epsilon.mH.use <- epsilon.mH
+     epsilon.mO.use <- epsilon.mO
+  }
+  
+  if(!(randomEff %in% c("match", "ignore", "define"))){
+    stop("Invalid randomEff option provided. The accepted options are match, ignore, and define.")
+  }
+  
+  
+  ## Predict vital rates
+  
+  # Breeding probability and litter size per age class
+  Psi <- rho <- rep(NA, 5)
+  for(a in 2:5){
+    Psi[a] <- Psi.predict(par.a = median(MCMC.mat[,"par.a"]),
+                          par.b = median(MCMC.mat[,"par.b"]),
+                          par.c = median(MCMC.mat[,"par.c"]),
+                          betaRC.Psi = median(MCMC.mat[,"betaRC.Psi"]),
+                          betaSI.Psi = median(MCMC.mat[,"betaSI.Psi"]),
+                          betaY.Psi = median(MCMC.mat[,"betaY.Psi"]),
+                          epsilon.Psi = epsilon.Psi.use,
+                          age = a,
+                          reindeerCov = reindeerCov, seaIceCov = seaIceCov,
+                          year = year+1) 
+    
+    rho[a] <- rho.predict(mean.rho = median(MCMC.mat[,"mean.rho"]),
+                          a.eff1 = median(MCMC.mat[,"a.eff1"]),
+                          betaRC.rho = median(MCMC.mat[,"betaRC.rho"]),
+                          betaSI.rho = median(MCMC.mat[,"betaSI.rho"]),
+                          betaY.rho = median(MCMC.mat[,"betaY.rho"]),
+                          age = a,
+                          epsilon.rho = epsilon.rho.use,
+                          reindeerCov = reindeerCov, seaIceCov = seaIceCov,
+                          year = year+1) 
+  }
+  
+  # Denning survival
+  S0 <- S0.predict(S0 = median(MCMC.mat[,"S0"]),
+                   betaRC.m0 = median(MCMC.mat[,"betaRC.m0"]), 
+                   betaSI.m0 = median(MCMC.mat[,"betaSI.m0"]),
+                   betaY.m0 = median(MCMC.mat[,"betaY.m0"]), 
+                   epsilon.m0 = epsilon.m0.use,
+                   reindeerCov = reindeerCov, seaIceCov = seaIceCov,
+                   year = year+1)
+  
+  # Juvenila and adult annual survival
+  S <- S.predict(Mu.mH_j = median(MCMC.mat[,"Mu.mH[2]"]), 
+                 Mu.mH_a = median(MCMC.mat[,"Mu.mH[1]"]), 
+                 Mu.mO_j = median(MCMC.mat[,"Mu.mO[2]"]), 
+                 Mu.mO_a = median(MCMC.mat[,"Mu.mO[1]"]),
+                 betaRC.mO = median(MCMC.mat[,"betaRC.mO"]), 
+                 betaSI.mO = median(MCMC.mat[,"betaSI.mO"]), 
+                 betaG.mO = median(MCMC.mat[,"betaG.mO"]), 
+                 betaHP.mH = median(MCMC.mat[,"betaHP.mH"]), 
+                 betaY.mO = median(MCMC.mat[,"betaY.mO"]), 
+                 epsilon.mH = epsilon.mH.use, epsilon.mO = epsilon.mO.use,
+                 reindeerCov = reindeerCov, seaIceCov = reindeerCov, gooseCov = gooseCov,
+                 year = year, HuntingLevel = HuntingLevel)
+
+  # List all age-specific vital rates
+  VitalRates <- list(S0 = S0, Sj = S[1], Sa = S[2], 
+                     Psi2 = Psi[2], Psi3 = Psi[3], Psi4 = Psi[4], Psi5 = Psi[5],
+                     rho2 = rho[2], rho3 = rho[3], rho4 = rho[4], rho5 = rho[5])
+  
+  
+  ## Assemble projection matrix
+  MPM <- assemble.arcticFoxMPM(S0 = S0, Sj = S[1], Sa = S[2], 
+                               Psi2 = Psi[2], Psi3 = Psi[3], Psi4 = Psi[4], Psi5 = Psi[5],
+                               rho2 = rho[2], rho3 = rho[3], rho4 = rho[4], rho5 = rho[5])
+    
+  
+  ## Return vital rates and MPM
+  return(list(VitalRates = VitalRates, MPM = MPM))
+  
+}
+
+```
+
+The function above looks quite large, but that is partially because it's flexible enough to allow different treatments of random effects. This is handled via the `randomEff` argument. 
+There are three options available:
+
+- `randomEff = "ignore"`: all random effects are set to 0
+- `randomEff = "match"`: random effects are set to posterior medians of the estimated values for the specified `year`
+- `randomEff = "define"`: random effects are set to the numbers specified in the call to `make.arcticFoxMPM`
+
+Besides this, the function also requires provision of values for the three environmental covariates and setting of the `HuntingLevel` to either 1 or 2. Optionally, you can also specify the year (default otherwise = 2008, the middle year in the data time series). 
+The function then returns a list with two element: a list of vital rate values and a projection matrix
+
+```{r}
+make.arcticFoxMPM(reindeerCov = 0, seaIceCov = 0, gooseCov = 0,
+                  year = 2012, HuntingLevel = 2,
+                  randomEff = "ignore")
+```
+IMPORTANT: Note that for creating the projection matrix for a specific time interval $t$ to $t+1$ (using observed or simulated time-series of environmental covariates), the reindeer and sea ice covariate values for year $t+1$ have to be passed. This is because the census is June-May, and these are winter covariates. Goose abundance, on the other hand, is a summer covariate and has to be passed with time index $t$. 
+
+### 4.3) Additional remarks
+
+The projection matrix assembled above is very likely to give low population growth rates (< 1) because it does not include the immigration part of the system. 
+Nater et. al estimated the annual number of immigrants under the assumption that all immigrants are juveniles. So for including immigration, you would have to add a number of immigrants to the juvenile age class at each census. Immigrant numbers can be simulated using posterior estimates from the integrated population model too and follow a normal distribution with mean `avgImm` and standard deviation `sigma.imm`: 
+
+```{r}
+imm.sim <- rnorm(10000, mean = median(MCMC.mat[,"avgImm"]), sd = median(MCMC.mat[,"sigma.Imm"]))
+hist(imm.sim)
+```
+
+Notably, this may give you negative values (which should not be possible). To avoid this, you can use a truncated normal distrbution instead. 
+
+
+## 5) Scaled sensitivity analyses 
 
 Here, we calculate scaled sensitivities, according to Morris et al. 2020 (DOI: https://doi.org/10.1073/pnas.1918363117)
 
 Note that this is a step that Esin will implement in her MS thesis. With the information given in 1-3, we should be able to run these analyses.
 
 
-## 5) Sensitivity analyses at equilibrium dynamics 
+## 6) Sensitivity analyses at equilibrium dynamics 
 
 Here, we perform "classic" sensitivity analyses (see Paniw et al. 2019; DOI: 10.1126/science.aau5905)
 
