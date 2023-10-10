@@ -23,19 +23,19 @@ In case you want to re-run everything, this is the code used for summarizing the
 ```{r, eval = FALSE}
 library(coda)
 
-load("Files_ArcticFox/ArcticFox_IPM_PosteriorSamples.RData")
-out.data <- reshape2::melt(as.matrix(MCMCsamples))
+#load("Files_ArcticFox/ArcticFox_IPM_PosteriorSamples.RData")
+#out.data <- reshape2::melt(as.matrix(MCMCsamples))
 
-out.sum <- out.data %>%
-  dplyr::group_by(Var2) %>%
-  dplyr::summarise(Median = median(value),
-                   lower_90CI = quantile(value, probs = 0.05),
-                   upper_90CI = quantile(value, probs = 0.95),
-                   Mean = mean(value),
-                   SD = sd(value)) %>%
-  dplyr::rename(Parameter = Var2)
+#out.sum <- out.data %>%
+#  dplyr::group_by(Var2) %>%
+#  dplyr::summarise(Median = median(value),
+#                   lower_90CI = quantile(value, probs = 0.05),
+#                   upper_90CI = quantile(value, probs = 0.95),
+#                   Mean = mean(value),
+#                   SD = sd(value)) %>%
+#  dplyr::rename(Parameter = Var2)
 
-saveRDS(out.sum, file = "Files_ArcticFox/ArcticFoxIPM_PosteriorSummary.rds")
+#saveRDS(out.sum, file = "Files_ArcticFox/ArcticFoxIPM_PosteriorSummary.rds")
 ```
 
 You will find an explanation of all variable names in the model code ("ArcticFox_IPM.R") which I have added to "Files_ArcticFox". 
