@@ -1,0 +1,525 @@
+---
+title: "Malchow et al. 2023"
+author: "Esin Ickin"
+date: "2023-06-02"
+output: html_document
+---
+
+This is the code for sensitivity analyses conducted on the Eurasian treecreeper (*Certhia familiaris*) which is species 4 of this study: https://doi.org/10.1098/rstb.2022.0194
+ 
+## 0) Prepare session
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "~/Files_SwissBirds")
+```
+
+```{r}
+rm(list=ls()) # reset
+
+# packages
+library(popbio)
+library(tidyverse)
+```
+
+## 1) Vital rates
+
+This part is a modified version of 2.) from the "analysis_main.R" where you compose demography-environment relationships from calibrated parameters for each species
+
+```{r}
+## a) Fecundity
+loc_dens <- 1
+DER_Fecund <- function(Fec0, Fc.pr1, Fc.pr2, Fc.tm1, Fc.tm2, DDp, Tbr=0, Pbr=0, Hab=100){ 
+	exp(
+		log(Fec0) + 
+		Fc.pr1*Pbr + 
+		Fc.pr2*Pbr^2 + 
+		Fc.tm1*Tbr + 
+		Fc.tm2*Tbr^2 ) *
+	# density-dependence
+	exp( - 1 * eval(loc_dens) / DDp / Hab )
+}
+
+
+## b) Juvenile survival
+DER_juvSurv <- function(jSv0, jS.pr1, jS.pr2, jS.tm1, jS.tm2, Tat=0, Pwn=0){
+	plogis(
+		jS.pr1*Pwn + 
+		jS.pr2*Pwn^2 + 
+		jS.tm1*Tat + 
+		jS.tm2*Tat^2 ,
+		location = log((1-jSv0)/jSv0))
+}
+
+
+## c) Adult survival
+DER_adSurv <- function(aSv0, aS.pr1, aS.pr2, aS.tm1, Twn=0, Pwn=0){
+	plogis(
+		aS.pr1*Pwn + 
+		aS.pr2*Pwn^2 + 
+		aS.tm1*Twn ,
+		location = log((1-aSv0)/aSv0))
+}
+
+# SPECIES 3 parameters
+post_sample_list=readRDS("Post_sample_list.rds")
+# Juvenile survival
+jSv0.sp4=post_sample_list$`Eurasian treecreeper`$juvSurv
+jS.pr1.sp4=post_sample_list$`Eurasian treecreeper`$jSb.pr1
+jS.pr2.sp4=post_sample_list$`Eurasian treecreeper`$jSb.pr2
+jS.tm1.sp4=post_sample_list$`Eurasian treecreeper`$jSb.tm1
+jS.tm2.sp4=post_sample_list$`Eurasian treecreeper`$jSb.tm2
+
+# Fecundity
+Fec0.sp4=post_sample_list$`Eurasian treecreeper`$Fecund
+Fc.pr1.sp4=post_sample_list$`Eurasian treecreeper`$Fcb.pr1
+Fc.pr2.sp4=post_sample_list$`Eurasian treecreeper`$Fcb.pr2
+Fc.tm1.sp4=post_sample_list$`Eurasian treecreeper`$Fcb.tm1
+Fc.tm2.sp4=post_sample_list$`Eurasian treecreeper`$Fcb.tm2
+DDp.sp4=post_sample_list$`Eurasian treecreeper`$DensDep
+
+# Adult survival
+aSv0.sp4=post_sample_list$`Eurasian treecreeper`$adSurv
+aS.pr1.sp4=post_sample_list$`Eurasian treecreeper`$aSb.pr1
+aS.pr2.sp4=post_sample_list$`Eurasian treecreeper`$aSb.pr2
+aS.tm1.sp4=post_sample_list$`Eurasian treecreeper`$aSb.tm
+```
+
+## 2) Covariates
+
+species-specific covariates
+
+```{r}
+cov=read.csv("CerthiaCovariates.csv")
+
+# Tbr = mean temp during breeding season (april-july) for fecundity
+max.Tbr=max(cov$breeding_tmp)
+min.Tbr=min(cov$breeding_tmp)
+mean.Tbr=0
+sd.Tbr=1
+# Covariation
+Pbr_when_Tbr_max=cov$breeding_pr[which(cov$breeding_tmp==max(cov$breeding_tmp))][1]
+Pbr_when_Tbr_min=cov$breeding_pr[which(cov$breeding_tmp==min(cov$breeding_tmp))][1]
+Tat_when_Tbr_max=cov$postbreed_tmp[which(cov$breeding_tmp==max(cov$breeding_tmp))][1]
+Tat_when_Tbr_min=cov$postbreed_tmp[which(cov$breeding_tmp==min(cov$breeding_tmp))][1]
+Twn_when_Tbr_max=cov$winter_tmin[which(cov$breeding_tmp==max(cov$breeding_tmp))][1]
+Twn_when_Tbr_min=cov$winter_tmin[which(cov$breeding_tmp==min(cov$breeding_tmp))][1]
+Pwn_when_Tbr_max=cov$winter_pr[which(cov$breeding_tmp==max(cov$breeding_tmp))][1]
+Pwn_when_Tbr_min=cov$winter_pr[which(cov$breeding_tmp==min(cov$breeding_tmp))][1]
+
+# Pwn = tot precip during winter (dec-feb) for juvenile survival, adult survival
+max.Pwn=max(cov$winter_pr)
+min.Pwn=min(cov$winter_pr)
+mean.Pwn=0
+sd.Pwn=1
+# Covariation
+Pbr_when_Pwn_max=cov$breeding_pr[which(cov$winter_pr==max(cov$winter_pr))][1]
+Pbr_when_Pwn_min=cov$breeding_pr[which(cov$winter_pr==min(cov$winter_pr))][1]
+Tat_when_Pwn_max=cov$postbreed_tmp[which(cov$winter_pr==max(cov$winter_pr))][1]
+Tat_when_Pwn_min=cov$postbreed_tmp[which(cov$winter_pr==min(cov$winter_pr))][1]
+Twn_when_Pwn_max=cov$winter_tmin[which(cov$winter_pr==max(cov$winter_pr))][1]
+Twn_when_Pwn_min=cov$winter_tmin[which(cov$winter_pr==min(cov$winter_pr))][1]
+Tbr_when_Pwn_max=cov$breeding_tmp[which(cov$winter_pr==max(cov$winter_pr))][1]
+Tbr_when_Pwn_min=cov$breeding_tmp[which(cov$winter_pr==min(cov$winter_pr))][1]
+
+# Pbr = tot precip during breeding season (april-july) for fecundity
+max.Pbr=max(cov$breeding_pr)
+min.Pbr=min(cov$breeding_pr)
+mean.Pbr=0
+sd.Pbr=1
+# Covariation
+Pwn_when_Pbr_max=cov$winter_pr[which(cov$breeding_pr==max(cov$breeding_pr))][1]
+Pwn_when_Pbr_min=cov$winter_pr[which(cov$breeding_pr==min(cov$breeding_pr))][1]
+Tat_when_Pbr_max=cov$postbreed_tmp[which(cov$breeding_pr==max(cov$breeding_pr))][1]
+Tat_when_Pbr_min=cov$postbreed_tmp[which(cov$breeding_pr==min(cov$breeding_pr))][1]
+Twn_when_Pbr_max=cov$winter_tmin[which(cov$breeding_pr==max(cov$breeding_pr))][1]
+Twn_when_Pbr_min=cov$winter_tmin[which(cov$breeding_pr==min(cov$breeding_pr))][1]
+Tbr_when_Pbr_max=cov$breeding_tmp[which(cov$breeding_pr==max(cov$breeding_pr))][1]
+Tbr_when_Pbr_min=cov$breeding_tmp[which(cov$breeding_pr==min(cov$breeding_pr))][1]
+
+# Tat = mean temp during autumn (sep-nov) for juvenile survival
+max.Tat=max(cov$postbreed_tmp)
+min.Tat=min(cov$postbreed_tmp)
+mean.Tat=0
+sd.Tat=1
+# Covariation
+Pwn_when_Tat_max=cov$winter_pr[which(cov$postbreed_tmp==max(cov$postbreed_tmp))][1]
+Pwn_when_Tat_min=cov$winter_pr[which(cov$postbreed_tmp==min(cov$postbreed_tmp))][1]
+Pbr_when_Tat_max=cov$breeding_pr[which(cov$postbreed_tmp==max(cov$postbreed_tmp))][1]
+Pbr_when_Tat_min=cov$breeding_pr[which(cov$postbreed_tmp==min(cov$postbreed_tmp))][1]
+Twn_when_Tat_max=cov$winter_tmin[which(cov$postbreed_tmp==max(cov$postbreed_tmp))][1]
+Twn_when_Tat_min=cov$winter_tmin[which(cov$postbreed_tmp==min(cov$postbreed_tmp))][1]
+Tbr_when_Tat_max=cov$breeding_tmp[which(cov$postbreed_tmp==max(cov$postbreed_tmp))][1]
+Tbr_when_Tat_min=cov$breeding_tmp[which(cov$postbreed_tmp==min(cov$postbreed_tmp))][1]
+
+# Twn = min temp during winter (dec-feb) for (juvenile survival), adult survival
+max.Twn=max(cov$winter_tmin)
+min.Twn=min(cov$winter_tmin)
+mean.Twn=0
+sd.Twn=1
+# Covariation
+Pwn_when_Twn_max=cov$winter_pr[which(cov$winter_tmin==max(cov$winter_tmin))][1]
+Pwn_when_Twn_min=cov$winter_pr[which(cov$winter_tmin==min(cov$winter_tmin))][1]
+Pbr_when_Twn_max=cov$breeding_pr[which(cov$winter_tmin==max(cov$winter_tmin))][1]
+Pbr_when_Twn_min=cov$breeding_pr[which(cov$winter_tmin==min(cov$winter_tmin))][1]
+Tat_when_Twn_max=cov$postbreed_tmp[which(cov$winter_tmin==max(cov$winter_tmin))][1]
+Tat_when_Twn_min=cov$postbreed_tmp[which(cov$winter_tmin==min(cov$winter_tmin))][1]
+Tbr_when_Twn_max=cov$breeding_tmp[which(cov$winter_tmin==max(cov$winter_tmin))][1]
+Tbr_when_Twn_min=cov$breeding_tmp[which(cov$winter_tmin==min(cov$winter_tmin))][1]
+```
+
+## 3) Population model
+
+Female-only, 2-staged matrix model with mean covariates
+
+```{r}
+# SPECIES 4
+# mpm <- matrix(c(0,Sj,
+#                fec,Sa),n.stage,n.stage)
+lambda_mean_popmodel=NULL
+for(u in 1:100){
+  mpm <- matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+  lambda_mean_popmodel[u]=lambda(mpm)
+}
+
+hist(lambda_mean_popmodel)
+mean(lambda_mean_popmodel)
+```
+
+## 4) Scaled Sensitivity analyses
+
+Here, we calculate scaled sensitivities, according to Morris et al. 2020 (DOI: <https://doi.org/10.1073/pnas.1918363117>)
+
+Note that this is a step that Esin will implement in her MS thesis. With the information given in 1-3, we should be able to run these analyses. 
+### 4.1 Tbr
+
+```{r}
+delta.Tbr=NULL
+deltaTbr.cov=NULL
+
+# Tbr (breeding temperature)
+for(u in 1:100){
+  # 1. Sensitivity to Tbr assuming mean covariates
+# matrix with max Tbr values
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=max.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+# matrix with min Tbr values
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=min.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+# sensitivity to Tbr without covariation
+delta.Tbr[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Tbr-min.Tbr)/sd.Tbr))
+
+# 2. Sensitivity to Tbr assuming covariation
+# matrix with max values
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Tbr_max,Pwn=Pwn_when_Tbr_max),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=max.Tbr,Pbr=Pbr_when_Tbr_max),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Tbr_max,Pwn=Pwn_when_Tbr_max)),2,2)
+# matrix with min values
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Tbr_min,Pwn=Pwn_when_Tbr_min),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=min.Tbr,Pbr=Pbr_when_Tbr_min),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Tbr_min,Pwn=Pwn_when_Tbr_min)),2,2)
+
+# sensitivity to Tbr with covariation
+deltaTbr.cov[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Tbr-min.Tbr)/sd.Tbr))
+}
+
+hist(delta.Tbr-deltaTbr.cov) # should be positive, it's not
+```
+
+### 4.2 Pwn
+
+```{r}
+delta.Pwn=NULL
+deltaPwn.cov=NULL
+
+# Pwn (winter precipitation)
+for(u in 1:100){
+  # 1. Sensitivity to Pwn assuming mean covariates
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=max.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=max.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=min.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=min.Pwn)),2,2)
+
+delta.Pwn[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Pwn-min.Pwn)/sd.Pwn))
+
+# 2. Sensitivity to Pwn assuming covariation
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Pwn_max,Pwn=max.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Pwn_max,Pbr=Pbr_when_Pwn_max), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Pwn_max,Pwn=max.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Pwn_min,Pwn=min.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Pwn_min,Pbr=Pbr_when_Pwn_min), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Pwn_min,Pwn=min.Pwn)),2,2)
+
+deltaPwn.cov[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Pwn-min.Pwn)/sd.Pwn))
+}
+
+hist(delta.Pwn-deltaPwn.cov)
+```
+
+### 4.3 Pbr
+
+```{r}
+# Pbr = breeding precip
+delta.Pbr=NULL
+deltaPbr.cov=NULL
+for(u in 1:100){
+  # 1. Sensitivity to Pbr assuming mean covariates
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=max.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=min.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+# sensitivity to Pbr without covariation
+delta.Pbr[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Pbr-min.Pbr)/sd.Pbr))
+
+
+# 2. Sensitivity to Pbr assuming covariation
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Pbr_max,Pwn=Pwn_when_Pbr_max),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Pbr_max,Pbr=max.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Pbr_max,Pwn=Pwn_when_Pbr_max)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Pbr_min,Pwn=Pwn_when_Pbr_min),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Pbr_min,Pbr=min.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Pbr_min,Pwn=Pwn_when_Pbr_min)),2,2)
+
+# sensitivity to Pbr with covariation
+deltaPbr.cov[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Pbr-min.Pbr)/sd.Pbr))
+}
+
+hist(delta.Pbr-deltaPbr.cov)
+```
+
+### 4.4 Twn
+
+```{r}
+# Twn (winter temp)
+delta.Twn=NULL
+deltaTwn.cov=NULL
+
+for(u in 1:100){
+  # 1. Sensitivity to Twn assuming mean covariates
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=max.Twn,Pwn=mean.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=min.Twn,Pwn=mean.Pwn)),2,2)
+
+delta.Twn[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Twn-min.Twn)/sd.Twn))
+
+# 2. Sensitivity to Twn assuming covariation
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Twn_max,Pwn=Pwn_when_Twn_max),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Twn_max,Pbr=Pbr_when_Twn_max), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=max.Twn,Pwn=Pwn_when_Twn_max)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Twn_min,Pwn=Pwn_when_Twn_min),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Twn_min,Pbr=Pbr_when_Twn_min), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=min.Twn,Pwn=Pwn_when_Twn_min)),2,2)
+
+deltaTwn.cov[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Twn-min.Twn)/sd.Twn))
+}
+
+hist(delta.Twn-deltaTwn.cov)
+```
+
+### 4.5 Tat
+
+```{r}
+# Tat (postbreeding temp)
+delta.Tat=NULL
+deltaTat.cov=NULL
+
+for(u in 1:100){
+  # 1. Sensitivity to Tat assuming mean covariates
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=max.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=min.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+delta.Tat[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Tat-min.Tat)/sd.Tat))
+
+# 2. Sensitivity to Twn assuming covariation
+mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=max.Tat,Pwn=Pwn_when_Tat_max),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Tat_max,Pbr=Pbr_when_Tat_max), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Tat_max,Pwn=Pwn_when_Tat_max)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=min.Tat,Pwn=Pwn_when_Tat_min),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Tat_min,Pbr=Pbr_when_Tat_min), 
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Tat_min,Pwn=Pwn_when_Tat_min)),2,2)
+
+deltaTat.cov[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Tat-min.Tat)/sd.Tat))
+}
+
+hist(delta.Tat-deltaTat.cov)
+```
+
+## 5) Scaled sensitivity analyses per vr
+
+where you perturb (considering covariation) each vital rate separately. Say, you have juvenile and adult survival; then you calculate scaled sensitivity perturbing juvenile survival (max, min) only, leaving the effect of the drivers at their mean for adult survival; and do the same for adult survival, leaving the effect of drivers at their mean for juvenile survival.
+
+### 5.1) Tbr
+
+```{r}
+# 1. Sensitivity to Tbr (breeding temperature) assuming covariation
+# FECUNDITY
+deltaTbr.Fec=NULL
+for(u in 1:100){
+  mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=max.Tbr,Pbr=Pbr_when_Tbr_max),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=min.Tbr,Pbr=Pbr_when_Tbr_min),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+deltaTbr.Fec[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Tbr-min.Tbr)/sd.Tbr))
+  
+}
+
+# JUVENILE SURVIVAL
+# no Tbr in juvenile surv
+
+# ADULT SURVIVAL
+# no Tbr in adult surv
+```
+
+### 5.2) Pwn
+
+```{r}
+# 2. Sensitivity to Pwn (winter precip) assuming covariation
+# JUVENILE SURVIVAL
+deltaPwn.JSuv=NULL
+
+for(u in 1:100){
+  mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Pwn_max,Pwn=max.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=Tat_when_Pwn_min,Pwn=min.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+deltaPwn.JSuv[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Pwn-min.Pwn)/sd.Pwn))
+}
+
+
+# ADULT SURVIVAL
+deltaPwn.ASuv=NULL
+for(u in 1:100){
+  mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Pwn_max,Pwn=max.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=Twn_when_Pwn_min,Pwn=min.Pwn)),2,2)
+
+deltaPwn.ASuv[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Pwn-min.Pwn)/sd.Pwn))
+}
+
+```
+
+### 5.3) Pbr
+
+```{r}
+# 3. Sensitivity to Pbr
+# only in fecundity
+deltaPbr.Fec=NULL
+for(u in 1:100){
+  mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=Tbr_when_Pbr_max,Pbr=max.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=min.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Twn)),2,2)
+
+deltaPbr.Fec[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Pbr-min.Pbr)/sd.Pbr))
+}
+```
+
+### 5.4) Twn
+
+```{r}
+# 4. Sensitivity to Twn
+# only in adult survival
+deltaTwn.ASurv=NULL
+for(u in 1:100){
+  mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=max.Twn,Pwn=Pwn_when_Twn_max)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=mean.Tat,Pwn=mean.Pwn),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=min.Twn,Pwn=Pwn_when_Twn_min)),2,2)
+
+deltaTwn.ASurv[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Twn-min.Twn)/sd.Twn))
+  
+}
+
+```
+
+### 5.5) Tat
+
+```{r}
+# 3. Sensitivity to Tat (autumn temp)
+# only in juvenile survival
+deltaTat.JSurv=NULL
+for(u in 1:100){
+  mpm.max=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=max.Tat,Pwn=Pwn_when_Tat_max),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Pwn)),2,2)
+
+mpm.min=matrix(c(0,DER_juvSurv(jSv0.sp4[u],jS.pr1.sp4[u],jS.pr2.sp4[u],jS.tm1.sp4[u],jS.tm2.sp4[u],Tat=min.Tat,Pwn=Pwn_when_Tat_min),
+                DER_Fecund(Fec0.sp4[u],Fc.pr1.sp4[u],Fc.pr2.sp4[u],Fc.tm1.sp4[u],Fc.tm2.sp4[u],DDp.sp4[u],Tbr=mean.Tbr,Pbr=mean.Pbr),
+                DER_adSurv(aSv0.sp4[u],aS.pr1.sp4[u],aS.pr2.sp4[u],aS.tm1.sp4[u],Twn=mean.Twn,Pwn=mean.Twn)),2,2)
+
+deltaTat.JSurv[u]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.Tat-min.Tat)/sd.Tat))
+}
+```
+
+## 6) Save output
+
+```{r}
+# no cov vs with cov
+ScaledSens=data.frame(study.doi="https://doi.org/10.1098/rstb.2022.0194",
+                      year.of.publication="2023",
+                      group="Birds",
+                      species="Certhia familiaris",
+                      continent="Europe",
+                      driver=rep(c("Tbr","Tat","Twn","Pbr","Pwn"),each=100),
+                      driver.type="C",
+                      stage.age="all",
+                      vital.rates="all",
+                      sens.no.cov=c(delta.Tbr,delta.Tat,delta.Twn,delta.Pbr,delta.Pwn),
+                      sens.cov=c(deltaTbr.cov,deltaTat.cov,deltaTwn.cov,deltaPbr.cov,deltaPwn.cov))
+
+write.csv(ScaledSens,"Output/Certhia_Sens.csv",row.names = F)
+
+# per vr
+ScaledSensVR=data.frame(study.doi="https://doi.org/10.1098/rstb.2022.0194",
+                        year.of.publication="2023",
+                        group="Birds",
+                        species="Certhia familiaris",
+                        continent="Europe",
+                        driver=rep(c("Tbr","Pbr","Pwn","Pwn","Tat","Twn"),each=100),
+                        driver.type="C",
+                        stage.age=rep(c("adult","adult","juvenile","adult","juvenile","adult"),each=100),
+                        vital.rates=rep(c("fecundity","fecundity","survival","survival","survival","survival")),
+                        sens=c(deltaTbr.Fec,deltaPbr.Fec,deltaPwn.JSuv,deltaPwn.ASuv,deltaTat.JSurv,deltaTwn.ASurv))
+write.csv(ScaledSensVR,"Output/Certhia_Sens_per_VR.csv",row.names = F)
+```
