@@ -15,7 +15,7 @@ We are building integral and matrix population models from vital rates that are 
 You can find two R code templates, one is for matrix population models, and the other is for integral projection models. Both are an example of how to parameterize vital-rate functions using coefficients and covariate inputs to then build a population model and compute sensitivities. Both templates are provided as an R Markdown file, an R script, and pdf in the respective folders. The data which is needed to run the code is also available in the folders.
 
 ## R code
-The code is divided into 5 parts.
+The code is divided into 4 parts.
 
 #### 1) Vital rates
 The vital rates are defined as functions and we need the coefficients from vital-rate models. Alternatively, it is possible to have (G)LM(M) models as an object and then just use the “predict” function.
@@ -28,9 +28,6 @@ Here, we use the vital rate functions to construct a population model that can g
 
 #### 4) Scaled sensitivity analyses
 Here, we calculate scaled sensitivities according to Morris et al. 2020 (DOI: https://doi.org/10.1073/pnas.1918363117)
-
-#### 5) Sensitivity analyses at equilibrium dynamics
-Here, we perform “classic” sensitivity analyses (see Paniw et al. 2019; DOI: 10.1126/science.aau5905)
 
 ## Contact
 For further information, please don’t hesitate to contact us.
