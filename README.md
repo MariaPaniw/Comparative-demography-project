@@ -12,7 +12,7 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 - Supervisor (Species: Mouse lemur):
    - Name: Arpat Ozgul; Institution: Department of Evolutionary Biology and Environmental Studies, University of Zurich; Address: Winterthurerstrasse 190, 8057 Zurich, Switzerland; Email: arpat.ozgul@uzh.ch
 - Co-author (Species: Arctic Fox & Striped Mouse):
-   - Name: Chloé R. Nater; Institution: NINA terrestrik naturmangfold Address: 7034 Trondheim, Norway; Email: cloe.nater@nina.no
+   - Name: Chloé R. Nater; Institution: NINA terrestrik naturmangfold; Address: 7034 Trondheim, Norway; Email: chloe.nater@nina.no
 - Co-author (Species: Skua & Petrel):
    - Name: Maud Quéroué; Institution: CEFE, Univ of Montpellier, CNRS, EPHE, IRD; Address: Montpellier, France; Email: maud.queroue@gmail.com
 - Co-author (Species: Swiss Birds):
