@@ -1,6 +1,6 @@
 # The Arctic Fox
 
-Corresponding author: Chloé R. Nater
+Corresponding author: Chloé R. Nater  
 Study DOI: [10.1002/ecs2.3546](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3546)
 
 ## Species
