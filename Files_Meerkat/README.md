@@ -1,7 +1,7 @@
 
 # Meerkats
 
-Corresponding author: Maria Paniw
+Corresponding author: Maria Paniw  
 Study DOI: [10.1126/science.aau5905](https://www.science.org/doi/10.1126/science.aau5905)
 
 ## Species
