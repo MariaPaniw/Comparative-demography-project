@@ -20,7 +20,7 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 - Co-author (Species: Dipper):
    - Name: Marlène Gamelon; Institution: CNRS, Laboratoire de Biométrie et Biologie Évolutive, Université Claude Bernard Lyon 1; Address: 69622 Villeurbanne cedex, France; Email: marlene.gamelon@univ-lyon1.fr
 - Co-author (Species: Dipper):
-   - Name: Bern-Erik Sæther; Institution: Centre for Biodiversity Dynamics, Department of Biology, Norwegian University of Science and Technology; Address: 7491 Trondheim, Norway; Email: bernt-erik.sather@ntnu.no 
+   - Name: Bernt-Erik Sæther; Institution: Centre for Biodiversity Dynamics, Department of Biology, Norwegian University of Science and Technology; Address: 7491 Trondheim, Norway; Email: bernt-erik.sather@ntnu.no 
 - Co-author (Species: Dipper):
    - Name: Kurt Jerstad; Institution: Jerstad Viltforvaltning; Address: Aurebekksveien 61, 4516 Mandal, Norway; Email: NA
 - Co-author (Species: Dipper):
