@@ -20,7 +20,7 @@ Model:
 Input: "Data" folder
 Output: 1) Output of the first script is stored in the created "Output" folder which is then needed to run the second script and this 2) yields the output: results_df.csv
 
-Sensitivities:
-Sensitivities.R: Calculates the sensitivities
+Sensitivities:  
+Sensitivities.R: Calculates the sensitivities  
 For this to work, results_df.csv and the folder "Data" are needed as inputs
 Final output: DewyPines_Sens.csv
