@@ -50,7 +50,7 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 - Meerkat: [10.1126/science.aau5905](https://www.science.org/doi/10.1126/science.aau5905) (Maria Paniw)
 - Mouse Lemur: [10.1073/pnas.2214244120](https://www.pnas.org/doi/10.1073/pnas.2214244120) (Arpat Ozgul)
 - Opuntia Imbricata: [10.1111/gcb.15519](https://onlinelibrary.wiley.com/doi/full/10.1111/gcb.15519) & [10.1002/ecm.1228](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1228) (Sanne M. Evers, Aldo Compagnoni)
-- Spanish Trees: [10.1093/jpe/rtw081](https://academic.oup.com/jpe/article/10/5/731/3062498) (David García-Callejas) (not uploaded yet due to file size)
+- Spanish Trees: [10.1093/jpe/rtw081](https://academic.oup.com/jpe/article/10/5/731/3062498) (David García-Callejas)
 - Dewy Pine: In Preparation (Eva Conquet)
 
 **DATA & FILE OVERVIEW**
