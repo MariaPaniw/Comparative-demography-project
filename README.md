@@ -7,9 +7,9 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 2. Author Information:
 - First author:
    - Name: Esin Ickin; Institution: Department of Evolutionary Biology and Environmental Studies, University of Zurich; Address: Winterthurerstrasse 190, 8057 Zurich, Switzerland; Email: ickin.esin@gmail.com
-- Supervisor (Species: Marmot, Shrubs, Meerkat):
+- Co-author (Species: Marmot, Shrubs, Meerkat):
    - Name: Maria Paniw; Institution: Doñana Biological Station (EBD-CSIC); Address: Seville, 41001 Spain; Email: m.paniw@gmail.com
-- Supervisor (Species: Mouse lemur):
+- Co-author (Species: Mouse lemur):
    - Name: Arpat Ozgul; Institution: Department of Evolutionary Biology and Environmental Studies, University of Zurich; Address: Winterthurerstrasse 190, 8057 Zurich, Switzerland; Email: arpat.ozgul@uzh.ch
 - Co-author (Species: Arctic Fox & Striped Mouse):
    - Name: Chloé R. Nater; Institution: NINA terrestrik naturmangfold; Address: 7034 Trondheim, Norway; Email: chloe.nater@nina.no
@@ -31,6 +31,8 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
   - Name: Aldo Compagnoni; Institution: German Centre for Integrative Biodiversity Research (iDiv) Halle-Jena-Leipzig; Address: Puschstraße 4, 04103 Leipzig, Germany; Email: aldo.compagnoni@idiv.de
 - Co-author (Species: Spanish trees):
   - Name: David García-Callejas; Institution: Landcare Research New Zealand; University of Canterbury; Address: 20 Kirkwood Avenue, Upper Riccarton, Christchurch 8041, New Zealand; Email: david.garcia.callejas@gmail.com
+- Co-author (Species: Dewy Pine):
+  - Name: Eva Conquet; Institution: Department of Evolutionary Biology and Environmental Studies, University of Zurich; Address: Winterthurerstrasse 190, 8057 Zurich, Switzerland; Email: eva.conquet@uzh.ch
   
 
 
