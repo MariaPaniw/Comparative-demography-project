@@ -32,4 +32,3 @@ Inputs:
 Output:
 - SensPetrel_MCMC.csv
 - SensSkua_MCMC.csv
-- These two can be used as inputs in the script "ReOrganize.R" under the section "SKUA" or "PETREL" to restructure these files
