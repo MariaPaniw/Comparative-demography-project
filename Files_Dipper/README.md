@@ -27,8 +27,6 @@ Inputs:
 - cov_Dipper.csv
 
 Outputs:
-- all_sensitivities_dipper.csv
-- This output is then used in ReOrganize.R to reorganize the data and that output is then named:
-- Sens_Dipper_Resampling.csv (sensitivities including all vital rates)
+- Sens_Dipper_Resampling.csv (sensitivities)
 - Sens_VR_Dipper_Resampling.csv (sensitivities per vital rate)
 
