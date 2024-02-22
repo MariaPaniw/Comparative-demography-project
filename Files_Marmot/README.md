@@ -15,7 +15,7 @@ Random year variaiton was sconsidered as a separate covariate. The vital rates s
 The stages in the model were: juvenile, yearling, non-reproductive adult, and reproductive adult.  
 We repeated the computations of the sensitivities 100 times and sampled parameters from the MCMC posterior distributions to obtain the uncertainties around our estimates.  
 We calculated sensitivities without covariation to Q assuming no year effect. To get the sensitivities with covariation, we added the covariation among the covariates, i.e. the year value was set to the year when Q was at its maximum or minimum.
-To get the sensitivities per vital rate, we created a separate R file containing the perturbation functions and repeated each analysis again.
+To get the sensitivities per vital rate, we created a separate R file containing the perturbation functions and repeated each analysis but this time perturbing covariates in each vital rate model separately.
 
 ## File Overview
 
@@ -27,4 +27,5 @@ Inputs:
 - outputBay1_latent3.rda
 
 Output:
-- AllSens_Marmots_MCMC.csv
+- SENS_MARMOTS_MCMC.csv
+- SENS_per_VR_MARMOTS_MCMC.csv
