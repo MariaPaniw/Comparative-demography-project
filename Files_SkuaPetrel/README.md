@@ -18,7 +18,7 @@ In the original model, the standardized environmental covariates were specific f
 we decided to aggregate the average time series for these covariates: Southern annular mode, intraspecific density, interspecific density, sea surface temperature anomalies, chlorophyll a concentration.
 Whereas the latter two covariates were only considered in the models for the petrel. The two stages in the model were non-breeders and breeders with the vital rates survival, reproduction, and breeding probability. 
 λ was calculated by running the model for 20 years, calculating λ (Nt+1/Nt), and averaging it. The model could not be run for more than 20 years. The first 10 λ were treated as “burn-in” and were omitted. For uncertainties, we repeated everything 10 times. 
-We computed sensitivities with and without covariation.
+We computed sensitivities with and without covariation (1). Finally, we also calculated the sensitivities of each vital rate (2).
 
 ## Files Overview
 
@@ -30,5 +30,7 @@ Inputs:
 - mcmc_env_cov_reg_coef.Rdata
 
 Output:
-- SensPetrel_MCMC.csv
-- SensSkua_MCMC.csv
+- SensPetrel_MCMC.csv (1)
+- SensSkua_MCMC.csv (1)
+- SensPetrel_VR_MCMC.csv (2)
+- SensSkua_VR_MCMC.csv (2)
