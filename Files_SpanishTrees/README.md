@@ -16,6 +16,7 @@ García-Callejas et al. (2016) built spatially explicit integral projection mode
 - _Pinus uncinata_
 - _Quercus faginea_
 - _Quercus ilex_
+- _Quercus pyrenaica_
 - _Quercus robur/petraea_
 - _Quercus suber_
 
