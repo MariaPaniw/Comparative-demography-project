@@ -23,4 +23,5 @@ Input:
 - covariates.csv
 
 Output:
-- MOUSELEMUR_SENSITIVITIES.csv
+- Sens_MouseLemurs.csv
+- SensVR_MouseLemurs.csv
