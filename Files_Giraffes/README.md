@@ -1,7 +1,7 @@
 
 # The Masai Giraffe
 
-Corresponding authors: Monica L. Bond, Derek E. Lee
+Corresponding authors: Monica L. Bond, Derek E. Lee  
 Study DOI: [10.1111/gcb.16970](https://doi.org/10.1111/gcb.16970)  
 
 ## Species
