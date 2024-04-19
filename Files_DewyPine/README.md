@@ -15,12 +15,14 @@ Conquet et al. used GAMs to estimate survival and flowering probability, growth 
 ## Files Overview
 
 Model:
-1) Projections_IBM_Natural_Vertedero.R: Includes the IBM and projections
-2) Projections_ResultsProcessing.R: Processes the results of the projections
+1) Projections_IBM_Natural_Vertedero.R: Includes the IBM and projections of the Vertedero population
+2) Projections_IBM_Natural_SierraRetinY5.R: Includes the IBM and projections of the Sierra Retin Y5 population
+3) Projections_IBM_Natural_SierraCarboneraY5.R: Includes the IBM and projections of the Sierra Carbonera Y5 population
+4) Projections_ResultsProcessing.R: Processes the results (stored in the output folder) of the projections
 Input: "Data" folder
 Output: 1) Output of the first script is stored in the created "Output" folder which is then needed to run the second script and this 2) yields the output: results_df.csv
 
 Sensitivities:  
-Sensitivities.R: Calculates the sensitivities  
+- Calculate_Sensitivities.R: Calculates the sensitivities  
 For this to work, results_df.csv and the folder "Data" are needed as inputs
-Final output: DewyPines_Sens.csv
+Final output: Sens_DewyPines.csv
