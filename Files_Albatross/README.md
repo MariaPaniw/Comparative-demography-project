@@ -1,7 +1,7 @@
 
 # The Black-Browed Albatross
 
-Corresponding author: Stéphanie Jenouvrier
+Corresponding author: Stéphanie Jenouvrier  
 Study DOI: [10.1111/1365-2656.12827](https://doi.org/10.1111/1365-2656.12827)  
 
 ## Species
