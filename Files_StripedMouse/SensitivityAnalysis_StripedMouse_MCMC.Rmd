@@ -1,0 +1,733 @@
+---
+title: "Sensitivity analyses"
+author: "Esin Ickin, Chloé Nater"
+date: "4/11/2023"
+output: html_document
+---
+
+This code is an implementation of Esin's template for Nater et al.'s study on striped mice.
+The data files needed for running the code below, as well as the original files from which the code below is taken, have been deposited in a folder "Files_StripedMouse" within the repository. Questions about details of the study and/or code in sections 1-3 below can be sent to chloe.nater@nina.no.
+
+## 0) Prepare session
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "~/Files_StripedMouse")
+```
+
+
+```{r}
+#rm(list=ls())
+library(lme4)
+library(ggplot2)
+library(popbio)
+library(plyr)
+library(gridExtra)
+library(boot)
+```
+
+
+## 1) Vital rates
+
+The following estimates and code are from two papers on African striped mice (Rhabdomys pumilio):
+
+- Nater et al. 2016; https://doi.org/10.1111/oik.03384
+- Nater et al. 2018; https://doi.org/10.1111/1365-2656.12888
+
+
+The first paper established the vital rate models. The second paper ran updated versions of the vital rate models, incorporated them into a stage-structured matrix population model, and performed a variety of analyses of the MPM. The striped mouse has a short life cycle, and both vital rate predictions and the MPM have a monthly time interval. 
+
+The vital rates are defined as sets of functions, one each to calculate the predicted vital rate on the link scale (logit or log) and one to back-transform to the actual probabilities/rates. 
+The functions use z-standardized environmental covariates as input and require the fitted model objects to be loaded into the workspace. 
+
+Note that custom prediction functions are only provided for the vital rates originating from the mark-recapture analysis (survival S and transition/maturation probabilities Psi). For the remaining vital rates (breeding probability Bp, litter probability Lp, and litter size LS), R's internal `predict()` function is used. 
+
+```{r}
+# Load workspace containing fitted models
+load('170503_allmodels_final.RData')
+
+#################################
+#### CMR PREDICTION FORMULAS ####
+#################################
+
+# SURVIVAL
+# sample parameters
+random_est_surv=matrix(ncol=18,nrow=1000) # matrix 18 cols for the 18 parameters and the rows are than the sampled ones
+
+for(i in 1:length(est$estimate[1:18])){
+  random_est_surv[,i]=rnorm(1000,mean=est$estimate[i],sd=est$se[i]) # fill the cols
+}
+
+
+# Provides the y value (linear predictor) of S, where logit(S) = y and y = beta1*x1 + beta2*x2
+S.y = function(stage,temp,food,dens_F,i){
+  
+  X <- c(1, as.numeric(stage=='I'), as.numeric(stage=='P'), temp, food, dens_F,
+         (stage=='I')*temp, (stage=='P')*temp,
+         (stage=='I')*food, (stage=='P')*food,
+         (stage=='I')*dens_F, (stage=='P')*dens_F,
+         temp*food, food*dens_F,
+         (stage=='I')*temp*food, (stage=='P')*temp*food,
+         (stage=='I')*food*dens_F, (stage=='P')*food*dens_F)
+  
+  X %*% random_est_surv[i,]
+}
+
+# Transforms the y value with the correct link function
+S.predict = function(stage,temp,food,dens_F,i){
+  return(plogis(S.y(stage,temp,food,dens_F,i)))
+}
+
+
+# MATURATION
+# sample parameters
+random_est_m=matrix(ncol=64,nrow=1000)
+
+for(i in 57:64){
+  random_est_m[,i]=rnorm(1000,mean=est$estimate[i],sd=est$se[i]) # fill the cols
+}
+
+
+Psi.y = function(stage,temp,food,dens_F,i){
+  X <- c(as.numeric(stage=='I'), as.numeric(stage=='P'),
+         temp, food, dens_F,
+         food*dens_F, temp*dens_F, temp*food)
+  X %*% random_est_m[i,57:64]
+}
+
+Psi.predict = function(stage,temp,food,dens_F,i){
+  return(1/(1+2*exp(-Psi.y(stage,temp,food,dens_F,i))))    
+}
+
+
+
+# Bp (breeding probability)
+# model: bpmodF
+summary(bpmodF)$coefficients[,"Estimate"]
+summary(bpmodF)$coefficients[,"Std. Error"]
+intercept.bp=rnorm(1000,mean=summary(bpmodF)$coefficients[,"Estimate"][1],sd=summary(bpmodF)$coefficients[,"Std. Error"][1])
+coef_tempt.bp=rnorm(1000,mean=summary(bpmodF)$coefficients[,"Estimate"][2],sd=summary(bpmodF)$coefficients[,"Std. Error"][2])
+coef_foodt.bp=rnorm(1000,mean=summary(bpmodF)$coefficients[,"Estimate"][3],sd=summary(bpmodF)$coefficients[,"Std. Error"][3])
+coef_densFt.bp=rnorm(1000,mean=summary(bpmodF)$coefficients[,"Estimate"][4],sd=summary(bpmodF)$coefficients[,"Std. Error"][4])
+coef_tempt_foodt.bp=rnorm(1000,mean=summary(bpmodF)$coefficients[,"Estimate"][5],sd=summary(bpmodF)$coefficients[,"Std. Error"][5])
+coef_tempt_densFt.bp=rnorm(1000,mean=summary(bpmodF)$coefficients[,"Estimate"][6],sd=summary(bpmodF)$coefficients[,"Std. Error"][6])
+
+bp <- function(temp_t,food_t,dens_F_t,i){
+  breedProb <- inv.logit(intercept.bp[i] + coef_tempt.bp[i]*temp_t + coef_foodt.bp[i]*food_t + coef_densFt.bp[i]*dens_F_t + coef_tempt_foodt.bp[i]*temp_t*food_t + coef_tempt_densFt.bp[i]*temp_t*dens_F_t) # what to do with random effects? ignore?
+  return(breedProb)
+}
+
+# Lp (litter prob)
+# model: lpmodF
+summary(lpmodF)
+summary(lpmodF)$coefficients[,"Estimate"]
+summary(lpmodF)$coefficients[,"Std. Error"]
+intercept.lp=rnorm(1000,mean=summary(lpmodF)$coefficients[,"Estimate"][1],sd=summary(lpmodF)$coefficients[,"Std. Error"][1])
+coef_foodt.lp=rnorm(1000,mean=summary(lpmodF)$coefficients[,"Estimate"][2],sd=summary(lpmodF)$coefficients[,"Std. Error"][2])
+coef_densFt.lp=rnorm(1000,mean=summary(lpmodF)$coefficients[,"Estimate"][3],sd=summary(lpmodF)$coefficients[,"Std. Error"][3])
+coef_foodt_densFt.lp=rnorm(1000,mean=summary(lpmodF)$coefficients[,"Estimate"][4],sd=summary(lpmodF)$coefficients[,"Std. Error"][4])
+
+lp <- function(food_t,dens_F_t,i){
+  litterProb <- inv.logit(intercept.lp[i] + coef_foodt.lp[i]*food_t + coef_densFt.lp[i]*dens_F_t + coef_foodt_densFt.lp[i]*food_t*dens_F_t)
+  return(litterProb)
+}
+
+# Ls (litter size)
+# model: lsmod_Wlag
+summary(lsmod_Wlag)
+summary(lsmod_Wlag)$coefficients[,"Estimate"]
+summary(lsmod_Wlag)$coefficients[,"Std. Error"]
+
+intercept.ls=rnorm(1000,mean=summary(lsmod_Wlag)$coefficients[,"Estimate"][1],sd=summary(lsmod_Wlag)$coefficients[,"Std. Error"][1])
+coef_tempt.ls=rnorm(1000,mean=summary(lsmod_Wlag)$coefficients[,"Estimate"][2],sd=summary(lsmod_Wlag)$coefficients[,"Std. Error"][2])
+coef_foodt.ls=rnorm(1000,mean=summary(lsmod_Wlag)$coefficients[,"Estimate"][3],sd=summary(lsmod_Wlag)$coefficients[,"Std. Error"][3])
+coef_densFt.ls=rnorm(1000,mean=summary(lsmod_Wlag)$coefficients[,"Estimate"][4],sd=summary(lsmod_Wlag)$coefficients[,"Std. Error"][4])
+coef_tempt_foodt.ls=rnorm(1000,mean=summary(lsmod_Wlag)$coefficients[,"Estimate"][5],sd=summary(lsmod_Wlag)$coefficients[,"Std. Error"][5])
+coef_foodt_densFt.ls=rnorm(1000,mean=summary(lsmod_Wlag)$coefficients[,"Estimate"][6],sd=summary(lsmod_Wlag)$coefficients[,"Std. Error"][6])
+
+ls <- function(temp_t, food_t, dens_F_t, i){
+  litterSize <- exp(intercept.ls[i] + coef_tempt.ls[i]*temp_t + coef_foodt.ls[i]*food_t + coef_densFt.ls[i]*dens_F_t + coef_tempt_foodt.ls[i]*temp_t*food_t + coef_foodt_densFt.ls[i]*dens_F_t*food_t)
+  return(litterSize)
+}
+
+
+
+```
+
+
+## 2) Covariates
+
+There are the input data for the vital rate functions, and the time-series used in the study is provided as a dataframe named "env" in the workspace. This contains both raw and z-standardized versions of covariates temperature (mean.temp, temp) and food availability (life_cover, food). The density covariate is only provided in the standardized form (dens_all, dens_F). Additionally, the dataframe contains an unused NDVI variable, and season and Period variables that are only relevant for plotting and/or calculation of recapture probabilities.
+
+
+```{r}
+######################################
+#### Preparing Environmental Data ####
+######################################
+
+# Extract scaling parameters for population density
+m_dens <- 19.22219
+sd_dens <- 8.199321
+
+# Set "baseline" area
+area.fix <- 1.9434353 # 19343.53/10000 
+
+# Add "lagged" environmental covariates (t-1)
+env$temp_t <- NA
+env$food_t <- NA
+env$dens_F_t <- NA
+
+for(i in 2:nrow(env)){
+  env$temp_t[i] <- env$temp[i-1]
+  env$food_t[i] <- env$food[i-1]
+  env$dens_F_t[i] <- env$dens_F[i-1]
+}
+```
+
+
+```{r}
+# z-standardized environmental covariates
+
+# TEMP
+max.temp=max(env$temp)
+min.temp=min(env$temp)
+mean.temp=0
+sd.temp=1
+
+# covariation
+food_when_temp_max=env$food[which(env$temp==max(env$temp))]
+food_when_temp_min=env$food[which(env$temp==min(env$temp))]
+
+densF_when_temp_max=env$dens_F[which(env$temp==max(env$temp))]
+densF_when_temp_min=env$dens_F[which(env$temp==min(env$temp))]
+
+tempt_when_temp_max=env$temp_t[which(env$temp==max(env$temp))]
+tempt_when_temp_min=env$temp_t[which(env$temp==min(env$temp))]
+
+foodt_when_temp_max=env$food_t[which(env$temp==max(env$temp))]
+foodt_when_temp_min=env$food_t[which(env$temp==min(env$temp))]
+
+densFt_when_temp_max=env$dens_F_t[which(env$temp==max(env$temp))]
+densFt_when_temp_min=env$dens_F_t[which(env$temp==min(env$temp))]
+
+# TEMP_t
+max.temp_t=max(env_merge_lag$temp_t)
+min.temp_t=min(env_merge_lag$temp_t)
+mean.temp_t=0
+sd.temp_t=1
+# covariation
+temp_when_tempt_max=env$temp[which(env$temp_t==max(env_merge_lag$temp_t))]
+temp_when_tempt_min=env$temp[which(env$temp_t==min(env_merge_lag$temp_t))]
+
+food_when_tempt_max=env$food[which(env$temp_t==max(env_merge_lag$temp_t))]
+food_when_tempt_min=env$food[which(env$temp_t==min(env_merge_lag$temp_t))]
+
+densF_when_tempt_max=env$dens_F[which(env$temp_t==max(env_merge_lag$temp_t))]
+densF_when_tempt_min=env$dens_F[which(env$temp_t==min(env_merge_lag$temp_t))]
+
+foodt_when_tempt_max=env$food_t[which(env$temp_t==max(env_merge_lag$temp_t))]
+foodt_when_tempt_min=env$food_t[which(env$temp_t==min(env_merge_lag$temp_t))]
+
+densFt_when_tempt_max=env$dens_F_t[which(env$temp_t==max(env_merge_lag$temp_t))]
+densFt_when_tempt_min=env$dens_F_t[which(env$temp_t==min(env_merge_lag$temp_t))]
+
+# FOOD
+max.food=max(env$food)
+min.food=min(env$food)
+mean.food=0
+sd.food=1
+# covariation
+temp_when_food_max=env$temp[which(env$food==max(env$food))]
+temp_when_food_min=env$temp[which(env$food==min(env$food))]
+
+densF_when_food_max=env$dens_F[which(env$food==max(env$food))]
+densF_when_food_min=env$dens_F[which(env$food==min(env$food))]
+
+tempt_when_food_max=env$temp_t[which(env$food==max(env$food))]
+tempt_when_food_min=env$temp_t[which(env$food==min(env$food))]
+
+foodt_when_food_max=env$food_t[which(env$food==max(env$food))]
+foodt_when_food_min=env$food_t[which(env$food==min(env$food))]
+
+densFt_when_food_max=env$dens_F_t[which(env$food==max(env$food))]
+densFt_when_food_min=env$dens_F_t[which(env$food==min(env$food))]
+
+# FOOD_t
+max.food_t=max(env_merge_lag$food_t)
+min.food_t=min(env_merge_lag$food_t)
+mean.food_t=0
+sd.food_t=1
+
+tempt_when_foodt_max=env$temp_t[which(env$food_t==max(env_merge_lag$food_t))]
+tempt_when_foodt_min=env$temp_t[which(env$food_t==min(env_merge_lag$food_t))]
+densFt_when_foodt_max=env$dens_F_t[which(env$food_t==max(env_merge_lag$food_t))]
+densFt_when_foodt_min=env$dens_F_t[which(env$food_t==min(env_merge_lag$food_t))]
+food_when_foodt_max=env$food[which(env$food_t==max(env_merge_lag$food_t))]
+food_when_foodt_min=env$food[which(env$food_t==min(env_merge_lag$food_t))]
+densF_when_foodt_max=env$dens_F[which(env$food_t==max(env_merge_lag$food_t))]
+densF_when_foodt_min=env$dens_F[which(env$food_t==min(env_merge_lag$food_t))]
+temp_when_foodt_max=env$temp[which(env$food_t==max(env_merge_lag$food_t))]
+temp_when_foodt_min=env$temp[which(env$food_t==min(env_merge_lag$food_t))]
+
+
+# DENS
+max.dens_F=max(env$dens_F)
+min.dens_F=min(env$dens_F)
+mean.dens_F=0
+sd.dens_F=1
+# covariation
+temp_when_densF_max=env$temp[which(env$dens_F==max(env$dens_F))]
+temp_when_densF_min=env$temp[which(env$dens_F==min(env$dens_F))]
+
+tempt_when_densF_max=env$temp_t[which(env$dens_F==max(env$dens_F))]
+tempt_when_densF_min=env$temp_t[which(env$dens_F==min(env$dens_F))]
+
+food_when_densF_max=env$food[which(env$dens_F==max(env$dens_F))]
+food_when_densF_min=env$food[which(env$dens_F==min(env$dens_F))]
+
+foodt_when_densF_max=env$food_t[which(env$dens_F==max(env$dens_F))]
+foodt_when_densF_min=env$food_t[which(env$dens_F==min(env$dens_F))]
+
+densFt_when_densF_max=env$dens_F_t[which(env$dens_F==max(env$dens_F))]
+densFt_when_densF_min=env$dens_F_t[which(env$dens_F==min(env$dens_F))]
+
+# DENS_t
+max.dens_F_t=max(env_merge_lag$dens_F_t)
+min.dens_F_t=min(env_merge_lag$dens_F_t)
+mean.dens_F_t=0
+sd.dens_F_t=1
+
+food_when_densFt_max=env$food[which(env$dens_F_t==max(env_merge_lag$dens_F_t))]
+food_when_densFt_min=env$food[which(env$dens_F_t==min(env_merge_lag$dens_F_t))]
+
+foodt_when_densFt_max=env$food_t[which(env$dens_F_t==max(env_merge_lag$dens_F_t))]
+foodt_when_densFt_min=env$food_t[which(env$dens_F_t==min(env_merge_lag$dens_F_t))]
+
+temp_when_densFt_max=env$temp[which(env$dens_F_t==max(env_merge_lag$dens_F_t))]
+temp_when_densFt_min=env$temp[which(env$dens_F_t==min(env_merge_lag$dens_F_t))]
+
+tempt_when_densFt_max=env$temp_t[which(env$dens_F_t==max(env_merge_lag$dens_F_t))]
+tempt_when_densFt_min=env$temp_t[which(env$dens_F_t==min(env_merge_lag$dens_F_t))]
+
+densF_when_densFt_max=env$dens_F[which(env$dens_F_t==max(env_merge_lag$dens_F_t))]
+densF_when_densFt_min=env$dens_F[which(env$dens_F_t==min(env_merge_lag$dens_F_t))]
+
+```
+
+
+## 3) Population model
+
+Below are functions for assembling the monthly projection matrices. It's a set of two nested functions, where the first one returns a matrix based on specified covariate values for temperature, food, and density, while the second one calls upon the first, but allows for incorporation of the density feedback (relevant for projections):
+
+```{r}
+# Original
+#my.matrix = function(temp, temp_t, food, food_t, dens_F, dens_F_t, i){
+  
+#  Si <- S.predict('I',temp,food,dens_F,i) # immature
+#  Sp <- S.predict('P',temp,food,dens_F,i) # philopatric
+#  Sb <- S.predict('B',temp,food,dens_F,i) # breeder
+  
+#  PsiIB <- Psi.predict('I',temp,food,dens_F,i)
+#  PsiPB <- Psi.predict('P',temp,food,dens_F,i)
+  
+#  newd <- data.frame(food_t = food_t, dens_F_t = dens_F_t, temp_t = temp_t) 
+  
+#  Bp <- unname(predict(bpmodF, newdata = newd, re.form=NA, type='response')) # breeding prob
+  
+#  Lp <- predict(lpmodF, type = "response", newdata = newd) # litter prob
+#  LS <- predict(lsmod_Wlag, type = "response", newdata = newd) # litter size
+  #LS <- 2.65
+  
+#  A <- matrix(data = c(Si*PsiIB*Lp*LS, Si*(1-PsiIB), Si*PsiIB,
+#                       Sp*PsiPB*Lp*LS, Sp*(1-PsiPB), Sp*PsiPB,
+#                       Sb*Bp*Lp*LS,            0,       Sb),nrow=3)
+#  return(A)
+#}
+
+my.matrix = function(temp, temp_t, food, food_t, dens_F, dens_F_t, i){
+  
+  Si <- S.predict('I',temp,food,dens_F,i) # immature
+  Sp <- S.predict('P',temp,food,dens_F,i) # philopatric
+  Sb <- S.predict('B',temp,food,dens_F,i) # breeder
+  
+  PsiIB <- Psi.predict('I',temp,food,dens_F,i)
+  PsiPB <- Psi.predict('P',temp,food,dens_F,i)
+  
+  Bp <- bp(temp_t = temp_t, food_t = food_t, dens_F_t = dens_F_t, i) # breeding prob
+  
+  Lp <- lp(food_t = food_t, dens_F_t = dens_F_t, i) # litter prob
+  LS <- ls(temp_t = temp_t, food_t = food_t, dens_F_t = dens_F_t, i) # litter size
+  
+  A <- matrix(data = c(Si*PsiIB*Lp*LS, Si*(1-PsiIB), Si*PsiIB,
+                       Sp*PsiPB*Lp*LS, Sp*(1-PsiPB), Sp*PsiPB,
+                       Sb*Bp*Lp*LS,            0,       Sb),nrow=3)
+  return(A)
+}
+
+n.lambda=NULL
+for(i in 1:1000){
+  n.lambda[i]=lambda(my.matrix(mean.temp,mean.temp_t,mean.food,mean.food_t,mean.dens_F,mean.dens_F_t,i))
+
+}
+hist(n.lambda)
+mean(n.lambda)
+
+```
+
+
+## 4) Scaled sensitivity analyses 
+
+Here, we calculate scaled sensitivities, according to Morris et al. 2020 (DOI: https://doi.org/10.1073/pnas.1918363117) for all the vital rates and also for each vital rate alone. Since the population model is a function, I created a new file that includes new functions to perturb temp, food, and dens for each vital rate.
+
+```{r}
+# for all vital rates
+delta.T=NULL
+deltaT.cov=NULL
+delta.T_t=NULL
+deltaT_t.cov=NULL
+
+delta.F=NULL
+deltaF.cov=NULL
+delta.F_t=NULL
+deltaF_t.cov=NULL
+
+delta.D=NULL
+deltaD.cov=NULL
+delta.D_t=NULL
+deltaD_t.cov=NULL
+
+# for each vital rate
+source("pert.functions.striped.mouse2.mcmc.R")
+delta.temp.Si=NULL
+delta.temp.Sp=NULL
+delta.temp.Sb=NULL
+delta.temp.PsiIB=NULL
+delta.temp.PsiPB=NULL 
+delta.tempt.Bp=NULL
+delta.tempt.Lp=NULL
+delta.tempt.Ls=NULL
+
+delta.food.Si=NULL
+delta.food.Sp=NULL
+delta.food.Sb=NULL
+delta.food.PsiIB=NULL
+delta.food.PsiPB=NULL
+delta.foodt.Bp=NULL
+delta.foodt.Lp=NULL
+delta.foodt.Ls=NULL
+
+delta.dens.Si=NULL
+delta.dens.Sp=NULL
+delta.dens.Sb=NULL
+delta.dens.PsiIB=NULL
+delta.dens.PsiPB=NULL
+delta.denst.Bp=NULL
+delta.denst.Lp=NULL
+delta.denst.Ls=NULL
+
+set.seed(1234)
+for(i in 1:100){
+  # ALL VITAL RATES ####################
+  # TEMP ------------------------
+  # 1. Sensitivity to temp assuming mean food, mean dens, and mean lagged covariates
+  mpm.max=my.matrix(max.temp,mean.temp_t,mean.food,mean.food_t,mean.dens_F,mean.dens_F_t,i)
+  mpm.min=my.matrix(min.temp,mean.temp_t,mean.food,mean.food_t,mean.dens_F,mean.dens_F_t,i)
+  delta.T[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.temp-min.temp)/sd.temp))
+  
+  # 2. Sensitivity to temp assuming covariation among covariates
+  mpm.max=my.matrix(max.temp,tempt_when_temp_max,food_when_temp_max,foodt_when_temp_max,densF_when_temp_max,densFt_when_temp_max,i)
+  mpm.min=my.matrix(min.temp,tempt_when_temp_min,food_when_temp_min,foodt_when_temp_min,densF_when_temp_min,densFt_when_temp_min,i)
+  deltaT.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.temp-min.temp)/sd.temp))
+  
+  # 3. Sensitivity to lagged temp assuming mean everything else
+  mpm.max=my.matrix(mean.temp,max.temp_t,mean.food,mean.food_t,mean.dens_F,mean.dens_F_t,i)
+  mpm.min=my.matrix(mean.temp,min.temp_t,mean.food,mean.food_t,mean.dens_F,mean.dens_F_t,i)
+  delta.T_t[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.temp_t-min.temp_t)/sd.temp_t))
+  
+  # 4. Sensitivity to lagged temp assuming covariation among covariates
+  mpm.max=my.matrix(temp_when_tempt_max,max.temp_t,food_when_tempt_max,foodt_when_tempt_max,densF_when_tempt_max,densFt_when_tempt_max,i)
+  mpm.min=my.matrix(temp_when_tempt_min,min.temp_t,food_when_tempt_min,foodt_when_tempt_min,densF_when_tempt_min,densFt_when_tempt_min,i)
+  deltaT_t.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.temp_t-min.temp_t)/sd.temp_t))
+
+  # FOOD --------------------------
+  # 1. Sensitivity to food assuming mean everything else
+  mpm.max=my.matrix(mean.temp,mean.temp_t,max.food,mean.food_t,mean.dens_F,mean.dens_F_t,i)
+  mpm.min=my.matrix(mean.temp,mean.temp_t,min.food,mean.food_t,mean.dens_F,mean.dens_F_t,i)
+  delta.F[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.food-min.food)/sd.food))
+
+  # 2. Sensitivity to food assuming covariation among covariates
+  mpm.max=my.matrix(temp_when_food_max,tempt_when_food_max,max.food,foodt_when_food_max,densF_when_food_max,densFt_when_food_max,i)
+  mpm.min=my.matrix(temp_when_food_min,tempt_when_food_min,min.food,foodt_when_food_min,densF_when_food_min,densFt_when_food_min,i)
+  deltaF.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.food-min.food)/sd.food))
+  
+  # 3. Sensitivity to lagged food assuming mean covariates
+  mpm.max=my.matrix(mean.temp,mean.temp_t,mean.food,max.food_t,mean.dens_F,mean.dens_F_t,i)
+  mpm.min=my.matrix(mean.temp,min.temp_t,mean.food,min.food_t,mean.dens_F,mean.dens_F_t,i)
+  delta.F_t[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.food_t-min.food_t)/sd.food_t))
+
+  # 4. Sensitivity to lagged food assuming covariation among covariates
+  mpm.max=my.matrix(temp_when_foodt_max,tempt_when_foodt_max,food_when_foodt_max,max.food_t,densF_when_foodt_max,densFt_when_foodt_max,i)
+  mpm.min=my.matrix(temp_when_foodt_min,tempt_when_foodt_min,food_when_foodt_min,max.food_t,densF_when_foodt_min,densFt_when_foodt_min,i)
+  deltaF_t.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.food_t-min.food_t)/sd.food_t))
+  
+  # DENS -------------------------
+  # 1. Sensitivity to female density assuming mean everything else
+  mpm.max=my.matrix(mean.temp,mean.temp_t,mean.food,mean.food_t,max.dens_F,mean.dens_F_t,i)
+  mpm.min=my.matrix(mean.temp,mean.temp_t,mean.food,mean.food_t,min.dens_F,mean.dens_F_t,i)
+  delta.D[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.dens_F-min.dens_F)/sd.dens_F))
+
+  # 2. Sensitivity to female density assuming covariation among covariates
+  mpm.max=my.matrix(temp_when_densF_max,tempt_when_densF_max,food_when_densF_max,foodt_when_densF_max,max.dens_F,densFt_when_densF_max,i)
+  mpm.min=my.matrix(temp_when_densF_min,tempt_when_densF_min,food_when_densF_min,foodt_when_densF_min,min.dens_F,densFt_when_densF_min,i)
+  deltaD.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.dens_F-min.dens_F)/sd.dens_F))
+  
+  # 3. Sensitivity to lagged density assuming mean covariates
+  mpm.max=my.matrix(mean.temp,mean.temp_t,mean.food,mean.food_t,mean.dens_F,max.dens_F_t,i)
+  mpm.min=my.matrix(mean.temp,mean.temp_t,mean.food,mean.food_t,mean.dens_F,min.dens_F_t,i)
+  delta.D_t[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.dens_F_t-min.dens_F_t)/sd.dens_F_t))
+  
+   # 4. Sensitivity to lagged density assuming covariation among covariates
+  mpm.max=my.matrix(temp_when_densFt_max,tempt_when_densFt_max,food_when_densFt_max,foodt_when_densFt_max,densF_when_densFt_max,max.dens_F_t,i)
+  mpm.min=my.matrix(temp_when_densFt_min,tempt_when_densFt_min,food_when_densFt_min,foodt_when_densFt_min,densF_when_densFt_min,min.dens_F_t,i)
+  deltaD_t.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.dens_F_t-min.dens_F_t)/sd.dens_F_t))
+  
+  # PERTUBATIONS PER VITAL RATE ############################
+  # TEMP --------------------------------------
+  # Si (immature survival)
+  pert.Si.max=pert.Si(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_temp=max.temp,pert_food=food_when_temp_max,pert_dens_F=densF_when_temp_max,i)
+  pert.Si.min=pert.Si(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_min,pert_temp=min.temp,pert_dens_F=densF_when_temp_min,i)
+delta.temp.Si[i]=abs((lambda(pert.Si.max)-lambda(pert.Si.min))/((max.temp-min.temp)/sd.temp))
+
+  # Sp philopatric survival
+  pert.Sp.max=pert.Sp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_max,pert_temp=max.temp,pert_dens_F=densF_when_temp_max,i)
+  pert.Sp.min=pert.Sp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_min,pert_temp=min.temp,pert_dens_F=densF_when_temp_min,i)
+delta.temp.Sp[i]=abs((lambda(pert.Sp.max)-lambda(pert.Sp.min))/((max.temp-min.temp)/sd.temp))
+
+  # Sb (breeder survival)
+  pert.Sb.max=pert.Sb(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_max,pert_temp=max.temp,pert_dens_F=densF_when_temp_max,i)
+  pert.Sb.min=pert.Sb(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_min,pert_temp=min.temp,pert_dens_F=densF_when_temp_min,i)
+delta.temp.Sb[i]=abs((lambda(pert.Sb.max)-lambda(pert.Sb.min))/((max.temp-min.temp)/sd.temp))
+
+  # PsiIB
+  pert.PsiIB.max=pert.PsiIB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_max,pert_temp=max.temp,pert_dens_F=densF_when_temp_max,i)
+  pert.PsiIB.min=pert.PsiIB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_min,pert_temp=min.temp,pert_dens_F=densF_when_temp_min,i)
+delta.temp.PsiIB[i]=abs((lambda(pert.PsiIB.max)-lambda(pert.PsiIB.min))/((max.temp-min.temp)/sd.temp))
+
+  # PsiPB
+  pert.PsiPB.max=pert.PsiPB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_max,pert_temp=max.temp,pert_dens_F=densF_when_temp_max,i)
+  pert.PsiPB.min=pert.PsiPB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_temp_min,pert_temp=min.temp,pert_dens_F=densF_when_temp_min,i)
+
+delta.temp.PsiPB[i]=abs((lambda(pert.PsiPB.max)-lambda(pert.PsiPB.min))/((max.temp-min.temp)/sd.temp))
+
+  # Bp (breeding probability) with lagged covariates
+  pert.Bp.max=pert.Bp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_tempt_max,pert_temp_t=max.temp_t,pert_dens_F_t=densFt_when_tempt_max,i)
+  pert.Bp.min=pert.Bp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_tempt_min,pert_temp_t=min.temp_t,pert_dens_F_t=densFt_when_tempt_min,i)
+  delta.tempt.Bp[i]=abs((lambda(pert.Bp.max)-lambda(pert.Bp.min))/((max.temp_t-min.temp_t)/sd.temp_t))
+
+  # Lp (litter probability) with lagged covariates
+  # no temp_t in Lp
+  
+  # Ls (litter size) with lagged covariates
+  pert.Ls.max=pert.Ls(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_tempt_max,pert_temp_t=max.temp_t,pert_dens_F_t=densFt_when_tempt_max,i)
+  pert.Ls.min=pert.Ls(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_tempt_min,pert_temp_t=min.temp_t,pert_dens_F_t=densFt_when_tempt_min,i)
+  delta.tempt.Ls[i]=abs((lambda(pert.Ls.max)-lambda(pert.Ls.min))/((max.temp_t-min.temp_t)/sd.temp_t))
+
+
+  # FOOD -------------------------------
+  # Si (immature survival)
+  pert.Si.max=pert.Si(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=max.food,pert_temp=temp_when_food_max,pert_dens_F=densF_when_food_max,i)
+  pert.Si.min=pert.Si(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=min.food,pert_temp=temp_when_food_min,pert_dens_F=densF_when_food_min,i)
+  delta.food.Si[i]=abs((lambda(pert.Si.max)-lambda(pert.Si.min))/((max.food-min.food)/sd.food))
+
+  # Sp philopatric survival
+  pert.Sp.max=pert.Sp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=max.food,pert_temp=temp_when_food_max,pert_dens_F=densF_when_food_max,i)
+  pert.Sp.min=pert.Sp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=min.food,pert_temp=temp_when_food_min,pert_dens_F=densF_when_food_min,i)
+  delta.food.Sp[i]=abs((lambda(pert.Sp.max)-lambda(pert.Sp.min))/((max.food-min.food)/sd.food))
+
+  # Sb (breeder survival)
+  pert.Sb.max=pert.Sb(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=max.food,pert_temp=temp_when_food_max,pert_dens_F=densF_when_food_max,i)
+  pert.Sb.min=pert.Sb(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=min.food,pert_temp=temp_when_food_min,pert_dens_F=densF_when_food_min,i)
+  delta.food.Sb[i]=abs((lambda(pert.Sb.max)-lambda(pert.Sb.min))/((max.food-min.food)/sd.food))
+
+  # PsiIB
+  pert.PsiIB.max=pert.PsiIB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=max.food,pert_temp=temp_when_food_max,pert_dens_F=densF_when_food_max,i)
+  pert.PsiIB.min=pert.PsiIB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=min.food,pert_temp=temp_when_food_min,pert_dens_F=densF_when_food_min,i)
+  delta.food.PsiIB[i]=abs((lambda(pert.PsiIB.max)-lambda(pert.PsiIB.min))/((max.food-min.food)/sd.food))
+
+  # PsiPB
+  pert.PsiPB.max=pert.PsiPB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=max.food,pert_temp=temp_when_food_max,pert_dens_F=densF_when_food_max,i)
+  pert.PsiPB.min=pert.PsiPB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=min.food,pert_temp=temp_when_food_min,pert_dens_F=densF_when_food_min,i)
+  delta.food.PsiPB[i]=abs((lambda(pert.PsiPB.max)-lambda(pert.PsiPB.min))/((max.food-min.food)/sd.food))
+
+  # Bp (breeding probability) with lagged covariates
+  pert.Bp.max=pert.Bp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=max.food_t,pert_temp_t=tempt_when_foodt_max,pert_dens_F_t=densFt_when_foodt_max,i)
+  pert.Bp.min=pert.Bp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=min.food_t,pert_temp_t=tempt_when_foodt_min,pert_dens_F_t=densFt_when_foodt_min,i)
+  delta.foodt.Bp[i]=abs((lambda(pert.Bp.max)-lambda(pert.Bp.min))/((max.food_t-min.food_t)/sd.food_t))
+
+  # Lp (litter prob) with lagged covariates
+  pert.Lp.max=pert.Lp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=max.food_t,pert_dens_F_t=densFt_when_foodt_max,i)
+  pert.Lp.min=pert.Lp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=min.food_t,pert_dens_F_t=densFt_when_foodt_min,i)
+  delta.foodt.Lp[i]=abs((lambda(pert.Lp.max)-lambda(pert.Lp.min))/((max.food_t-min.food_t)/sd.food_t))
+
+  # Ls (litter size) with lagged covariates
+  pert.Ls.max=pert.Ls(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=max.food_t,pert_temp_t=tempt_when_foodt_max,pert_dens_F_t=densFt_when_foodt_max,i)
+  pert.Ls.min=pert.Ls(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=min.food_t,pert_temp_t=tempt_when_foodt_min,pert_dens_F_t=densFt_when_foodt_min,i)
+  delta.foodt.Ls[i]=abs((lambda(pert.Ls.max)-lambda(pert.Ls.min))/((max.food_t-min.food_t)/sd.food_t))
+
+
+
+# DENS --------------------------------
+  # Si (immature survival)
+  pert.Si.max=pert.Si(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_max,pert_temp=temp_when_densF_max,pert_dens_F=max.dens_F,i)
+  pert.Si.min=pert.Si(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_min,pert_temp=temp_when_densF_min,pert_dens_F=min.dens_F,i)
+  delta.dens.Si[i]=abs((lambda(pert.Si.max)-lambda(pert.Si.min))/((max.dens_F-min.dens_F)/sd.dens_F))
+
+  # Sp philopatric survival
+  pert.Sp.max=pert.Sp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_max,pert_temp=temp_when_densF_max,pert_dens_F=max.dens_F,i)
+  pert.Sp.min=pert.Sp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_min,pert_temp=temp_when_densF_min,pert_dens_F=min.dens_F,i)
+  delta.dens.Sp[i]=abs((lambda(pert.Sp.max)-lambda(pert.Sp.min))/((max.dens_F-min.dens_F)/sd.dens_F))
+
+  # Sb (breeder survival)
+  pert.Sb.max=pert.Sb(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_max,pert_temp=temp_when_densF_max,pert_dens_F=max.dens_F,i)
+  pert.Sb.min=pert.Sb(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_min,pert_temp=temp_when_densF_min,pert_dens_F=min.dens_F,i)
+  delta.dens.Sb[i]=abs((lambda(pert.Sb.max)-lambda(pert.Sb.min))/((max.dens_F-min.dens_F)/sd.dens_F))
+
+  # PsiIB
+  pert.PsiIB.max=pert.PsiIB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_max,pert_temp=temp_when_densF_max,pert_dens_F=max.dens_F,i)
+  pert.PsiIB.min=pert.PsiIB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_min,pert_temp=temp_when_densF_min,pert_dens_F=min.dens_F,i)
+  delta.dens.PsiIB[i]=abs((lambda(pert.PsiIB.max)-lambda(pert.PsiIB.min))/((max.dens_F-min.dens_F)/sd.dens_F))
+
+  # PsiPB
+  pert.PsiPB.max=pert.PsiPB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_max,pert_temp=temp_when_densF_max,pert_dens_F=max.dens_F,i)
+  pert.PsiPB.min=pert.PsiPB(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food=food_when_densF_min,pert_temp=temp_when_densF_min,pert_dens_F=min.dens_F,i)
+  delta.dens.PsiPB[i]=abs((lambda(pert.PsiPB.max)-lambda(pert.PsiPB.min))/((max.dens_F-min.dens_F)/sd.dens_F))
+
+  # Bp (breeding probability) with lagged covariates
+  pert.Bp.max=pert.Bp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_densFt_max,pert_temp_t=tempt_when_densFt_max,pert_dens_F_t=max.dens_F_t,i)
+  pert.Bp.min=pert.Bp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_densFt_min,pert_temp_t=tempt_when_densFt_min,pert_dens_F_t=min.dens_F_t,i)
+  delta.denst.Bp[i]=abs((lambda(pert.Bp.max)-lambda(pert.Bp.min))/((max.dens_F_t-min.dens_F_t)/sd.dens_F_t))
+
+  # Lp (litter prob) with lagged covariates
+  pert.Lp.max=pert.Lp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_densFt_max,pert_dens_F_t=max.dens_F_t,i)
+  pert.Lp.min=pert.Lp(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_densFt_min,pert_dens_F_t=min.dens_F_t,i)
+  delta.denst.Lp[i]=abs((lambda(pert.Lp.max)-lambda(pert.Lp.min))/((max.dens_F_t-min.dens_F_t)/sd.dens_F_t))
+
+  # Ls (litter size) with lagged covariates
+  pert.Ls.max=pert.Ls(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_densFt_max,pert_temp_t=tempt_when_densFt_max,pert_dens_F_t=max.dens_F_t,i)
+  pert.Ls.min=pert.Ls(temp=mean.temp, temp_t=mean.temp_t,food=mean.food,food_t=mean.food_t,dens_F=mean.dens_F,dens_F_t=mean.dens_F_t,pert_food_t=foodt_when_densFt_min,pert_temp_t=tempt_when_densFt_min,pert_dens_F_t=min.dens_F_t,i)
+  delta.denst.Ls[i]=abs((lambda(pert.Ls.max)-lambda(pert.Ls.min))/((max.dens_F_t-min.dens_F_t)/sd.dens_F_t))
+  
+}
+
+hist(delta.T-deltaT.cov)
+hist(delta.F-deltaF.cov)
+hist(delta.D-deltaD.cov)
+hist(delta.T_t-deltaT_t.cov)
+hist(delta.F_t-deltaF_t.cov)
+hist(delta.D_t-deltaD_t.cov)
+```
+
+## 5) Save output
+```{r}
+all.sens <- data.frame(study.doi="10.1111/1365-2656.12888",
+                   year.of.publication="2018",
+                   group="Mammals",
+                   species="Rhabdomys pumilio",
+                   continent="Africa",
+                   driver=rep(c("temperature","food availability","density","lagged temperature","lagged food availability","lagged density"),each=200),
+                   driver.type=rep(c("C","B","D","C","B","D"),each=200),
+                   stage.age="all",
+                   vital.rates="all",
+                   sens=c(delta.T,deltaT.cov,
+                          delta.F,deltaF.cov,
+                          delta.D,deltaD.cov,
+                          delta.T_t,deltaT_t.cov,
+                          delta.F_t,deltaF_t.cov,
+                          delta.D_t,deltaD_t.cov),
+                   cov=rep(c(0,1),100),
+                   gen.time=1, # generation time
+                   n.vr=8, # number of vital rates with covariatee
+                   n.pam=98, # number of parameters
+                   dens=1, # density dependence in it?
+                   biotic_interactions=1) # any biotic interactions?
+
+
+
+write.csv(all.sens,"Sens_StripedMouse_MCMC.csv",row.names = F)
+
+#  Si <- S.predict('I',temp,food,dens_F,i) # immature
+#  Sp <- S.predict('P',temp,food,dens_F,i) # philopatric
+#  Sb <- S.predict('B',temp,food,dens_F,i) # breeder
+  
+#  PsiIB <- Psi.predict('I',temp,food,dens_F,i)
+#  PsiPB <- Psi.predict('P',temp,food,dens_F,i)
+  
+#  newd <- data.frame(food_t = food_t, dens_F_t = dens_F_t, temp_t = temp_t) 
+  
+#  Bp <- unname(predict(bpmodF, newdata = newd, re.form=NA, type='response')) # breeding prob
+  
+#  Lp <- predict(lpmodF, type = "response", newdata = newd) # litter prob
+#  LS <- predict(lsmod_Wlag, type = "response", newdata = newd) # litter size
+  #LS <- 2.65
+
+# sens per vr
+sens.vr.temp <- data.frame(study.doi="10.1111/1365-2656.12888",
+                   year.of.publication="2018",
+                   group="Mammals",
+                   species="Rhabdomys pumilio",
+                   continent="Africa",
+                   driver=c(rep("temperature",500),rep("lagged temperature",200)),
+                   driver.type="C",
+                   stage.age=c(rep("immature",100),rep("non-reproductive adult",100),rep("reproductive adult",100),
+                               rep("immature",100),rep("non-reproductive adult",100),
+                               rep("all",100),rep("all",100)),
+                   vital.rates=c(rep("survival",100),rep("survival",100),rep("survival",100),
+                                 rep("maturation probability",100),rep("maturation probability",100),
+                                 rep("breeding probability",100),rep("litter size",100)),
+                   sens=c(delta.temp.Si,delta.temp.Sp,delta.temp.Sb,
+                          delta.temp.PsiIB,delta.temp.PsiPB,
+                          delta.tempt.Bp,delta.tempt.Ls))
+
+sens.vr.food <- data.frame(study.doi="10.1111/1365-2656.12888",
+                   year.of.publication="2018",
+                   group="Mammals",
+                   species="Rhabdomys pumilio",
+                   continent="Africa",
+                   driver=c(rep("food",500),rep("lagged food",300)),
+                   driver.type="C",
+                   stage.age=c(rep("immature",100),rep("non-reproductive adult",100),rep("reproductive adult",100),
+                               rep("immature",100),rep("non-reproductive adult",100),
+                               rep("all",100),rep("all",100),rep("all",100)),
+                   vital.rates=c(rep("survival",100),rep("survival",100),rep("survival",100),
+                                 rep("maturation probability",100),rep("maturation probability",100),
+                                 rep("breeding probability",100),rep("litter size",100),rep("litter probability",100)),
+                   sens=c(delta.food.Si,delta.food.Sp,delta.food.Sb,
+                          delta.food.PsiIB,delta.food.PsiPB,
+                          delta.foodt.Bp,delta.foodt.Ls,delta.foodt.Lp))
+
+sens.vr.dens <- data.frame(study.doi="10.1111/1365-2656.12888",
+                   year.of.publication="2018",
+                   group="Mammals",
+                   species="Rhabdomys pumilio",
+                   continent="Africa",
+                   driver=c(rep("density",500),rep("lagged density",300)),
+                   driver.type="C",
+                   stage.age=c(rep("immature",100),rep("non-reproductive adult",100),rep("reproductive adult",100),
+                               rep("immature",100),rep("non-reproductive adult",100),
+                               rep("all",100),rep("all",100),rep("all",100)),
+                   vital.rates=c(rep("survival",100),rep("survival",100),rep("survival",100),
+                                 rep("maturation probability",100),rep("maturation probability",100),
+                                 rep("breeding probability",100),rep("litter size",100),rep("litter probability",100)),
+                   sens=c(delta.dens.Si,delta.dens.Sp,delta.dens.Sb,
+                          delta.dens.PsiIB,delta.dens.PsiPB,
+                          delta.denst.Bp,delta.denst.Ls,delta.denst.Lp))
+
+sens.vr=rbind(sens.vr.temp,sens.vr.food,sens.vr.dens)
+
+sens.vr$gen.time=1
+sens.vr$n.vr=8 # number of vital rates with covariates
+sens.vr$n.pam=98 # number of parameters
+sens.vr$dens=1
+sens.vr$biotic_interactions=1
+
+write.csv(sens.vr,"SensVR_StripedMouse_MCMC.csv",row.names = F)
+```
+
