@@ -1,0 +1,1303 @@
+---
+title: "Protea Sensitivity Analyses"
+author: "Esin Ickin"
+date: "2023-06-07"
+output: html_document
+---
+
+## 0) Prepare session
+```{r}
+rm(list=ls())
+library(boot)
+library(popbio)
+```
+
+```{r setup, include=FALSE}
+# set wd
+knitr::opts_knit$set(root.dir = "/Users/esin/Library/CloudStorage/OneDrive-UniversitätZürichUZH/Master Thesis/pert_analyses/ProteaJAGSModel")
+```
+
+
+## 1) Vital rates
+The vital rates are defined as functions
+```{r}
+
+# load posterior samples
+load("PR_adultsurv.post") #PR_adultsurv.post 
+load("PR_flowering.post") #fl.reg
+load("PR_germ.post") #germ.post
+load("PR_growth.post") #gr.reg$Sol
+load("PR_offspring.post") #offspr.reg$Sol
+load("PR_seed.post") #se.reg$Sol
+load("PR_seedhead.post") #fec1.reg$Sol
+load("PR_seedlingsurv.post") #PR_seedlingsurv.post
+
+# vital rates functions
+
+# SURVIVAL
+# seedling survival parameters
+beta1.seed=PR_seedlingsurv.post[,1]
+beta2.seed=PR_seedlingsurv.post[,2]
+beta3.seed=PR_seedlingsurv.post[,3]
+beta4.seed=PR_seedlingsurv.post[,4]
+
+# adult survival parameters
+beta1.ad=PR_adultsurv.post[,1]
+beta2.ad=PR_adultsurv.post[,2]
+beta3.ad=PR_adultsurv.post[,3]
+beta4.ad=PR_adultsurv.post[,4]
+
+# function
+sv <- function(size, temp, precip,beta1.seed,beta2.seed,beta3.seed,beta4.seed,beta1.ad,beta2.ad,beta3.ad,beta4.ad,min.s=0.182,max.s=0.728){
+  
+  if(any(size<min.s)){
+
+  sv.seed=surv <- inv.logit(beta1.seed + beta2.seed*size + beta3.seed*temp + beta4.seed*precip)
+} else {
+sv.seed=NULL
+}
+
+  #== adults are size>= min.s
+if(any(size>=min.s)){
+
+sv.ad=inv.logit(beta1.ad + beta2.ad*size + beta3.ad*temp + beta4.ad*precip)
+} else {
+sv.ad=NULL
+}
+  
+# smooth between 2 arbitrary sizes (min.s and max.s)
+int=size>=min.s & size<=max.s
+smoothed= sv.seed[int] * (max.s/(max.s-min.s)-(1/(max.s-min.s))*size[int])+
+sv.ad[int] * (1-(max.s/(max.s-min.s)-(1/(max.s-min.s))*size[int]))
+
+return(c(sv.seed[size<min.s],smoothed,sv.ad[size>max.s]))
+
+}
+
+
+# GROWTH
+# parameters
+gr.int=gr.reg$Sol[,1]
+gr.fert4=gr.reg$Sol[,2]
+gr.fert4.2=gr.reg$Sol[,3]
+gr.smdwin=gr.reg$Sol[,4]
+gr.smdwin.2=gr.reg$Sol[,5]
+gr.ph1=gr.reg$Sol[,6]
+gr.ph1.2=gr.reg$Sol[,7]
+gr.min07=gr.reg$Sol[,8]
+gr.smdsum=gr.reg$Sol[,9]
+gr.smdsum.2=gr.reg$Sol[,10]
+
+# function
+gr <- function(size, size.next,high.fertility.soil, winter.soil.moisture.days, acidic.soil, temp, summer.soil.moisture.days,gr.int,gr.fert4,gr.fert4.2,gr.smdwin,gr.smdwin.2,gr.ph1,gr.ph1.2,gr.min07,gr.smdsum,gr.smdsum.2){
+  
+  gr.mean <- gr.int + gr.fert4*high.fertility.soil + gr.fert4.2*high.fertility.soil^2 + gr.smdwin*winter.soil.moisture.days + gr.smdwin.2*winter.soil.moisture.days^2 + gr.ph1*acidic.soil + gr.ph1.2*acidic.soil^2 + gr.min07*temp + gr.smdsum*summer.soil.moisture.days + gr.smdsum.2*summer.soil.moisture.days^2
+  
+  gr=dnorm(size.next,mean=size+gr.mean,sd=0.055)
+  return(gr)
+}
+
+
+
+# FECUNDITY
+# flowering probability parameters
+fl.int=fl.reg[,1]
+fl.size=fl.reg[,2]
+
+flower <- function(fl.int,fl.size,size){
+  fl <- inv.logit(fl.int + fl.size*size)
+  # fl <- plogis(-2.629 + 3.627*size)
+  return(fl)
+}
+
+# seedheads/individuals parameters
+fec1.int=fec1.reg$Sol[,1]
+fec1.size=fec1.reg$Sol[,2]
+fec1.min07=fec1.reg$Sol[,3]
+fec1.ph1=fec1.reg$Sol[,4]
+fec1.ph1.2=fec1.reg$Sol[,5]
+
+seedhead <- function(size, temp, acidic.soil,fec1.int,fec1.size,fec1.min07,fec1.ph1,fec1.ph1.2){
+  s <- exp(fec1.int + fec1.size*size + fec1.min07*temp + fec1.ph1*acidic.soil + fec1.ph1.2*acidic.soil^2)
+  return(s)
+}
+
+# seeds/seedhead
+seeds=se.reg$Sol[,1]
+  
+# germination probability
+germ=germ.post
+
+# offspring size
+offspr.int=offspr.reg$Sol[,1]
+offspr.ph1=offspr.reg$Sol[,2]
+offspr.fert4=offspr.reg$Sol[,3]
+offspr.fert4.2=offspr.reg$Sol[,4]
+offspr.min07=offspr.reg$Sol[,5]
+offspr.smdsum=offspr.reg$Sol[,6]
+offspr.smdsum.2=offspr.reg$Sol[,7]
+
+offspring <- function(size.next, acidic.soil, high.fertility.soil, temp, summer.soil.moisture.days,offspr.int,offspr.ph1,offspr.fert4,offspr.fert4.2,offspr.min07,offspr.smdsum,offspr.smdsum.2){
+ 
+   off.mean <- offspr.int + offspr.ph1*acidic.soil + offspr.fert4*high.fertility.soil + offspr.fert4.2*high.fertility.soil^2 + offspr.min07*temp + offspr.smdsum*summer.soil.moisture.days + offspr.smdsum.2*summer.soil.moisture.days^2
+  
+  off=dnorm(size.next,mean=off.mean,sd=0.11)
+  
+  return(off)
+}
+
+#== fecundity function combining all components
+f.yx=function(xp,x,params) {
+params$establishment.prob*
+dnorm(xp,mean=params$recruit.size.mean,sd=params$recruit.size.sd)*
+exp(params$seed.int+params$seed.slope*x)
+}
+
+rec=0.01
+```
+
+
+## 2) Covariates
+max, min, mean, sd values and covariation
+```{r}
+# load("~/OneDrive - Universität Zürich UZH/Master Thesis/pert_analyses/Protea/ECOG-00839 Appendix/Protea_IPM_Shared_Data.Rdata")
+
+load("Protea_IPM_Shared_Data.Rdata")
+
+#str(cfr.env)
+#summary(cfr.env)
+
+# d = data for growth and seedhead production models
+# m2 = data for adult survival model
+# psr = data for juvenile survival and recruitment models
+# se = data for seed/seedhead model
+# d2 = data for offspring size model
+# cfr.env = data for the environment in the cape floristic region 
+# can I just use cfr.env for the covariates?
+
+
+# all environmental variables are standardized
+mean=0
+sd=1
+# or should I still use the mean() and sd() separately for each cov, because they differ a little bit from 0 and 1
+
+# high fertility soil (fert4)
+max.fert=max(cfr.env$fert4)
+min.fert=min(cfr.env$fert4)
+mean.fert=mean(cfr.env$fert4)
+sd.fert=sd(cfr.env$fert4)
+fert.when.precip.max=cfr.env$fert4[which(cfr.env$map==max(cfr.env$map))][1]
+fert.when.precip.min=cfr.env$fert4[which(cfr.env$map==min(cfr.env$map))][1]
+fert.when.smdsum.max=cfr.env$fert4[which(cfr.env$smdsum==max(cfr.env$smdsum))][1]
+fert.when.smdsum.min=cfr.env$fert4[which(cfr.env$smdsum==min(cfr.env$smdsum))][1]
+fert.when.ph.max=cfr.env$fert4[which(cfr.env$ph1==max(cfr.env$ph1))][1]
+fert.when.ph.min=cfr.env$fert4[which(cfr.env$ph1==min(cfr.env$ph1))][1]
+fert.when.smdwin.max=cfr.env$fert4[which(cfr.env$smdwin==max(cfr.env$smdwin))][1]
+fert.when.smdwin.min=cfr.env$fert4[which(cfr.env$smdwin==min(cfr.env$smdwin))][1]
+fert.when.temp.max=cfr.env$fert4[which(cfr.env$min07==max(cfr.env$min07))][1]
+fert.when.temp.min=cfr.env$fert4[which(cfr.env$min07==min(cfr.env$min07))][1]
+
+# winter soil moisture days (smdwin)
+max.smdwin=max(cfr.env$smdwin)
+min.smdwin=min(cfr.env$smdwin)
+mean.smdwin=mean(cfr.env$smdwin)
+sd.smdwin=sd(cfr.env$smdwin)
+smdwin.when.precip.max=cfr.env$smdwin[which(cfr.env$map==max(cfr.env$map))][1]
+smdwin.when.precip.min=cfr.env$smdwin[which(cfr.env$map==min(cfr.env$map))][1]
+smdwin.when.smdsum.max=cfr.env$smdwin[which(cfr.env$smdsum==max(cfr.env$smdsum))][1]
+smdwin.when.smdsum.min=cfr.env$smdwin[which(cfr.env$smdsum==min(cfr.env$smdsum))][1]
+smdwin.when.ph.max=cfr.env$smdwin[which(cfr.env$ph1==max(cfr.env$ph1))][1]
+smdwin.when.ph.min=cfr.env$smdwin[which(cfr.env$ph1==min(cfr.env$ph1))][1]
+smdwin.when.fert.max=cfr.env$smdwin[which(cfr.env$fert4==max(cfr.env$fert4))][1]
+smdwin.when.fert.min=cfr.env$smdwin[which(cfr.env$fert4==min(cfr.env$fert4))][1]
+smdwin.when.temp.max=cfr.env$smdwin[which(cfr.env$min07==max(cfr.env$min07))][1]
+smdwin.when.temp.min=cfr.env$smdwin[which(cfr.env$min07==min(cfr.env$min07))][1]
+
+# summer soil moisture days(smdsum)
+max.smdsum=max(cfr.env$smdsum)
+min.smdsum=min(cfr.env$smdsum)
+mean.smdsum=mean(cfr.env$smdsum)
+sd.smdsum=sd(cfr.env$smdsum)
+smdsum.when.precip.max=cfr.env$smdsum[which(cfr.env$map==max(cfr.env$map))][1]
+smdsum.when.precip.min=cfr.env$smdsum[which(cfr.env$map==min(cfr.env$map))][1]
+smdsum.when.smdwin.max=cfr.env$smdsum[which(cfr.env$smdwin==max(cfr.env$smdwin))][1]
+smdsum.when.smdwin.min=cfr.env$smdsum[which(cfr.env$smdwin==min(cfr.env$smdwin))][1]
+smdsum.when.ph.max=cfr.env$smdsum[which(cfr.env$ph1==max(cfr.env$ph1))][1]
+smdsum.when.ph.min=cfr.env$smdsum[which(cfr.env$ph1==min(cfr.env$ph1))][1]
+smdsum.when.fert.max=cfr.env$smdsum[which(cfr.env$fert4==max(cfr.env$fert4))][1]
+smdsum.when.fert.min=cfr.env$smdsum[which(cfr.env$fert4==min(cfr.env$fert4))][1]
+smdsum.when.temp.max=cfr.env$smdsum[which(cfr.env$min07==max(cfr.env$min07))][1]
+smdsum.when.temp.min=cfr.env$smdsum[which(cfr.env$min07==min(cfr.env$min07))][1]
+
+# acidic soil (phi1)
+max.ph=max(cfr.env$ph1)
+min.ph=min(cfr.env$ph1)
+mean.ph=mean(cfr.env$ph1)
+sd.ph=sd(cfr.env$ph1)
+ph.when.precip.max=cfr.env$ph1[which(cfr.env$map==max(cfr.env$map))][1]
+ph.when.precip.min=cfr.env$ph1[which(cfr.env$map==min(cfr.env$map))][1]
+ph.when.smdwin.max=cfr.env$ph1[which(cfr.env$smdwin==max(cfr.env$smdwin))][1]
+ph.when.smdwin.min=cfr.env$ph1[which(cfr.env$smdwin==min(cfr.env$smdwin))][1]
+ph.when.smdsum.max=cfr.env$ph1[which(cfr.env$smdsum==max(cfr.env$smdsum))][1]
+ph.when.smdsum.min=cfr.env$ph1[which(cfr.env$smdsum==min(cfr.env$smdsum))][1]
+ph.when.fert.max=cfr.env$ph1[which(cfr.env$fert4==max(cfr.env$fert4))][1]
+ph.when.fert.min=cfr.env$ph1[which(cfr.env$fert4==min(cfr.env$fert4))][1]
+ph.when.temp.max=cfr.env$ph1[which(cfr.env$min07==max(cfr.env$min07))][1]
+ph.when.temp.min=cfr.env$ph1[which(cfr.env$min07==min(cfr.env$min07))][1]
+
+# temp (min07)
+max.temp=max(cfr.env$min07)
+min.temp=min(cfr.env$min07)
+mean.temp=mean(cfr.env$min07)
+sd.temp=sd(cfr.env$min07)
+temp.when.precip.max=cfr.env$min07[which(cfr.env$map==max(cfr.env$map))][1]
+temp.when.precip.min=cfr.env$min07[which(cfr.env$map==min(cfr.env$map))][1]
+temp.when.smdwin.max=cfr.env$min07[which(cfr.env$smdwin==max(cfr.env$smdwin))][1]
+temp.when.smdwin.min=cfr.env$min07[which(cfr.env$smdwin==min(cfr.env$smdwin))][1]
+temp.when.smdsum.max=cfr.env$min07[which(cfr.env$smdsum==max(cfr.env$smdsum))][1]
+temp.when.smdsum.min=cfr.env$min07[which(cfr.env$smdsum==min(cfr.env$smdsum))][1]
+temp.when.fert.max=cfr.env$min07[which(cfr.env$fert4==max(cfr.env$fert4))][1]
+temp.when.fert.min=cfr.env$min07[which(cfr.env$fert4==min(cfr.env$fert4))][1]
+temp.when.ph.max=cfr.env$min07[which(cfr.env$ph1==max(cfr.env$ph1))][1]
+temp.when.ph.min=cfr.env$min07[which(cfr.env$ph1==min(cfr.env$ph1))][1]
+
+# mean annual precipitation (map)
+max.precip=max(cfr.env$map)
+min.precip=min(cfr.env$map)
+mean.precip=mean(cfr.env$map)
+sd.precip=sd(cfr.env$map)
+precip.when.temp.max=cfr.env$map[which(cfr.env$min07==max(cfr.env$min07))][1]
+precip.when.temp.min=cfr.env$map[which(cfr.env$min07==min(cfr.env$min07))][1]
+precip.when.smdwin.max=cfr.env$map[which(cfr.env$smdwin==max(cfr.env$smdwin))][1]
+precip.when.smdwin.min=cfr.env$map[which(cfr.env$smdwin==min(cfr.env$smdwin))][1]
+precip.when.smdsum.max=cfr.env$map[which(cfr.env$smdsum==max(cfr.env$smdsum))][1]
+precip.when.smdsum.min=cfr.env$map[which(cfr.env$smdsum==min(cfr.env$smdsum))][1]
+precip.when.fert.max=cfr.env$map[which(cfr.env$fert4==max(cfr.env$fert4))][1]
+precip.when.fert.min=cfr.env$map[which(cfr.env$fert4==min(cfr.env$fert4))][1]
+precip.when.ph.max=cfr.env$map[which(cfr.env$ph1==max(cfr.env$ph1))][1]
+precip.when.ph.min=cfr.env$map[which(cfr.env$ph1==min(cfr.env$ph1))][1]
+
+
+```
+
+
+## 3) Population model
+Here, we use the vital rate function to construct an annual population model that can give us the population growth rate (lambda)
+```{r}
+
+# IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=mean.fert, winter.soil.moisture.days=mean.smdwin, acidic.soil=mean.ph, temp=mean.temp, summer.soil.moisture.days=mean.smdsum,mean(gr.int),mean(gr.fert4),mean(gr.fert4.2),mean(gr.smdwin),mean(gr.smdwin.2),mean(gr.ph1),mean(gr.ph1.2),mean(gr.min07),mean(gr.smdsum),mean(gr.smdsum.2))
+
+# CHECK (columns should sum to 1): It doesn't really do that for small sizes, but let's just leave it as I can't see an error with our analyses...
+
+colSums(P)
+
+# survival
+S = sv(size=y, temp=mean.temp, precip=mean.precip,mean(beta1.seed),mean(beta2.seed),mean(beta3.seed),mean(beta4.seed),mean(beta1.ad),mean(beta2.ad),mean(beta3.ad),mean(beta4.ad))
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+# CHECK (column sums should never be >1)
+colSums(P)
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=mean.ph, high.fertility.soil=mean.fert, temp=mean.temp, summer.soil.moisture.days=mean.smdsum,mean(offspr.int),mean(offspr.ph1),mean(offspr.fert4),mean(offspr.fert4.2),mean(offspr.min07),mean(offspr.smdsum),mean(offspr.smdsum.2))
+
+tf=matrix(rep(flower(mean(fl.int),mean(fl.size),size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=mean.temp, acidic.soil=mean.ph,mean(fec1.int),mean(fec1.size),mean(fec1.min07),mean(fec1.ph1),mean(fec1.ph1.2)),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*mean(seeds)*mean(germ)*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+temp=Fk%*%P
+
+lambda=Re(eigen(temp)$values[1])^(1/fire.interval)
+
+lambda
+```
+
+
+### 3.1 IPM function
+```{r}
+ipm <- function(fert,smdwin,ph,temp,smdsum,precip,
+                gr.int,gr.fert4,gr.fert4.2,gr.smdwin,gr.smdwin.2,gr.ph1,gr.ph1.2,gr.min07,gr.smdsum,gr.smdsum.2,
+                beta1.seed,beta2.seed,beta3.seed,beta4.seed,beta1.ad,beta2.ad,beta3.ad,beta4.ad,
+                offspr.int,offspr.ph1,offspr.fert4,offspr.fert4.2,offspr.min07,offspr.smdsum,offspr.smdsum.2,
+                fl.int,fl.size,
+                fec1.int,fec1.size,fec1.min07,fec1.ph1,fec1.ph1.2,
+                seeds,germ){
+  
+# IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=fert, winter.soil.moisture.days=smdwin, acidic.soil=ph, temp=temp, summer.soil.moisture.days=smdsum,gr.int,gr.fert4,gr.fert4.2,gr.smdwin,gr.smdwin.2,gr.ph1,gr.ph1.2,gr.min07,gr.smdsum,gr.smdsum.2)
+
+
+# survival
+S = sv(size=y, temp=temp, precip=precip,beta1.seed,beta2.seed,beta3.seed,beta4.seed,beta1.ad,beta2.ad,beta3.ad,beta4.ad)
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=ph, high.fertility.soil=fert, temp=temp, summer.soil.moisture.days=smdsum,offspr.int,offspr.ph1,offspr.fert4,offspr.fert4.2,offspr.min07,offspr.smdsum,offspr.smdsum.2)
+
+tf=matrix(rep(flower(fl.int,fl.size,size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=temp, acidic.soil=ph,fec1.int,fec1.size,fec1.min07,fec1.ph1,fec1.ph1.2),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds*germ*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+ipm.temp=Fk%*%P
+
+lambda=Re(eigen(ipm.temp)$values[1])^(1/fire.interval)
+
+return(lambda)
+
+}
+
+ipm.mean=ipm(mean.fert,mean.smdwin,mean.ph,mean.temp,mean.smdsum,mean.precip,
+                gr.int[55],gr.fert4[55],gr.fert4.2[55],gr.smdwin[55],gr.smdwin.2[55],gr.ph1[55],gr.ph1.2[55],gr.min07[55],gr.smdsum[55],gr.smdsum.2[55],
+                beta1.seed[55],beta2.seed[55],beta3.seed[55],beta4.seed[55],beta1.ad[55],beta2.ad[55],beta3.ad[55],beta4.ad[55],
+                offspr.int[55],offspr.ph1[55],offspr.fert4[55],offspr.fert4.2[55],offspr.min07[55],offspr.smdsum[55],offspr.smdsum.2[55],
+                fl.int[55],fl.size[55],
+                fec1.int[55],fec1.size[55],fec1.min07[55],fec1.ph1[55],fec1.ph1.2[55],
+                seeds[55],germ[55])
+ipm.mean
+
+# 0.8158067
+```
+
+
+## 4) Scaled sensitivity analyses
+Here, we calculate scaled sensitivities, according to Morris et al. 2020 (DOI: https://doi.org/10.1073/pnas.1918363117)
+
+### 4.1 Temperature
+```{r}
+
+# empty vectors for sensitivities
+delta.temp=NULL
+delta.temp.cov=NULL
+
+for(i in 1:100){
+# sensitivities to temperature with mean covariates
+ipm.max=ipm(fert=0,smdwin=0,ph=0,temp=max.temp,smdsum=0,precip=0,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+ipm.min=ipm(fert=0,smdwin=0,ph=0,temp=min.temp,smdsum=0,precip=0,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+delta.temp[i]=abs((ipm.max-ipm.min)/((max.temp-min.temp)/1))
+
+
+# sensitivities to temperature assuming covariation among covariates
+ipm.max.cov=ipm(fert=fert.when.temp.max,smdwin=smdwin.when.temp.max,ph=ph.when.temp.max,temp=max.temp,smdsum=smdsum.when.temp.max,precip=precip.when.temp.max,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+ipm.min.cov=ipm(fert=fert.when.temp.min,smdwin=smdwin.when.temp.min,ph=ph.when.temp.min,temp=min.temp,smdsum=smdsum.when.temp.min,precip=precip.when.temp.min,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+delta.temp.cov[i]=abs((ipm.max.cov-ipm.min.cov)/((max.temp-min.temp)/1))
+}
+
+hist(delta.temp)
+hist(delta.temp.cov)
+hist(delta.temp-delta.temp.cov)
+```
+
+
+
+### 4.2 Precipitation
+```{r}
+delta.precip=NULL
+delta.precip.cov=NULL
+
+for(i in 1:100){
+# sensitivities to precipitation with mean covariates
+ipm.max=ipm(fert=0,smdwin=0,ph=0,temp=0,smdsum=0,precip=max.precip,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+ipm.min=ipm(fert=0,smdwin=0,ph=0,temp=0,smdsum=0,precip=min.precip,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+delta.precip[i]=abs((ipm.max-ipm.min)/((max.precip-min.precip)/1))
+
+
+# sensitivities to precipitation assuming covariation among covariates
+ipm.max.cov=ipm(fert=fert.when.precip.max,smdwin=smdwin.when.precip.max,ph=ph.when.precip.max,temp=temp.when.precip.max,smdsum=smdsum.when.precip.max,precip=max.precip,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+ipm.min.cov=ipm(fert=fert.when.precip.min,smdwin=smdwin.when.precip.min,ph=ph.when.precip.min,temp=temp.when.precip.min,smdsum=smdsum.when.precip.min,precip=min.precip,
+                gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i],
+                beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i],
+                offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i],
+                fl.int[i],fl.size[i],
+                fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i],
+                seeds[i],germ[i])
+
+delta.precip.cov[i]=abs((ipm.max.cov-ipm.min.cov)/((max.precip-min.precip)/1))
+}
+
+hist(delta.precip)
+hist(delta.precip.cov)
+
+```
+
+## 5) Scaled sensitivities per vital rate
+### 5.1 Temperature
+#### Growth
+```{r}
+delta.temp.growth=NULL
+
+# perturb temperature and other covariates in growth function
+for(i in 1:100){
+  
+  # max temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=fert.when.temp.max, winter.soil.moisture.days=smdwin.when.temp.max, acidic.soil=ph.when.temp.max, temp=max.temp, summer.soil.moisture.days=smdsum.when.temp.max,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv(size=y, temp=0, precip=0,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+max.ipm=Fk%*%P
+
+
+
+  # min temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=fert.when.temp.min, winter.soil.moisture.days=smdwin.when.temp.min, acidic.soil=ph.when.temp.min, temp=min.temp, summer.soil.moisture.days=smdsum.when.temp.min,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv(size=y, temp=0, precip=0,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+min.ipm=Fk%*%P
+
+delta.temp.growth[i]=abs((Re(eigen(max.ipm)$values[1])^(1/fire.interval)-Re(eigen(min.ipm)$values[1])^(1/fire.interval))/((max.temp-min.temp)/1))
+  
+}
+
+hist(delta.temp.growth)
+
+```
+
+
+#### New survival functions
+```{r}
+# define survival functions new
+
+# seeds / juvenile survival
+sv.pertJ <- function(size, temp, precip,pert.temp,pert.precip,beta1.seed,beta2.seed,beta3.seed,beta4.seed,beta1.ad,beta2.ad,beta3.ad,beta4.ad,min.s=0.182,max.s=0.728){
+  
+  if(any(size<min.s)){
+# seed or juvenile survival
+  sv.seed=surv <- inv.logit(beta1.seed + beta2.seed*size + beta3.seed*pert.temp + beta4.seed*pert.precip)
+} else {
+sv.seed=NULL
+}
+
+  #== adults are size>= min.s
+if(any(size>=min.s)){
+
+sv.ad=inv.logit(beta1.ad + beta2.ad*size + beta3.ad*temp + beta4.ad*precip)
+} else {
+sv.ad=NULL
+}
+  
+# smooth between 2 arbitrary sizes (min.s and max.s)
+int=size>=min.s & size<=max.s
+smoothed= sv.seed[int] * (max.s/(max.s-min.s)-(1/(max.s-min.s))*size[int])+
+sv.ad[int] * (1-(max.s/(max.s-min.s)-(1/(max.s-min.s))*size[int]))
+
+return(c(sv.seed[size<min.s],smoothed,sv.ad[size>max.s]))
+
+}
+
+# adult survival
+sv.pertA <- function(size, temp, precip,pert.temp,pert.precip,beta1.seed,beta2.seed,beta3.seed,beta4.seed,beta1.ad,beta2.ad,beta3.ad,beta4.ad,min.s=0.182,max.s=0.728){
+  
+  if(any(size<min.s)){
+# seed or juvenile survival
+  sv.seed=surv <- inv.logit(beta1.seed + beta2.seed*size + beta3.seed*temp + beta4.seed*precip)
+} else {
+sv.seed=NULL
+}
+
+  #== adults are size>= min.s
+if(any(size>=min.s)){
+
+sv.ad=inv.logit(beta1.ad + beta2.ad*size + beta3.ad*pert.temp + beta4.ad*pert.precip)
+} else {
+sv.ad=NULL
+}
+  
+# smooth between 2 arbitrary sizes (min.s and max.s)
+int=size>=min.s & size<=max.s
+smoothed= sv.seed[int] * (max.s/(max.s-min.s)-(1/(max.s-min.s))*size[int])+
+sv.ad[int] * (1-(max.s/(max.s-min.s)-(1/(max.s-min.s))*size[int]))
+
+return(c(sv.seed[size<min.s],smoothed,sv.ad[size>max.s]))
+
+}
+```
+
+#### Survival of seeds
+```{r}
+delta.temp.survJ=NULL
+# perturb temperature and other covariates in survival function
+for(i in 1:100){
+  
+  # max temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertJ(size=y, temp=0, precip = 0, pert.temp=max.temp, pert.precip=precip.when.temp.max,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+max.ipm=Fk%*%P
+
+
+
+  # min temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertJ(size=y, temp=0, precip=0, pert.temp=min.temp, pert.precip=precip.when.temp.min,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+min.ipm=Fk%*%P
+
+delta.temp.survJ[i]=abs((Re(eigen(max.ipm)$values[1])^(1/fire.interval)-Re(eigen(min.ipm)$values[1])^(1/fire.interval))/((max.temp-min.temp)/1))
+  
+}
+
+hist(delta.temp.survJ)
+```
+
+
+#### Survival of adults
+```{r}
+delta.temp.survA=NULL
+# perturb temperature and other covariates in survival function
+for(i in 1:100){
+  
+  # max temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertA(size=y, temp=0, precip = 0, pert.temp=max.temp, pert.precip=precip.when.temp.max,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+max.ipm=Fk%*%P
+
+
+
+  # min temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertJ(size=y, temp=0, precip=0, pert.temp=min.temp, pert.precip=precip.when.temp.min,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+min.ipm=Fk%*%P
+
+delta.temp.survA[i]=abs((Re(eigen(max.ipm)$values[1])^(1/fire.interval)-Re(eigen(min.ipm)$values[1])^(1/fire.interval))/((max.temp-min.temp)/1))
+  
+}
+
+```
+
+
+
+
+
+
+#### Fecundity
+```{r}
+# perturb all functions in fecundity kernel
+# which are: offspring size, flowering probability, and seedheads/individual
+
+delta.temp.fec=NULL
+
+# perturb temperature and other covariates in fecundity kernel
+
+for(i in 1:100){
+  
+  # max temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv(size=y, temp=0, precip=0,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=ph.when.temp.max, high.fertility.soil=fert.when.temp.max, temp=max.temp, summer.soil.moisture.days=smdsum.when.temp.max,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=max.temp, acidic.soil=ph.when.temp.max,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+max.ipm=Fk%*%P
+
+
+
+  # min temperature
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv(size=y, temp=0, precip=0,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=ph.when.temp.min, high.fertility.soil=fert.when.temp.min, temp=min.temp, summer.soil.moisture.days=smdsum.when.temp.min,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=min.temp, acidic.soil=ph.when.temp.min,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+min.ipm=Fk%*%P
+
+delta.temp.fec[i]=abs((Re(eigen(max.ipm)$values[1])^(1/fire.interval)-Re(eigen(min.ipm)$values[1])^(1/fire.interval))/((max.temp-min.temp)/1))
+  
+}
+
+hist(delta.temp.fec)
+
+
+```
+
+
+
+
+
+
+
+
+
+### 5.2 Precipitation
+#### Growth
+There is no precipitation in growth function.
+
+#### Survival of seeds
+```{r}
+delta.precip.survJ=NULL
+
+
+# perturb precip and other covariates in survival function
+for(i in 1:100){
+  
+  # max precip
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertJ(size=y, temp=0, precip = 0, pert.temp=temp.when.precip.max, pert.precip=max.precip,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+max.ipm=Fk%*%P
+
+
+
+  # min precip
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertJ(size=y, temp=0, precip=0, pert.temp=min.temp, pert.precip=precip.when.temp.min,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+min.ipm=Fk%*%P
+
+delta.precip.survJ[i]=abs((Re(eigen(max.ipm)$values[1])^(1/fire.interval)-Re(eigen(min.ipm)$values[1])^(1/fire.interval))/((max.precip-min.precip)/1))
+  
+}
+```
+
+
+#### Survival of adults
+```{r}
+delta.precip.survA=NULL
+# perturb precip and other covariates in survival function
+for(i in 1:100){
+  
+  # max precip
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertA(size=y, temp=0, precip = 0, pert.temp=temp.when.precip.max, pert.precip=max.precip,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+max.ipm=Fk%*%P
+
+
+
+  # min precip
+  # IPM function
+
+#== bounds for the IPM
+min.size=0
+max.size=5
+#== number of IPM cells
+n.matrix = 100
+b=min.size+c(0:n.matrix)*(max.size-min.size)/n.matrix
+#== mesh points (midpoints of the cells)
+y=0.5*(b[1:n.matrix]+b[2:(n.matrix+1)])
+#== width of the cells
+h=y[2]-y[1]
+  
+# growth kernel:
+
+P = h*outer(y,y,gr,high.fertility.soil=0, winter.soil.moisture.days=0, acidic.soil=0, temp=0, summer.soil.moisture.days=0,gr.int[i],gr.fert4[i],gr.fert4.2[i],gr.smdwin[i],gr.smdwin.2[i],gr.ph1[i],gr.ph1.2[i],gr.min07[i],gr.smdsum[i],gr.smdsum.2[i])
+
+
+# survival
+S = sv.pertJ(size=y, temp=0, precip=0, pert.temp=temp.when.precip.min, pert.precip=min.precip,beta1.seed[i],beta2.seed[i],beta3.seed[i],beta4.seed[i],beta1.ad[i],beta2.ad[i],beta3.ad[i],beta4.ad[i])
+
+# growth/survival kernel
+Ps=matrix(rep(apply(P,2,sum),n.matrix),byrow=T,nrow=n.matrix)
+Ss=matrix(rep(S,n.matrix),byrow=T,nrow=n.matrix)
+P=(Ss*P)/Ps
+
+
+# FECUNDITY KERNEL
+offspr.size=offspring(size.next=y,acidic.soil=0, high.fertility.soil=0, temp=0, summer.soil.moisture.days=0,offspr.int[i],offspr.ph1[i],offspr.fert4[i],offspr.fert4.2[i],offspr.min07[i],offspr.smdsum[i],offspr.smdsum.2[i])
+
+tf=matrix(rep(flower(fl.int[i],fl.size[i],size=y),n.matrix),
+byrow=T,nrow=n.matrix)
+
+tsh=matrix(rep(seedhead(size=y,temp=0, acidic.soil=0,fec1.int[i],fec1.size[i],fec1.min07[i],fec1.ph1[i],fec1.ph1.2[i]),n.matrix),
+byrow=T,nrow=n.matrix)
+
+Fk=h*offspr.size*seeds[i]*germ[i]*tf*tsh
+
+# fire interval: use mean fire interval everywhere
+fire.interval= mean(cfr.env[,'mean.tsf'])
+
+P=t(P)
+min.ipm=Fk%*%P
+
+delta.precip.survA[i]=abs((Re(eigen(max.ipm)$values[1])^(1/fire.interval)-Re(eigen(min.ipm)$values[1])^(1/fire.interval))/((max.precip-min.precip)/1))
+  
+}
+
+```
+
+
+#### Fecundity
+There is no precipitation in the fecundity kernel.
+
+
+
+
+## 6) Save Output
+
+#### 6.1 Save all sensitivities
+```{r}
+AllSens=data.frame(species="Protea repens",
+                   study.doi="10.1111/ecog.00839",
+                   year.of.publication="2014",
+                   group="Plants",
+                   continent="Africa",
+                   driver=rep(c("temperature","precipitation"),each=200),
+                   driver.type="C",
+                   stage.age="all",
+                   vital.rates="all",
+                   sens=c(delta.temp,delta.temp.cov,delta.precip,delta.precip.cov),
+                   cov=rep(c(0,1),each=100),
+                   gen.time=17.5, # [Source: IUCN red list, generation length 15 - 20 years]
+                   n.vr=8, # number of vital rates with covariates
+                   n.pam=33, # number of total parameters of these vital rates
+                   dens=0,
+                   biotic_interactions=0)
+
+write.csv(AllSens, "Sens_Protea.csv",row.names = F)
+```
+
+
+
+#### 6.2 Save sensitivities per vital rate
+```{r}
+SensVR=data.frame(species="Protea repens",
+                   study.doi="10.1111/ecog.00839",
+                   year.of.publication="2014",
+                   group="Plants",
+                   continent="Africa",
+                   driver=rep(c("temperature","temperature","temperature","temperature","precipitation","precipitation"),each=100),
+                   driver.type="C",
+                   stage.age=rep(c("all","juveniles","adults","adults",
+                                   "juveniles","adults"),each=100),
+                   vital.rates=rep(c("growth","survival","survival","fecundity",
+                                     "survival","survival"),each=100),
+                   sens=c(delta.temp.growth,delta.temp.survJ,delta.temp.survA,delta.temp.fec,
+                          delta.precip.survJ,delta.precip.survA),
+                   gen.time=17.5, # [Source: IUCN red list, generation length 15 - 20 years]
+                   n.vr=8, # number of vital rates with covariates
+                   n.pam=33, # number of total parameters of these vital rates
+                   dens=0,
+                   biotic_interactions=0
+                   )
+
+write.csv(SensVR,"SensVR_Protea.csv",row.names = F)
+
+```
+
+
+
