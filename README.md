@@ -26,7 +26,7 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 - Co-author (Species: Swiss Birds):
    - Name: Anne Malchow; Institution: Universität Regensburg, Germany; Email: eco@anne-kathleen.malchow.nz
      
-- Co-author (Species: Dipper):
+- Co-author (Species: Dipper & Reindeer):
    - Name: Marlène Gamelon; Institution: CNRS, Laboratoire de Biométrie et Biologie Évolutive, Université Claude Bernard Lyon 1, France; Email: marlene.gamelon@univ-lyon1.fr
      
 - Co-author (Species: Dipper):
