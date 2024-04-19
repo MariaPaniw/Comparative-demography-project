@@ -1,7 +1,7 @@
 
 # The Svalbard Reindeer
 
-Corresponding authors: Marlène Gamelon, Brage B. Hansen 
+Corresponding authors: Marlène Gamelon, Brage B. Hansen  
 Study DOI: [10.1038/s41467-019-09332-5](https://doi.org/10.1038/s41467-019-09332-5)  
 
 ## Species
