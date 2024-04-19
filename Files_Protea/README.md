@@ -1,7 +1,7 @@
 
 # The Common Sugarbush
 
-Corresponding authors: Cory Merow
+Corresponding author: Cory Merow  
 Study DOI: [10.1111/ecog.00839](https://doi.org/10.1111/ecog.00839)  
 
 ## Species
