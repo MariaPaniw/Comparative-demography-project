@@ -26,7 +26,7 @@ In the main code, the vital rate models were first defined. Then, species-specif
 
 ## Files Overview
 
-Main code(s) including model and analysis (species-specific):
+Main code(s) including model and analysis (species-specific) are in the code folder:
 - Certhia_MCMC.Rmd
 - Linaria_MCMC.Rmd
 - Lophophanes_MCMC.Rmd
@@ -47,6 +47,10 @@ Species-specific climate data:
 - PyrrhulaCovariates.csv
 - SittaCovariates.csv
 - TurdusCovariates.csv
+
+Outputs:
+- are in the output folder
+- two csv files for each species, one containing the "usual" sensitivities and one vital-rate specific sensitivities
 
 Species-specific climate data were extracted in this script: CovariateExtraction_Birds.R and for this, these were the inputs: 
 - MHB_aggregated_counts.Rdata
