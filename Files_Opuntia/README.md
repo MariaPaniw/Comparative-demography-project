@@ -16,12 +16,12 @@ The R code and inputs were provided by the author (Evers). We calculated the sca
 ## Files Overview
 
 Main code including model and analysis:
-- OPIM_IPM_Resampling.R
+- SensAnalysis_OpuntiaImbricata.rmd
 
 Inputs:
 - data (folder)
 - results (folder)
 
 Outputs:
-- Sens_w_resampling.csv
-- Use this output in the script "ReOrganize.R" under the section "OPUNTIA IMBRICATA" to reorganize it and get SENS_OPIM.csv
+- Sens_OpuntiaImbricata.csv
+- SensVR_OpuntiaImbricata.csv
