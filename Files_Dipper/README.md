@@ -20,7 +20,7 @@ We computed two types of sensitivities, perturbing all vital rates and perturbin
 ## Files Overview
 
 Main code (including model and sensitivity analysis):
-- Sens_Analysis_Dipper_Uncertainties.Rmd
+- Sens_Analysis_Dipper_Resampling.Rmd
 
 Inputs:
 - Env_cov_dipper.txt
