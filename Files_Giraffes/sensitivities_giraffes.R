@@ -117,7 +117,7 @@ Results=data.frame(species="Giraffa camelopardalis",
                    vital.rates="all",
                    sens=c(no.cov, cov),
                    cov=rep(c(0,1),each=100),
-                   gen.time=5, # Female giraffes attain sexual maturity at approximately 5 years of age and may breed up to age 20 (Dagg and Foster 1976; Dagg 2014
+                   gen.time=6, # from paper: "...females begin giving birth at the age 19 season (= age 6 years)..."
                    n.vr=3, # number of vital rates with covariates
                    n.pam=12, # number of total parameters of these vital rates
                    dens=1,
