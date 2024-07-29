@@ -20,7 +20,7 @@ Main code:
 Inputs:
 - invlogit.R
 - invlogitG.R
-- parameter_ENV.R
+- parameter_ENVSTO.R
 - popmat.R
 - SST.mat
 
