@@ -1,0 +1,501 @@
+"study.doi","year.of.publication","group","species","continent","driver","driver.type","stage.age","vital.rates","sens","mat","n.vr","n.pam","dens","biotic_interactions","lambda.sim","study.length"
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.257619557394107,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.33463099753919,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.192779353270432,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0482845731995932,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.207804323115537,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0163359012355174,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.215864986650099,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.299855598457425,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.129514243924928,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.329379552409075,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.140241730038119,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0770438944449247,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0546171074356603,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.310335833308465,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.363195384546135,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0950891959551814,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.377691790072022,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0370054896471845,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0740837925875427,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.294301802397958,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.124981171824184,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.243535366442213,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.339249155405303,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.447119468385212,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.111096001976916,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0808211288184455,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.291355496050586,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.198949622892093,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0589360905744407,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0584286827406761,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.175897238445221,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.215362878620084,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.296910567783918,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.29351131273699,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.248350631242049,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.297645963954067,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.111226800134576,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.256138892168736,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.226169846229293,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0410626188337233,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.26008960657296,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.0833209168015102,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.256256024714077,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.154075570014422,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.482579807994574,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.192531514147586,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.356419061475173,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.201286262767189,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.600379247961432,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","growth",0.131491687235285,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.103303065193419,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.248830227105966,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.151695023516802,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.294013765933465,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0839041993155965,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.177569634431049,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0401658327330688,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.180285044468568,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.248547426359125,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.162859404051533,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.340274000223575,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0867933293823443,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0677748046430137,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.228560703170677,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0658881748299435,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0585091915877057,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.211328545898355,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.212273167075827,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.096570949307985,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.108999180536512,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0185901642770249,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.124082111074908,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.157719079950725,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.328538957273963,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0671824263610973,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.067544230407831,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.530151078598092,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.168697748511541,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0148030833565671,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.131275300348691,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0254919491704326,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0784332666128368,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.166574228074353,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.234310481338302,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.16666579506388,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.162838832278826,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0220409424068335,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0984842800690262,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.066928202229015,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.260948897502885,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0374749741612444,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.2640432497903,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.204627116981844,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0542345248075429,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.245833432545238,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0290097152213079,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.196404524619729,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.0445342599230122,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.508955354601488,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","survival",0.00122227249684865,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.229039358831471,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.343455718884874,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.179661195206601,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0834886349556992,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.159486686139326,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0478161291193609,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.145665944606038,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.239092766198586,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.151583255808366,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.243693713670964,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.223400364425346,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0491552007073688,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0585083695949768,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.278722839867618,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.191356217044735,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0762742825484904,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.31752647995903,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0637147745195553,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0311559374985706,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.214022301183203,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0455087636631111,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.216509091120681,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.288566419683398,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.386358268242928,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.046196008260808,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.00107805819749019,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.322230647766919,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.175327890604775,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0503737363649353,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0373209769531727,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.122870993392486,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.195044994662772,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.265649024554742,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.298136233063967,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.19541731468058,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.251022509433013,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0986453707365815,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.185380470597349,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0939361695351899,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.165691087558883,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.133919594927141,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.122790393781567,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.210806981971058,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.1278014571506,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.37603638035909,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.153372966502019,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.249339121054273,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.169119694484419,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.539981939240654,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","dominant adult","recruitment",0.0867125959065666,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.293739304803169,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.462762456125385,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.270708778222771,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.0365089551630312,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.209152813619707,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.0255459270729966,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.279578886396112,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.288236051944626,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.0904405009982306,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.343538680812843,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.135589068861321,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.125392772014665,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.0715337070341773,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.381283440785893,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.242397634786169,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.137660540273185,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.37650595437499,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.0417942518243136,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.146472552271065,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.323460237940369,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.144247314024177,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.345225216730725,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.337344702928949,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.47679433628321,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.103539531301629,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.104270055318657,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.142658968201639,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.231034489549357,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.199398895295946,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.170908216089183,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.200837862802772,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.225673820555802,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.389825040417008,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.384390245183413,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.290012100148222,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.303242979649326,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.202943924781024,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.303435092419746,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.188776882528194,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.0947512183567903,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.228443819417614,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.0137859694509114,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.311221727606707,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.258893550568254,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.47012209931713,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.234203594944035,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.310898954418707,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.275152178115546,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.654477784210533,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","growth",0.215466455369752,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.184954779395386,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.358187888463128,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.146593641449813,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0791163078096952,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.150265355132426,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0502182816002354,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.148287996510517,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.246440790682513,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.172909576466941,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.253508134500724,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.235116505789506,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0341933572994979,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0779159805780223,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.300318163106276,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.175060413883829,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0497976279103032,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.239709915027165,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0803669440802567,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0192267557239322,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.186105817923378,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0124832887282886,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.197213244316214,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.26763222801291,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.429786560518005,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0397018558740887,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0228663676885155,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.325897730509505,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.162092307402445,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0297770078773201,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.00674276837311783,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.122590579925428,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.180069096432657,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.241572967013352,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.27421502335135,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.200506497297339,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.255581929611164,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.113057705542014,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.180743948751259,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0922355274742552,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.182736870952255,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.130609143158851,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.160928899115538,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.210280920536217,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.148456682199693,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.372289436397404,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.168087715914065,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.206803580334155,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.17288626765391,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.519515521941788,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","survival",0.0793936056654164,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.195561421881461,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.309623673558713,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.149517218574504,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.108808758741029,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.100939895201716,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0955550624195877,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.114000359356512,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.221977128809191,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.190064472923059,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.172762217331927,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.259002208908579,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.010970088831698,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0782262472356058,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.263434312263337,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.168984643445049,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0432888132022176,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.28418417565163,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.106698124202341,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.000394565006676244,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.131112080205522,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0026858509147341,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.165378511705938,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.236033475783925,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.372193376224095,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0389294521549043,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0280723705937896,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.35407119422276,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.142703075708485,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.00528984245238694,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0039391451008469,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.107363683858761,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.183130238739379,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.237446720666339,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.259948730712131,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.169468504321615,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.196944094176153,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0792726020067059,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.173862208403788,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0765178371570606,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.215637663913065,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.109631572092855,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.163641398440542,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.186093876446203,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.132562302734798,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.296385266136643,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.118920888032661,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.209616666893077,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.14562353370279,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.469211965322575,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","helper adult","recruitment",0.0606291151013815,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.259097294730175,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.358177627434663,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.195539564971352,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.05039505768519,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.180111431545753,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0108566664516442,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.187026637728164,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.264446924688632,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.137436019243602,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.265164051040043,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.18973727981379,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0612965053986244,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0361085723231372,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.305886391836233,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.212561770825916,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0943068159748046,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.325330049137254,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0554993190392673,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0436953215001162,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.23628163939718,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0557351378668098,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.246000706333524,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.304989396316031,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.412177001193056,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0691499210352215,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0208377135502877,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.281253218130616,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.194923462064401,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0747278881179639,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.0679341514662936,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.147012030012027,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.212534755074568,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.301683845702467,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.321427067477609,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.227425737150539,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.270684707594631,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.120375345000046,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.230463238935502,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.111312809618389,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.142502629629231,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.156612725020157,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.105043579821104,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.242605332288696,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.174091939141495,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.387147932407431,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.172034273569877,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.242428956702042,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.189021593348714,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.557457815377655,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","growth",0.111600585923518,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.217557348621817,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.329437481933943,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.151210058755372,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.113838379790092,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.135741353262963,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0521764961085661,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.118608277309583,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.227660630693623,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.173986453152509,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.218951141734359,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.25414159823573,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.00477029792186204,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0898712275016181,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.273234062218372,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.168834885507247,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0484770112410048,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.284472024389146,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.116876452295082,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0152360842388583,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.163502329984849,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0367651571408354,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.198308528141541,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.263812368807528,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.379386850079241,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0381798715762803,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0235101478752813,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.360216556860891,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.157518191221593,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0225176677914281,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0107531751242981,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.10047285245625,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.18925587201108,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.250949939279378,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.272342945373833,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.184061913616997,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.226013194273853,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0745923377761242,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.159381611488197,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.0805499715936802,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.194624077360243,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.113311291745618,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.152310889903574,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.172308775376729,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.101757080091995,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.343173742339183,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.123995041815217,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.211477922359538,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.155935189757685,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.522447960037992,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","subadult","survival",0.079428879697726,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.24489909998798,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.374663045495549,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.206179421741966,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0885503673104164,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.184439725917481,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0241295815091472,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.172932996191607,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.250892301074273,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.137701559518071,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.270535716725763,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.205936212012572,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0471182406273095,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0337160368374289,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.297904894193489,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.189667715135289,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.107342977464106,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.320477889899834,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0401855103783189,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0259531416699953,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.227043647873759,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0526986830641817,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.2255727477893,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.292593490992801,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.407983747026214,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0577100793213164,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.00811089317063315,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.305305771593484,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.192083423345131,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0709620286570069,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.0494968805392507,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.139575535239377,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.205204445678422,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.295360279689616,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.317532134164822,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.217450733479504,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.261962364202674,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.133503704991107,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.197604277224044,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.112133678174308,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.151555828200785,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.140560038193702,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.103971248383393,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.23790764929545,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.147751712455386,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.361258442620918,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.161789261424751,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.256199661217536,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.181140922901716,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.551257763069497,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","growth",0.120787437821767,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.218931927161684,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.340102483519303,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.176475375427484,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.088195822581407,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.155269283092967,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0423549114943058,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.138315859620022,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.245633095860674,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.170584928666714,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.228690834954023,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.220885448465299,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0343206577946934,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0662339726048553,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.288288120342805,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.181312405864833,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0644237099412493,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.27428836576313,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0840961910104277,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0142833792337834,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.189267749528151,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0204997435482348,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.205907178617464,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.277472519345716,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.394092582845679,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0514097182069003,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0220874381912202,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.316559350964289,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.170910792599634,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.040601195178968,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0230900881419176,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.121886581835385,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.18633569827986,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.270293691832684,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.285886016618807,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.192180813198909,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.245520325817197,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0993849795499335,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.18932985565313,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.088010043524952,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.172991244682799,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.127536506764373,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.111954561537659,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.220306413393782,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.11439560273946,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.34662353915309,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.125308601525736,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.248616808470553,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.158218012091959,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.525712012625665,1,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","rain","C","pups","survival",0.0964892210765219,1,28,1422,1,0,0,20
