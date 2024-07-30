@@ -1,5 +1,5 @@
 ###
-# This is a script containing the main analysis (GLMM 1 of GlobalAnalysis) but without the African striped mouse (Rhabdomys pumilio)
+# This is a script containing the main analyses (GLMM 1 & 2 of GlobalAnalysis and GLMM of VR_Analysis) but without the African striped mouse (Rhabdomys pumilio)
 # to test whether the exclusion of this species (that has a monthly matrix population model and not an annual one like other species) makes a difference
 
 # Author of this script: Esin Ickin
