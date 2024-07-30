@@ -643,12 +643,13 @@ all.sens <- data.frame(study.doi="10.1111/1365-2656.12888",
                           delta.F_t,deltaF_t.cov,
                           delta.D_t,deltaD_t.cov),
                    cov=rep(c(0,1),100),
-                   gen.time=1, # generation time
+                    mat=0.7, # age at maturity [Schradin et al. 2012]
                    n.vr=8, # number of vital rates with covariatee
                    n.pam=98, # number of parameters
                    dens=1, # density dependence in it?
-                   biotic_interactions=1) # any biotic interactions?
-
+                   biotic_interactions=1, # any biotic interactions?
+                   lambda.sim=0,
+                   study.length=9)
 
 
 write.csv(all.sens,"Sens_StripedMouse_MCMC.csv",row.names = F)
@@ -722,11 +723,13 @@ sens.vr.dens <- data.frame(study.doi="10.1111/1365-2656.12888",
 
 sens.vr=rbind(sens.vr.temp,sens.vr.food,sens.vr.dens)
 
-sens.vr$gen.time=1
+sens.vr$mat=0.7
 sens.vr$n.vr=8 # number of vital rates with covariates
 sens.vr$n.pam=98 # number of parameters
 sens.vr$dens=1
 sens.vr$biotic_interactions=1
+sens.vr$lambda.sim=0
+sens.vr$study.length=9
 
 write.csv(sens.vr,"SensVR_StripedMouse_MCMC.csv",row.names = F)
 ```
