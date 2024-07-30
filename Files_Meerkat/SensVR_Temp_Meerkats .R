@@ -5219,11 +5219,13 @@ Results_domadults=data.frame(study.doi="10.1126/science.aau5905",
                              sens=c(D.G.T,
                                     D.Surv.T,
                                     D.Rec.T),
-                             gen.time=2, # generation time
-                             n.vr=28, # number of vital rates with covariates
-                             n.pam=1422, # number of total parameters of all these vital rates
-                             dens=1, # density dependence in it?
-                             biotic_interactions=0) # any biotic interactions?)
+                            mat=1, # age at sexual maturity Paniw et al. 2020
+                   n.vr=28, # number of vital rates with covariates
+                   n.pam=1422, # number of total parameters of all these vital rates
+                   dens=1, # density dependence in it?
+                   biotic_interactions=0, # any biotic interactions?
+                   lambda.sim=0,
+                   study.length=20)
 
 # helper adults
 Results_helperadults=data.frame(study.doi="10.1126/science.aau5905",
@@ -5238,11 +5240,13 @@ Results_helperadults=data.frame(study.doi="10.1126/science.aau5905",
                                 sens=c(H.G.T,
                                        H.Surv.T,
                                        H.Rec.T),
-                                gen.time=2, # generation time
-                                n.vr=28, # number of vital rates with covariates
-                                n.pam=1422, # number of total parameters of all these vital rates
-                                dens=1, # density dependence in it?
-                                biotic_interactions=0) # any biotic interactions?)
+                               mat=1, # age at sexual maturity Paniw et al. 2020
+                   n.vr=28, # number of vital rates with covariates
+                   n.pam=1422, # number of total parameters of all these vital rates
+                   dens=1, # density dependence in it?
+                   biotic_interactions=0, # any biotic interactions?
+                   lambda.sim=0,
+                   study.length=20)
 
 # subadults
 Results_subadults=data.frame(study.doi="10.1126/science.aau5905",
@@ -5256,11 +5260,13 @@ Results_subadults=data.frame(study.doi="10.1126/science.aau5905",
                              vital.rates=rep(c("growth","survival"),each=50),
                              sens=c(Sub.Gr.T,
                                     Sub.Surv.T),
-                             gen.time=2, # generation time
-                             n.vr=28, # number of vital rates with covariates
-                             n.pam=1422, # number of total parameters of all these vital rates
-                             dens=1, # density dependence in it?
-                             biotic_interactions=0) # any biotic interactions?)
+                             mat=1, # age at sexual maturity Paniw et al. 2020
+                   n.vr=28, # number of vital rates with covariates
+                   n.pam=1422, # number of total parameters of all these vital rates
+                   dens=1, # density dependence in it?
+                   biotic_interactions=0, # any biotic interactions?
+                   lambda.sim=0,
+                   study.length=20)
 
 # pups
 Results_pups=data.frame(study.doi="10.1126/science.aau5905",
@@ -5274,11 +5280,13 @@ Results_pups=data.frame(study.doi="10.1126/science.aau5905",
                         vital.rates=rep(c("growth","survival"),each=50),
                         sens=c(Pups.Gr.T,
                                Pups.Surv.T),
-                        gen.time=2, # generation time
-                        n.vr=28, # number of vital rates with covariates
-                        n.pam=1422, # number of total parameters of all these vital rates
-                        dens=1, # density dependence in it?
-                        biotic_interactions=0) # any biotic interactions?)
+                        mat=1, # age at sexual maturity Paniw et al. 2020
+                   n.vr=28, # number of vital rates with covariates
+                   n.pam=1422, # number of total parameters of all these vital rates
+                   dens=1, # density dependence in it?
+                   biotic_interactions=0, # any biotic interactions?
+                   lambda.sim=0,
+                   study.length=20)
 
 # merge all Results df above
 Results_all=rbind(Results_domadults,Results_helperadults,Results_subadults,Results_pups)
