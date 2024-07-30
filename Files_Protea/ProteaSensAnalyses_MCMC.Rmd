@@ -1262,11 +1262,13 @@ AllSens=data.frame(species="Protea repens",
                    vital.rates="all",
                    sens=c(delta.temp,delta.temp.cov,delta.precip,delta.precip.cov),
                    cov=rep(c(0,1),each=100),
-                   gen.time=17.5, # [Source: IUCN red list, generation length 15 - 20 years]
+                   mat=4, # age at first repro Le Maitre 1999
                    n.vr=8, # number of vital rates with covariates
                    n.pam=33, # number of total parameters of these vital rates
                    dens=0,
-                   biotic_interactions=0)
+                   biotic_interactions=0,
+                   lambda.sim=0,
+                   study.length=3)
 
 write.csv(AllSens, "Sens_Protea.csv",row.names = F)
 ```
@@ -1288,12 +1290,13 @@ SensVR=data.frame(species="Protea repens",
                                      "survival","survival"),each=100),
                    sens=c(delta.temp.growth,delta.temp.survJ,delta.temp.survA,delta.temp.fec,
                           delta.precip.survJ,delta.precip.survA),
-                   gen.time=17.5, # [Source: IUCN red list, generation length 15 - 20 years]
+                   mat=4, # age at first repro Le Maitre 1999
                    n.vr=8, # number of vital rates with covariates
                    n.pam=33, # number of total parameters of these vital rates
                    dens=0,
-                   biotic_interactions=0
-                   )
+                   biotic_interactions=0,
+                   lambda.sim=0,
+                   study.length=3)
 
 write.csv(SensVR,"SensVR_Protea.csv",row.names = F)
 
