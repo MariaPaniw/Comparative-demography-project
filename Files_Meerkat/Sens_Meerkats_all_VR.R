@@ -2982,11 +2982,13 @@ Results=data.frame(study.doi="10.1126/science.aau5905",
                           delta.T,delta.T.V2,
                           delta.D,delta.D.V2),
                    cov=rep(c(0,1),each=50),
-                   gen.time=2, # generation time
+                   mat=1, # age at sexual maturity Paniw et al. 2020
                    n.vr=28, # number of vital rates with covariates
                    n.pam=1422, # number of total parameters of all these vital rates
                    dens=1, # density dependence in it?
-                   biotic_interactions=0) # any biotic interactions?)
+                   biotic_interactions=0, # any biotic interactions?
+                   lambda.sim=0,
+                   study.length=20)
 
 # write.csv(Results,"Sens_Meerkats.csv",row.names = F)
 
