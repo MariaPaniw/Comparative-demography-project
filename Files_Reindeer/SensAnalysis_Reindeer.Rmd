@@ -527,12 +527,14 @@ ScaledSens_Reindeer=data.frame(species="Rangifer tarandus",
                       vital.rates="all",
                       sens=c(Sens.ROS.NoCov,Sens.ROS.Cov,Sens.Dens.NoCov,Sens.Dens.Cov,Sens.WL.NoCov,Sens.WL.Cov),
                       cov=rep(c(0,1),each=100),
-                      gen.time=2, # Source: Reimers 1997
+                      mat=1.9, # age at sexual maturity Source: Myhrvold et al. 2015
                       n.vr=10,
-                      n.pam=27,
-                      vr_par=270,
+                      n.pam=49,
                       dens=1,
-                      biotic_interactions=0)
+                      biotic_interactions=0,
+                      lambda.sim=0,
+                      study.length=20)
+
 
 write.csv(ScaledSens_Reindeer,"SensReindeer.csv",row.names = F)
 
@@ -1280,29 +1282,35 @@ Surv=data.frame(species="Rangifer tarandus",
                       sens=c(ROS.S1,ROS.S2,ROS.S3,ROS.S4,ROS.S5,ROS.S6,
                              DENS.S1,DENS.S2,DENS.S3,DENS.S4,DENS.S5,DENS.S6,
                              WL.S1,WL.S2,WL.S3,WL.S4,WL.S5,WL.S6),
-                      gen.time=2,
-                      n.vr=10, # number of vital rates with covariates
-                      n.pam=49, # number of total parameters of all these vital rates
+                      mat=1.9, # age at sexual maturity Source: Myhrvold et al. 2015
+                      n.vr=10,
+                      n.pam=49,
                       dens=1,
-                      biotic_interactions=0)
+                      biotic_interactions=0,
+                      lambda.sim=0,
+                      study.length=20)
+
 
 Fec=data.frame(species="Rangifer tarandus",
                       study.doi="10.1038/s41467-019-09332-5",
                       year.of.publication="2019",
                       group="Mammals",
                       continent="Europe",
-                      driver=rep(c("ROS","density","winterlength"),each=400),
+                      driver=rep(c("ROS","density","winterlength"),each=600),
                       driver.type=rep(c("C","D","C"),each=400),
-                      stage.age=rep(c(2,3,4,5),each=100),
+                      stage.age=rep(c(2,3,4,5),each=400),
                       vital.rates="fecundity",
                       sens=c(ROS.F2,ROS.F3,ROS.F4,ROS.F5,
                              DENS.F2,DENS.F3,DENS.F4,DENS.F5,
                              WL.F2,WL.F3,WL.F4,WL.F5),
-                      gen.time=2,
-                      n.vr=10, # number of vital rates with covariates
-                      n.pam=49, # number of total parameters of all these vital rates
+                      mat=1.9, # age at sexual maturity Source: Myhrvold et al. 2015
+                      n.vr=10,
+                      n.pam=49,
                       dens=1,
-                      biotic_interactions=0)
+                      biotic_interactions=0,
+                      lambda.sim=0,
+                      study.length=20)
+
 
 SensVR=rbind(Surv,Fec)
 
