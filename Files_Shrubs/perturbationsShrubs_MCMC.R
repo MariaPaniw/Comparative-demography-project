@@ -413,11 +413,13 @@ df.h1=data.frame(study.doi="10.1098/rspb.2022.1494",
                         deltaIntra.h1,deltaIntra.h1.V2,
                         deltaInter.h1,deltaInter.h1.V2),
                  cov=rep(c(0,1),each=100),
-                 gen.time=2, # generation time
+                 mat=5.8, # age at maturity
                  n.vr=2, # number of vital rates with covariates
                  n.pam=5, # number of parameters
                  dens=1, # are there intraspecific density effects?
-                 biotic_interactions=1) # are there other biotic interactions?
+                 biotic_interactions=1, # are there other biotic interactions?
+                 lambda.sim=0,
+                 study.length=8)
 
 write.csv(df.h1, "Sens_Halimium.csv", row.names = F)
 
@@ -436,11 +438,13 @@ df.c=data.frame(study.doi="10.1098/rspb.2022.1494",
                          deltaIntra.c,deltaIntra.c.V2,
                          deltaInter.c,deltaInter.c.V2),
                 cov=rep(c(0,1),each=100),
-                gen.time=2,
+                mat=4.6,
                 n.vr=1, # number of vital rates with covariates
                 n.pam=4, # number of parameters of these vital rates
                 dens=1,
-                biotic_interactions=1)
+                biotic_interactions=1,
+                lambda.sim=0,
+                study.length=8)
 
 write.csv(df.c, "Sens_Cistus.csv", row.names = F)
 
@@ -637,11 +641,13 @@ df.h2=data.frame(study.doi="10.1098/rspb.2022.1494",
                         deltaR.h1.survM,
                         deltaIntra.h1.survSap,
                         deltaInter.h1.survM),
-                 gen.time=2, # generation time
+                 mat=5.8, # generation time
                  n.vr=2, # number of vital rates with covariates
                  n.pam=5, # number of parameters
                  dens=1,
-                 biotic_interactions=1)
+                 biotic_interactions=1,
+                 lambda.sim=0,
+                 study.length=8)
 
 write.csv(df.h2, "Sens_VR_Halimium.csv",row.names = F)
 
@@ -659,10 +665,12 @@ df.c2=data.frame(study.doi="10.1098/rspb.2022.1494",
                  sens=c(deltaR.c.survM,
                         deltaIntra.c.survM,
                         deltaInter.c.survM),
-                 gen.time=2,
+                 mat=4.6,
                  n.vr=1, # number of vital rates with covariates
                  n.pam=4, # number of parameters of these vital rates
                  dens=1,
-                 biotic_interactions=1)
+                 biotic_interactions=1,
+                 lambda.sim=0,
+                 study.length=8)
 
 write.csv(df.c2, "Sens_VR_Cistus.csv",row.names = F)
