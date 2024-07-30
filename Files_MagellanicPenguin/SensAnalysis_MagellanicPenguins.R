@@ -1773,13 +1773,15 @@ Sens_MPenguins=data.frame(species="Spheniscus magellanicus",
                                vital.rates="all",
                                sens=c(SensRain,SensRainCov,SensTempNoCov,SensTempCov,SensSSTABNoCov,SensSSTABCov,SensSSTABLNoCov,SensSSTABLCov,SensSSTAMNoCov,SensSSTAMCov,SensSSTAMLNoCov,SensSSTAMLCov),
                                cov=rep(c(0,1),each=100),
-                               gen.time=4, # Source: Paper
-                               n.vr=3, # number of vital rates with coviariates
-                               n.pam=12, # number of total parameters of these vital rates
-                               dens=0,
-                               biotic_interactions=0)
+                               mat=2.8, # Myhrvold et al. 2015
+                  n.vr=3, # number of vital rates with coviariates
+                  n.pam=12, # number of total parameters of these vital rates
+                  dens=0,
+                  biotic_interactions=0,
+                  lambda.sim=1, # lambda calculated using simulations
+                  study.length=37)
 
-# write.csv(Sens_MPenguins, "Sens_MPenguins.csv", row.names = F)
+ write.csv(Sens_MPenguins, "Sens_MPenguins.csv", row.names = F)
 
 
 
