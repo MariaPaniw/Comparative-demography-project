@@ -522,11 +522,13 @@ Results=data.frame(study.doi="https://doi.org/10.1111/gcb.15519",
                          Delta.tavg_17_12,Delta.tavg_17_12.cov,
                          Delta.tmin_n1_n9,Delta.tmin_n1_n9.cov),
                   cov=rep(c(0,1),100),
-                  gen.time=9,
+                  mat=9, # Ohm and Miller 2014
                   n.vr=3, # number of vital rates with covariates
                   n.pam=28, # number of total parameters of these vital rates
                   dens=0,
-                  biotic_interactions=0)
+                  biotic_interactions=0,
+                  lambda.sim=0,
+                  study.length=11)
 
 write.csv(Results,"Sens_OpunitaImbricata.csv",row.names = F)
 
@@ -543,11 +545,13 @@ ResultsVR=data.frame(study.doi="https://doi.org/10.1111/gcb.15519",
                   sens=c(Sens.Reprod.tavg,
                          Sens.Surv.stavg,
                          Sens.Surv.tmin),
-                  gen.time=9,
+                  mat=9, # Ohm and Miller 2014
                   n.vr=3, # number of vital rates with covariates
                   n.pam=28, # number of total parameters of these vital rates
                   dens=0,
-                  biotic_interactions=0)
+                  biotic_interactions=0,
+                  lambda.sim=0,
+                  study.length=11)
 
 write.csv(ResultsVR,"SensVR_OpuntiaImbricata.csv",row.names = F)
 
