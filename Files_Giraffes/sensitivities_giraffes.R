@@ -117,11 +117,13 @@ Results=data.frame(species="Giraffa camelopardalis",
                    vital.rates="all",
                    sens=c(no.cov, cov),
                    cov=rep(c(0,1),each=100),
-                   gen.time=6, # from paper: "...females begin giving birth at the age 19 season (= age 6 years)..."
+                   mat=6, # Bond et al. 2023
                    n.vr=3, # number of vital rates with covariates
                    n.pam=12, # number of total parameters of these vital rates
                    dens=1,
-                   biotic_interactions=0
+                   biotic_interactions=0,
+                   lambda.sim=1, # was lambda calculated analytically (0) or using simulation (1)?
+                   study.length=8
                    )
 
 write.csv(Results, "Sens_Giraffes.csv", row.names = F)
