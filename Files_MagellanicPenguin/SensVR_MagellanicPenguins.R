@@ -1423,11 +1423,13 @@ New_df=data.frame(species="Spheniscus magellanicus",
                   sens=c(SensA.Rain,SensA.SSTAB,
                          SensFec.Rain,SensFec.SSTAB,SensFec.Temp,
                          SensJ.SSTAB),
-                  gen.time=4, # Source: Paper
+                  mat=2.8, # Myhrvold et al. 2015
                   n.vr=3, # number of vital rates with coviariates
                   n.pam=12, # number of total parameters of these vital rates
                   dens=0,
-                  biotic_interactions=0)
+                  biotic_interactions=0,
+                  lambda.sim=1, # lambda calculated using simulations
+                  study.length=37)
 
 write.csv(New_df,"SensVR_MPenguins.csv",row.names = F)
 
