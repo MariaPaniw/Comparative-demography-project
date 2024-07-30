@@ -513,11 +513,13 @@ ScaledSens=data.frame(study.doi="10.1098/rstb.2022.0194",
                       	   delta.Pbr,deltaPbr.cov,
                       	   delta.Pwn,deltaPwn.cov),
 					  cov=rep(c(0,1),100),
-					  gen.time=1, # generation time
+					  mat=1, # age at first repro
                 	  n.vr=3, # number of vital rates with covariates
                       n.pam=15, # number of parameters
                 	  dens=0, # density dependence in it?
-                	  biotic_interactions=0) # any biotic interactions?
+                	  biotic_interactions=0, # any biotic interactions?
+					  lambda.sim=0,
+					  study.length=20)
 
 write.csv(ScaledSens,"output/Turdus_Sens.csv",row.names = F)
 
@@ -532,11 +534,13 @@ ScaledSensVR=data.frame(study.doi="10.1098/rstb.2022.0194",
                         stage.age=rep(c("adult","adult","juvenile","adult","juvenile","adult"),each=100),
                         vital.rates=rep(c("fecundity","fecundity","survival","survival","survival","survival")),
                         sens=c(deltaTbr.Fec,deltaPbr.Fec,deltaPwn.JSuv,deltaPwn.ASuv,deltaTat.JSurv,deltaTwn.ASurv),
-						gen.time=1, # generation time
+						mat=1, # age at first repro
                 	  n.vr=3, # number of vital rates with covariates
                       n.pam=15, # number of parameters
                 	  dens=0, # density dependence in it?
-                	  biotic_interactions=0) # any biotic interactions?
+                	  biotic_interactions=0, # any biotic interactions?
+					  lambda.sim=0,
+					  study.length=20)
 
 
 write.csv(ScaledSensVR,"output/Turdus_Sens_per_VR.csv",row.names = F)
