@@ -8,7 +8,7 @@ Study DOI: [10.1002/ecm.1459](https://esajournals.onlinelibrary.wiley.com/doi/fu
 
 Skuas and petrels were studied on Mayes Island in the Southern Ocean where the two species breed during the austral summer (Quéroué et al. 2021).
 The blue petrel (Halobaena caerulea) is a small long-lived seabird with a generation time of four years (Cherel et al. 2002). 
-The brown skua (Catharacta lönnbergi), preying on the petrel, is a medium-sized long-lived seabird also with a generation time of four years (Mougeot et al. 1998).
+The brown skua (Catharacta lönnbergi), preying on the petrel, is a medium-sized long-lived seabird also with a generation time of four years (Mougeot et al. 1998). Because C. lönnbergi only had SAM as a climatic driver, we excluded this species in the final analysis.
 
 ## Model
 
@@ -31,6 +31,4 @@ Inputs:
 
 Output:
 - SensPetrel_MCMC.csv (1)
-- SensSkua_MCMC.csv (1)
 - SensPetrel_VR_MCMC.csv (2)
-- SensSkua_VR_MCMC.csv (2)
