@@ -394,12 +394,13 @@ new_df <- data.frame(study.doi="10.1073/pnas.2214244120",
                             df$delta.T,df$deltaT.cov,
                             df$delta.D,df$deltaD.cov),
                      cov=rep(c(0,1),each=100),
-                     gen.time=1, # generation time
-                     n.vr=5, # number of vital rates
+                     mat=1, # age at sexual maturity Ozgul et al. 2023
+                     n.vr=5, # number of vital rates with covariates
                      n.pam=27, # number of parameters
-                     vr_par=135, # product of the two above
                      dens=1, # density dependence in it?
-                     biotic_interactions=0) # any biotic interactions?
+                     biotic_interactions=0, # any biotic interactions?
+                      lambda.sim=0, # lambda analytically calculated
+                      study.length=26)
                      
 
 write.csv(new_df, "Sens_MouseLemurs.csv",row.names = F)
@@ -941,11 +942,13 @@ surv_vr=data.frame(study.doi="10.1073/pnas.2214244120",
                      sens=c(deltaR.smj[1:100],deltaR.sfj[1:100],deltaR.sma[1:100],deltaR.sfa[1:100],
                             deltaT.smj[1:100],deltaT.sfj[1:100],deltaT.sma[1:100],deltaT.sfa[1:100],
                             deltaD.smj[1:100],deltaD.sfj[1:100],deltaD.sma[1:100],deltaD.sfa[1:100]),
-                     gen.time=1, # generation time
+                     mat=1, # age at sexual maturity Ozgul et al. 2023
                      n.vr=5, # number of vital rates with covariates
                      n.pam=27, # number of parameters
                      dens=1, # density dependence in it?
-                     biotic_interactions=0) # any biotic interactions?
+                     biotic_interactions=0, # any biotic interactions?
+                      lambda.sim=0, # lambda analytically calculated
+                      study.length=26)
 
 rec_vr=data.frame(study.doi="10.1073/pnas.2214244120",
                      year.of.publication="2023",
@@ -958,11 +961,13 @@ rec_vr=data.frame(study.doi="10.1073/pnas.2214244120",
                      vital.rates="recruitment",
                      sens=c(deltaT.rec[1:100],
                             deltaD.rec[1:100]),
-                     gen.time=1, # generation time
+                     mat=1, # age at sexual maturity Ozgul et al. 2023
                      n.vr=5, # number of vital rates with covariates
                      n.pam=27, # number of parameters
                      dens=1, # density dependence in it?
-                     biotic_interactions=0) # any biotic interactions?
+                     biotic_interactions=0, # any biotic interactions?
+                      lambda.sim=0, # lambda analytically calculated
+                      study.length=26)
 
 results_vr=rbind(surv_vr,rec_vr)
 
