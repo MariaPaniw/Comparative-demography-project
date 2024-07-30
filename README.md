@@ -3,11 +3,11 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 🌎🐧🦒🌿🌍
 
 **GENERAL INFORMATION**
-1. Title of Database/Repository: Comparative demography project (subject to change)
+1. Title of Database/Repository: Comparative demography project
 2. Corresponding Author Information:
 - First author:
    - Name: Esin Ickin; Institution: Department of Evolutionary Biology and Environmental Studies, University of Zurich, Switzerland; Email: ickin.esin@gmail.com
-   - 
+
 - Senior author (Species: Marmot, Shrubs, Meerkat):
    - Name: Maria Paniw; Institution: Doñana Biological Station (EBD-CSIC), Spain; Email: maria.paniw@ebd.csic.es
  
