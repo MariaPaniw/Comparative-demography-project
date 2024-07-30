@@ -619,11 +619,13 @@ sens_df=data.frame(study.doi="10.1111/ele.13459",
                   vital.rates="all",
                   sens=c(delta.Q,delta.Q.cov),
                   cov=rep(c(0,1),each=100),
-                  gen.time=2, # generation time
+                  mat=2.2, # age at sex. maturity Paniw et al. 2020
                   n.vr=7, # number of vital rates with covariates
                   n.pam=38, # number of parameters
                   dens=0, # is density dependence in it?
-                 biotic_interactions=0 # what about other biotic interactions?
+                 biotic_interactions=0, # what about other biotic interactions?
+                 lambda.sim=0, # lambda analytically calculated
+                 study.length=40
                  )
 
 write.csv(sens_df,"~/Library/CloudStorage/OneDrive-UniversitätZürichUZH/Master Thesis/pert_analyses/marmots/final_results/SENS_MARMOTS_MCMC.csv",row.names = F)
@@ -635,8 +637,8 @@ sensVR_df=data.frame(study.doi="10.1111/ele.13459",
                   group="Mammals",
                   species="Marmota flaviventer",
                   continent="North America",
-                  driver="A",
-                  driver.type="A",
+                  driver="Q",
+                  driver.type="C",
                   stage.age=rep(c("yearling","non-reproductive adult","reproductive adult",
                                   "juvenile","reproductive adult",
                                   "juvenile","yearling","non-reproductive adult","reproductive adult",
@@ -652,11 +654,13 @@ sensVR_df=data.frame(study.doi="10.1111/ele.13459",
                          delta.Gj.winter,delta.Gy.winter,delta.Gnra.winter,delta.Gra.winter,
                          delta.Sj.winter,delta.Sy.winter,delta.Snra.winter,delta.Sra.winter,
                          delta.Ty.winter,delta.Tnra.winter,delta.Tra.winter),
-                  gen.time=2, # generation time
+                  mat=2.2, # age at sex. maturity Paniw et al. 2020
                   n.vr=7, # number of vital rates with covariates
                   n.pam=38, # number of parameters
                   dens=0, # is density dependence in it?
-                 biotic_interactions=0 # what about other biotic interactions?
+                 biotic_interactions=0, # what about other biotic interactions?
+                 lambda.sim=0, # lambda analytically calculated
+                 study.length=40
                  )
 
 
