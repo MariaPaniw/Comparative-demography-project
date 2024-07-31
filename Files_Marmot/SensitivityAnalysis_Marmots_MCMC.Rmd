@@ -611,7 +611,7 @@ delta.Rec.summer[i]=abs((lambda(max.pert.Rec.summer)-lambda(min.pert.Rec.summer)
 sens_df=data.frame(study.doi="10.1111/ele.13459",
                   year.of.publication="2020",
                   group="Mammals",
-                  species="Marmota flaviventris",
+                  species="Marmota flaviventer",
                   continent="North America",
                   driver="Q",
                   driver.type="C",
@@ -619,7 +619,7 @@ sens_df=data.frame(study.doi="10.1111/ele.13459",
                   vital.rates="all",
                   sens=c(delta.Q,delta.Q.cov),
                   cov=rep(c(0,1),each=100),
-                  mat=2.2, # age at sex. maturity Paniw et al. 2020
+                  mat=2, # age at sex. maturity Paniw et al. 2020
                   n.vr=7, # number of vital rates with covariates
                   n.pam=38, # number of parameters
                   dens=0, # is density dependence in it?
@@ -635,7 +635,7 @@ write.csv(sens_df,"~/Library/CloudStorage/OneDrive-UniversitätZürichUZH/Mast
 sensVR_df=data.frame(study.doi="10.1111/ele.13459",
                   year.of.publication="2020",
                   group="Mammals",
-                  species="Marmota flaviventris",
+                  species="Marmota flaviventer",
                   continent="North America",
                   driver="Q",
                   driver.type="C",
@@ -654,7 +654,7 @@ sensVR_df=data.frame(study.doi="10.1111/ele.13459",
                          delta.Gj.winter,delta.Gy.winter,delta.Gnra.winter,delta.Gra.winter,
                          delta.Sj.winter,delta.Sy.winter,delta.Snra.winter,delta.Sra.winter,
                          delta.Ty.winter,delta.Tnra.winter,delta.Tra.winter),
-                  mat=2.2, # age at sex. maturity Paniw et al. 2020
+                  mat=2, # age at sex. maturity Paniw et al. 2020
                   n.vr=7, # number of vital rates with covariates
                   n.pam=38, # number of parameters
                   dens=0, # is density dependence in it?
