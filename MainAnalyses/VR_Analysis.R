@@ -20,6 +20,7 @@ library(lme4)
 library(viridis)
 library(effects)
 library(tidyr)
+library(DHARMa)
 
 # 1. load data #################
 
