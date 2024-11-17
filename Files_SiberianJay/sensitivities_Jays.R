@@ -4,7 +4,7 @@ library('popbio')
 library(readr)
 library(MASS)
 
-setwd("~/Files_SiberianJay/")
+setwd("/Users/maria/Dropbox/teaching/esin/Jays")
 
 # Load covariates
 env=read.csv("covariates_jays.csv")
@@ -33,10 +33,6 @@ load("Rep_ModOuts_Jays.rdata")
 ### Fitted models 
 # Time vary-ing covariates = pop_d (population density), temp (temperature), snow (snow depth)
 # Individual varying covariates = habitat - models predicted seperately for each habitat type (managed or unmanaged)
-
-#----------------------------
-#MANAGED FOREST
-#----------------------------
 
 # Names of classes:
 #' summer non-breeder (C) == sn
@@ -117,30 +113,32 @@ coefs.Csb <- mvrnorm(n = 100,mu = summary(mod_n_retained)$coefficients[1], Sigma
 min.snow=env$snow[env$snow==min(env$snow)][1]
 max.snow=env$snow[env$snow==max(env$snow)][1]
 
-sd.snow=sd(env$snow)
-mean.snow=mean(env$snow)
+sd.snow=sd(env$snow[seq(1,50,by=2)])
+mean.snow=mean(env$snow[seq(1,50,by=2)])
 
 temp.when.snow.min=env$temp[env$snow==min(env$snow)][1]
 temp.when.snow.max=env$temp[env$snow==max(env$snow)][1]
 
-pop.when.snow.min=mean(env$pop_d[env$snow==min(env$snow)])
-pop.when.snow.max=mean(env$pop_d[env$snow==max(env$snow)])
+# First value is managed, second is natural
+pop.when.snow.min=env$pop_d[env$snow==min(env$snow)]
+pop.when.snow.max=env$pop_d[env$snow==max(env$snow)]
 
 #######
 
 min.temp=env$temp[env$temp==min(env$temp)][1]
 max.temp=env$temp[env$temp==max(env$temp)][1]
 
-sd.temp=sd(env$temp)
-mean.temp=mean(env$temp)
+sd.temp=sd(env$temp[seq(1,50,by=2)])
+mean.temp=mean(env$temp[seq(1,50,by=2)])
 
 snow.when.temp.min=env$snow[env$temp==min(env$temp)][1]
 snow.when.temp.max=env$snow[env$temp==max(env$temp)][1]
 
-pop.when.temp.min=mean(env$pop_d[env$temp==min(env$temp)])
-pop.when.temp.max=mean(env$pop_d[env$temp==max(env$temp)])
+pop.when.temp.min=env$pop_d[env$temp==min(env$temp)]
+pop.when.temp.max=env$pop_d[env$temp==max(env$temp)]
 
-mean.pop=mean(env$pop_d)
+mean.popM=mean(env$pop_d[seq(1,50,by=2)])
+mean.popN=mean(env$pop_d[seq(2,51,by=2)])
 
 ####################### For each coefficient sample, calculate lamba under different perturbations
 sens.out.managed=NULL
@@ -156,13 +154,13 @@ for(i in 1:100){
   ##min 
 
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,min.snow,mean.pop,mean.pop)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,min.snow,mean.pop,mean.pop)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,min.snow,mean.pop)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,min.snow,mean.pop,mean.pop)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,min.snow,mean.pop,mean.pop)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,min.snow,mean.pop,mean.pop)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.pop,mean.temp,0,mean.pop*mean.temp)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,min.snow,mean.popM,mean.popM)))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,min.snow,mean.popM,mean.popM)))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,min.snow,mean.popM)))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,min.snow,mean.popM,mean.popM)))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,min.snow,mean.popM,mean.popM)))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,min.snow,mean.popM,mean.popM)))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.popM,mean.temp,0,mean.popM*mean.temp)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,min.snow,0)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,min.snow,0)))
@@ -208,13 +206,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,max.snow,mean.pop,mean.pop)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,max.snow,mean.pop,mean.pop)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,max.snow,mean.pop)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,max.snow,mean.pop,mean.pop)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,max.snow,mean.pop,mean.pop)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,max.snow,mean.pop,mean.pop)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.pop,mean.temp,0,mean.pop*mean.temp)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,max.snow,mean.popM,mean.popM)))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,max.snow,mean.popM,mean.popM)))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,max.snow,mean.popM)))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,max.snow,mean.popM,mean.popM)))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,max.snow,mean.popM,mean.popM)))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,max.snow,mean.popM,mean.popM)))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.popM,mean.temp,0,mean.popM*mean.temp)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,max.snow,0)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,max.snow,0)))
@@ -274,13 +272,13 @@ for(i in 1:100){
   ##min 
   
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,mean.snow,mean.pop)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.pop,min.temp,0,mean.pop*min.temp)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,mean.snow,mean.popM)))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.popM,min.temp,0,mean.popM*min.temp)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,mean.snow,0)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,mean.snow,0)))
@@ -326,13 +324,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,mean.snow,mean.pop)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,mean.snow,mean.pop,mean.pop)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.pop,max.temp,0,mean.pop*max.temp)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,mean.snow,mean.popM)))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,mean.snow,mean.popM,mean.popM)))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.popM,max.temp,0,mean.popM*max.temp)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,mean.snow,0)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,mean.snow,0)))
@@ -393,13 +391,13 @@ for(i in 1:100){
   ##min 
   
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,min.snow,pop.when.snow.min)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.pop,temp.when.snow.min,0,pop.when.snow.min*temp.when.snow.min)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,min.snow,pop.when.snow.min[1],pop.when.snow.min[1])))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,min.snow,pop.when.snow.min[1],pop.when.snow.min[1])))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,min.snow,pop.when.snow.min[1])))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,min.snow,pop.when.snow.min[1],pop.when.snow.min[1])))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,min.snow,pop.when.snow.min[1],pop.when.snow.min[1])))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,min.snow,pop.when.snow.min[1],pop.when.snow.min[1])))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,pop.when.snow.min[1],temp.when.snow.min,0,pop.when.snow.min[1]*temp.when.snow.min)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,min.snow,0)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,min.snow,0)))
@@ -445,13 +443,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,max.snow,pop.when.snow.max)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,mean.pop,temp.when.snow.max,0,pop.when.snow.max*temp.when.snow.max)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,max.snow,pop.when.snow.max[1],pop.when.snow.max[1])))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,max.snow,pop.when.snow.max[1],pop.when.snow.max[1])))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,max.snow,pop.when.snow.max[1])))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,max.snow,pop.when.snow.max[1],pop.when.snow.max[1])))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,max.snow,pop.when.snow.max[1],pop.when.snow.max[1])))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,max.snow,pop.when.snow.max[1],pop.when.snow.max[1])))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,pop.when.snow.max[1],temp.when.snow.max,0,pop.when.snow.max[1]*temp.when.snow.max)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,max.snow,0)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,max.snow,0)))
@@ -512,13 +510,13 @@ for(i in 1:100){
   ##min 
   
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,pop.when.temp.min,min.temp,0,pop.when.temp.min*min.temp)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min[1],pop.when.temp.min[1])))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min[1],pop.when.temp.min[1])))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min[1])))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min[1],pop.when.temp.min[1])))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min[1],pop.when.temp.min[1])))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,0,snow.when.temp.min,pop.when.temp.min[1],pop.when.temp.min[1])))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,pop.when.temp.min[1],min.temp,0,pop.when.temp.min[1]*min.temp)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,snow.when.temp.min,0)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,snow.when.temp.min,0)))
@@ -564,13 +562,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,pop.when.temp.max,max.temp,0,pop.when.temp.max*max.temp)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max[1],pop.when.temp.max[1])))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max[1],pop.when.temp.max[1])))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max[1])))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max[1],pop.when.temp.max[1])))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max[1],pop.when.temp.max[1])))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,0,snow.when.temp.max,pop.when.temp.max[1],pop.when.temp.max[1])))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,0,pop.when.temp.max[1],max.temp,0,pop.when.temp.max[1]*max.temp)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,0,snow.when.temp.max,0)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,0,snow.when.temp.max,0)))
@@ -628,18 +626,19 @@ for(i in 1:100){
   #NATURAL FOREST
   #----------------------------
   
+  
   ### SNOW NO COVARIATION
   
   ##min 
   
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,min.snow,mean.pop,mean.pop)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,min.snow,mean.pop,mean.pop)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,min.snow,mean.pop)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,min.snow,mean.pop,mean.pop)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,min.snow,mean.pop,mean.pop)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,min.snow,mean.pop,mean.pop)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.pop,mean.temp,1,mean.pop*mean.temp)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,min.snow,mean.popN,mean.popN)))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,min.snow,mean.popN,mean.popN)))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,min.snow,mean.popN)))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,min.snow,mean.popN,mean.popN)))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,min.snow,mean.popN,mean.popN)))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,min.snow,mean.popN,mean.popN)))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.popN,mean.temp,1,mean.popN*mean.temp)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,min.snow,1)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,min.snow,1)))
@@ -685,13 +684,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,max.snow,mean.pop,mean.pop)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,max.snow,mean.pop,mean.pop)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,max.snow,mean.pop)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,max.snow,mean.pop,mean.pop)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,max.snow,mean.pop,mean.pop)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,max.snow,mean.pop,mean.pop)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.pop,mean.temp,1,mean.pop*mean.temp)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,max.snow,mean.popN,mean.popN)))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,max.snow,mean.popN,mean.popN)))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,max.snow,mean.popN)))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,max.snow,mean.popN,mean.popN)))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,max.snow,mean.popN,mean.popN)))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,max.snow,mean.popN,mean.popN)))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.popN,mean.temp,1,mean.popN*mean.temp)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,max.snow,1)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,max.snow,1)))
@@ -751,13 +750,13 @@ for(i in 1:100){
   ##min 
   
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,mean.snow,mean.pop)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.pop,min.temp,1,mean.pop*min.temp)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,mean.snow,mean.popN)))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.popN,min.temp,1,mean.popN*min.temp)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,mean.snow,1)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,mean.snow,1)))
@@ -803,13 +802,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,mean.snow,mean.pop)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,mean.snow,mean.pop,mean.pop)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.pop,max.temp,1,mean.pop*max.temp)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,mean.snow,mean.popN)))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,mean.snow,mean.popN,mean.popN)))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.popN,max.temp,1,mean.popN*max.temp)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,mean.snow,1)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,mean.snow,1)))
@@ -870,13 +869,13 @@ for(i in 1:100){
   ##min 
   
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,min.snow,pop.when.snow.min)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,min.snow,pop.when.snow.min,pop.when.snow.min)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.pop,temp.when.snow.min,1,pop.when.snow.min*temp.when.snow.min)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,min.snow,pop.when.snow.min[2],pop.when.snow.min[2])))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,min.snow,pop.when.snow.min[2],pop.when.snow.min[2])))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,min.snow,pop.when.snow.min[2])))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,min.snow,pop.when.snow.min[2],pop.when.snow.min[2])))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,min.snow,pop.when.snow.min[2],pop.when.snow.min[2])))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,min.snow,pop.when.snow.min[2],pop.when.snow.min[2])))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,pop.when.snow.min[2],temp.when.snow.min,1,pop.when.snow.min[2]*temp.when.snow.min)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,min.snow,1)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,min.snow,1)))
@@ -922,13 +921,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,max.snow,pop.when.snow.max)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,max.snow,pop.when.snow.max,pop.when.snow.max)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,mean.pop,temp.when.snow.max,1,pop.when.snow.max*temp.when.snow.max)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,max.snow,pop.when.snow.max[2],pop.when.snow.max[2])))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,max.snow,pop.when.snow.max[2],pop.when.snow.max[2])))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,max.snow,pop.when.snow.max[2])))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,max.snow,pop.when.snow.max[2],pop.when.snow.max[2])))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,max.snow,pop.when.snow.max[2],pop.when.snow.max[2])))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,max.snow,pop.when.snow.max[2],pop.when.snow.max[2])))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,pop.when.snow.max[2],temp.when.snow.max,1,pop.when.snow.max[2]*temp.when.snow.max)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,max.snow,1)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,max.snow,1)))
@@ -989,13 +988,13 @@ for(i in 1:100){
   ##min 
   
   # habita coef = 0 for managed for habitat
-  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min)))
-  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min,pop.when.temp.min)))
-  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,pop.when.temp.min,min.temp,1,pop.when.temp.min*min.temp)))
+  Srj.min  = inv.logit(sum(coefs.Srj[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min[2],pop.when.temp.min[2])))
+  Sdj.min   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min[2],pop.when.temp.min[2])))
+  Ssn.min  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min[2])))
+  Swn.min   = inv.logit(sum(coefs.Swn[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min[2],pop.when.temp.min[2])))
+  Ssb.min   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min[2],pop.when.temp.min[2])))
+  Swb.min   = inv.logit(sum(coefs.Swb[i,]*c(1,1,snow.when.temp.min,pop.when.temp.min[2],pop.when.temp.min[2])))
+  Rsb.min   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,pop.when.temp.min[2],min.temp,1,pop.when.temp.min[2]*min.temp)))
   Csb.min   = exp(sum(coefs.Csb[i,]))
   psi.rj.min = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,snow.when.temp.min,1)))
   psi.dj.min =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,snow.when.temp.min,1)))
@@ -1041,13 +1040,13 @@ for(i in 1:100){
   ##max 
   
   # habita coef = 0 for managed for habitat
-  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max)))
-  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max,pop.when.temp.max)))
-  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,pop.when.temp.max,max.temp,1,pop.when.temp.max*max.temp)))
+  Srj.max  = inv.logit(sum(coefs.Srj[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max[2],pop.when.temp.max[2])))
+  Sdj.max   = inv.logit(sum(coefs.Sdj[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max[2],pop.when.temp.max[2])))
+  Ssn.max  = inv.logit(sum(coefs.Ssn[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max[2])))
+  Swn.max   = inv.logit(sum(coefs.Swn[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max[2],pop.when.temp.max[2])))
+  Ssb.max   = inv.logit(sum(coefs.Ssb[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max[2],pop.when.temp.max[2])))
+  Swb.max   = inv.logit(sum(coefs.Swb[i,]*c(1,1,snow.when.temp.max,pop.when.temp.max[2],pop.when.temp.max[2])))
+  Rsb.max   = inv.logit(sum(coefs.Rsb[i,]*c(1,1,pop.when.temp.max[2],max.temp,1,pop.when.temp.max[2]*max.temp)))
   Csb.max   = exp(sum(coefs.Csb[i,]))
   psi.rj.max = inv.logit(sum(coefs.psi.rj[i,]*c(1,1,snow.when.temp.max,1)))
   psi.dj.max =  inv.logit(sum(coefs.psi.dj[i,]*c(1,1,snow.when.temp.max,1)))
