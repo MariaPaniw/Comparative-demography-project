@@ -1,7 +1,7 @@
 
 # The Barnacle Goose
 
-Corresponding author: Stéphanie Jenouvrier  
+Corresponding author: Kate Layton-Matthews
 Study DOI: [10.1111/gcb.14773](https://doi.org/10.1111/gcb.14773)
 
 ## Species
