@@ -6,25 +6,25 @@ Study DOI: [10.1111/gcb.14773](https://doi.org/10.1111/gcb.14773)
 
 ## Species
 
-The black-browed albatross (_Thalassarche melanophris_) is a long-lived seabird. The study population is located at Kerguelen Island in the colony of Cañon des Sourcils Noirs (Jenouvrier et al. 2018). The capture-mark-recapture program has been going on since 1979 and at least 200 breeding pairs were monitored annually.
+The Svalbard barnacle goose population is migratory and overwinters at Solway Firth, Scotland, before flying to Svalbard for breeding in summer. The barnacle goose reaches sexual maturity at the age of 2 years. Individual mark–recapture data from both sexes were collected from the nesting islands and coastal area around Ny-Ålesund from 1990-2017 (for this study).
 
 ## Model
 
-The authors linked sea surface temperatures (SSTs) to vital rates and built a matrix population model. To obtain the uncertainties around our estimates we extracted the standard errors of some parameters from Tbl. S2.4b of a previous study (Desprez et al. 2018). The sensitivity of lambda (with and without covariation) to SSTs was calculated 100 times, each time resampling parameters from the simulated distributions.
+We built a matrix population model comprised of 2 states, fledglings and adults. Vital rates were modeled as a function of various seasonal temperature and rainfall measures at breeding and overwindering grounds, as well as populaiton density and predation pressure were mean daily minimum temperatures October-March in Scotland and in April-May in Helgeland, mean precipitation in April-May in Helgeland, the flyway population size at the wintering grounds in Scotland, spring onset, adult numbers in Svalbard, and fox predation. The sensitivity of lambda (with and without covariation) to was calculated 100 times, each time resampling parameters from the simulated distributions. We calcualted sensitivities to climatic varaibles across all vital rates or perturbing each vital rate separately.
 
 ## Files Overview
 
 Main code:
-- MAIN_BBA.R
+- sensitivities_Geese.R
+- - sensitivities_Geese_vital_rate.R
 
 Inputs:
-- invlogit.R
-- invlogitG.R
-- parameter_ENVSTO.R
-- popmat.R
-- SST.mat
+- env_covar_scaled_geese.csv: all environemtnal covariates
+- RepMods_outAll_v2.rdata: reproduction models
+- Survival_ModOut_v2.rdata: survival models
 
 Output:
-- Sens_Albatross.csv
+- sens_goose.csv
+- sens_goose_vital_rate.csv
 
 
