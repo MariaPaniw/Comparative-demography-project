@@ -52,6 +52,7 @@ PyrrhulaVR=read.csv("birds/output/Pyrrhula_Sens_per_VR.csv") # [Malchow et al. 2
 SittaVR=read.csv("birds/output/Sitta_Sens_per_VR.csv") # [Malchow et al. 2023]
 TurdusVR=read.csv("birds/output/Turdus_Sens_per_VR.csv") # [Malchow et al. 2023]
 DipperVR=read.csv("dipper/Sens_VR_Dipper_Resampling.csv") # [Gamelon et al. 2017]
+GooseVR=read.csv("Files_BarnacleGoose/sens_vital_rates.csv") # [Layton-Matthews et al. 2020]
 
 
 # Plants
@@ -110,6 +111,8 @@ dfVR$par.per.vr=log(dfVR$par.per.vr)
 # group vital rates into reproduction, survival, or trait change
 levels(factor(dfVR$vital.rates))
 dfVR[dfVR=="breeding probability"]="reproduction"
+dfVR[dfVR=="prop fledging"]="reproduction"
+dfVR[dfVR=="prop reproductive"]="reproduction"
 dfVR[dfVR=="litter probability"]="reproduction"
 dfVR[dfVR=="litter size"]="reproduction"
 dfVR[dfVR=="denning survival"]="survival"
@@ -126,6 +129,7 @@ levels(factor(dfVR$vital.rates))
 # group (st)ages into non-reproductive and reproductive individuals
 levels(factor(dfVR$stage.age))
 # non-reproductive
+dfVR[dfVR=="fledgling"]="non-reproductive"
 dfVR[dfVR=="babies"]="non-reproductive"
 dfVR[dfVR=="immature"]="non-reproductive"
 dfVR[dfVR=="juvenile"]="non-reproductive"
