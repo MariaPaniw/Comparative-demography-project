@@ -1,0 +1,701 @@
+"study.doi","year.of.publication","group","species","continent","driver","driver.type","stage.age","vital.rates","sens","cov","mat","n.vr","n.pam","dens","biotic_interactions","lambda.sim","study.length"
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00263637754259214,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0078550893051732,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00946672979150694,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00539313730585219,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00537688807991184,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00539394888464594,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00539299923066748,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00354998248081653,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00871940470483239,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0106707604388831,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00627855954788777,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00625877822164704,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00627900424218901,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00627881830023097,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00304190241258685,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00502173332949437,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00894600033360721,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00701642036820498,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00700025510229346,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00701704421544125,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0070172913005021,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00423009147233266,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00364022697259956,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00969581853528276,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00559165032051758,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00558784941253132,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00559460833162567,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00559101620128851,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00171675652247108,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00352024584717572,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0119329521187384,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00748010748121942,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00745788801477979,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00747966051325776,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00748018432459356,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00311575154500527,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00542721509999845,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00938722766350051,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0077916265232605,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0077786469574476,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0077943258230109,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00779094871095605,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00313006804548918,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00756458489993208,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0087699589415608,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00534755527319595,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00534046026919957,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00534878062029759,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00534686867959446,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00328430725893257,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00594577807583942,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00855391836484739,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00506854081534305,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0050540513981216,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0050682045886384,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00506723508371257,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00268640591959183,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.009147035398941,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00933185418506506,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00753180268876779,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00750806194537262,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00753125805362309,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00753139458766468,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00104067608732398,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00407951529369437,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00916781446837921,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00577780605039367,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00576506553804979,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00577728435584012,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00577771181787224,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00215506192150427,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00711706265453757,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00788915514297075,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00427883752025877,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00426585041393219,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.004277732471061,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00427791807860994,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00262316912472627,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00801869365886747,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00797278871358844,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00548824655004695,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00547352190088737,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00548762482918142,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00548711830034142,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00155132234928386,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00714750185750123,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00923085539229683,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00673628988809987,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00671387530338196,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00673568019898954,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00673491198061564,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00207261120070259,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00395807338916431,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00713341914287656,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00557212881095507,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00555044961325141,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00557246062320392,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00557302488169078,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00307854614644889,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00511264403894081,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00689223413672262,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00251396871216194,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00250343556159245,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0025146638355417,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00251320978475197,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00250716346349482,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00422124348743978,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00871355328442036,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00581684054081036,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00579724507516977,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00581694813308946,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00581721279058085,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00329885998055313,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00687939827567907,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00719556976716967,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00272869104895554,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00272166506036508,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00272966082553161,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00272870594562451,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00226549712686987,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00690153985432316,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00777474441990637,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00600730682185116,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00600403393284949,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00600835779478736,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00600655804975214,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00216073844250214,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00836990231153791,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00743837053207515,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00625286576279447,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00623916071995284,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00625293513570215,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00625284212929161,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00193953870016998,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00875199486534681,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00810047018460906,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00469509191249336,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00468416965164199,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00469644682500729,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00469633250850797,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00165210876750426,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00772129481401499,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0108054975208984,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00536176754821878,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0053460994402193,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00536162188702019,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0053611343671804,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00205818515595007,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00708570709190458,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0117241969911709,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00898403154667057,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00896929799902793,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00898379033315383,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00898405291297239,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00372932658223013,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0044745833394072,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0105932200332124,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00727960047444342,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00725903669937742,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00728020771314405,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00727995879563585,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00130453263081996,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00623907644028933,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00951522221683626,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00707509025627876,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00705800433338378,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00707528607386875,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00707562258087727,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00283662723628741,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00861976618132869,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0097109647336893,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00467461177508968,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00465046671872449,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00467439596550433,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00467627973813436,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00206840484797428,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00644604473345256,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00585836657581545,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00564200421685664,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00562022225514567,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00564227700620593,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00564133744583519,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00156298687256617,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00450109643664859,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00944615622789889,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00478330433329417,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00476747777989124,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00478343670918756,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00478309273006419,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00434531613882714,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00837165588823799,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00974424700330869,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0059660280992209,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00596040698057522,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00596798232645993,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00596618546502408,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00220764128588067,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00832851806503946,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00914944164462147,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00647893659021231,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00646635103437868,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00647949533494245,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00647758676416637,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00207816684158522,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00794126120135084,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0085391215333967,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00500555127923578,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00499405543077328,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00500549253458731,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00500585230608603,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00335546743768381,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00815468341144459,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00871507876664713,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00728408667148296,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00725463908227794,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00728352647712979,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00728432873574264,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00283361428567185,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00593036361640601,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00856535224925439,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00864004708241955,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00861844882197191,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00864071999766295,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00863963211695632,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00188819716448859,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00719358905276356,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0108813561124981,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00723424974010668,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00721637729931307,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00723401170614331,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0072336635451244,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00211634179999785,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00434758555068606,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00902638540175523,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00632061160771361,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00630804669947379,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00632112203645543,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00632109458670548,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00196259521140825,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00780556345318269,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00586332070719667,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00438896409513201,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00437327111171238,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0043881703999795,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00438889144901342,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00291990082666272,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00792948676221064,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00956330754266047,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00487962422802782,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00486566984499632,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00487996069892764,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00487980116669646,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00204248335740485,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00624359654128979,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00661358203664398,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00539930761668609,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00538427912170078,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0053996066371264,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00539929518071892,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00107583849335243,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00528167791457945,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0071655569939272,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0029737966185521,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00296042063485631,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00297349983326975,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00297389971422994,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00464578795969421,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00460898005795294,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00849655642227671,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00655821171265071,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00655388048542411,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00656123045751355,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00655587950679102,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00127511011240283,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00919081817756009,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00700913475740176,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00580873544413449,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00579410193786857,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00580876733202311,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0058089665541051,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00208729643143232,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00830906490433145,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0107926886815941,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00718520403519193,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00717125030102766,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00718525979599964,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00718552096344085,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00217697739090271,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0064331708073582,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00970845331479579,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00721480235735175,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00719848228037262,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00721413954585913,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00721297160110417,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00194480431649616,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00669638786911161,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00559728997969511,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00531872497729284,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00530650321480058,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00531878384793045,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00531830815557634,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00182627788289128,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00803572113023438,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00825070042926486,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00590893590457219,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00589598789494718,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00590836553865374,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00590770775391922,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.0029567711957851,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00894194346099279,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00929629419865341,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0052261688141486,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00520091093697669,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00522529129874222,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00522564548606758,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00211975979657951,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00775784357940768,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00931787564337173,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00665578895595195,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00663950917148495,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00665612632595308,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00665571128334283,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00170007879052438,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00763979872498401,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00952395921548134,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00570519787252486,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00569358778585288,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00570499883842462,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00570422356336568,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00222408099708815,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00538113488484744,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00685906071846392,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00490176015815428,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00489256554031488,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00490218459331393,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00490106089041401,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00189783923216863,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00741955677874869,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00953741720987698,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00674581032056572,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00673155435846459,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00674597084920419,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00674551841153888,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00132898500449475,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00992399754730041,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00878300055361795,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00502228485641063,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0050071951067871,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00502193859336078,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00502247859673106,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00247007743938322,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00718227630648685,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0088059802198288,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00699323076509431,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00698187247862658,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00699388125222599,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00699345160962045,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00172738933697298,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00724611679744957,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00862548426269874,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00698157983884723,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00696395157566232,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00698140777479766,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00698186489281752,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00212251592473917,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00545590517356296,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0108687719358051,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00675574498589267,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00673915636040731,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00675602257643037,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00675550877974554,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00165381047323955,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00710000940877409,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00977364124773173,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00568699141197606,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00567602267826633,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00568712686230504,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00568696189724312,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00151303685552389,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00568255636611758,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00786349842653151,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00395739412498206,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00394493372916056,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00395643542498086,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00395641369436487,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00255397546656293,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00245325709860129,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00640557830469003,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00404984789617468,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00403187281637075,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00404919682305964,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00404879796479489,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00196301315968118,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00934144962926336,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00956081050596889,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00559860128511781,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00558224092853487,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00559851354590249,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00559781054065986,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00297776352985722,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00623550105666405,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0077595655302905,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00458680553445763,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00456818855738027,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00458428903959252,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00458581878432284,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00175583757591913,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00966928235573042,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00786755115860286,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00521371483196674,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00520060465292379,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00521326489019276,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00521383943700427,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00286430724952495,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00623175203621312,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00711628363834567,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00596688623654112,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00594692821485936,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00596664127348106,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00596504231336027,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00233340362966067,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00857135129039478,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00871907992351699,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00739110150372274,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0073720419308485,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00739040245690275,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00739055981122568,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00318738405773971,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00936668539271528,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0112363948952526,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00658028983706175,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00656611271919283,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00658121296496546,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00657990024163931,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00191547945062464,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0102430330380866,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00916022538786513,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00506634805839345,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0050549434453727,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0050662516540528,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00506652620814004,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.0019273750770016,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0076112434233124,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00990770461858677,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00686855566558893,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00684749896006052,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00686731838796955,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00686834492301989,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00215848843230788,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0088214776391977,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00990524372726215,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00605171202057559,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00603711614685724,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00605210439429355,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00605164530836472,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00127575880861003,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00803005568094377,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00756935389691047,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00606184970904013,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00604778976886312,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00606114439919329,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00606152493614824,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00277098885948856,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00909766111223499,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0089622723072153,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00926250150757037,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00923879135941672,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00926193356842322,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00926175206695285,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00215065563864567,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00514074255920712,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00819634627855724,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00755942243879366,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00754064314800463,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00755948946121456,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00755897186131947,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.0023328769808067,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00575946047283675,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00843699309648192,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0046863818869572,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00466791022089359,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00468595314376999,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00468602864728775,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00160329461300136,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00594576133642846,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0067491071063779,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00718985425691521,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00717393712030534,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00718945441295236,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00718926654207349,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00268249387237464,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00806747314911564,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00815796871562814,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00528203441366182,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00526738126914657,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00528202399118835,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0052816368342515,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00367051807534928,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00550983120709535,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00982918692755669,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00548088127057618,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00546383209823452,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00548154595973472,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0054803741622244,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00147586924314079,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00378126088253129,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00899033818144082,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00567456516010315,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0056590482202763,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00567411377701314,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0056746934181898,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00208564271754432,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00254521080638784,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00798493514738139,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00441625959779675,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00439718843328568,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00441637490717172,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00441644198956305,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00187993441429349,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00644618042096987,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00948008355235705,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00562134066214402,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00560889104438957,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00562107089928931,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00562085615075424,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00227368042636965,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00344193318274592,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00991127566245885,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0068956866343728,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00687944528096698,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00689643032024897,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.0068939852176422,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00157649162288056,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00794969138171888,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00693892762678631,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00484450776770384,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00482991791565353,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00484454695616842,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00484520152824283,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00156485890261916,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00386493662417112,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00912942611263139,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00755042371084102,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0075383039707644,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0075503236526527,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00755050579936516,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00221215912969609,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00747907982528844,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00860022051879871,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.003882134932435,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00386233279756941,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00388215525405451,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00388192531272185,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00389492078054496,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00910924221836528,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00806479270112634,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00639055995273973,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00637237402755692,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00639226045091407,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00638942541948708,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00147887153229975,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00826234168872057,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00750376494645374,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00686089066137512,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00683602053873859,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00686074570392413,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.006861345066375,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00205303505150546,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00793598559676705,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00816461109341905,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0059414388491168,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0059213399208849,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00594184279582288,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00594095037518288,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00240538920923404,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00896221549695772,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00952655509315033,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00559250495278267,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0055740139803832,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00558985494222621,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00559199972430012,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00320017786971289,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00847822692892683,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0112979729932726,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00619215085070516,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00616733836303947,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00619172684524332,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00619135149888961,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00168464612485664,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00599608013936747,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00884688055446131,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00550508406594541,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00549161249391583,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00550509767614278,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00550563934516364,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00270695006085396,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00817235748934709,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0109417111570023,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00728599038515596,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.0072756026888454,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00728561051296636,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00728604441935076,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00297264108478827,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00692687773598707,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00896116510676323,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00551898343584523,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00550758202433286,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00551865759278412,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00551663066145529,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.0019358611549823,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00244711042028309,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00888392764145724,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00515543859348013,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00514243795223871,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00515531767264121,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00515507918366831,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00207416391432428,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0100585634170056,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00781272485551041,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00635008062547782,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00633482146558025,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00635101182775705,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00634904960549838,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.0024107927863135,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00838998627829588,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00589083780765173,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00573212978171285,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00571791550309134,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00573227130503287,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00573045214209728,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00204578336478957,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00424501192809988,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00950126089342568,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00560467344397088,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00558956650476925,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0056056113146876,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00560383195800222,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00135654920691771,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00301358681772858,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00676755883406122,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00357174298650134,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00355751661361587,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00357099445032287,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00357135546119818,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00262412102058306,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00433600247990364,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0076239836347462,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00385213006591598,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00383930370149412,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00385241833389208,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00385080263934075,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.0027533789489718,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0073498963192214,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00921403223934207,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00617445841870389,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00616368058824835,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00617473261203185,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00617249822803458,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00238430236984866,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00741610684292688,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00898285968654678,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00451996375267687,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00450328143250533,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00451915056052965,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00451970310003824,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00232493412399897,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00594531746205906,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.0083398407262995,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00501447044989343,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00500261484513339,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.0050141556215439,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00501380168942481,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00202226974546079,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00805782431090426,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00959498557341193,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0058871235398457,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00587590307258474,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00588666312516759,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00588632613274314,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00187388325927788,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00693670741286272,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00715251627759914,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00440957533871869,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00439413082822096,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00440972252478128,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00440679438427208,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00320305304802361,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.00642723425451806,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00924478672851093,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.00654542780720698,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00652508907199613,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00654669511999947,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00654497759280807,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Temperature","C","all","recruitment",0.00219993535043552,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder summer","survival",0.0071027653167179,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","breeder winter","survival",0.00700115124274406,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","dispersed juvenile","survival",0.0053675432445342,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder summer","survival",0.00535362139192814,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","non-breeder winter","survival",0.00536741877337581,1,1,12,28,1,0,0,15
+"10.1007/s00442-018-4100-z",2018,"Birds","Perisoreus infaustus","Europe","Snow","C","retained juvenile","survival",0.00536578286200675,1,1,12,28,1,0,0,15
