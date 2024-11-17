@@ -27,7 +27,7 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 - Mouse Lemur: [10.1073/pnas.2214244120](https://www.pnas.org/doi/10.1073/pnas.2214244120)
 - Opuntia: [10.1111/gcb.15519](https://onlinelibrary.wiley.com/doi/full/10.1111/gcb.15519) & [10.1002/ecm.1228](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1228)
 - Spanish Trees: [10.1093/jpe/rtw081](https://academic.oup.com/jpe/article/10/5/731/3062498)
-- Dewy Pine: In Preparation
+- Dewy Pine: [10.32942/X24G93](https://doi.org/10.32942/X24G93)
 - Dracocephalum: In Preparation
 - Albatross: [10.1111/1365-2656.12827](https://doi.org/10.1111/1365-2656.12827)
 - Giraffes: [10.1111/gcb.16970](https://doi.org/10.1111/gcb.16970)
