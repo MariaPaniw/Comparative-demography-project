@@ -1,5 +1,5 @@
 
-# The Barnacle Goose
+# The Siberian Jay
 
 Corresponding author: Kate Layton-Matthews
 Study DOI: [10.1007/s00442-018-4100-z](https://doi.org/10.1007/s00442-018-4100-z)
