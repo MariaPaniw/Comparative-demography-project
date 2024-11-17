@@ -23,7 +23,7 @@ library("ggplot2")
 library("pracma")
 
 # Load covariates
-setwd("~/FilesBarnacleGoose/")
+setwd("/Users/maria/Dropbox/teaching/esin/Geese")
 env=read.csv("env_covar_scaled_geese.csv",header=T,sep=';')
 head(env)
 
@@ -242,7 +242,7 @@ for(i in 1:100){
                                      stage.age="adult",vital.rates="prop reproductive",
                                      sens=deltaTemp.sv,
                                      l_ratio=abs(log(lambda(mpm.max)/lambda(mpm.min))),
-                                     cov=0,
+                                     cov=1,
                                      sim=i))
   
   ####  Proportion reproductive Rain
@@ -302,7 +302,7 @@ for(i in 1:100){
                                      stage.age="adult",vital.rates="prop reproductive",
                                      sens=deltaRain,
                                      l_ratio=abs(log(lambda(mpm.max)/lambda(mpm.min))),
-                                     cov=0,
+                                     cov=1,
                                      sim=i))
   
   #### PROPORTION OF GOSLINGS FLEDGING
@@ -362,7 +362,7 @@ for(i in 1:100){
                                      stage.age="adult",vital.rates="prop fledging",
                                      sens=deltaRain.ja,
                                      l_ratio=abs(log(lambda(mpm.max)/lambda(mpm.min))),
-                                     cov=0,
+                                     cov=1,
                                      sim=i))
   
   
@@ -423,7 +423,7 @@ for(i in 1:100){
                                      stage.age="fledgling",vital.rates="survival",
                                      sens=deltaTemp.scot,
                                      l_ratio=abs(log(lambda(mpm.max)/lambda(mpm.min))),
-                                     cov=0,
+                                     cov=1,
                                      sim=i))
   
   ####  ADULT SURVIVAL
@@ -483,7 +483,7 @@ for(i in 1:100){
                                      stage.age="adult",vital.rates="survival",
                                      sens=deltaTemp.scot,
                                      l_ratio=abs(log(lambda(mpm.max)/lambda(mpm.min))),
-                                     cov=0,
+                                     cov=1,
                                      sim=i))
   
 }
