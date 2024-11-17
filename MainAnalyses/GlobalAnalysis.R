@@ -57,6 +57,9 @@ Sitta=read.csv("birds/output/Sitta_Sens.csv") # [Malchow et al. 2023]
 Turdus=read.csv("birds/output/Turdus_Sens.csv") # [Malchow et al. 2023]
 Dipper=read.csv("dipper/Sens_Dipper_Resampling.csv") # [Gamelon et al. 2017]
 Albatross=read.csv("Albatross/Sens_Albatross.csv") # [Jenouvrier et al. 2018]
+Goose=read.csv("BarnacleGoose/sens_goose.csv") # [Layton-Matthews et al. 2020]
+Jay=read.csv("SiberianJay/sens_jays.csv") # [Layton-Matthews et al. 2018]
+
 
 # Plants
 Cistus=read.csv("shrubs/Output/Sens_Cistus.csv") # [Paniw et al. 2023]
@@ -75,7 +78,7 @@ DewyP=read.csv("/Users/esinickin/Desktop/DewyPines/Sens_DewyPines.csv") # [Conqu
 
 df=rbind(AFox,StripedMouse,Giraffe,MouseLemur,Reindeer,Marmot,Meerkat,
            Petrel,MPenguin,Certhia,Linaria,Lophophanes,PrunellaCollaris,PrunellaModularis,Pyrrhula,Sitta,Turdus,Dipper,
-           Cistus,Halimium,Protea,Opuntia,DewyP,Albatross,Trees,Draco)
+           Cistus,Halimium,Protea,Opuntia,DewyP,Albatross,Goose,Jay,Trees,Draco)
 # 
 length(levels(factor(df$species))) # 36
 
@@ -128,6 +131,8 @@ climate_df$cov=factor(climate_df$cov) #is there covariation 0/1
 climate_df$study.doi=factor(climate_df$study.doi)
 climate_df$group=factor(climate_df$group) # plants, birds, mammals
 climate_df$species=factor(climate_df$species)
+
+climate_df$cov=factor(climate_df$cov,levels=c("1","0"))
 
 # GLMM 1
 m1 <- glmer(sens ~ cov *dens + mat + n.vr + par.per.vr + (1+cov|group/species) , family = Gamma(link="log"), data = climate_df)
@@ -193,24 +198,28 @@ levels(mean.climate_df$dens)
 levels(climate_df$dens) <- c("No density effects","Density effects",NA)
 levels(mean.climate_df$dens) <- c("No density effects","Density effects",NA)
 
+levels(pred.df$cov) <- c("Observed env change","Simplified env change",NA)
+levels(climate_df$cov) <- c("Observed env change","Simplified env change",NA)
+levels(mean.climate_df$cov) <- c("Observed env change","Simplified env change",NA)
+
 library(ggrepel) # to add labels
 
 # plot
 plot.clim <- ggplot(data = pred.df, aes(x = mat, y = fit)) +
-  geom_ribbon(data = pred.df, aes(ymin = lower, ymax = upper, fill = cov), alpha = 0.2) +
-  geom_line(data = pred.df, aes(col = cov), linewidth = 3) +
-  facet_grid(dens ~ .) +
+  geom_ribbon(data = pred.df, aes(ymin = lower, ymax = upper, fill = dens), alpha = 0.2) +
+  geom_line(data = pred.df, aes(col = dens), linewidth = 2) +
+  facet_grid(cov ~ .) +
   
-  geom_jitter(data = mean.climate_df, aes(x = mat, y = sens, color = cov), alpha = 0.8, size = 6, width = 0, height = 0) +
+  geom_jitter(data = mean.climate_df, aes(x = mat, y = sens, color = dens), alpha = 0.8, size = 6, width = 0, height = 0) +
   
   # can add labels of species if needed: 
   
- # geom_text_repel(data = mean.climate_df, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3.5,
+  # geom_text_repel(data = mean.climate_df, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3.5,
   #               box.padding = unit(0.4, "lines"), point.padding = unit(0.2, "lines"),
-   #             max.overlaps = 100) +
+  #             max.overlaps = 100) +
   
-  scale_fill_manual(name = "Covariation:", values = c("#b7b3e6", "#029356"), labels = c("No", "Yes")) + 
-  scale_color_manual(name = "Covariation:", values = c("#b7b3e6", "#029356"), labels = c("No", "Yes")) +
+  scale_fill_manual(name = "Density feedbacks:", values = c("#b7b3e6", "#029356"), labels = c("No", "Yes")) + 
+  scale_color_manual(name = "Density feedbacks:", values = c("#b7b3e6", "#029356"), labels = c("No", "Yes")) +
   labs(
     x = "Log age at sexual maturity (in years)",
     y = "Scaled population growth sensitivities (|S|)"
@@ -226,7 +235,7 @@ plot.clim <- ggplot(data = pred.df, aes(x = mat, y = fit)) +
     legend.position = "bottom"
   ) +
   geom_rect(
-    data = unique(pred.df[c("dens")]),
+    data = unique(pred.df[c("cov")]),
     aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
     color = "black",
     fill = NA,
@@ -240,6 +249,7 @@ ggsave("SensAllClimSpp.png", plot.clim, width = 10, height = 8, dpi = 300)
 
 summary(m1)
 
+### NOTE MARIA : FROME HERE ON, CODE NEEDS TO BE CHANGED TO ADJUST FOR NEW PLOTTING
 
 # 4. GLMM: Sens to Temperature vs Rain ##################################################################
 

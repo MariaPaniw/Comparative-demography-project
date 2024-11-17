@@ -27,13 +27,15 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 - Mouse Lemur: [10.1073/pnas.2214244120](https://www.pnas.org/doi/10.1073/pnas.2214244120)
 - Opuntia: [10.1111/gcb.15519](https://onlinelibrary.wiley.com/doi/full/10.1111/gcb.15519) & [10.1002/ecm.1228](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1228)
 - Spanish Trees: [10.1093/jpe/rtw081](https://academic.oup.com/jpe/article/10/5/731/3062498)
-- Dewy Pine: In Preparation
+- Dewy Pine: [10.32942/X24G93](https://doi.org/10.32942/X24G93)
 - Dracocephalum: In Preparation
 - Albatross: [10.1111/1365-2656.12827](https://doi.org/10.1111/1365-2656.12827)
 - Giraffes: [10.1111/gcb.16970](https://doi.org/10.1111/gcb.16970)
 - Magellanic Penguin: [10.1073/pnas.2209821120](https://doi.org/10.1073/pnas.2209821120)
 - Protea repens: [10.1111/ecog.00839](https://doi.org/10.1111/ecog.00839)
 - Reindeer: [10.1038/s41467-019-09332-5](https://doi.org/10.1038/s41467-019-09332-5)
+- Barnacle goose: [10.1111/gcb.14773](https://doi.org/10.1111/gcb.14773)
+- Siberian jay: [10.1007/s00442-018-4100-z](https://doi.org/10.1007/s00442-018-4100-z)
 
 **DATA & FILE OVERVIEW**
 1. Introduction: This project focuses on the population-level consequences of climate effects in vital-rate models. The main hypothesis is that when we do not consider the nuanced ways in which climatic variation affects individuals across the life cycle, we substantially misrepresent climate-change effects on population fitness. To test this hypothesis across different species of plants and animals, we are collecting studies in which vital rates were fit as a function of climatic and/or biotic factors, and a population model was developed from which fitness (λ) can be computed. From this, changes in fitness can be calculated when covariates in vital-rate models are perturbed, either separately or considering covariation with other covariates. Such sensitivities can then be compared across species. Ultimately, the goal is to develop this repository to make all data and analyses for all species freely accessible.  
