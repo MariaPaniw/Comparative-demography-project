@@ -52,7 +52,8 @@ PyrrhulaVR=read.csv("birds/output/Pyrrhula_Sens_per_VR.csv") # [Malchow et al. 2
 SittaVR=read.csv("birds/output/Sitta_Sens_per_VR.csv") # [Malchow et al. 2023]
 TurdusVR=read.csv("birds/output/Turdus_Sens_per_VR.csv") # [Malchow et al. 2023]
 DipperVR=read.csv("dipper/Sens_VR_Dipper_Resampling.csv") # [Gamelon et al. 2017]
-GooseVR=read.csv("Files_BarnacleGoose/sens_vital_rates.csv") # [Layton-Matthews et al. 2020]
+GooseVR=read.csv("Files_BarnacleGoose/sens_goose_vital_rates.csv") # [Layton-Matthews et al. 2020]
+JaysVR =read.csv("Files_SiberianJay/sens_jays_vital_rates.csv") # [Layton-Matthews et al. 2018]
 
 
 # Plants
@@ -133,6 +134,10 @@ dfVR[dfVR=="fledgling"]="non-reproductive"
 dfVR[dfVR=="babies"]="non-reproductive"
 dfVR[dfVR=="immature"]="non-reproductive"
 dfVR[dfVR=="juvenile"]="non-reproductive"
+dfVR[dfVR=="retained juvenile"]="non-reproductive"
+dfVR[dfVR=="dispersed juvenile"]="non-reproductive"
+dfVR[dfVR=="non-breeder winter"]="non-reproductive"
+dfVR[dfVR=="non-breeder summer"]="non-reproductive"
 dfVR[dfVR=="non-reproductive adult"]="non-reproductive"
 dfVR[dfVR=="sapling"]="non-reproductive"
 dfVR[dfVR=="juveniles"]="non-reproductive"
@@ -145,6 +150,8 @@ dfVR[dfVR=="subadult"]="non-reproductive"
 
 # reproductive
 dfVR[dfVR=="adult"]="reproductive"
+dfVR[dfVR=="breeder winter"]="reproductive"
+dfVR[dfVR=="breeder summer"]="reproductive"
 dfVR[dfVR=="previous breeder"]="reproductive"
 dfVR[dfVR=="previous non-breeder"]="reproductive"
 dfVR[dfVR=="reproductive adult"]="reproductive"
