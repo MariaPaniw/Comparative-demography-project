@@ -240,8 +240,8 @@ for(i in 1:100){
 }
 
 
-sens_goose=data.frame(species="Branta leucopsis", study.doi="10.1111/gcb.14773",year.of.publication=2019,
-           group="Birds",continent="Europe",driver=sens.out$driver,driver.type="C",
+sens_goose=data.frame(study.doi="10.1111/gcb.14773",year.of.publication=2019,
+           group="Birds",species="Branta leucopsis",continent="Europe",driver=sens.out$driver,driver.type="C",
            stage.age="all",vital.rates="all",sens=sens.out$sens,cov=sens.out$cov,mat=2,n.vr=5,n.pam=17,dens=1,
            biotic_interactions=1,lambda.sim=0,study.length=28)
 
