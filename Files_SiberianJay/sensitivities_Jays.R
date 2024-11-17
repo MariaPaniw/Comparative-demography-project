@@ -4,7 +4,7 @@ library('popbio')
 library(readr)
 library(MASS)
 
-setwd("/Users/maria/Dropbox/teaching/esin/Jays")
+setwd("~/Files_SiberianJay/")
 
 # Load covariates
 env=read.csv("covariates_jays.csv")
