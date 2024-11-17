@@ -23,7 +23,7 @@ library("ggplot2")
 library("pracma")
 
 # Load covariates
-setwd("/Users/maria/Dropbox/teaching/esin/Geese")
+setwd("~/FilesBarnacleGoose/")
 env=read.csv("env_covar_scaled_geese.csv",header=T,sep=';')
 head(env)
 
