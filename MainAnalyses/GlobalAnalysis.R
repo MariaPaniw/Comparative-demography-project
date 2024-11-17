@@ -57,6 +57,7 @@ Sitta=read.csv("birds/output/Sitta_Sens.csv") # [Malchow et al. 2023]
 Turdus=read.csv("birds/output/Turdus_Sens.csv") # [Malchow et al. 2023]
 Dipper=read.csv("dipper/Sens_Dipper_Resampling.csv") # [Gamelon et al. 2017]
 Albatross=read.csv("Albatross/Sens_Albatross.csv") # [Jenouvrier et al. 2018]
+Goose=read.csv("BarnacleGoose/sens_goose.csv") # [Layton-Matthews et al. 2020]
 
 # Plants
 Cistus=read.csv("shrubs/Output/Sens_Cistus.csv") # [Paniw et al. 2023]
@@ -75,7 +76,7 @@ DewyP=read.csv("/Users/esinickin/Desktop/DewyPines/Sens_DewyPines.csv") # [Conqu
 
 df=rbind(AFox,StripedMouse,Giraffe,MouseLemur,Reindeer,Marmot,Meerkat,
            Petrel,MPenguin,Certhia,Linaria,Lophophanes,PrunellaCollaris,PrunellaModularis,Pyrrhula,Sitta,Turdus,Dipper,
-           Cistus,Halimium,Protea,Opuntia,DewyP,Albatross,Trees,Draco)
+           Cistus,Halimium,Protea,Opuntia,DewyP,Albatross,Goose,Trees,Draco)
 # 
 length(levels(factor(df$species))) # 36
 
