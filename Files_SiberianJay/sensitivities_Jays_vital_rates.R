@@ -3,6 +3,7 @@ rm(list=ls(all=TRUE))
 library('popbio')
 library(readr)
 library(MASS)
+library(boot)
 
 setwd("/Users/maria/Dropbox/teaching/esin/Jays")
 
@@ -1810,7 +1811,7 @@ ggplot(sens.out.pop, aes(x=sens, color=vital.rates)) +
 
 # Averaged over populations 
 
-sens.out=aggregate(cbind(sens,l_ratio)~driver+cov+stage.age+vital.rates+sim,mean,data=sens.out.pop)
+sens.out=aggregate(cbind(sens,l_ratio)~driver+stage.age+vital.rates+sim,mean,data=sens.out.pop)
 
 ggplot(sens.out, aes(x=sens, color=vital.rates)) +
   geom_density()
@@ -1818,14 +1819,14 @@ ggplot(sens.out, aes(x=sens, color=vital.rates)) +
 
 sens_jays=data.frame(study.doi="10.1007/s00442-018-4100-z",year.of.publication=2018,
                       group="Birds",species="Perisoreus infaustus", continent="Europe",driver=sens.out$driver,driver.type="C",
-                     stage.age=sens.out$stage.age,vital.rates=sens.out$vital.rates,sens=sens.out$sens,cov=sens.out$cov,mat=1,n.vr=12,n.pam=28,dens=1,
+                     stage.age=sens.out$stage.age,vital.rates=sens.out$vital.rates,sens=sens.out$sens,mat=1,n.vr=12,n.pam=28,dens=1,
                       biotic_interactions=0,lambda.sim=0,study.length=15)
 
 write.csv(sens_jays,"sens_jays_vital_rates.csv",row.names = F)
 
 sens_jays_pop=data.frame(study.doi="10.1007/s00442-018-4100-z",year.of.publication=2018,
                      group="Birds",species="Perisoreus infaustus",continent="Europe",driver=sens.out.pop$driver,driver.type="C",
-                     stage.age=sens.out.pop$stage.age,vital.rates=sens.out.pop$vital.rates,sens=sens.out.pop$sens,cov=sens.out.pop$cov,mat=1,n.vr=12,n.pam=28,dens=1,
+                     stage.age=sens.out.pop$stage.age,vital.rates=sens.out.pop$vital.rates,sens=sens.out.pop$sens,mat=1,n.vr=12,n.pam=28,dens=1,
                      biotic_interactions=0,lambda.sim=0,study.length=15,population=sens.out.pop$population)
 
 write.csv(sens_jays_pop,"sens_jays_pop_vital_rates.csv",row.names = F)
