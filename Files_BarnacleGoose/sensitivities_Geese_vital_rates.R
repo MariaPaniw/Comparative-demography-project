@@ -490,7 +490,7 @@ for(i in 1:100){
 
 sens_goose_vr=data.frame(study.doi="10.1111/gcb.14773",year.of.publication=2019,
                       group="Birds",species="Branta leucopsis",continent="Europe",driver=sens.out$driver,driver.type="C",
-                      stage.age=sens.out$stage.age,vital.rates=sens.out$vital.rates,sens=sens.out$sens,cov=sens.out$cov,mat=2,n.vr=5,n.pam=17,dens=1,
+                      stage.age=sens.out$stage.age,vital.rates=sens.out$vital.rates,sens=sens.out$sens,mat=2,n.vr=5,n.pam=17,dens=1,
                       biotic_interactions=1,lambda.sim=0,study.length=28)
 
 write.csv(sens_goose_vr,"sens_goose_vital_rates.csv",row.names = F)
