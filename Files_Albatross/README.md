@@ -23,6 +23,7 @@ Inputs:
 - parameter_ENVSTO.R
 - popmat.R
 - SST.mat
+- SSTG.csv
 
 Output:
 - Sens_Albatross.csv
