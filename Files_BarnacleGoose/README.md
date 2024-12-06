@@ -15,7 +15,7 @@ We built a matrix population model comprised of 2 states, fledglings and adults.
 ## Files Overview
 
 Main code:
-- sensitivities_Geese.R
+- sensitivities_Geese_full.R
 - - sensitivities_Geese_vital_rate.R
 
 Inputs:
@@ -24,7 +24,7 @@ Inputs:
 - Survival_ModOut_v2.rdata: survival models
 
 Output:
-- sens_goose.csv
+- sens_goose_full.csv
 - sens_goose_vital_rate.csv
 
 
