@@ -16,7 +16,7 @@ library(reshape)
 # totalFold <- as.integer(args[2]) # totalFold<-69
 # setwd(args[3])
 
-setwd("/Users/maria/Dropbox/teaching/esin/Rabbits/")
+setwd("~/Rabbits/")
 
 #----------------------------------------------------------
 # Set vital rate parameters
