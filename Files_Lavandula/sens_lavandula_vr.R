@@ -12,7 +12,7 @@ library(mgcv)
 library(gridExtra)
 library(popbio)
 
-setwd("/Users/maria/Dropbox/teaching/esin/Lavandula/")
+setwd("~/Lavandula/")
 
 
 # A. LOAD DATA AND GAM ####
