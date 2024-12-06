@@ -1,0 +1,301 @@
+"species","study.doi","year.of.publication","group","continent","driver","driver.type","stage.age","vital.rates","sens","mat","n.vr","n.pam","dens","biotic_interactions","lambda.sim","study.length"
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00905076317899122,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00186449880394327,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00386370683191303,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00344304974203252,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00893520907078721,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00263955642167114,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00618631321629832,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00953864004634002,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000901174421905932,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00521816220559821,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00204936686595115,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00545618972907728,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00541735179477517,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00478736056442378,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00312943980616548,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00267827484441434,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00264719986434861,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",3.10749800657321e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00359675338531946,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000915023561684656,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00425203333776313,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00198323718360769,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00968294972740173,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000286331389932352,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00386266301712115,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00253950819956077,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000760739902928158,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.002527422191928,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00307808928139934,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00427475194529075,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000284839679376956,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00446432352727955,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000439067081373757,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00395477937044848,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00135308676292344,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00419321906435996,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000761420099792188,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00660944777623648,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00916868609166946,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00741821741870945,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00948726975435056,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00233991207478547,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00478954554887949,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",6.24930339151621e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00558514011466925,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00659690342309154,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.0025520653796831,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00375102065274802,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00154244847586193,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00666989755561169,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000911776303877834,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000956120933401968,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00178723751574463,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00308520629928423,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",3.10749800657021e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00280256437865446,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000994399362103068,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00129359743549251,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",6.21499601314643e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00489393713869705,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00587282640681582,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00397937964649022,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00313301522733435,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00165280050224554,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00737607922269254,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",3.10749800657321e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00435363082063615,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000777606940906176,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",2.56015460768492e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.0104630834439905,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00832211869990828,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00584863665474599,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00577286895957924,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00875639184300777,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",3.10749800657321e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00833841094563836,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",5.72754534544549e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00365288883318015,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000635185037591763,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00176981010460445,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00331886395554184,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000915667374793699,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00263439389829881,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00925849435839051,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00259081519118011,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00121428087459837,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00183342382387754,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00505188698653161,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000843034136621612,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.0120032277818317,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00366705822151302,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00347522892492985,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00360469768762361,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00114176977663233,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00475447195005534,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00186449880394327,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00559890395933289,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.00347067300401386,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000937722835960487,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","Temperature","C","all","reproduction",0.000588294832473053,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00306119019314081,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00467646455157633,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00292895690259381,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0153943765006354,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000963324382037396,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00746772655143766,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.004174182963696,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",4.54373658103579e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00706714695341169,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00664263610075178,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00418939109848434,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00783258504775058,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00418472377128824,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000905708997727721,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00207981718342393,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00520336178814753,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00330316655904815,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00905984927217542,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00535291592099842,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00521644863334007,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.002672448285652,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00273515093278752,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00644332114002297,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0058797985040803,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0102932891130738,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0023885917015692,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00417309116195961,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00260260525009844,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00121226117002928,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00269840295650237,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00065023705619561,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00579343823434204,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000770906374840877,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000106222840482046,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00340465250345061,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00110271614034298,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00711122310883131,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00337829426143048,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000963324382037336,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00481318834714658,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00822809073229735,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0045294137610945,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0029452468743908,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00186067708260456,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00163849894891985,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000833551027785585,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00683655826562813,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000849971329752173,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00992771425436089,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00202653262857171,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00261017962811774,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00507951312625655,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00946953345304369,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00438959153896108,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0047850886317078,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0050300709985765,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00273459824578347,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00708315326873029,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000328388234720456,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00326753317357577,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",6.21499601314643e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00445500711332231,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000560089521660758,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0102241957351624,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000913020929242499,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000992394524679496,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00206887674502436,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00540704653143544,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0027469457712554,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00220430572881774,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00351579333289017,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00170957151248827,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00493217223957746,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000932249401971604,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000868282557925068,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00147239399949268,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0128127204266054,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00904645652643501,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00161071926540024,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00161346451797454,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00339509951630477,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000727083349882363,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00152699803059109,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00441772634882832,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0102691683641719,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000883886145181,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00227983478639574,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",8.66029271725938e-06,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00327610125382956,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000828916739763852,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000994399362103068,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0151099627488152,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000808254138376045,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.000905141882596117,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00348728334126399,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00825884526247736,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00497523378760555,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.00142839075196444,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","juvenile","survival",0.0131241315635822,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000839024461774467,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00270352326571774,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000761588334647144,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0043352671837309,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00370618363202607,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0013180000467421,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00825832317454664,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00458194578192622,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.002490220076219,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00270352326571774,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00682288650069362,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00923308530514126,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00602167240444039,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00522035499653022,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0110079167012974,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00262615450770431,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00803998551851272,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00272943572241108,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00865305649350469,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00461371834488267,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00537597155136974,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00788458493392944,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00220986701050861,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00120055423467823,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0047709234100901,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0017401988836804,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00281687607576897,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00651738290254544,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00248334996945665,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00228882124708093,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00186055173307446,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00329346358017591,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00437965720450076,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000934469043404883,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00340212135731464,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00417998920366073,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000379467581682162,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00604974251589614,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000373848313915555,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00150564148058458,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00657079222109644,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",3.10749800657321e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00492330447160983,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00988416638165605,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000963324382037336,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0008700994418402,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00595145102091527,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000921282751093431,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000656828359454293,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00287527552040528,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000452789894174916,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00627637071389769,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00348471835282444,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000705541319111232,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",9.91688569049343e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00416230078108314,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00633220100521164,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00432206445086065,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00125245286067372,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00479764561737841,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0008700994418402,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00448867449453424,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0008700994418402,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00747310391143811,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",2.01281120880263e-05,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00632236876947672,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00506835140556762,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0048620334379251,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00396809588484797,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00335500574061106,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000932249401971634,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000872104279263772,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.0008700994418402,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00501587248724712,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00549468893012258,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00243769240808492,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00995587832107186,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000855233003232822,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00341600131529485,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000932249401971604,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00167436384721179,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00980421589943747,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00175101666823244,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00486893288281113,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00343242635001982,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00351579333289017,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00609427615970916,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00622502020026219,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00567129512884952,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00306119019314081,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.000977622280351565,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00388937225998259,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00272148136911712,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00288078160802102,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00776967212515842,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00180234884381183,0.33,5,19,1,0,1,NA
+"Oryctolagus cuniculus","10.1371/journal.pone.0048988",2012,"Mammals","Europe","# dry months","A","adult","survival",0.00296160406129599,0.33,5,19,1,0,1,NA
