@@ -6,49 +6,33 @@ Study DOI: Re-analysis of [10.1371/journal.pone.0048988](https://doi.org/10.1371
 
 ## Species
 
-The study population of Masai giraffes (_Giraffa camelopardalis tippelskirchi_ [subspp.] or _G. tippelkirchi_ [spp.]) is located in northern Tanzania.
+The European rabbit (_Oryctolagus cuniculus_) is native to the Iberian Peninsula. While rabbit populations have become inveasive across the world, their numbers decrease across their home ranges. Rabbits are short-lived and are able to reproduce at 4 months of age, and therefore effects of environmental drivers on populaitons are strongly mediated by reproductions The study by Tablado et al. [(2012)](https://doi.org/10.1371/journal.pone.0048988) compiled information for stage-specific reproductive and survival rates across the range of rabbit occurrences and fitted an individual-based model. Here, Morales-González and Evers use the model and supplement it with data on climate and other biotic parameters from the Doñana region to project population dynamics 1996-2006.
 
 
 ## Model
 
-Bond et al. (2023) developed a stochastic, socially structured individual-based model (IBM) using long-term demographic data. The two variables used in the model are rain and population density. We ran the simulation 100 times to get the sensitivities to rain with and without covariation. Then, we computed the vital-rate-specific sensitivities, again 100 times, by perturbing the covariates in each vital rate, namely survival of calves, survival of juveniles, and survival of adults.
+A stochastic, stage-structured individual-based model (IBM) was developed here, as per Tablado et al. (2012). The main climatic varaible used in the model is mean monthly temperature from which (in combination with informatino on rainfall) other indices (such as food availablity and number of dry months) are derived. Density-dependence is included in all vital-rate models. 
+
 
 ## Files Overview
 
 Sensitivity of all vital rates:
 Inputs for the main code:
-- abund_validation2023.csv
-- InitPopGiraffe.csv
+- initial_population.csv
+- data_fine_gcm.csv (data on all environmental drivers based on global climate-circulation models)
   
-Main code (including model):
-- giraffe_IBM_pertRain.R
-- giraffe_IBM_pertRainCov.R
+Main code:
+- rabbit_IBM_pertTemp.R (global perturbations of temperatures fixing other covariates at their averages)
+- rabbit_IBM_pertTemp_cov.R (global perturbations of temperatures allowing other covariates to vary with changes in temperatures)
+- rabbit_IBM_pertTemp_vr.R (vital-rate specific perturbations)
 
 Outputs of the main codes:
-- abund.pert.rain.csv
-- abund.pert.rain.cov.csv
-- use these outputs and "abund_validation2023.csv" in this script to calculate the sensitivities:
-  - sensitivities_giraffes.R
-  - this will give the final output: Sens_Giraffes.csv
-
-Sensitivities per vital rate (all in folder SensVR, except for the first two inputs):
-Inputs for the main code:
-- abund_validation2023.csv
-- InitPopGiraffe.csv
-
-Main code (including model):
-- giraffe_IBM_Rain_SurvNeo.R (survival of newborns)
-- giraffe_IBM_Rain_SurvJuv.R (survival of juveniles)
-- giraffe_IBM_Rain_SurvAd.R (survival of adults)
-
-Outputs of the main codes:
-- abund.rain.survneo.csv
-- abund.rain.survj.csv
-- abund.rain.survad.csv
-- use these outputs and "abund_validation2023.csv" in this script to calculate the sensitivities:
-  - sensitivitiesVR_giraffes.R
-  - this will give the final output: SensVR_Giraffes.csv
-
-
-
+- abundance_rabbit_cov.csv
+- abundance_rabbit_cov.csv
+- abundance_rabbit_vr_Asurv.csv
+- abundance_rabbit_vr_Jsurv.csv
+- use these outputs to calculate the sensitivities:
+  - sensitivities_rabbits.R
+  - sensitivities_rabbits_vr.R
+  - this will give the final output: sens_rabbit.csv, sens_rabbit_vr.csv
 
