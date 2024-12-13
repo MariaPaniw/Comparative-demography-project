@@ -16,7 +16,7 @@ We built a matrix population model comprised of 2 states, fledglings and adults.
 
 Main code:
 - sensitivities_Geese_full.R
-- - sensitivities_Geese_vital_rate.R
+- sensitivities_Geese_vital_rate.R
 
 Inputs:
 - env_covar_scaled_geese.csv: all environemtnal covariates
