@@ -16,7 +16,7 @@ We computed two types of sensitivities, perturbing all vital rates and perturbin
 ## Files Overview
 
 Main code (including model and sensitivity analysis):
-- SensAnalysis_Reindeer.rmd
+- SensAnalysis_Reindeer.rmd or SensAnalysis_Reindeer.R (to run just the R code)
 
 Inputs:
 - coeffic_lmer_withintercept.Rdata

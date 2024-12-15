@@ -11,7 +11,7 @@ rm(list=ls())
 
 
 # set wd
-setwd("~/Documents/Master Thesis/pert_analyses")
+setwd("...")
 
 # load libraries
 library(dplyr)
@@ -30,50 +30,51 @@ library(DHARMa)
 dfVR=read.csv("AllSensVR.csv")
 
 # Mammals
-AFoxVR=read.csv("ArcticFox/SensVR_ArcticFox_MCMC.csv") # [Nater et al. 2021]
-StripedMouseVR=read.csv("StripedMouse/SensVR_StripedMouse_MCMC.csv") # [Nater et al. 2018]
-GiraffeVR=read.csv("Giraffes/SensVR/SensVR_Giraffes.csv") # [Bond et al. 2023]
-MouseLemurVR=read.csv("mouse lemurs/SensVR_MouseLemurs.csv") # [Ozgul et al. 2023]
-ReindeerVR=read.csv("reindeer/SensReindeer_VR.csv") # [Hansen & Gamelon et al. 2019]
-MarmotVR=read.csv("marmots/final_results/SENS_per_VR_MARMOTS_MCMC.csv") # [Paniw et al. 2020]
-MeerkatsTemp=read.csv("meerkats/SensVR_Temp_Meerkats.csv") # [Paniw et al. 2019]
-MeerkatsRain=read.csv("meerkats/SensVR_Rain_Meerkats.csv") # [Paniw et al. 2019]
+AFoxVR=read.csv("Files_ArcticFox/SensVR_ArcticFox_MCMC.csv") # [Nater et al. 2021]
+StripedMouseVR=read.csv("Files_StripedMouse/SensVR_StripedMouse_MCMC.csv") # [Nater et al. 2018]
+GiraffeVR=read.csv("Files_Giraffes/SensVR/SensVR_Giraffes.csv") # [Bond et al. 2023]
+MouseLemurVR=read.csv("Files_MouseLemur/SensVR_MouseLemurs.csv") # [Ozgul et al. 2023]
+ReindeerVR=read.csv("Files_Reindeer/SensReindeer_VR.csv") # [Hansen & Gamelon et al. 2019]
+MarmotVR=read.csv("Files_Marmot/final_results/SENS_per_VR_MARMOTS_MCMC.csv") # [Paniw et al. 2020]
+MeerkatsTemp=read.csv("Files_Meerkat/SensVR_Temp_Meerkats.csv") # [Paniw et al. 2019]
+MeerkatsRain=read.csv("Files_Meerkat/SensVR_Rain_Meerkats.csv") # [Paniw et al. 2019]
+RabbitVR=read.csv("Files_Rabbit/sens_rabbit_vr.csv") # [Paniw et al. 2019]
 
 
 # Birds
-PetrelVR=read.csv("SkuaPetrel/Output_Sens_MCMC/SensPetrel_VR_MCMC.csv") # [Quéroué et al. 2019]
-MPenguinVR=read.csv("MagellanicPenguin/SensVR_MPenguins.csv") # [Clark-Wolf et al. 2022]
-CerthiaVR=read.csv("birds/output/Certhia_Sens_per_VR.csv") # [Malchow et al. 2023]
-LinariaVR=read.csv("birds/output/Linaria_Sens_per_VR.csv") # [Malchow et al. 2023]
-LophophanesVR=read.csv("birds/output/Lophophanes_Sens_per_VR.csv") # [Malchow et al. 2023]
-PrunellaCollarisVR=read.csv("birds/output/PrunellaCollaris_Sens_per_VR.csv") # [Malchow et al. 2023]
-PrunellaModularisVR=read.csv("birds/output/PrunellaModularis_Sens_per_VR.csv") # [Malchow et al. 2023]
-PyrrhulaVR=read.csv("birds/output/Pyrrhula_Sens_per_VR.csv") # [Malchow et al. 2023]
-SittaVR=read.csv("birds/output/Sitta_Sens_per_VR.csv") # [Malchow et al. 2023]
-TurdusVR=read.csv("birds/output/Turdus_Sens_per_VR.csv") # [Malchow et al. 2023]
-DipperVR=read.csv("dipper/Sens_VR_Dipper_Resampling.csv") # [Gamelon et al. 2017]
+PetrelVR=read.csv("Files_SkuaPetrel/Output_Sens_MCMC/SensPetrel_VR_MCMC.csv") # [Quéroué et al. 2019]
+MPenguinVR=read.csv("Files_MagellanicPenguin/SensVR_MPenguins.csv") # [Clark-Wolf et al. 2022]
+CerthiaVR=read.csv("Files_SwissBirds/output/Certhia_Sens_per_VR.csv") # [Malchow et al. 2023]
+LinariaVR=read.csv("Files_SwissBirds/output/Linaria_Sens_per_VR.csv") # [Malchow et al. 2023]
+LophophanesVR=read.csv("Files_SwissBirds/output/Lophophanes_Sens_per_VR.csv") # [Malchow et al. 2023]
+PrunellaCollarisVR=read.csv("Files_SwissBirds/output/PrunellaCollaris_Sens_per_VR.csv") # [Malchow et al. 2023]
+PrunellaModularisVR=read.csv("Files_SwissBirds/output/PrunellaModularis_Sens_per_VR.csv") # [Malchow et al. 2023]
+PyrrhulaVR=read.csv("Files_SwissBirds/output/Pyrrhula_Sens_per_VR.csv") # [Malchow et al. 2023]
+SittaVR=read.csv("Files_SwissBirds/output/Sitta_Sens_per_VR.csv") # [Malchow et al. 2023]
+TurdusVR=read.csv("Files_SwissBirds/output/Turdus_Sens_per_VR.csv") # [Malchow et al. 2023]
+DipperVR=read.csv("Files_Dipper/Sens_VR_Dipper_Resampling.csv") # [Gamelon et al. 2017]
 GooseVR=read.csv("Files_BarnacleGoose/sens_goose_vital_rates.csv") # [Layton-Matthews et al. 2020]
 JaysVR =read.csv("Files_SiberianJay/sens_jays_vital_rates.csv") # [Layton-Matthews et al. 2018]
 
 
 # Plants
-CistusVR=read.csv("shrubs/Output/Sens_VR_Cistus.csv") # [Paniw et al. 2023]
-HalimiumVR=read.csv("shrubs/Output/Sens_VR_Halimium.csv") # [Paniw et al. 2023]
-ProteaVR=read.csv("Protea/SensVR_Protea.csv") # [Merow et al. 2014]
-OpuntiaVR=read.csv("OpuntiaImbricata/SensVR_OpuntiaImbricata.csv") # [Evers et al. 2020]
-DewyPinesVR=read.csv("/Users/esinickin/Desktop/DewyPines/SensVR_DewyPines.csv") # [Conquet et al. in prep]
+CistusVR=read.csv("Files_Shrubs/Sens_VR_Cistus.csv") # [Paniw et al. 2023]
+HalimiumVR=read.csv("Files_Shrubs/Output/Sens_VR_Halimium.csv") # [Paniw et al. 2023]
+ProteaVR=read.csv("Files_Protea/SensVR_Protea.csv") # [Merow et al. 2014]
+OpuntiaVR=read.csv("Files_Opuntia/SensVR_OpuntiaImbricata.csv") # [Evers et al. 2020]
+DewyPinesVR=read.csv("DewyPines/SensVR_DewyPines.csv") # [Conquet et al. 2024]
+LavandulaVR=read.csv("Files_Lavandula/sens_lavandula_vr.csv") # [Conquet et al. 2024]
 
-dfVR=rbind(AFoxVR,StripedMouseVR,GiraffeVR,MouseLemurVR,ReindeerVR,MarmotVR, MeerkatsRain, MeerkatsTemp,
+dfVR=rbind(AFoxVR,StripedMouseVR,GiraffeVR,MouseLemurVR,ReindeerVR,MarmotVR, MeerkatsRain, MeerkatsTemp,RabbitVR,
            PetrelVR,MPenguinVR,CerthiaVR,LinariaVR,LophophanesVR,PrunellaCollarisVR,PrunellaModularisVR,PyrrhulaVR,SittaVR,TurdusVR,DipperVR,
-           CistusVR,HalimiumVR,ProteaVR,OpuntiaVR,DewyPinesVR)
+           CistusVR,HalimiumVR,ProteaVR,OpuntiaVR,DewyPinesVR,LavandulaVR)
 
 # save
 write.csv(dfVR,"AllSensVR.csv",row.names = F)
 
 
 levels(factor(dfVR$driver))
-length(levels(factor(dfVR$species))) # 23
-
+length(levels(factor(dfVR$species))) # 25
 
 
 ### 2.1 EDA & edit data ###################
@@ -123,6 +124,7 @@ dfVR[dfVR=="growth"]="trait change"
 dfVR[dfVR=="recruitment"]="reproduction"
 dfVR[dfVR=="offspring mass"]="trait change"
 dfVR[dfVR=="transition"]="trait change"
+dfVR[dfVR=="size"]="trait change"
 dfVR[dfVR=="flowering"]="reproduction"
 levels(factor(dfVR$vital.rates))
 
@@ -164,13 +166,13 @@ dfVR[dfVR=="helper adult"]="reproductive"
 
 # reindeers and dippers have age classes from 1 to 6 and 1 to 4 respectively
 # reindeer stages 2-5 are reproductive
-dfVR$stage.age[dfVR$stage.age=="age class 2" & dfVR$species=="Rangifer tarandus"]="reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 3" & dfVR$species=="Rangifer tarandus"]="reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 4" & dfVR$species=="Rangifer tarandus"]="reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 5" & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==2 & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==3 & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==4 & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==5 & dfVR$species=="Rangifer tarandus"]="reproductive"
 # reindeer stage 1 & 6 is non-reproductive
-dfVR$stage.age[dfVR$stage.age=="age class 1" & dfVR$species=="Rangifer tarandus"]="non-reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 6" & dfVR$species=="Rangifer tarandus"]="non-reproductive"
+dfVR$stage.age[dfVR$stage.age==1 & dfVR$species=="Rangifer tarandus"]="non-reproductive"
+dfVR$stage.age[dfVR$stage.age==6 & dfVR$species=="Rangifer tarandus"]="non-reproductive"
 
 # dipper 
 dfVR$stage.age[dfVR$stage.age=="age class 1" & dfVR$species=="Cinclus cinclus"]="non-reproductive"
@@ -195,7 +197,7 @@ levels(dfVR$new_vitalrates)
 ## 2.3 make standardized label for drivers ##########
 # for the GLMM
 # rain-related drivers
-dfVR$driver[dfVR$driver %in% c("Pbr", "Pwn", "rain","fallR","Precipitation","precipitation","Rain","Rainfall","ROS")]="rain"
+dfVR$driver[dfVR$driver %in% c("Pbr", "Pwn", "rain","fallR","Precipitation","precipitation","Rain","Rainfall","ROS","Snow")]="rain"
 
 # temperature stuff
 dfVR$driver[dfVR$driver %in% c("lagged temperature","prevwinterT","sea ice","SST","SSTA_b","SSTA_b_l","SSTA_m","SSTA_m_l","summerT","Tat","Tbr","temperature","Temperature","Twn","SST1","SST2","SST3","Q")]="temperature"
@@ -206,10 +208,8 @@ dfVR$driver[dfVR$driver %in% c("density","intraD","IntraDens","lagged density")]
 # biotic drivers
 dfVR$driver[dfVR$driver %in% c("Chla","food","goose abundance","interD","InterDens","lagged food","reindeer carcass availability")]="biotic"
 
-
 # check
 levels(factor(dfVR$driver))
-
 
 # remove SAM and winterlength
 dfVR=dfVR[!dfVR$driver %in% c("SAM","winterlength"),]
@@ -246,56 +246,51 @@ climate_df$driver.type=factor(climate_df$driver.type)
 climate_df$dens=factor(climate_df$dens)
 climate_df$biotic_interactions=factor(climate_df$biotic_interactions)
 
-m1 <- glmer(sens ~ dens*new_vitalrates + mat*new_vitalrates + n.vr + par.per.vr + (1+new_vitalrates|group/species) , family = Gamma(link="log"), data = climate_df)
+m1 <- glmer(sens ~ new_vitalrates+mat*new_vitalrates + n.vr + par.per.vr + (1+new_vitalrates|group/species) , family = Gamma(link="log"), data = climate_df)
 
+AIC(m1)
 summary(m1)
 
-## diagnostic plots ###########################
-
-# Simulate residuals
-simulationOutput3 <- simulateResiduals(fittedModel = m1, n = 250)
-
-# Overall Residual Plot
-png("overall_residual_plot3.png", width = 8, height = 6, units = "in", res = 300)
-plot(simulationOutput3)
-dev.off()
-
+library(MuMIn)
+r.squaredGLMM(m1)
 
 ## 3.1 Plot ##################
 # plot sens~mat
-pred.df <- data.frame(Effect(c("mat","new_vitalrates","dens"), m1,xlevels=list(mat=seq(min(climate_df$mat), max(climate_df$mat), length.out = 1000), new_vitalrates = levels(climate_df$new_vitalrates),dens=levels(climate_df$dens))))
-
-levels(pred.df$dens) <- c("No Density Effects","Density Effects",NA)
+pred.df <- data.frame(Effect(c("mat","new_vitalrates"), m1,xlevels=list(mat=seq(-0.4, max(climate_df$mat), length.out = 1000), new_vitalrates = levels(climate_df$new_vitalrates))))
 
 levels(pred.df$new_vitalrates) <- c("Reproduction","NR Survival","R Survival",NA)
 
+mean.climate_df = aggregate(sens~species+mat+group+new_vitalrates, mean, data=climate_df[climate_df$mat>(-1),])
+
+levels(mean.climate_df$new_vitalrates) <- c("Reproduction","NR Survival","R Survival")
 
 #pred.df=pred.df[!pred.df$new_vitalrates%in%c("reproductive trait change","non-reproductive trait change"),]
+library(ggrepel)
 
 plot.vr <- ggplot(pred.df, aes(x = mat, y = (fit))) +
   geom_ribbon(aes(ymin = (lower), ymax = (upper), fill = new_vitalrates), alpha = 0.2) +
-  geom_line(aes(col = new_vitalrates),linewidth=2) +
-  facet_grid(dens ~ .) +
+  geom_line(aes(col = new_vitalrates),linewidth=1.2) +
+  geom_jitter(data = mean.climate_df, aes(x = mat, y = sens, color = new_vitalrates), alpha = 0.6, size = 5, width = 0, height = 0) +
+  
+  # facet_grid(dens ~ .) +
   scale_fill_manual(name = "Vital Rates:",values = c("#a8d0eb", "#f5f56c", "#92b954"), labels = c("Reproduction","NR Survival","R Survival")) + 
   scale_color_manual(name = "Vital Rates:",values = c("#a8d0eb", "#f5f56c", "#92b954"), labels = c("Reproduction","NR Survival","R Survival")) +
   labs(
-    x = "Log age at sexual maturity (years)",
-    y = "Sensitivities") + 
+    x = "Log age at sexual maturity (in years)",
+    y = "Scaled population growth sensitivities (|S|)") + 
   theme_minimal() +
+  geom_text_repel(data = mean.climate_df, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3.5,
+                box.padding = unit(0.4, "lines"), point.padding = unit(0.2, "lines"),
+              max.overlaps = 100) +
   theme(axis.title = element_text(size = 22), axis.text = element_text(size = 20),
         strip.text = element_text(size = 20),legend.text = element_text(size = 18),
         legend.title = element_text(size = 20),
         axis.ticks = element_line(color = "black"),
-        legend.position = "bottom") +
-  geom_rect(
-    data = unique(pred.df[c("dens")]),
-    aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
-    color = "black",
-    fill = NA,
-    inherit.aes = FALSE
-  )
+        legend.position = "bottom") 
 
 plot.vr
+
+ggsave(plot.vr,filename="main_plot_vital_rate.pdf",width=8, height=7)
 
 
 # 4. Species-specific plots ############

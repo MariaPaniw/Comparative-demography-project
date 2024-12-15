@@ -64,7 +64,7 @@ climate_df=filter(climate_df,!driver %in% c("SAM","PET","Winterlength")) # remov
 
 # remove sens == 0 if there is 
 min(climate_df$sens)
-#climate_df=filter(climate_df,sens!=0) # need to remove zeros because of gamma distribution if there are any
+climate_df=filter(climate_df,sens!=0) # need to remove zeros because of gamma distribution if there are any
 
 climate_df$driver=factor(climate_df$driver)
 climate_df$dens=factor(climate_df$dens)
@@ -74,6 +74,8 @@ climate_df$study.doi=factor(climate_df$study.doi)
 climate_df$group=factor(climate_df$group) # plants, birds, mammals
 climate_df$species=factor(climate_df$species)
 
+climate_df$cov=factor(climate_df$cov,levels=c("1","0"))
+
 m1 <- glmer(sens ~ cov *dens + mat + n.vr + par.per.vr + (1+cov|group/species) , family = Gamma(link="log"), data = climate_df)
 
 summary(m1)
@@ -81,49 +83,9 @@ summary(m1)
 # which can be found in the script GlobalAnalysis.R
 
 
-
-# 2. GLMM: Sens to temperature vs rain ##################################################################
-# split climate further to temperature and rain
-
-
-levels(factor(climate_df$driver))
-
-# group the drivers into rain and temperature
-climate_df$driver[climate_df$driver %in% c("Pbr", "Pwn", "rain","fallR","Precipitation","precipitation","Rain","Rainfall","ROS")]="rain"
-
-climate_df$driver[climate_df$driver %in% c("lagged temperature","prevwinterT","sea ice","SST","SSTA_b","SSTA_b_l","SSTA_m","SSTA_m_l","summerT","Tat","Tbr","temperature","Temperature","Twn","SST1","SST2","SST3")]="temperature"
-
-climate_df=filter(climate_df, !driver %in% c("SAM","Q","PET","Winterlength"))
-# remove SAM (a driver that influences climate like rain and temperature, so not really a climatic driver)
-# remove Q because now I can't sort it into rain or temperature
-# remove winterlength again for the same reasons as above
-
-# remove sens == 0 if there is 
-min(climate_df$sens)
-#climate_df=filter(climate_df,sens!=0) # need to remove zeros because of gamma distribution
-
-# from chr to factors
-climate_df$driver=factor(climate_df$driver)
-climate_df$dens=factor(climate_df$dens)
-climate_df$biotic_interactions=factor(climate_df$biotic_interactions)
-climate_df$cov=factor(climate_df$cov) #is there covariation 0/1
-climate_df$study.doi=factor(climate_df$study.doi)
-climate_df$group=factor(climate_df$group) # plants, birds, mammals
-climate_df$species=factor(climate_df$species) # 36 species
-
-length(levels(climate_df$species))
-levels(climate_df$sp)
-
-
-m2 <- glmer(sens ~ cov*dens + cov*driver + dens*driver + mat + n.vr + par.per.vr + (1+cov|group/species) , family = Gamma(link="log"), data = climate_df)
-
-summary(m2)
-
-
-# 3. GLMM: Vital-rate specific sensitivities ########
+# 2. GLMM: Vital-rate specific sensitivities ########
 rm(list=ls())
 dfVR=read.csv("AllSensVR.csv")
-
 
 # remove Rhabdomys pumilio
 # because the MPM is monthly and not annually
@@ -131,7 +93,6 @@ dfVR=dfVR[dfVR$species!="Rhabdomys pumilio",]
 
 ### 3.1 EDA & edit data ###################
 str(dfVR)
-
 
 sum(is.na(dfVR$sens))
 sum(is.infinite(dfVR$sens))
@@ -160,11 +121,13 @@ dfVR$n.vr=log(dfVR$n.vr)
 dfVR$par.per.vr=log(dfVR$par.per.vr)
 
 
-### 3.2 group vital rates #################
+### 2.2 group vital rates #################
 
 # group vital rates into reproduction, survival, or trait change
 levels(factor(dfVR$vital.rates))
 dfVR[dfVR=="breeding probability"]="reproduction"
+dfVR[dfVR=="prop fledging"]="reproduction"
+dfVR[dfVR=="prop reproductive"]="reproduction"
 dfVR[dfVR=="litter probability"]="reproduction"
 dfVR[dfVR=="litter size"]="reproduction"
 dfVR[dfVR=="denning survival"]="survival"
@@ -174,6 +137,7 @@ dfVR[dfVR=="growth"]="trait change"
 dfVR[dfVR=="recruitment"]="reproduction"
 dfVR[dfVR=="offspring mass"]="trait change"
 dfVR[dfVR=="transition"]="trait change"
+dfVR[dfVR=="size"]="trait change"
 dfVR[dfVR=="flowering"]="reproduction"
 levels(factor(dfVR$vital.rates))
 
@@ -181,9 +145,14 @@ levels(factor(dfVR$vital.rates))
 # group (st)ages into non-reproductive and reproductive individuals
 levels(factor(dfVR$stage.age))
 # non-reproductive
+dfVR[dfVR=="fledgling"]="non-reproductive"
 dfVR[dfVR=="babies"]="non-reproductive"
 dfVR[dfVR=="immature"]="non-reproductive"
 dfVR[dfVR=="juvenile"]="non-reproductive"
+dfVR[dfVR=="retained juvenile"]="non-reproductive"
+dfVR[dfVR=="dispersed juvenile"]="non-reproductive"
+dfVR[dfVR=="non-breeder winter"]="non-reproductive"
+dfVR[dfVR=="non-breeder summer"]="non-reproductive"
 dfVR[dfVR=="non-reproductive adult"]="non-reproductive"
 dfVR[dfVR=="sapling"]="non-reproductive"
 dfVR[dfVR=="juveniles"]="non-reproductive"
@@ -196,6 +165,8 @@ dfVR[dfVR=="subadult"]="non-reproductive"
 
 # reproductive
 dfVR[dfVR=="adult"]="reproductive"
+dfVR[dfVR=="breeder winter"]="reproductive"
+dfVR[dfVR=="breeder summer"]="reproductive"
 dfVR[dfVR=="previous breeder"]="reproductive"
 dfVR[dfVR=="previous non-breeder"]="reproductive"
 dfVR[dfVR=="reproductive adult"]="reproductive"
@@ -208,13 +179,13 @@ dfVR[dfVR=="helper adult"]="reproductive"
 
 # reindeers and dippers have age classes from 1 to 6 and 1 to 4 respectively
 # reindeer stages 2-5 are reproductive
-dfVR$stage.age[dfVR$stage.age=="age class 2" & dfVR$species=="Rangifer tarandus"]="reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 3" & dfVR$species=="Rangifer tarandus"]="reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 4" & dfVR$species=="Rangifer tarandus"]="reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 5" & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==2 & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==3 & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==4 & dfVR$species=="Rangifer tarandus"]="reproductive"
+dfVR$stage.age[dfVR$stage.age==5 & dfVR$species=="Rangifer tarandus"]="reproductive"
 # reindeer stage 1 & 6 is non-reproductive
-dfVR$stage.age[dfVR$stage.age=="age class 1" & dfVR$species=="Rangifer tarandus"]="non-reproductive"
-dfVR$stage.age[dfVR$stage.age=="age class 6" & dfVR$species=="Rangifer tarandus"]="non-reproductive"
+dfVR$stage.age[dfVR$stage.age==1 & dfVR$species=="Rangifer tarandus"]="non-reproductive"
+dfVR$stage.age[dfVR$stage.age==6 & dfVR$species=="Rangifer tarandus"]="non-reproductive"
 
 # dipper 
 dfVR$stage.age[dfVR$stage.age=="age class 1" & dfVR$species=="Cinclus cinclus"]="non-reproductive"
@@ -236,10 +207,10 @@ levels(dfVR$new_vitalrates)[c(1,4)] =c("reproduction","reproduction")
 levels(dfVR$new_vitalrates)
 
 
-## 3.3 make standardized label for drivers ##########
+## 2.3 make standardized label for drivers ##########
 # for the GLMM
 # rain-related drivers
-dfVR$driver[dfVR$driver %in% c("Pbr", "Pwn", "rain","fallR","Precipitation","precipitation","Rain","Rainfall","ROS")]="rain"
+dfVR$driver[dfVR$driver %in% c("Pbr", "Pwn", "rain","fallR","Precipitation","precipitation","Rain","Rainfall","ROS","Snow")]="rain"
 
 # temperature stuff
 dfVR$driver[dfVR$driver %in% c("lagged temperature","prevwinterT","sea ice","SST","SSTA_b","SSTA_b_l","SSTA_m","SSTA_m_l","summerT","Tat","Tbr","temperature","Temperature","Twn","SST1","SST2","SST3","Q")]="temperature"
@@ -250,14 +221,11 @@ dfVR$driver[dfVR$driver %in% c("density","intraD","IntraDens","lagged density")]
 # biotic drivers
 dfVR$driver[dfVR$driver %in% c("Chla","food","goose abundance","interD","InterDens","lagged food","reindeer carcass availability")]="biotic"
 
-
 # check
 levels(factor(dfVR$driver))
 
-
 # remove SAM and winterlength
 dfVR=dfVR[!dfVR$driver %in% c("SAM","winterlength"),]
-
 
 levels(factor(dfVR$driver))
 
@@ -275,14 +243,14 @@ climate_df=droplevels(climate_df[!climate_df$new_vitalrates%in%c("reproductive t
 
 levels(climate_df$new_vitalrates)
 
-## 3.4 GLMM: Sens to all Climate Variables ####################################
+## 2.4 GLMM: Sens to all Climate Variables ####################################
 
 # remove sens == 0 if there is 
 min(climate_df$sens)
 climate_df=filter(climate_df,sens!=0) # need to remove zeros because of gamma distribution
 
 # re-define factors
-climate_df$species=factor(climate_df$species) # now we have 23 species
+climate_df$species=factor(climate_df$species) # now we have 25 species
 climate_df$study.doi=factor(climate_df$study.doi)
 climate_df$group=factor(climate_df$group)
 climate_df$driver=factor(climate_df$driver)
@@ -290,8 +258,13 @@ climate_df$driver.type=factor(climate_df$driver.type)
 climate_df$dens=factor(climate_df$dens)
 climate_df$biotic_interactions=factor(climate_df$biotic_interactions)
 
-m3 <- glmer(sens ~ dens*new_vitalrates + mat*new_vitalrates + n.vr + par.per.vr + (1+new_vitalrates|group/species) , family = Gamma(link="log"), data = climate_df)
+m2 <- glmer(sens ~ new_vitalrates+mat*new_vitalrates + n.vr + par.per.vr + (1+new_vitalrates|group/species) , family = Gamma(link="log"), data = climate_df)
 
-summary(m3)
+AIC(m2)
+summary(m2)
+
+library(MuMIn)
+r.squaredGLMM(m2)
+
 
 

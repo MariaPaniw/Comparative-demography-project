@@ -308,26 +308,34 @@ Here, we calculate scaled sensitivities, according to Morris et al. 2020 (DOI: h
 Sensitivities to ROS assuming mean winter length and mean density
 ```{r}
 Sens.ROS.NoCov=NULL
+l_ratio.ROS.NoCov=NULL
+which.coef=NULL
 
-for(i in 1:100){
+for(i in 1:nrow(coeffic)){
   # mpm when ROS max
   mpm.max <- matrix(c(0,S1(mean.dens,max.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
-                  F2(mean.dens,max.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,max.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
-                  F3(mean.dens,max.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,max.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
-                  F4(mean.dens,max.ROS,mean.winterlength,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(mean.dens,max.ROS,mean.winterlength,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
-                  F5(mean.dens,max.ROS,mean.winterlength,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(mean.dens,max.ROS,mean.winterlength,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
-                  0,0,0,0,0,S6(mean.dens,max.ROS,mean.winterlength,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
+                      F2(mean.dens,max.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,max.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
+                      F3(mean.dens,max.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,max.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
+                      F4(mean.dens,max.ROS,mean.winterlength,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(mean.dens,max.ROS,mean.winterlength,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
+                      F5(mean.dens,max.ROS,mean.winterlength,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(mean.dens,max.ROS,mean.winterlength,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
+                      0,0,0,0,0,S6(mean.dens,max.ROS,mean.winterlength,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
   
-    # mpm when ROS min
+  # mpm when ROS min
   mpm.min <- matrix(c(0,S1(mean.dens,min.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
-                  F2(mean.dens,min.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,min.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
-                  F3(mean.dens,min.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,min.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
-                  F4(mean.dens,min.ROS,mean.winterlength,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(mean.dens,min.ROS,mean.winterlength,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
-                  F5(mean.dens,min.ROS,mean.winterlength,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(mean.dens,min.ROS,mean.winterlength,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
-                  0,0,0,0,0,S6(mean.dens,min.ROS,mean.winterlength,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
+                      F2(mean.dens,min.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,min.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
+                      F3(mean.dens,min.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,min.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
+                      F4(mean.dens,min.ROS,mean.winterlength,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(mean.dens,min.ROS,mean.winterlength,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
+                      F5(mean.dens,min.ROS,mean.winterlength,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(mean.dens,min.ROS,mean.winterlength,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
+                      0,0,0,0,0,S6(mean.dens,min.ROS,mean.winterlength,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
   
-  # scaled sensitivities
-  Sens.ROS.NoCov[i] <- abs((lambda(mpm.max)-lambda(mpm.min))/((max.ROS-min.ROS)/sd.ROS))
+  # scaled sensitivities and log ratios
+  
+  if(lambda(mpm.min)>0.2){
+    which.coef=c(which.coef,i)
+    Sens.ROS.NoCov <- c(Sens.ROS.NoCov,abs((lambda(mpm.max)-lambda(mpm.min))/((max.ROS-min.ROS)/sd.ROS)))
+    l_ratio.ROS.NoCov <- c(l_ratio.ROS.NoCov,abs(log(lambda(mpm.max)/lambda(mpm.min))))
+  }
+  
 }
 
 hist(Sens.ROS.NoCov)
@@ -338,29 +346,31 @@ mean(Sens.ROS.NoCov)
 ### 4.2 ROS Cov
 Sensitivities to ROS assuming covarying covariates (covariation)
 ```{r}
-Sens.ROS.Cov=NULL
 
-for(i in 1:100){
+Sens.ROS.Cov=NULL
+l_ratio.ROS.Cov=NULL
+
+for(i in which.coef){
   # mpm when ROS max
   mpm.max <- matrix(c(0,S1(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
-                  F2(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
-                  F3(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
-                  F4(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
-                  F5(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
-                  0,0,0,0,0,S6(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
+                      F2(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
+                      F3(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
+                      F4(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
+                      F5(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
+                      0,0,0,0,0,S6(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
   
-    # mpm when ROS min
+  # mpm when ROS min
   mpm.min <- matrix(c(0,S1(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
-                  F2(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
-                  F3(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
-                  F4(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
-                  F5(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
-                  0,0,0,0,0,S6(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
+                      F2(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
+                      F3(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
+                      F4(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age4.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS4.par[i],F.k.par[i]),0,0,0,S4(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age4.par[i],Nposthunt.par[i],ROS.par[i],ROS4.par[i],k.par[i]),0,
+                      F5(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,F.age5.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS5.par[i],F.k.par[i]),0,0,0,0,S5(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age5.par[i],Nposthunt.par[i],ROS.par[i],ROS5.par[i],k.par[i]),
+                      0,0,0,0,0,S6(dens_when_ROS_min,min.ROS,winterlength_when_ROS_min,age6.par[i],Nposthunt.par[i],ROS.par[i],ROS6.par[i],k.par[i])),6,6)
   
   # scaled sensitivities
-  Sens.ROS.Cov[i] <- abs((lambda(mpm.max)-lambda(mpm.min))/((max.ROS-min.ROS)/sd.ROS))
+  Sens.ROS.Cov <- c(Sens.ROS.Cov,abs((lambda(mpm.max)-lambda(mpm.min))/((max.ROS-min.ROS)/sd.ROS)))
+  l_ratio.ROS.Cov <- c(l_ratio.ROS.Cov,abs(log(lambda(mpm.max)/lambda(mpm.min))))
 }
-
 hist(Sens.ROS.Cov)
 mean(Sens.ROS.Cov)
 ```
@@ -370,7 +380,7 @@ Sensitivities to density assuming mean winter length and mean ROS
 ```{r}
 Sens.Dens.NoCov=NULL
 
-for(i in 1:100){
+for(i in which.coef){
   # mpm when dens max
   mpm.max <- matrix(c(0,S1(max.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(max.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(max.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -401,7 +411,7 @@ Sensitivities to density assuming covarying covariates (covariation)
 ```{r}
 Sens.Dens.Cov=NULL
 
-for(i in 1:100){
+for(i in which.coef){
   # mpm when dens max
   mpm.max <- matrix(c(0,S1(max.dens,ROS_when_dens_max,winterlength_when_dens_max,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(max.dens,ROS_when_dens_max,winterlength_when_dens_max,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(max.dens,ROS_when_dens_max,winterlength_when_dens_max,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -431,7 +441,7 @@ Sensitivities to winterlength assuming mean density and mean ROS
 ```{r}
 Sens.WL.NoCov=NULL
 
-for(i in 1:100){
+for(i in which.coef){
   # mpm when winterlength max
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,max.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,max.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,max.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -488,7 +498,7 @@ Sensitivities to winterlength assuming mean density and mean ROS
 ```{r}
 Sens.WL.Cov=NULL
 
-for(i in 1:100){
+for(i in which.coef){
   # mpm when winterlength max
   mpm.max <- matrix(c(0,S1(dens_when_winterlength_max,ROS_when_winterlength_max,max.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(dens_when_winterlength_max,ROS_when_winterlength_max,max.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(dens_when_winterlength_max,ROS_when_winterlength_max,max.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -554,7 +564,7 @@ non-reproductive stages: 1 & 6
 ```{r}
 # stage 1
 ROS.S1=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -577,7 +587,7 @@ for(i in 1:100){
 
 # stage 6
 ROS.S6=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -604,7 +614,7 @@ for(i in 1:100){
 ```{r}
 # stage 2
 ROS.S2=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -626,7 +636,7 @@ for(i in 1:100){
 
 # stage 3
 ROS.S3=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -649,7 +659,7 @@ for(i in 1:100){
 
 # stage 4
 ROS.S4=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -672,7 +682,7 @@ for(i in 1:100){
 
 # stage 5
 ROS.S5=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -698,7 +708,7 @@ for(i in 1:100){
 ```{r}
 # stage 2
 ROS.F2=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(dens_when_ROS_max,max.ROS,winterlength_when_ROS_max,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -720,7 +730,7 @@ for(i in 1:100){
 
 # stage 3
 ROS.F3=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -743,7 +753,7 @@ for(i in 1:100){
 
 # stage 4
 ROS.F4=NULL
-for(i in 1:100){
+for(i in which.coef){
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
                   F3(mean.dens,mean.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,mean.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
@@ -765,7 +775,7 @@ for(i in 1:100){
 
 # stage 5
 ROS.F5=NULL
-for(i in 1:100){
+for(i in which.coef){
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
                   F3(mean.dens,mean.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,mean.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
@@ -795,7 +805,7 @@ for(i in 1:100){
 ```{r}
 # stage 1
 DENS.S1=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(max.dens,ROS_when_dens_max,winterlength_when_dens_max,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -818,7 +828,7 @@ for(i in 1:100){
 
 # stage 6
 DENS.S6=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -845,7 +855,7 @@ for(i in 1:100){
 ```{r}
 # stage 2
 DENS.S2=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(max.dens,ROS_when_dens_max,winterlength_when_dens_max,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -867,7 +877,7 @@ for(i in 1:100){
 
 # stage 3
 DENS.S3=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -890,7 +900,7 @@ for(i in 1:100){
 
 # stage 4
 DENS.S4=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -913,7 +923,7 @@ for(i in 1:100){
 
 # stage 5
 DENS.S5=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -939,7 +949,7 @@ for(i in 1:100){
 ```{r}
 # stage 2
 DENS.F2=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(max.dens,ROS_when_dens_max,winterlength_when_dens_max,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -961,7 +971,7 @@ for(i in 1:100){
 
 # stage 3
 DENS.F3=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -984,7 +994,7 @@ for(i in 1:100){
 
 # stage 4
 DENS.F4=NULL
-for(i in 1:100){
+for(i in which.coef){
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
                   F3(mean.dens,mean.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,mean.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
@@ -1006,7 +1016,7 @@ for(i in 1:100){
 
 # stage 5
 DENS.F5=NULL
-for(i in 1:100){
+for(i in which.coef){
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
                   F3(mean.dens,mean.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,mean.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
@@ -1036,7 +1046,7 @@ for(i in 1:100){
 ```{r}
 # stage 1
 WL.S1=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(dens_when_winterlength_max,ROS_when_winterlength_max,max.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1059,7 +1069,7 @@ for(i in 1:100){
 
 # stage 6
 WL.S6=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1086,7 +1096,7 @@ for(i in 1:100){
 ```{r}
 # stage 2
 WL.S2=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(dens_when_winterlength_max,ROS_when_winterlength_max,max.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1108,7 +1118,7 @@ for(i in 1:100){
 
 # stage 3
 WL.S3=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1131,7 +1141,7 @@ for(i in 1:100){
 
 # stage 4
 WL.S4=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1154,7 +1164,7 @@ for(i in 1:100){
 
 # stage 5
 WL.S5=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1180,7 +1190,7 @@ for(i in 1:100){
 ```{r}
 # stage 2
 WL.F2=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(dens_when_winterlength_max,ROS_when_winterlength_max,max.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1202,7 +1212,7 @@ for(i in 1:100){
 
 # stage 3
 WL.F3=NULL
-for(i in 1:100){
+for(i in which.coef){
   
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
@@ -1225,7 +1235,7 @@ for(i in 1:100){
 
 # stage 4
 WL.F4=NULL
-for(i in 1:100){
+for(i in which.coef){
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
                   F3(mean.dens,mean.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,mean.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
@@ -1247,7 +1257,7 @@ for(i in 1:100){
 
 # stage 5
 WL.F5=NULL
-for(i in 1:100){
+for(i in which.coef){
   mpm.max <- matrix(c(0,S1(mean.dens,mean.ROS,mean.winterlength,age1.par[i],Nposthunt.par[i],ROS.par[i],k.par[i]),0,0,0,0,
                   F2(mean.dens,mean.ROS,mean.winterlength,F.age2.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS2.par[i],F.k.par[i]),0,S2(mean.dens,mean.ROS,mean.winterlength,age2.par[i],Nposthunt.par[i],ROS.par[i],ROS2.par[i],k.par[i]),0,0,0,
                   F3(mean.dens,mean.ROS,mean.winterlength,F.age3.par[i],F.Nposthunt[i],F.ROS.par[i],F.ROS3.par[i],F.k.par[i]),0,0,S3(mean.dens,mean.ROS,mean.winterlength,age3.par[i],Nposthunt.par[i],ROS.par[i],ROS3.par[i],k.par[i]),0,0,
