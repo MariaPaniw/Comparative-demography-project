@@ -1,7 +1,14 @@
 ###
-# This is a script containing two main analyses
-# GLMM 1: Sensitivities to all climatic variables (the global analysis)
-# GLMM 2: Sensitivities to temperature and rain
+# This is a script containing the main analyses:
+# 1. Load all data
+# 2. Prepare data for analyse
+# 3. GLMM 1: Sensitivities to all climatic variables (the global analysis)
+# 4. GLMM 2: Mean sensitivities per species
+# 5. GLMM 3: Sensitivities for plants only
+# 6. GLMM 4: Sensitivities to temperature and rain
+# 7. GLMM 5: Sensitivities removing simulated lambdas (form IBMs and integrated population models)
+# 8. GLMM 6: Log response ratios
+# 9. SI plots
 
 # Author of this script: Esin Ickin
 # Date: 30.07.2024
@@ -356,7 +363,6 @@ plot.clim.plants
 
 ggsave(plot.clim.plants,filename="main_plants.pdf",width=8, height=7)
 
-
 # 6. GLMM: Sens to Temperature vs Rain ##################################################################
 
 # split climate further into temperature and rain
@@ -364,70 +370,56 @@ ggsave(plot.clim.plants,filename="main_plants.pdf",width=8, height=7)
 levels(factor(climate_df$driver))
 
 # group the drivers into rain and temperature
-climate_df$driver[climate_df$driver %in% c("Pbr", "Pwn", "rain","fallR","Precipitation","precipitation","Rain","Rainfall","ROS")]="rain"
+climate_df$driver[climate_df$driver %in% c("Pbr", "Pwn", "rain","fallR","Precipitation","precipitation","Rain","Rainfall","ROS","Snow")]="rain"
 
 climate_df$driver[climate_df$driver %in% c("lagged temperature","prevwinterT","sea ice","SST","SSTA_b","SSTA_b_l","SSTA_m","SSTA_m_l","summerT","Tat","Tbr","temperature","Temperature","Twn","SST1","SST2","SST3","SSTG")]="temperature"
 
-climate_df=filter(climate_df, !driver %in% c("SAM","Q","PET","Winterlength"))
+climate_df_sub=filter(climate_df, !driver %in% c("SAM","Q","PET","Winterlength"))
 # remove SAM (a driver that influences climate like rain and temperature, so not really a climatic driver)
 # remove Q because now I can't sort it into rain or temperature
 # remove winterlength again for the same reasons as above
 
 # remove sens == 0 if there is 
-min(climate_df$sens)
-#climate_df=filter(climate_df,sens!=0) # need to remove zeros because of gamma distribution
+min(climate_df_sub$sens)
+climate_df_sub=filter(climate_df_sub,sens!=0) # need to remove zeros because of gamma distribution
 
 # from chr to factors
-climate_df$driver=factor(climate_df$driver)
-climate_df$dens=factor(climate_df$dens)
-climate_df$biotic_interactions=factor(climate_df$biotic_interactions)
-climate_df$cov=factor(climate_df$cov) #is there covariation 0/1
-climate_df$study.doi=factor(climate_df$study.doi)
-climate_df$group=factor(climate_df$group) # plants, birds, mammals
-climate_df$species=factor(climate_df$species) 
+climate_df_sub$driver=factor(climate_df_sub$driver)
+climate_df_sub$dens=factor(climate_df_sub$dens)
+climate_df_sub$biotic_interactions=factor(climate_df_sub$biotic_interactions)
+climate_df_sub$cov=factor(climate_df_sub$cov) #is there covariation 0/1
+climate_df_sub$study.doi=factor(climate_df_sub$study.doi)
+climate_df_sub$group=factor(climate_df_sub$group) # plants, birds, mammals
+climate_df_sub$species=factor(climate_df_sub$species) 
 
-length(levels(climate_df$species)) # the only species removed is marmot because we could not sort Q into rain or temperature category
+length(levels(climate_df_sub$species)) # the only species removed is marmot because we could not sort Q into rain or temperature category
 
-length(levels(climate_df$species))
-length(levels(factor((climate_df[climate_df$dens=="No density effects",]$species))))
+length(levels(climate_df_sub$species))
+length(levels(factor((climate_df_sub[climate_df_sub$dens=="No density dependence",]$species))))
+length(levels(factor((climate_df_sub[climate_df_sub$dens=="Density dependence",]$species))))
 
-length(levels(factor((climate_df[climate_df$dens=="Density effects",]$species))))
-
-
-levels(climate_df$dens)
+levels(climate_df_sub$dens)
 
 # GLMM:
-m2 <- glmer(sens ~ cov*dens + cov*driver + dens*driver + mat + n.vr + par.per.vr + (1+cov|group/species) , family = Gamma(link="log"), data = climate_df)
+m2 <- glmer(sens ~ cov*dens + cov*driver + dens*driver + mat + n.vr + par.per.vr + (1+cov|group/species) , family = Gamma(link="log"), data = climate_df_sub)
 
 summary(m2)
 
-
-#### diagnostic plots ################
-
-# Simulate residuals
-simulationOutput2 <- simulateResiduals(fittedModel = m2, n = 250)
-
-# overall residual plot
-png("overall_residual_plot2.png", width = 8, height = 6, units = "in", res = 300)
-plot(simulationOutput2)
-dev.off()
+r.squaredGLMM(m2)
 
 ### 4.1 Plot #############
 # plot sens~mat
 
-pred.df2 <- data.frame(Effect(c("mat","cov","driver","dens"), m2,xlevels=list(mat=seq(min(climate_df$mat), max(climate_df$mat), length.out = 1000), cov = levels(climate_df$cov),driver = levels(climate_df$driver),dens=levels(climate_df$dens))))
-
+pred.df2 <- data.frame(Effect(c("mat","cov","driver","dens"), m2,xlevels=list(mat=seq(min(climate_df_sub$mat), max(climate_df_sub$mat), length.out = 1000), cov = levels(climate_df_sub$cov),driver = levels(climate_df_sub$driver),dens=levels(climate_df_sub$dens))))
 
 levels(pred.df2$driver) <- c("Rain","Temperature",NA)
-levels(pred.df2$dens) <- c("No density effects","Density effects",NA)
+levels(pred.df2$dens) <- c("No density dependence","Density dependence",NA)
 
-levels(climate_df$driver) <- c("Rain","Temperature",NA)
-levels(climate_df$dens) <- c("No density effects","Density effects",NA)
+levels(climate_df_sub$driver) <- c("Rain","Temperature",NA)
+levels(climate_df_sub$dens) <- c("No density dependence","Density dependence",NA)
 
 # to add data points that show mean sensitivities of each species
-mean.climate_df <- climate_df %>%
-  group_by(species,mat,cov,dens) %>%
-  summarise(sens = mean(sens))
+mean.climate_df_sub = aggregate(sens~species+mat+cov+dens+group+driver, mean, data=climate_df_sub)
 
 library(ggrepel)
 
@@ -437,21 +429,21 @@ plot.raintemp <- ggplot(pred.df2, aes(x = mat, y = fit)) +
   geom_line(aes(col = cov),linewidth=2.5) +
   facet_grid(dens ~ driver) +
   
-  geom_jitter(data = mean.climate_df, aes(x = mat, y = sens, color = cov), alpha = 0.8, size = 5) + 
+  geom_jitter(data = mean.climate_df_sub, aes(x = mat, y = sens, color = cov), alpha = 0.8, size = 5) + 
   
-  # to add species labels
- #geom_text_repel(data = mean.climate_df, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3,
+  # # to add species labels
+  # geom_text_repel(data = mean.climate_df_sub, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3,
   #              box.padding = unit(0.4, "lines"), point.padding = unit(0.2, "lines"),
-   #            max.overlaps = 1000) +
-
-  scale_fill_manual(name = "Covariation:",values = c("#ecbeb3","#029356"), labels = c("No","Yes")) + 
-  scale_color_manual(name = "Covariation:",values = c("#ecbeb3","#029356"), labels = c("No","Yes")) +
+  #            max.overlaps = 1000) +
+  # 
+  scale_fill_manual(name = "Environmental covariation:",values = c("#ecbeb3","#029356"), labels = c("Yes","No")) + 
+  scale_color_manual(name = "Environmental covariation:",values = c("#ecbeb3","#029356"), labels = c("Yes","No")) +
   labs(
     x = "Log age at sexual maturity (in years)",
     y = "Scaled population growth sensitivities (|S|)") + 
   theme_minimal() +
   theme(axis.title = element_text(size = 20), axis.text = element_text(size = 18),
-        strip.text = element_text(size = 20),legend.text = element_text(size = 18),
+        strip.text = element_text(size = 19),legend.text = element_text(size = 18),
         legend.title = element_text(size = 20),
         axis.ticks = element_line(color = "black"),
         legend.position = "bottom") +
@@ -465,10 +457,163 @@ plot.raintemp <- ggplot(pred.df2, aes(x = mat, y = fit)) +
 
 plot.raintemp
 
- ggsave("SensRainTempSpp.png", plot.raintemp, width = 10, height = 8, dpi = 300)
+ggsave(plot.raintemp,filename="main_plot_rain_temp.pdf",width=10, height=9)
+
+# 7. GLMM Without studies that simulated lambda ################################################
+
+sub=climate_df[climate_df$lambda.sim=="0",] # results also hold if you use simulated only 
+
+m3 <- glmer(sens ~ cov*dens + mat + n.vr + par.per.vr + (1+cov|group/species) , family = Gamma(link="log"), data = climate_df[climate_df$lambda.sim=="0",])
+
+summary(m3)
+
+r.squaredGLMM(m3)
+
+# plot sens~mat
+pred.df <- data.frame(Effect(c("mat","cov","dens"), m3,xlevels=list(mat=seq(min(sub$mat), max(sub$mat), length.out = 1000), cov = levels(sub$cov),dens=levels(sub$dens))))
+
+levels(pred.df$dens) <- c("No density dependence","Density dependence",NA)
+
+# add data points that show mean sensitivities of each species
+# mean.sub <- sub %>%
+#   group_by(species,mat,cov,dens,group) %>% summarise(sens = mean(sens))
+
+mean.sub = aggregate(sens~species+mat+cov+dens+group, mean, data=sub)
+
+levels(sub$dens)
+levels(mean.sub$dens)
+
+levels(sub$dens) <- c("No density dependence","Density dependence")
+levels(mean.sub$dens) <- c("No density dependence","Density dependence")
+
+library(ggrepel) # to add labels
+
+levels(pred.df$cov) <- c("Yes","No",NA)
+levels(sub$cov) <- c("Yes","No")
+levels(mean.sub$cov) <- c("Yes","No")
+
+# plot
+plot.clim.sub <- ggplot(data = pred.df, aes(x = mat, y = fit)) +
+  geom_ribbon(data = pred.df, aes(ymin = lower, ymax = upper, fill = cov), alpha = 0.3) +
+  geom_line(data = pred.df, aes(col = cov), linewidth = 1.2) +
+  facet_grid(dens ~ .) +
+  
+  geom_jitter(data = mean.sub, aes(x = mat, y = sens, color = cov), alpha = 0.7, size = 5, width = 0, height = 0) +
+  
+  # can add labels of species if needed: 
+  
+  # geom_text_repel(data = mean.sub, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3.5,
+  #               box.padding = unit(0.4, "lines"), point.padding = unit(0.2, "lines"),
+  #             max.overlaps = 100) +
+  scale_fill_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) + 
+  scale_color_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) +
+  labs(
+    x = "Log age at sexual maturity (in years)",
+    y = "Scaled population growth sensitivities (|S|)"
+  ) + 
+  theme_minimal() +
+  theme(
+    axis.title = element_text(size = 20), 
+    axis.text = element_text(size = 18),
+    strip.text = element_text(size = 19),
+    legend.text = element_text(size = 18),
+    legend.title = element_text(size = 20),
+    axis.ticks = element_line(color = "black"),
+    legend.position = "bottom"
+  ) +
+  geom_rect(
+    data = unique(pred.df[c("dens")]),
+    aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
+    color = "black",
+    fill = NA,
+    inherit.aes = FALSE
+  )
+
+plot.clim.sub
+
+ggsave(plot.clim.sub,filename="main_plot_no_simulated_Lambda.pdf",width=8, height=7)
+
+# 8. GLMM Log Response ratios ################################################
+
+climate_df=filter(climate_df,l_ratio!=0) # need to remove zeros because of gamma distribution if there are any
+
+# Change order of facto levels
+
+climate_df$cov=factor(climate_df$cov,levels=c("1","0"))
+
+m4 <- glmer(l_ratio ~ cov*dens + mat+ n.vr + par.per.vr + (1+cov|group/species) , family = Gamma(link="log"), data = climate_df)
+
+summary(m4)
+
+r.squaredGLMM(m4)
+
+##### Note that I remove the smallest age at sexual maturity for plotting
+
+# plot sens~mat
+pred.df <- data.frame(Effect(c("mat","cov","dens"), m4,xlevels=list(mat=seq(-0.4, max(climate_df$mat), length.out = 100), cov = levels(climate_df$cov),dens=levels(climate_df$dens))))
+
+levels(pred.df$dens) <- c("No density dependence","Density dependence",NA)
+
+# add data points that show mean sensitivities of each species
+
+mean.climate_df = aggregate(l_ratio~species+mat+cov+dens+group, mean, data=climate_df[climate_df$mat>(-1),])
+
+levels(climate_df$dens)
+levels(mean.climate_df$dens)
+
+levels(climate_df$dens) <- c("No density dependence","Density dependence")
+levels(mean.climate_df$dens) <- c("No density dependence","Density dependence")
+
+library(ggrepel) # to add labels
+
+levels(pred.df$cov) <- c("Yes","No",NA)
+levels(climate_df$cov) <- c("Yes","No")
+levels(mean.climate_df$cov) <- c("Yes","No")
+
+# plot
+plot.clim.lr <- ggplot(data = pred.df, aes(x = mat, y = fit)) +
+  geom_ribbon(data = pred.df, aes(ymin = lower, ymax = upper, fill = cov), alpha = 0.3) +
+  geom_line(data = pred.df, aes(col = cov), linewidth = 1.2) +
+  facet_grid(dens ~ .) +
+  
+  geom_jitter(data = mean.climate_df, aes(x = mat, y = l_ratio, color = cov), alpha = 0.7, size = 5, width = 0, height = 0) +
+  
+  # can add labels of species if needed: 
+  
+  # geom_text_repel(data = mean.climate_df, aes(x = mat, y = l_ratio, label = species,fontface = "italic"), size = 3.5,
+  #               box.padding = unit(0.4, "lines"), point.padding = unit(0.2, "lines"),
+  #             max.overlaps = 100) +
+  scale_fill_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) + 
+  scale_color_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) +
+  labs(
+    x = "Log age at sexual maturity (in years)",
+    y = "Log response ratio (|L|)"
+  ) + 
+  # ylim(0,2)+
+  theme_minimal() +
+  theme(
+    axis.title = element_text(size = 20), 
+    axis.text = element_text(size = 18),
+    strip.text = element_text(size = 19),
+    legend.text = element_text(size = 18),
+    legend.title = element_text(size = 20),
+    axis.ticks = element_line(color = "black"),
+    legend.position = "bottom"
+  ) +
+  geom_rect(
+    data = unique(pred.df[c("dens")]),
+    aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
+    color = "black",
+    fill = NA,
+    inherit.aes = FALSE
+  )
+
+plot.clim.lr
+
+ggsave(plot.clim.lr,filename="main_plot_L_ratio.pdf",width=8, height=7)
 
 
-# 6. SI #########################
+# 9. SI #########################
 # some plots for the supporting information
 # showing the difference in sensitivities without and with covariation
  
