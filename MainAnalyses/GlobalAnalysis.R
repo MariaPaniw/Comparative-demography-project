@@ -21,6 +21,7 @@ library(ggplot2)
 library(lme4)
 library(viridis)
 library(effects)
+library(MuMIn)
 
 # 1. Load data #########################################################
 
@@ -29,61 +30,60 @@ library(effects)
 # Alternatively import all sensitivitesdata
 df=read.csv("AllSens.csv")
 
-
 # Species's sensitivites:
 
 # make sure the directory is correct for each species
 
 # Mammals
-AFox=read.csv("ArcticFox/Sens_ArcticFox_MCMC.csv") # [Nater et al. 2021]
-StripedMouse=read.csv("StripedMouse/Sens_StripedMouse_MCMC.csv") # [Nater et al. 2018]
-Giraffe=read.csv("Giraffes/Sens_Giraffes.csv") # [Bond et al. 2023]
-MouseLemur=read.csv("mouse lemurs/Sens_MouseLemurs.csv") # [Ozgul et al. 2023]
-Reindeer=read.csv("reindeer/SensReindeer.csv") # [Hansen & Gamelon et al. 2019]
-Marmot=read.csv("marmots/final_results/SENS_MARMOTS_MCMC.csv") # [Paniw et al. 2020]
-Meerkat=read.csv("meerkats/Sens_Meerkats.csv") # [Paniw et al. 2019]
+AFox=read.csv("Files_ArcticFox/Sens_ArcticFox_MCMC.csv") # [Nater et al. 2021]
+StripedMouse=read.csv("Files_StripedMouse/Sens_StripedMouse_MCMC.csv") # [Nater et al. 2018]
+Giraffe=read.csv("Files_Giraffes/Sens_Giraffes.csv") # [Bond et al. 2023]
+MouseLemur=read.csv("Files_MouseLemur/Sens_MouseLemurs.csv") # [Ozgul et al. 2023]
+Reindeer=read.csv("Files_Reindeer/SensReindeer.csv") # [Hansen & Gamelon et al. 2019]
+Marmot=read.csv("Files_Marmot/final_results/SENS_MARMOTS_MCMC.csv") # [Paniw et al. 2020]
+Meerkat=read.csv("Files_Meerkat/Sens_Meerkats.csv") # [Paniw et al. 2019]
+Rabbits=read.csv("Files_Rabbits/sens_raabit.csv")# [Tablado et al. 2012]
 
 
 # Birds
-Petrel=read.csv("SkuaPetrel/Output_Sens_MCMC/SensPetrel_MCMC.csv") # [Quéroué et al. 2019]
-MPenguin=read.csv("MagellanicPenguin/Sens_MPenguins.csv") # [Clark-Wolf et al. 2022]
-Certhia=read.csv("birds/output/Certhia_Sens.csv") # [Malchow et al. 2023]
-Linaria=read.csv("birds/output/Linaria_Sens.csv") # [Malchow et al. 2023]
-Lophophanes=read.csv("birds/output/Lophophanes_Sens.csv") # [Malchow et al. 2023]
-PrunellaCollaris=read.csv("birds/output/PrunellaCollaris_Sens.csv") # [Malchow et al. 2023]
-PrunellaModularis=read.csv("birds/output/PrunellaModularis_Sens.csv") # [Malchow et al. 2023]
-Pyrrhula=read.csv("birds/output/Pyrrhula_Sens.csv") # [Malchow et al. 2023]
-Sitta=read.csv("birds/output/Sitta_Sens.csv") # [Malchow et al. 2023]
-Turdus=read.csv("birds/output/Turdus_Sens.csv") # [Malchow et al. 2023]
-Dipper=read.csv("dipper/Sens_Dipper_Resampling.csv") # [Gamelon et al. 2017]
-Albatross=read.csv("Albatross/Sens_Albatross.csv") # [Jenouvrier et al. 2018]
-Goose=read.csv("BarnacleGoose/sens_goose.csv") # [Layton-Matthews et al. 2020]
-Jay=read.csv("SiberianJay/sens_jays.csv") # [Layton-Matthews et al. 2018]
+Petrel=read.csv("Files_SkuaPetrel/Output_Sens_MCMC/SensPetrel_MCMC.csv") # [Quéroué et al. 2019]
+MPenguin=read.csv("Files_MagellanicPenguin/Sens_MPenguins.csv") # [Clark-Wolf et al. 2022]
+Certhia=read.csv("Files_SwissBirds/output/Certhia_Sens.csv") # [Malchow et al. 2023]
+Linaria=read.csv("Files_SwissBirds/output/Linaria_Sens.csv") # [Malchow et al. 2023]
+Lophophanes=read.csv("Files_SwissBirds/output/Lophophanes_Sens.csv") # [Malchow et al. 2023]
+PrunellaCollaris=read.csv("Files_SwissBirds/output/PrunellaCollaris_Sens.csv") # [Malchow et al. 2023]
+PrunellaModularis=read.csv("Files_SwissBirds/output/PrunellaModularis_Sens.csv") # [Malchow et al. 2023]
+Pyrrhula=read.csv("Files_SwissBirds/output/Pyrrhula_Sens.csv") # [Malchow et al. 2023]
+Sitta=read.csv("Files_SwissBirds/output/Sitta_Sens.csv") # [Malchow et al. 2023]
+Turdus=read.csv("Files_SwissBirds/output/Turdus_Sens.csv") # [Malchow et al. 2023]
+Dipper=read.csv("Files_Dipper/Sens_Dipper_Resampling.csv") # [Gamelon et al. 2017]
+Albatross=read.csv("Files_Albatross/Sens_Albatross.csv") # [Jenouvrier et al. 2018]
+Goose=read.csv("Files_BarnacleGoose/sens_goose.csv") # [Layton-Matthews et al. 2020]
+Jay=read.csv("Files_SiberianJay/sens_jays.csv") # [Layton-Matthews et al. 2018]
+EmperorPanguin=read.csv("Files_Emperor_penguin/sens_emperor_peng.csv") # [Jenouvrier et al. 2012)
 
 
 # Plants
-Cistus=read.csv("shrubs/Output/Sens_Cistus.csv") # [Paniw et al. 2023]
-Halimium=read.csv("shrubs/Output/Sens_Halimium.csv") # [Paniw et al. 2023]
-Protea=read.csv("Protea/Sens_Protea.csv") # [Merow et al. 2014]
-Opuntia=read.csv("OpuntiaImbricata/Sens_OpuntiaImbricata.csv") # [Evers et al. 2020]
+Cistus=read.csv("Files_Shrubs/Sens_Cistus.csv") # [Paniw et al. 2023]
+Halimium=read.csv("Files_Shrubs/Sens_Halimium.csv") # [Paniw et al. 2023]
+Protea=read.csv("Files_Protea/Sens_Protea.csv") # [Merow et al. 2014]
+Opuntia=read.csv("Files_Opuntia/Sens_OpuntiaImbricata.csv") # [Evers et al. 2020]
 Draco=read.csv("Dracocephalum/Sensitivities_Dracocephalum.csv") # [Evers et al. in review]
-
-Trees=read.csv("SpainTrees/SensSpainTrees.csv") # 11 tree species [David Garcia-Callejas et al. 2016]
-
-DewyP=read.csv("/Users/esinickin/Desktop/DewyPines/Sens_DewyPines.csv") # [Conquet et al. in prep]
+Trees=read.csv("Files_SpainTrees/SensSpainTrees.csv") # 11 tree species [David Garcia-Callejas et al. 2016]
+DewyP=read.csv("DewyPines/Sens_DewyPines.csv") # [Conquet et al. 2024]
+Lavandula=read.csv("Files_Lavandula/sens_lavandula.csv") # [Sanchez-Mejia et al. in prep]
 
 
 
 # 2. Compile one big data file ###########################################
 
-df=rbind(AFox,StripedMouse,Giraffe,MouseLemur,Reindeer,Marmot,Meerkat,
+df=rbind(AFox,StripedMouse,Giraffe,MouseLemur,Reindeer,Marmot,Meerkat,Rabbits,
            Petrel,MPenguin,Certhia,Linaria,Lophophanes,PrunellaCollaris,PrunellaModularis,Pyrrhula,Sitta,Turdus,Dipper,
-           Cistus,Halimium,Protea,Opuntia,DewyP,Albatross,Goose,Jay,Trees,Draco)
+           Cistus,Halimium,Protea,Opuntia,DewyP,Albatross,Goose,Jay,Trees,Draco,EmperorPanguin,Lavandula)
 # 
 length(levels(factor(df$species))) # 36
 
 #write.csv(df,"AllSens.csv",row.names = F)
-
 
 
 ### 2.1 EDA & edit data ##################
@@ -122,7 +122,7 @@ climate_df=filter(climate_df,!driver %in% c("SAM","Winterlength")) # remove SAM 
 
 # remove sens == 0 if there is 
 min(climate_df$sens)
-#climate_df=filter(climate_df,sens!=0) # need to remove zeros because of gamma distribution if there are any
+climate_df=filter(climate_df,sens!=0) # need to remove zeros because of gamma distribution if there are any
 
 climate_df$driver=factor(climate_df$driver)
 climate_df$dens=factor(climate_df$dens)
@@ -139,35 +139,7 @@ m1 <- glmer(sens ~ cov *dens + mat + n.vr + par.per.vr + (1+cov|group/species) ,
 
 summary(m1)
 
-# DHARMa ####################
-library(DHARMa)
-
-# Simulate residuals
-simulationOutput <- simulateResiduals(fittedModel = m1, n = 250)
-
-# Residual vs. Fitted Values Plot
-png("residuals_vs_fitted.png", width = 8, height = 6, units = "in", res = 300)
-plotResiduals(simulationOutput)
-dev.off()
-
-# Q-Q Plot
-png("qq_plot.png", width = 8, height = 6, units = "in", res = 300)
-plotQQunif(simulationOutput)
-dev.off()
-
-# Residuals vs. Key Predictors
-png("residuals_vs_cov.png", width = 8, height = 6, units = "in", res = 300)
-plotResiduals(simulationOutput, form = climate_df$cov)
-dev.off()
-
-png("residuals_vs_dens.png", width = 8, height = 6, units = "in", res = 300)
-plotResiduals(simulationOutput, form = climate_df$dens)
-dev.off()
-
-# Overall Residual Plot
-png("overall_residual_plot.png", width = 8, height = 6, units = "in", res = 300)
-plot(simulationOutput)
-dev.off()
+r.squaredGLMM(m1)
 
 ### 3.1 GLMM: Test effect of study length ###############
 
@@ -178,7 +150,6 @@ m1.2 <- glmer(sens ~ cov *dens + mat + log(study.length) + n.vr + par.per.vr + (
 summary(m1.2)
 
 mean(climate_df$study.length)
-
 
 ### 3.2 Plot #################
 
@@ -195,31 +166,30 @@ mean.climate_df <- climate_df %>%
 levels(climate_df$dens)
 levels(mean.climate_df$dens)
 
-levels(climate_df$dens) <- c("No density effects","Density effects",NA)
-levels(mean.climate_df$dens) <- c("No density effects","Density effects",NA)
+levels(climate_df$dens) <- c("No density dependence","Density dependence")
+levels(mean.climate_df$dens) <- c("No density dependence","Density dependence")
 
-levels(pred.df$cov) <- c("Observed env change","Simplified env change",NA)
-levels(climate_df$cov) <- c("Observed env change","Simplified env change",NA)
-levels(mean.climate_df$cov) <- c("Observed env change","Simplified env change",NA)
+levels(pred.df$cov) <- c("Yes","No",NA)
+levels(climate_df$cov) <- c("Yes","No")
+levels(mean.climate_df$cov) <- c("Yes","No")
 
 library(ggrepel) # to add labels
 
 # plot
 plot.clim <- ggplot(data = pred.df, aes(x = mat, y = fit)) +
-  geom_ribbon(data = pred.df, aes(ymin = lower, ymax = upper, fill = dens), alpha = 0.2) +
-  geom_line(data = pred.df, aes(col = dens), linewidth = 2) +
-  facet_grid(cov ~ .) +
+  geom_ribbon(data = pred.df, aes(ymin = lower, ymax = upper, fill = cov), alpha = 0.3) +
+  geom_line(data = pred.df, aes(col = cov), linewidth = 1.2) +
+  facet_grid(dens ~ .) +
   
-  geom_jitter(data = mean.climate_df, aes(x = mat, y = sens, color = dens), alpha = 0.8, size = 6, width = 0, height = 0) +
+  geom_jitter(data = mean.climate_df, aes(x = mat, y = sens, color = cov), alpha = 0.7, size = 5, width = 0, height = 0) +
   
   # can add labels of species if needed: 
   
   # geom_text_repel(data = mean.climate_df, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3.5,
   #               box.padding = unit(0.4, "lines"), point.padding = unit(0.2, "lines"),
   #             max.overlaps = 100) +
-  
-  scale_fill_manual(name = "Density feedbacks:", values = c("#b7b3e6", "#029356"), labels = c("No", "Yes")) + 
-  scale_color_manual(name = "Density feedbacks:", values = c("#b7b3e6", "#029356"), labels = c("No", "Yes")) +
+  scale_fill_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) + 
+  scale_color_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) +
   labs(
     x = "Log age at sexual maturity (in years)",
     y = "Scaled population growth sensitivities (|S|)"
@@ -228,14 +198,14 @@ plot.clim <- ggplot(data = pred.df, aes(x = mat, y = fit)) +
   theme(
     axis.title = element_text(size = 20), 
     axis.text = element_text(size = 18),
-    strip.text = element_text(size = 20),
+    strip.text = element_text(size = 19),
     legend.text = element_text(size = 18),
     legend.title = element_text(size = 20),
     axis.ticks = element_line(color = "black"),
     legend.position = "bottom"
   ) +
   geom_rect(
-    data = unique(pred.df[c("cov")]),
+    data = unique(pred.df[c("dens")]),
     aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
     color = "black",
     fill = NA,
@@ -246,12 +216,148 @@ plot.clim
 
 ggsave("SensAllClimSpp.png", plot.clim, width = 10, height = 8, dpi = 300)
 
+# 4. Mean sensitivities per species ################################# 
+
+#### 4.1 Removing outliers
+sub=droplevels(climate_df[climate_df$mat>=(-1)&climate_df$mat<2,])
+
+mean.df = aggregate(sens~species+mat+cov+dens+group, mean, data=sub)
+
+m2=glmer(sens ~ dens + mat + (1|group) , family = Gamma(link="log"), data = mean.df[mean.df$cov=="Yes",])
+
+summary(m2)
+
+r.squaredGLMM(m2)
+
+a= ggplot(mean.df[mean.df$cov=="Yes",], aes(x=dens, y=sens)) +
+  
+  geom_boxplot(width=0.3, fill="grey90") + 
+  geom_jitter(data=mean.df[mean.df$cov=="Yes",],aes(col=group),size=4,width=0.2,alpha=0.6) +
+  # stat_summary(fun.data = "mean_cl_boot", geom = "pointrange", show.legend = F, 
+  #              position = position_dodge(.1),col="red") +
+  scale_colour_manual(values=c("blue4","darkorchid","darkorange"))+
+  ylab("Scaled population growth sensitivities (|S|)")+
+  xlab("")+
+  theme_bw(base_size=18)+theme(panel.grid = element_blank())+
+  theme(panel.grid.major = element_blank(),
+        legend.title = element_blank(),
+        # legend.text = element_text(size=20),
+        legend.position = "none",
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        panel.border = element_rect(colour = "black"),
+        axis.text = element_text(colour="black"))
+
+### MEAN SENS PER SPECIES
+
+#### 4.2 All species 
+mean.df = aggregate(sens~species+mat+cov+dens+group, mean, data=climate_df)
+
+m2.2=glmer(sens ~ dens + mat + (1|group) , family = Gamma(link="log"), data = mean.df[mean.df$cov=="Yes",])
+
+summary(m2.2)
+
+r.squaredGLMM(m2.2)
+
+b=ggplot(mean.df[mean.df$cov=="Yes",], aes(x=dens, y=sens)) +
+  
+  geom_boxplot(width=0.3, fill="grey90") + 
+  geom_jitter(data=mean.df[mean.df$cov=="Yes",],aes(col=group),size=4,width=0.2,alpha=0.6) +
+  # stat_summary(fun.data = "mean_cl_boot", geom = "pointrange", show.legend = F, 
+  #              position = position_dodge(.1),col="red") +
+  scale_colour_manual(values=c("blue4","darkorchid","darkorange"))+
+  ylab("Scaled population growth sensitivities (|S|)")+
+  xlab("")+
+  theme_bw(base_size=18)+theme(panel.grid = element_blank())+
+  theme(panel.grid.major = element_blank(),
+        legend.title = element_blank(),
+        # legend.text = element_text(size=20),
+        legend.position = c(0.8,0.87),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        panel.border = element_rect(colour = "black"),
+        axis.text = element_text(colour="black"))
+
+library(patchwork)
+
+x= b + a +plot_annotation(tag_levels = 'A')
+
+ggsave(x,filename="mean_per_species.pdf",width=11, height=6)
+
+# 5. GLMM: Plants only ##################################################################
+
+sub=climate_df[climate_df$group%in%"Plants",]
+
+length(unique(sub$species))
+
+m1 <- glmer(sens ~ cov*dens + mat + n.vr + par.per.vr + (1|species) , family = Gamma(link="log"), data =climate_df[climate_df$group%in%"Plants",])
 
 summary(m1)
 
-### NOTE MARIA : FROME HERE ON, CODE NEEDS TO BE CHANGED TO ADJUST FOR NEW PLOTTING
+r.squaredGLMM(m1)
 
-# 4. GLMM: Sens to Temperature vs Rain ##################################################################
+# plot sens~mat
+pred.df <- data.frame(Effect(c("mat","cov","dens"), m1,xlevels=list(mat=seq(min(sub$mat), max(sub$mat), length.out = 1000), cov = levels(sub$cov),dens=levels(sub$dens))))
+
+levels(pred.df$dens) <- c("No density dependence","Density dependence",NA)
+
+mean.sub = aggregate(sens~species+mat+cov+dens+group, mean, data=sub)
+
+levels(sub$dens)
+levels(mean.sub$dens)
+
+levels(sub$dens) <- c("No density dependence","Density dependence")
+levels(mean.sub$dens) <- c("No density dependence","Density dependence")
+
+library(ggrepel) # to add labels
+
+levels(pred.df$cov) <- c("Yes","No",NA)
+levels(sub$cov) <- c("Yes","No")
+levels(mean.sub$cov) <- c("Yes","No")
+
+# plot 
+plot.clim.plants <- ggplot(data = pred.df, aes(x = mat, y = fit)) +
+  geom_ribbon(data = pred.df, aes(ymin = lower, ymax = upper, fill = cov), alpha = 0.3) +
+  geom_line(data = pred.df, aes(col = cov), linewidth = 1.2) +
+  facet_grid(dens ~ .) +
+  
+  geom_jitter(data = mean.sub, aes(x = mat, y = sens, color = cov), alpha = 0.7, size = 5, width = 0, height = 0) +
+  
+  # can add labels of species if needed: 
+  
+  # geom_text_repel(data = mean.climate_df, aes(x = mat, y = sens, label = species,fontface = "italic"), size = 3.5,
+  #               box.padding = unit(0.4, "lines"), point.padding = unit(0.2, "lines"),
+  #             max.overlaps = 100) +
+  scale_fill_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) + 
+  scale_color_manual(name = "Environmental covariation:", values = c( "#b7b3e6","#029356"), labels = c("Yes","No")) +
+  labs(
+    x = "Log age at sexual maturity (in years)",
+    y = "Scaled population growth sensitivities (|S|)"
+  ) + 
+  theme_minimal() +
+  theme(
+    axis.title = element_text(size = 20), 
+    axis.text = element_text(size = 18),
+    strip.text = element_text(size = 19),
+    legend.text = element_text(size = 18),
+    legend.title = element_text(size = 20),
+    axis.ticks = element_line(color = "black"),
+    legend.position = "bottom"
+  ) +
+  geom_rect(
+    data = unique(pred.df[c("dens")]),
+    aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf),
+    color = "black",
+    fill = NA,
+    inherit.aes = FALSE
+  )
+
+plot.clim.plants
+
+ggsave(plot.clim.plants,filename="main_plants.pdf",width=8, height=7)
+
+
+# 6. GLMM: Sens to Temperature vs Rain ##################################################################
 
 # split climate further into temperature and rain
 
