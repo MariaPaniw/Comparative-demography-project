@@ -36,6 +36,9 @@ This readme.md file was generated on 2023-03-20 by Esin Ickin
 - Reindeer: [10.1038/s41467-019-09332-5](https://doi.org/10.1038/s41467-019-09332-5)
 - Barnacle goose: [10.1111/gcb.14773](https://doi.org/10.1111/gcb.14773)
 - Siberian jay: [10.1007/s00442-018-4100-z](https://doi.org/10.1007/s00442-018-4100-z)
+- Lavandula stoechas: [10.1098/rspb.2022.1494](https://royalsocietypublishing.org/doi/10.1098/rspb.2022.1494)
+- Rabbit: [10.1371/journal.pone.0048988](https://doi.org/10.1371/journal.pone.0048988)
+- Emperor penguin: [10.1111/j.1365-2486.2012.02744.x]( https://doi.org/10.1111/j.1365-2486.2012.02744.x)
 
 **DATA & FILE OVERVIEW**
 1. Introduction: This project focuses on the population-level consequences of climate effects in vital-rate models. The main hypothesis is that when we do not consider the nuanced ways in which climatic variation affects individuals across the life cycle, we substantially misrepresent climate-change effects on population fitness. To test this hypothesis across different species of plants and animals, we are collecting studies in which vital rates were fit as a function of climatic and/or biotic factors, and a population model was developed from which fitness (λ) can be computed. From this, changes in fitness can be calculated when covariates in vital-rate models are perturbed, either separately or considering covariation with other covariates. Such sensitivities can then be compared across species. Ultimately, the goal is to develop this repository to make all data and analyses for all species freely accessible.  

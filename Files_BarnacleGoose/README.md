@@ -6,7 +6,7 @@ Study DOI: [10.1111/gcb.14773](https://doi.org/10.1111/gcb.14773)
 
 ## Species
 
-The Svalbard barnacle goose population is migratory and overwinters at Solway Firth, Scotland, before flying to Svalbard for breeding in summer. The barnacle goose reaches sexual maturity at the age of 2 years. Individual mark–recapture data from both sexes were collected from the nesting islands and coastal area around Ny-Ålesund from 1990-2017 (for this study).
+The Svalbard barnacle goose (_Branta leucopsis_) population is migratory and overwinters at Solway Firth, Scotland, before flying to Svalbard for breeding in summer. The barnacle goose reaches sexual maturity at the age of 2 years. Individual mark–recapture data from both sexes were collected from the nesting islands and coastal area around Ny-Ålesund from 1990-2017 (for this study).
 
 ## Model
 
