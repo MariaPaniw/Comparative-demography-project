@@ -1,0 +1,601 @@
+"study.doi","year.of.publication","group","species","continent","driver","driver.type","stage.age","vital.rates","sens","cov","mat","n.vr","n.pam","dens","biotic_interactions","lambda.sim","study.length","l_ratio"
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.169976879991852,0,0.8,11,32,0,1,0,22,0.763901389658426
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.157272090987213,0,0.8,11,32,0,1,0,22,0.71518245187447
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.137455629482826,0,0.8,11,32,0,1,0,22,0.640487258427734
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.125231225667377,0,0.8,11,32,0,1,0,22,0.592239626695536
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0995816175022655,0,0.8,11,32,0,1,0,22,0.480953623402526
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0896752482277635,0,0.8,11,32,0,1,0,22,0.445938674232248
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0997883629069315,0,0.8,11,32,0,1,0,22,0.51054435728406
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.115596861585925,0,0.8,11,32,0,1,0,22,0.595992003120845
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0787285832258697,0,0.8,11,32,0,1,0,22,0.392273145025111
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0876030505428666,0,0.8,11,32,0,1,0,22,0.438109186493367
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0766682615330952,0,0.8,11,32,0,1,0,22,0.378951681364347
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0613531142847734,0,0.8,11,32,0,1,0,22,0.309399957144272
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0941029000920965,0,0.8,11,32,0,1,0,22,0.465516186207868
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.110402822169795,0,0.8,11,32,0,1,0,22,0.541342605043754
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.108573129604959,0,0.8,11,32,0,1,0,22,0.535817079642916
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.098515812753541,0,0.8,11,32,0,1,0,22,0.489870976522547
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.130364106494581,0,0.8,11,32,0,1,0,22,0.640538380255484
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.146157066631356,0,0.8,11,32,0,1,0,22,0.735414504787087
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.153776276469008,0,0.8,11,32,0,1,0,22,0.7652932903351
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.149521091607957,0,0.8,11,32,0,1,0,22,0.753965498164121
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.162703840855131,0,0.8,11,32,0,1,0,22,0.80963239021439
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.163660464646967,0,0.8,11,32,0,1,0,22,0.820076957571496
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.146838055328817,0,0.8,11,32,0,1,0,22,0.737677535376396
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.151426347134544,0,0.8,11,32,0,1,0,22,0.784125075801095
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.145212457375714,0,0.8,11,32,0,1,0,22,0.772397483790905
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.135517691844282,0,0.8,11,32,0,1,0,22,0.735472781258994
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.140779723901957,0,0.8,11,32,0,1,0,22,0.742319679625099
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.131920915996848,0,0.8,11,32,0,1,0,22,0.675332345985259
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.137062369554844,0,0.8,11,32,0,1,0,22,0.692546246474416
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.112827790589813,0,0.8,11,32,0,1,0,22,0.579491695908893
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.128345974688834,0,0.8,11,32,0,1,0,22,0.649782578715769
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.153668430737018,0,0.8,11,32,0,1,0,22,0.75768924677347
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.135977459588396,0,0.8,11,32,0,1,0,22,0.660179998678531
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.129740005863022,0,0.8,11,32,0,1,0,22,0.648938865538986
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.146131973465669,0,0.8,11,32,0,1,0,22,0.745646509451228
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.160959369891746,0,0.8,11,32,0,1,0,22,0.807157832085762
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.157819209532303,0,0.8,11,32,0,1,0,22,0.786128269903829
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.152623570373243,0,0.8,11,32,0,1,0,22,0.756237390668158
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.163735594796058,0,0.8,11,32,0,1,0,22,0.816625758364237
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.166651193192185,0,0.8,11,32,0,1,0,22,0.796877864326843
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.157802185699056,0,0.8,11,32,0,1,0,22,0.77673573270558
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.166242658281902,0,0.8,11,32,0,1,0,22,0.820918605168229
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.189760716171821,0,0.8,11,32,0,1,0,22,0.945647802258587
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.207768090327431,0,0.8,11,32,0,1,0,22,1.01747742781741
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.220975049573378,0,0.8,11,32,0,1,0,22,1.07913208506571
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.221903403396014,0,0.8,11,32,0,1,0,22,1.04014940976196
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.215543995563986,0,0.8,11,32,0,1,0,22,1.00049894216879
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.202215768498078,0,0.8,11,32,0,1,0,22,0.965823705210417
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.245682766177572,0,0.8,11,32,0,1,0,22,1.13578396417941
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.225002599903472,0,0.8,11,32,0,1,0,22,1.05987095378477
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.193950977335663,0,0.8,11,32,0,1,0,22,0.930621492158608
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.175021617953185,0,0.8,11,32,0,1,0,22,0.850886619033823
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.157287708433546,0,0.8,11,32,0,1,0,22,0.741644928288661
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.150591514739763,0,0.8,11,32,0,1,0,22,0.723343473332391
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.113513552057013,0,0.8,11,32,0,1,0,22,0.557301835246434
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.10786010690466,0,0.8,11,32,0,1,0,22,0.521977880196084
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.162577195258891,0,0.8,11,32,0,1,0,22,0.805571532220549
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.159828146107365,0,0.8,11,32,0,1,0,22,0.826822446824041
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.152526336099001,0,0.8,11,32,0,1,0,22,0.810630783215974
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.138300665490095,0,0.8,11,32,0,1,0,22,0.737019966525999
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.142522952416381,0,0.8,11,32,0,1,0,22,0.78318259111302
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.128508620846943,0,0.8,11,32,0,1,0,22,0.73526762464887
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.123981692139984,0,0.8,11,32,0,1,0,22,0.719513859205346
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.123214433287132,0,0.8,11,32,0,1,0,22,0.728421199448142
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.123550103339115,0,0.8,11,32,0,1,0,22,0.696823974379812
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.153352472831261,0,0.8,11,32,0,1,0,22,0.846956142240726
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.152343036118608,0,0.8,11,32,0,1,0,22,0.827877671648119
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.155337311255707,0,0.8,11,32,0,1,0,22,0.827457388153473
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.143461436092306,0,0.8,11,32,0,1,0,22,0.778731867401761
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.118673431925347,0,0.8,11,32,0,1,0,22,0.632777920046951
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.110820024077768,0,0.8,11,32,0,1,0,22,0.603331742787015
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.119452461552518,0,0.8,11,32,0,1,0,22,0.650726302988833
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.117433050836723,0,0.8,11,32,0,1,0,22,0.677762818578384
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.118717394547063,0,0.8,11,32,0,1,0,22,0.722189484310299
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0997947685212903,0,0.8,11,32,0,1,0,22,0.573895711743811
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.112683900830826,0,0.8,11,32,0,1,0,22,0.637832740670064
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.097316118925508,0,0.8,11,32,0,1,0,22,0.540592103569012
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0996165398231507,0,0.8,11,32,0,1,0,22,0.55601661540698
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0947465649224398,0,0.8,11,32,0,1,0,22,0.515312397696347
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.094870620611671,0,0.8,11,32,0,1,0,22,0.526962555208504
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0987281543960716,0,0.8,11,32,0,1,0,22,0.560545898312682
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.105202920750909,0,0.8,11,32,0,1,0,22,0.574537993157328
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.117955910270483,0,0.8,11,32,0,1,0,22,0.674041028536824
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.129497934423354,0,0.8,11,32,0,1,0,22,0.729696427584156
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.122418439585499,0,0.8,11,32,0,1,0,22,0.704170802565132
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.118727000569342,0,0.8,11,32,0,1,0,22,0.690642307459127
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.146322360466596,0,0.8,11,32,0,1,0,22,0.808611483959093
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.155574124830333,0,0.8,11,32,0,1,0,22,0.860137003625708
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.17194498476753,0,0.8,11,32,0,1,0,22,1.00722380741842
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.171017168290291,0,0.8,11,32,0,1,0,22,0.980110035983877
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.158974384611824,0,0.8,11,32,0,1,0,22,0.882529467855279
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.152084685668088,0,0.8,11,32,0,1,0,22,0.861139393927229
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.179191481068681,0,0.8,11,32,0,1,0,22,0.978595509054858
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.180141863612344,0,0.8,11,32,0,1,0,22,0.985052810893578
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.168085159435015,0,0.8,11,32,0,1,0,22,0.890155592230745
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.193759367274831,0,0.8,11,32,0,1,0,22,1.0229019029069
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.188345444191341,0,0.8,11,32,0,1,0,22,1.02469032442836
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.203348118022864,0,0.8,11,32,0,1,0,22,0.993330493859978
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.205950264139457,0,0.8,11,32,0,1,0,22,1.09284729614273
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.196853513103801,0,0.8,11,32,0,1,0,22,1.01564456520691
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.153435210717194,1,0.8,11,32,0,1,0,22,0.689587766179036
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.14210947571866,1,0.8,11,32,0,1,0,22,0.645295776001955
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.122070079722082,1,0.8,11,32,0,1,0,22,0.567369331812116
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.104998151791471,1,0.8,11,32,0,1,0,22,0.494867769700406
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0797384270280248,1,0.8,11,32,0,1,0,22,0.382264705170757
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0767860016245038,1,0.8,11,32,0,1,0,22,0.379180331108898
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.099348736768206,1,0.8,11,32,0,1,0,22,0.506418761141465
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.112746600987584,1,0.8,11,32,0,1,0,22,0.577360825656143
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0761058289539863,1,0.8,11,32,0,1,0,22,0.376821780106646
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0904413766583232,1,0.8,11,32,0,1,0,22,0.446971539877394
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0683221911367934,1,0.8,11,32,0,1,0,22,0.334331968115329
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0561673429970284,1,0.8,11,32,0,1,0,22,0.280327286682459
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0938803941327696,1,0.8,11,32,0,1,0,22,0.459806995361523
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.110535290093507,1,0.8,11,32,0,1,0,22,0.536330091929755
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.106668719094803,1,0.8,11,32,0,1,0,22,0.522445756490972
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.093556937370949,1,0.8,11,32,0,1,0,22,0.461819942182493
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.124343126552772,1,0.8,11,32,0,1,0,22,0.608076518773555
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.143344734539708,1,0.8,11,32,0,1,0,22,0.711115377338787
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.149488094252963,1,0.8,11,32,0,1,0,22,0.734495273626995
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.155230405437017,1,0.8,11,32,0,1,0,22,0.764151040104997
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.168307972335781,1,0.8,11,32,0,1,0,22,0.818072702766843
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.173511291529594,1,0.8,11,32,0,1,0,22,0.848354339409544
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.158340232365575,1,0.8,11,32,0,1,0,22,0.77205521907921
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.161578151675362,1,0.8,11,32,0,1,0,22,0.811869256077629
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.155742695896674,1,0.8,11,32,0,1,0,22,0.804158827972851
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.142686817408507,1,0.8,11,32,0,1,0,22,0.756883601113142
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.148203279316943,1,0.8,11,32,0,1,0,22,0.765652824304388
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.148191631998424,1,0.8,11,32,0,1,0,22,0.745012030329915
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.150162344232039,1,0.8,11,32,0,1,0,22,0.743252945137932
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.119581946630578,1,0.8,11,32,0,1,0,22,0.603929369623094
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.141172497610657,1,0.8,11,32,0,1,0,22,0.70275840661235
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.163717699254074,1,0.8,11,32,0,1,0,22,0.790783861100669
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.141932066701469,1,0.8,11,32,0,1,0,22,0.680186353825332
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.134443441561773,1,0.8,11,32,0,1,0,22,0.663933671709969
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.140766594492697,1,0.8,11,32,0,1,0,22,0.711962636774402
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.146980735344469,1,0.8,11,32,0,1,0,22,0.736941252507715
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.136526803599605,1,0.8,11,32,0,1,0,22,0.681875611664473
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.134212748944796,1,0.8,11,32,0,1,0,22,0.66413505969333
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.139564107197227,1,0.8,11,32,0,1,0,22,0.698890902861883
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.138945439924374,1,0.8,11,32,0,1,0,22,0.670268382836202
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.122171582512265,1,0.8,11,32,0,1,0,22,0.60976626069224
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.125818481937888,1,0.8,11,32,0,1,0,22,0.63115041709771
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.159504654347667,1,0.8,11,32,0,1,0,22,0.792792028587485
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.178351133041115,1,0.8,11,32,0,1,0,22,0.87051964680434
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.188054025718633,1,0.8,11,32,0,1,0,22,0.919296462469949
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.196085278094891,1,0.8,11,32,0,1,0,22,0.91920349179911
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.184945790501204,1,0.8,11,32,0,1,0,22,0.864805382681955
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.17859964104079,1,0.8,11,32,0,1,0,22,0.854903320720321
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.22073401585033,1,0.8,11,32,0,1,0,22,1.0203808994228
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.198805939032905,1,0.8,11,32,0,1,0,22,0.936527202359515
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.161667663475852,1,0.8,11,32,0,1,0,22,0.772835009569363
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.141376355569035,1,0.8,11,32,0,1,0,22,0.683674323948455
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.116014008041076,1,0.8,11,32,0,1,0,22,0.55066751060279
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.111769127993839,1,0.8,11,32,0,1,0,22,0.539996272288099
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0784763598360889,1,0.8,11,32,0,1,0,22,0.384809790621635
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0718299301183506,1,0.8,11,32,0,1,0,22,0.349266837896112
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.128622223853369,1,0.8,11,32,0,1,0,22,0.62970207020178
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.118380744941379,1,0.8,11,32,0,1,0,22,0.60210297120991
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.114173222608634,1,0.8,11,32,0,1,0,22,0.596470559206535
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.109887711880083,1,0.8,11,32,0,1,0,22,0.569340527958878
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.113814416383426,1,0.8,11,32,0,1,0,22,0.606791189931313
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0996391577283243,1,0.8,11,32,0,1,0,22,0.552693153016812
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0954481531603606,1,0.8,11,32,0,1,0,22,0.536806486857173
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0952267367108151,1,0.8,11,32,0,1,0,22,0.544853497148555
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0981982476296114,1,0.8,11,32,0,1,0,22,0.537373294499712
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.129316906977757,1,0.8,11,32,0,1,0,22,0.690859478023864
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.130658145205022,1,0.8,11,32,0,1,0,22,0.685660820157163
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.134625530561376,1,0.8,11,32,0,1,0,22,0.696886182003795
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.124859052330249,1,0.8,11,32,0,1,0,22,0.66087118920704
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0977730697345822,1,0.8,11,32,0,1,0,22,0.513593775037474
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0884908950899694,1,0.8,11,32,0,1,0,22,0.474627245393169
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0998995217512893,1,0.8,11,32,0,1,0,22,0.536131177882706
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.101661905231239,1,0.8,11,32,0,1,0,22,0.574369185449811
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.106248171864616,1,0.8,11,32,0,1,0,22,0.628559962933432
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0856954276785989,1,0.8,11,32,0,1,0,22,0.484505858574476
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0979624452702605,1,0.8,11,32,0,1,0,22,0.545057463585637
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0850368051795845,1,0.8,11,32,0,1,0,22,0.467419435785027
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0841638467807015,1,0.8,11,32,0,1,0,22,0.466009387663888
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0851571656068066,1,0.8,11,32,0,1,0,22,0.461723753935143
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0856052758243772,1,0.8,11,32,0,1,0,22,0.474015357733865
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0886584781903441,1,0.8,11,32,0,1,0,22,0.501336789199319
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.0950252196430487,1,0.8,11,32,0,1,0,22,0.516898447141293
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.110210127503479,1,0.8,11,32,0,1,0,22,0.62187069957619
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.119446571420663,1,0.8,11,32,0,1,0,22,0.666823569645301
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.116263908761711,1,0.8,11,32,0,1,0,22,0.658495939675345
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.113524730466161,1,0.8,11,32,0,1,0,22,0.649918368981382
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.128224026411365,1,0.8,11,32,0,1,0,22,0.701728896841293
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.13368300299105,1,0.8,11,32,0,1,0,22,0.732355164471023
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.150684718865028,1,0.8,11,32,0,1,0,22,0.86165186477639
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.140015856307861,1,0.8,11,32,0,1,0,22,0.791948703286608
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.12004470119127,1,0.8,11,32,0,1,0,22,0.666325990914704
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.113121797647285,1,0.8,11,32,0,1,0,22,0.636137587511769
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.136915919266643,1,0.8,11,32,0,1,0,22,0.746278858902391
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.138416639091091,1,0.8,11,32,0,1,0,22,0.755093093038937
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.13146792772639,1,0.8,11,32,0,1,0,22,0.692634085460365
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.157258213410115,1,0.8,11,32,0,1,0,22,0.829548598375759
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.143963863748143,1,0.8,11,32,0,1,0,22,0.781894022405587
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.161366588026771,1,0.8,11,32,0,1,0,22,0.790567301120549
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.160866114265153,1,0.8,11,32,0,1,0,22,0.855152799972675
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","sea ice","C","all","all",0.161482627006809,1,0.8,11,32,0,1,0,22,0.824667564017864
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0677971615150164,0,0.8,11,32,0,1,0,22,0.248737205727028
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0641299957596125,0,0.8,11,32,0,1,0,22,0.235749057748573
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0666589996819869,0,0.8,11,32,0,1,0,22,0.249850342426149
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0878712746915736,0,0.8,11,32,0,1,0,22,0.327867299652732
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0882808335242921,0,0.8,11,32,0,1,0,22,0.331886456059944
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0586284938501081,0,0.8,11,32,0,1,0,22,0.22994773671771
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00381968958836545,0,0.8,11,32,0,1,0,22,0.0160081383917803
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0166983794595889,0,0.8,11,32,0,1,0,22,0.0688705912756722
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0142159169080873,0,0.8,11,32,0,1,0,22,0.0558803585942641
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00774081815614814,0,0.8,11,32,0,1,0,22,0.0312105965235092
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0408702764743071,0,0.8,11,32,0,1,0,22,0.157490775320393
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0249744953469729,0,0.8,11,32,0,1,0,22,0.100421053638611
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00654940180864711,0,0.8,11,32,0,1,0,22,0.0267179550681762
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00620233368698735,0,0.8,11,32,0,1,0,22,0.0254743591287549
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0124049139089013,0,0.8,11,32,0,1,0,22,0.0507404809403169
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0245376622960259,0,0.8,11,32,0,1,0,22,0.101528468075058
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0266686508654173,0,0.8,11,32,0,1,0,22,0.110283193854341
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0206914912282753,0,0.8,11,32,0,1,0,22,0.0873567761422277
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0247869792446523,0,0.8,11,32,0,1,0,22,0.103543597462939
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00581709007658899,0,0.8,11,32,0,1,0,22,0.0252036164741628
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00590195815809857,0,0.8,11,32,0,1,0,22,0.0255715852220858
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0199866603130504,0,0.8,11,32,0,1,0,22,0.0883157048112466
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0204235945380337,0,0.8,11,32,0,1,0,22,0.0891987319538897
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0153410255241301,0,0.8,11,32,0,1,0,22,0.0681252105024557
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0168612730369185,0,0.8,11,32,0,1,0,22,0.077562797650498
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0122589844865422,0,0.8,11,32,0,1,0,22,0.0568063561857734
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0139759932656316,0,0.8,11,32,0,1,0,22,0.0633413423120173
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0528894411580692,0,0.8,11,32,0,1,0,22,0.238002595869598
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0370422805606876,0,0.8,11,32,0,1,0,22,0.162956992983501
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0190801360245902,0,0.8,11,32,0,1,0,22,0.0827748836706311
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0391577994305102,0,0.8,11,32,0,1,0,22,0.171193586083055
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.023231614642002,0,0.8,11,32,0,1,0,22,0.0969283549100847
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0148409625334724,0,0.8,11,32,0,1,0,22,0.0620700175629824
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00985482944574336,0,0.8,11,32,0,1,0,22,0.0421901018022042
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0250456316125265,0,0.8,11,32,0,1,0,22,0.110600562207465
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0504326450252413,0,0.8,11,32,0,1,0,22,0.218644148589363
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0731869621426645,0,0.8,11,32,0,1,0,22,0.312732303614986
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.064917121690944,0,0.8,11,32,0,1,0,22,0.275869756839548
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0867836340152334,0,0.8,11,32,0,1,0,22,0.364151295980112
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.100530039682269,0,0.8,11,32,0,1,0,22,0.399127641335609
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.126695756246213,0,0.8,11,32,0,1,0,22,0.512079510181537
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.143993956498716,0,0.8,11,32,0,1,0,22,0.580420560666052
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.107154778895176,0,0.8,11,32,0,1,0,22,0.449574173227887
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.103719776347432,0,0.8,11,32,0,1,0,22,0.431949747449436
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.10785912956145,0,0.8,11,32,0,1,0,22,0.457284609636495
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0854978062812744,0,0.8,11,32,0,1,0,22,0.350258068753249
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.100107719351803,0,0.8,11,32,0,1,0,22,0.399775639778301
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0826009710927834,0,0.8,11,32,0,1,0,22,0.339442457179188
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0853231695166985,0,0.8,11,32,0,1,0,22,0.344433915065229
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0909766731018166,0,0.8,11,32,0,1,0,22,0.365067713229
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.116626520799136,0,0.8,11,32,0,1,0,22,0.460307072791234
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.121460270283596,0,0.8,11,32,0,1,0,22,0.48276736070074
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.155788207702482,0,0.8,11,32,0,1,0,22,0.58136679722498
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.15018990058924,0,0.8,11,32,0,1,0,22,0.566835855460606
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.143555121091943,0,0.8,11,32,0,1,0,22,0.540285960113631
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.142431456193511,0,0.8,11,32,0,1,0,22,0.535835668058307
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.145313818582645,0,0.8,11,32,0,1,0,22,0.537795674770444
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.172788479220254,0,0.8,11,32,0,1,0,22,0.66499533621401
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.162392269712552,0,0.8,11,32,0,1,0,22,0.638866158086388
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.117598197019995,0,0.8,11,32,0,1,0,22,0.474942515106798
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.1217520055319,0,0.8,11,32,0,1,0,22,0.501178579306497
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.122909245085968,0,0.8,11,32,0,1,0,22,0.520185422548236
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.121059509471144,0,0.8,11,32,0,1,0,22,0.519222281652871
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.119436271123621,0,0.8,11,32,0,1,0,22,0.519215434322857
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.109572634638618,0,0.8,11,32,0,1,0,22,0.455288895164513
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.106761880817551,0,0.8,11,32,0,1,0,22,0.438071464986448
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0950668678518992,0,0.8,11,32,0,1,0,22,0.391449727294307
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0903197942504713,0,0.8,11,32,0,1,0,22,0.372636390230824
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0823387517298831,0,0.8,11,32,0,1,0,22,0.345496509048539
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0844989977404885,0,0.8,11,32,0,1,0,22,0.35663264174905
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0890854516674937,0,0.8,11,32,0,1,0,22,0.382426645796447
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0804463285077929,0,0.8,11,32,0,1,0,22,0.344020697251615
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0686009759861815,0,0.8,11,32,0,1,0,22,0.312015047831976
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0595183593333104,0,0.8,11,32,0,1,0,22,0.282635460808869
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0588471668727142,0,0.8,11,32,0,1,0,22,0.272565642399358
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0604941275751716,0,0.8,11,32,0,1,0,22,0.277288334997115
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0487415819387576,0,0.8,11,32,0,1,0,22,0.223036470677172
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0603623251267277,0,0.8,11,32,0,1,0,22,0.274385887742833
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0359608293896217,0,0.8,11,32,0,1,0,22,0.161323509294936
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0347803011985195,0,0.8,11,32,0,1,0,22,0.159700807672088
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.039716760248656,0,0.8,11,32,0,1,0,22,0.186124296577539
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0388350146688925,0,0.8,11,32,0,1,0,22,0.176305150020703
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.035702890454355,0,0.8,11,32,0,1,0,22,0.16828361243758
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0410765050606911,0,0.8,11,32,0,1,0,22,0.19272865723964
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0312226153618165,0,0.8,11,32,0,1,0,22,0.149581290933138
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0284304305258361,0,0.8,11,32,0,1,0,22,0.137378982091104
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0674873432975979,0,0.8,11,32,0,1,0,22,0.315548441281595
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0799027509020673,0,0.8,11,32,0,1,0,22,0.370065054677606
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0880346895404864,0,0.8,11,32,0,1,0,22,0.4186277207315
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.119122536105107,0,0.8,11,32,0,1,0,22,0.543837193622941
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.141423323678659,0,0.8,11,32,0,1,0,22,0.633324813727313
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.136213947048892,0,0.8,11,32,0,1,0,22,0.637424818080718
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.138993922783541,0,0.8,11,32,0,1,0,22,0.648775853414585
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.13521391440664,0,0.8,11,32,0,1,0,22,0.636817592695997
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.119214603330188,0,0.8,11,32,0,1,0,22,0.546274317181623
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.121811418489171,0,0.8,11,32,0,1,0,22,0.55718814847313
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.145648713538121,0,0.8,11,32,0,1,0,22,0.689489906272709
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.130190110827218,0,0.8,11,32,0,1,0,22,0.566906161279675
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.144303696488596,0,0.8,11,32,0,1,0,22,0.670897818326234
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.116591815169163,0,0.8,11,32,0,1,0,22,0.536619864337634
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0438432411961828,1,0.8,11,32,0,1,0,22,0.16246943560144
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0421646324287322,1,0.8,11,32,0,1,0,22,0.156390510772088
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0430748468217187,1,0.8,11,32,0,1,0,22,0.162056701756232
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0643939491026295,1,0.8,11,32,0,1,0,22,0.240087597240212
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0704062465775962,1,0.8,11,32,0,1,0,22,0.263326147337539
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0419902582500228,1,0.8,11,32,0,1,0,22,0.164235810103716
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0131978641903756,1,0.8,11,32,0,1,0,22,0.055729578885814
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00233304049665455,1,0.8,11,32,0,1,0,22,0.00968417025912108
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00227847585687001,1,0.8,11,32,0,1,0,22,0.0089867842936882
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0210481040652401,1,0.8,11,32,0,1,0,22,0.0851439770951004
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0273099858346109,1,0.8,11,32,0,1,0,22,0.104911709089289
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0150251464647016,1,0.8,11,32,0,1,0,22,0.0602364633164416
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00720215248425069,1,0.8,11,32,0,1,0,22,0.0294750171357813
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00998515795362291,1,0.8,11,32,0,1,0,22,0.0411687145247098
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00392216786461056,1,0.8,11,32,0,1,0,22,0.0161198335383875
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0104965265896495,1,0.8,11,32,0,1,0,22,0.0435518502667074
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0124735550376134,1,0.8,11,32,0,1,0,22,0.052121497473079
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.00798627429071144,1,0.8,11,32,0,1,0,22,0.0336485897904267
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0061144627274241,1,0.8,11,32,0,1,0,22,0.025496814868197
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0328927700093005,1,0.8,11,32,0,1,0,22,0.141735620245543
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.034696580803444,1,0.8,11,32,0,1,0,22,0.149534227415999
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0489173881035317,1,0.8,11,32,0,1,0,22,0.215343486219088
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0465248947135392,1,0.8,11,32,0,1,0,22,0.20172699584083
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0426816132826925,1,0.8,11,32,0,1,0,22,0.188260934220505
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0430542648066386,1,0.8,11,32,0,1,0,22,0.196763914016243
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0339780109990294,1,0.8,11,32,0,1,0,22,0.157413858255795
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0320057304548817,1,0.8,11,32,0,1,0,22,0.145899222591728
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0705537606337774,1,0.8,11,32,0,1,0,22,0.320504916773026
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0547689346188953,1,0.8,11,32,0,1,0,22,0.242565622872678
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0335791178453981,1,0.8,11,32,0,1,0,22,0.146402173104704
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0519591861179634,1,0.8,11,32,0,1,0,22,0.230073679330865
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0395273519689184,1,0.8,11,32,0,1,0,22,0.16680895218621
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.026875263353189,1,0.8,11,32,0,1,0,22,0.113888297558911
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0211435142239974,1,0.8,11,32,0,1,0,22,0.0917151536208812
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0119753488522453,1,0.8,11,32,0,1,0,22,0.0535603813962906
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0347589489425882,1,0.8,11,32,0,1,0,22,0.152982508242778
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0559654040955943,1,0.8,11,32,0,1,0,22,0.2418654182415
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0486643814108129,1,0.8,11,32,0,1,0,22,0.208776332354734
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.064326226410548,1,0.8,11,32,0,1,0,22,0.272260367317248
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0757898415097197,1,0.8,11,32,0,1,0,22,0.304118293600553
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.107366602603166,1,0.8,11,32,0,1,0,22,0.440825413460457
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.123529614036692,1,0.8,11,32,0,1,0,22,0.506202678645049
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0891697977138342,1,0.8,11,32,0,1,0,22,0.379493059507662
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0839673450652727,1,0.8,11,32,0,1,0,22,0.355105266609237
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0900348960235305,1,0.8,11,32,0,1,0,22,0.39046458717357
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0658240234405575,1,0.8,11,32,0,1,0,22,0.275180692130749
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0803227344611826,1,0.8,11,32,0,1,0,22,0.328189418728428
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0645305191056519,1,0.8,11,32,0,1,0,22,0.270829679913912
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0616601439743375,1,0.8,11,32,0,1,0,22,0.2543006640116
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0730405674082974,1,0.8,11,32,0,1,0,22,0.30054131723869
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.104777873651755,1,0.8,11,32,0,1,0,22,0.423452990914965
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.112347029328737,1,0.8,11,32,0,1,0,22,0.456419811584659
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.147912066509446,1,0.8,11,32,0,1,0,22,0.565859684706043
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.1410904224483,1,0.8,11,32,0,1,0,22,0.543495708329451
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.140872241347354,1,0.8,11,32,0,1,0,22,0.537319303946601
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.142507288268341,1,0.8,11,32,0,1,0,22,0.546377895635398
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.137210394500979,1,0.8,11,32,0,1,0,22,0.515496128451156
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.164418428921429,1,0.8,11,32,0,1,0,22,0.639159996327233
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.154102846497124,1,0.8,11,32,0,1,0,22,0.611702833037542
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.1087965899812,1,0.8,11,32,0,1,0,22,0.439166433683977
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.112548978783153,1,0.8,11,32,0,1,0,22,0.463238566320491
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.115588833246478,1,0.8,11,32,0,1,0,22,0.488085714138289
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.113431096005244,1,0.8,11,32,0,1,0,22,0.484443769716907
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.111854047291073,1,0.8,11,32,0,1,0,22,0.483919365953625
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.102027890641531,1,0.8,11,32,0,1,0,22,0.422722425666964
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.092422544700834,1,0.8,11,32,0,1,0,22,0.377987450671958
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0810145054404087,1,0.8,11,32,0,1,0,22,0.332379218803948
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0759859235266539,1,0.8,11,32,0,1,0,22,0.313593021637196
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0690297443227413,1,0.8,11,32,0,1,0,22,0.290069250609235
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0749865124692499,1,0.8,11,32,0,1,0,22,0.31763174308436
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0818179834068369,1,0.8,11,32,0,1,0,22,0.35277324370776
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0725135643255237,1,0.8,11,32,0,1,0,22,0.31232407404952
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.060836091338197,1,0.8,11,32,0,1,0,22,0.278543714846362
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0510404990460826,1,0.8,11,32,0,1,0,22,0.243727529265047
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0555746155022985,1,0.8,11,32,0,1,0,22,0.260480410220792
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0579316477088792,1,0.8,11,32,0,1,0,22,0.269818021016632
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0473390292949269,1,0.8,11,32,0,1,0,22,0.22025771698984
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0568876729278759,1,0.8,11,32,0,1,0,22,0.262135021240465
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0393034926400152,1,0.8,11,32,0,1,0,22,0.181084684753707
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.036578413054301,1,0.8,11,32,0,1,0,22,0.172288918950045
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0379894026444239,1,0.8,11,32,0,1,0,22,0.181877448611548
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0367266347624113,1,0.8,11,32,0,1,0,22,0.170304624223543
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0279844313957301,1,0.8,11,32,0,1,0,22,0.133742746069345
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0315780657578218,1,0.8,11,32,0,1,0,22,0.15031311409623
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0222399042055721,1,0.8,11,32,0,1,0,22,0.107825660189755
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0197547207210069,1,0.8,11,32,0,1,0,22,0.0966052293868341
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0550245974540496,1,0.8,11,32,0,1,0,22,0.259812826699634
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0651592852389441,1,0.8,11,32,0,1,0,22,0.304315384974215
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.070584997879079,1,0.8,11,32,0,1,0,22,0.336621142057867
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0996537290669974,1,0.8,11,32,0,1,0,22,0.457134706192912
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.123348288000711,1,0.8,11,32,0,1,0,22,0.557517893295494
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.120355015191469,1,0.8,11,32,0,1,0,22,0.565457092070432
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.119363798172712,1,0.8,11,32,0,1,0,22,0.561146111020716
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.117358317478134,1,0.8,11,32,0,1,0,22,0.557923159557365
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.103704898204715,1,0.8,11,32,0,1,0,22,0.47952657701648
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0985899606478853,1,0.8,11,32,0,1,0,22,0.454586443206076
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.122311475697768,1,0.8,11,32,0,1,0,22,0.580077046953064
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.107452738090451,1,0.8,11,32,0,1,0,22,0.472652037874588
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.120846767959908,1,0.8,11,32,0,1,0,22,0.567593427930862
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","reindeer carcass availability","B","all","all",0.0972428873571854,1,0.8,11,32,0,1,0,22,0.4503804625919
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0148834472993292,0,0.8,11,32,0,1,0,22,0.0659666504462784
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0149766956951062,0,0.8,11,32,0,1,0,22,0.0662695133087254
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00239715215662343,0,0.8,11,32,0,1,0,22,0.0108181907188466
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00346388325368945,0,0.8,11,32,0,1,0,22,0.0157232014023779
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00344190825147614,0,0.8,11,32,0,1,0,22,0.0156757797420221
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00336270179051195,0,0.8,11,32,0,1,0,22,0.015783180611994
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00437211603377313,0,0.8,11,32,0,1,0,22,0.0212120720405082
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00582389373230131,0,0.8,11,32,0,1,0,22,0.0280637717771397
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00614843668400091,0,0.8,11,32,0,1,0,22,0.0281599729575255
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00605535634785322,0,0.8,11,32,0,1,0,22,0.0278989072720031
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0017973190684128,0,0.8,11,32,0,1,0,22,0.00819947382554705
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.000169302143333725,0,0.8,11,32,0,1,0,22,0.000795119877383677
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00630285517941535,0,0.8,11,32,0,1,0,22,0.0297167492079982
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0062446568381725,0,0.8,11,32,0,1,0,22,0.0296359640434425
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00656032203840971,0,0.8,11,32,0,1,0,22,0.031163258999159
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00630804236267618,0,0.8,11,32,0,1,0,22,0.0304922308679799
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0193080327171727,0,0.8,11,32,0,1,0,22,0.0938025957073843
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0111227359309207,0,0.8,11,32,0,1,0,22,0.0548294340796306
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0134476768388954,0,0.8,11,32,0,1,0,22,0.065777777573742
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00900041947102097,0,0.8,11,32,0,1,0,22,0.04442542271846
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00919773343075779,0,0.8,11,32,0,1,0,22,0.0453559257873631
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00910196988185857,0,0.8,11,32,0,1,0,22,0.0453915028498041
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00876861938045531,0,0.8,11,32,0,1,0,22,0.0433181557788568
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00886500817271549,0,0.8,11,32,0,1,0,22,0.0447208378548894
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00874227509379034,0,0.8,11,32,0,1,0,22,0.0456318633792515
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00065646152793752,0,0.8,11,32,0,1,0,22,0.00345723685884686
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0119531593932372,0,0.8,11,32,0,1,0,22,0.0616294485760213
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0115439391522374,0,0.8,11,32,0,1,0,22,0.0573962594546052
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0117984746768457,0,0.8,11,32,0,1,0,22,0.0581190728163089
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0110434448007266,0,0.8,11,32,0,1,0,22,0.0541427062380524
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0217025006020777,0,0.8,11,32,0,1,0,22,0.106731831137177
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0227629146934004,0,0.8,11,32,0,1,0,22,0.108029217427718
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0252883436898665,0,0.8,11,32,0,1,0,22,0.121125406916719
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0247167511991362,0,0.8,11,32,0,1,0,22,0.121686165496234
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0240041494037327,0,0.8,11,32,0,1,0,22,0.124359826890106
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0246599495741808,0,0.8,11,32,0,1,0,22,0.127769078059861
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.019686936143108,0,0.8,11,32,0,1,0,22,0.100832097849167
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0190573798545876,0,0.8,11,32,0,1,0,22,0.0962296341171143
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0121207280724441,0,0.8,11,32,0,1,0,22,0.0616819556342266
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0112653644141161,0,0.8,11,32,0,1,0,22,0.0549739907448462
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0218725039762274,0,0.8,11,32,0,1,0,22,0.109976678210434
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0233457917806862,0,0.8,11,32,0,1,0,22,0.117917553036625
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0293281290411346,0,0.8,11,32,0,1,0,22,0.14897785495735
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0308999560292632,0,0.8,11,32,0,1,0,22,0.156021958845158
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.038844723097914,0,0.8,11,32,0,1,0,22,0.201095097308851
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.035096406169049,0,0.8,11,32,0,1,0,22,0.174348356665233
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0366745122712481,0,0.8,11,32,0,1,0,22,0.180095099942224
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0342482458273196,0,0.8,11,32,0,1,0,22,0.172025953401135
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0354029491067366,0,0.8,11,32,0,1,0,22,0.174661644374591
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0427751810921323,0,0.8,11,32,0,1,0,22,0.211523087406414
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0465940970423772,0,0.8,11,32,0,1,0,22,0.226126249225225
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0454658222665989,0,0.8,11,32,0,1,0,22,0.220467732175854
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.04859301262367,0,0.8,11,32,0,1,0,22,0.228039029140308
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0433066075731625,0,0.8,11,32,0,1,0,22,0.204776334245419
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0400875600735533,0,0.8,11,32,0,1,0,22,0.187635456257067
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0452293567507492,0,0.8,11,32,0,1,0,22,0.212483155792747
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0474178553529643,0,0.8,11,32,0,1,0,22,0.219363640798212
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0432241501782603,0,0.8,11,32,0,1,0,22,0.206935023557399
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0405252838333585,0,0.8,11,32,0,1,0,22,0.19850856099355
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0292815908584192,0,0.8,11,32,0,1,0,22,0.140392999677376
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0302449558337326,0,0.8,11,32,0,1,0,22,0.14846111781118
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0284244095431017,0,0.8,11,32,0,1,0,22,0.143783544258715
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0256683380756853,0,0.8,11,32,0,1,0,22,0.131319511441454
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0253594485578898,0,0.8,11,32,0,1,0,22,0.131505740283174
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0264097384502091,0,0.8,11,32,0,1,0,22,0.131009712902591
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0232349585761253,0,0.8,11,32,0,1,0,22,0.113415856247529
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0224328501876996,0,0.8,11,32,0,1,0,22,0.108642971169638
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0238264277144618,0,0.8,11,32,0,1,0,22,0.116120838892123
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0226441569612698,0,0.8,11,32,0,1,0,22,0.112699306583609
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0223007203069892,0,0.8,11,32,0,1,0,22,0.11180547493443
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0240931174772202,0,0.8,11,32,0,1,0,22,0.123038454186226
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0267980013093142,0,0.8,11,32,0,1,0,22,0.137160689943922
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0251518645162083,0,0.8,11,32,0,1,0,22,0.135708919740014
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0236844890934347,0,0.8,11,32,0,1,0,22,0.132866013992405
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0284027543182013,0,0.8,11,32,0,1,0,22,0.155592551072895
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0345719514371559,0,0.8,11,32,0,1,0,22,0.188192084072917
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.032192283176272,0,0.8,11,32,0,1,0,22,0.174603467832322
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.029322649672693,0,0.8,11,32,0,1,0,22,0.158896051268444
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0441761046534838,0,0.8,11,32,0,1,0,22,0.239030754839277
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0406662475747165,0,0.8,11,32,0,1,0,22,0.22498175051532
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0334874189464716,0,0.8,11,32,0,1,0,22,0.189183179589272
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0349703396805777,0,0.8,11,32,0,1,0,22,0.190938391476187
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0263429900621585,0,0.8,11,32,0,1,0,22,0.147626479612423
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.026586399815378,0,0.8,11,32,0,1,0,22,0.148836907740212
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0240200937078431,0,0.8,11,32,0,1,0,22,0.13600224994784
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0236119389192925,0,0.8,11,32,0,1,0,22,0.134778039137424
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0224085748556452,0,0.8,11,32,0,1,0,22,0.125024862270745
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0214976649402462,0,0.8,11,32,0,1,0,22,0.119109079186912
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0200423734062944,0,0.8,11,32,0,1,0,22,0.113851237526565
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0196734147660346,0,0.8,11,32,0,1,0,22,0.10931512641591
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0210309544198109,0,0.8,11,32,0,1,0,22,0.115783302882523
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0185251051614666,0,0.8,11,32,0,1,0,22,0.103538673632402
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0188398384677801,0,0.8,11,32,0,1,0,22,0.105445422767066
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0219913173030096,0,0.8,11,32,0,1,0,22,0.123946920269196
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0221948980240451,0,0.8,11,32,0,1,0,22,0.120431114150354
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0159282205893393,0,0.8,11,32,0,1,0,22,0.088278468294547
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0120313090428478,0,0.8,11,32,0,1,0,22,0.0681581033439236
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0185496332593227,0,0.8,11,32,0,1,0,22,0.0968314934023489
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0191911018352341,0,0.8,11,32,0,1,0,22,0.10808712544682
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0197315149813422,0,0.8,11,32,0,1,0,22,0.107181396812319
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0509326002249837,1,0.8,11,32,0,1,0,22,0.175068872890475
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0450246202204117,1,0.8,11,32,0,1,0,22,0.157700417970855
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0192397227273672,1,0.8,11,32,0,1,0,22,0.0702195454933269
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0103720403305252,1,0.8,11,32,0,1,0,22,0.0383612561424813
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0227216586550021,1,0.8,11,32,0,1,0,22,0.0874067923397998
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00533407596857892,1,0.8,11,32,0,1,0,22,0.0216086992846208
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0472554306685112,1,0.8,11,32,0,1,0,22,0.200622335273512
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0459784053907228,1,0.8,11,32,0,1,0,22,0.189011163015423
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0255342066467296,1,0.8,11,32,0,1,0,22,0.106363894105549
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0499519632203249,1,0.8,11,32,0,1,0,22,0.208988028860277
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00102612991625748,1,0.8,11,32,0,1,0,22,0.00418773298968593
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00932823268020442,1,0.8,11,32,0,1,0,22,0.0401589092280833
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.049398260038427,1,0.8,11,32,0,1,0,22,0.204376959337254
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0615122891012837,1,0.8,11,32,0,1,0,22,0.249280240098785
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0530131180041116,1,0.8,11,32,0,1,0,22,0.2155326304855
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0407066132154933,1,0.8,11,32,0,1,0,22,0.168283424331158
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0713564107409472,1,0.8,11,32,0,1,0,22,0.281183236892089
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0521953855670227,1,0.8,11,32,0,1,0,22,0.207880470887992
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0494303173213367,1,0.8,11,32,0,1,0,22,0.193577765526336
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0844359753896201,1,0.8,11,32,0,1,0,22,0.34004574386413
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0930068643624146,1,0.8,11,32,0,1,0,22,0.367639637539829
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.106133072996212,1,0.8,11,32,0,1,0,22,0.425240199204384
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0996973670319936,1,0.8,11,32,0,1,0,22,0.404250157061861
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.096477396018155,1,0.8,11,32,0,1,0,22,0.394918003822919
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0947904967012656,1,0.8,11,32,0,1,0,22,0.401999587369065
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0907137788594572,1,0.8,11,32,0,1,0,22,0.39139637021413
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.107661582651674,1,0.8,11,32,0,1,0,22,0.449474872044917
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.128683541940639,1,0.8,11,32,0,1,0,22,0.545779938472008
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.122323936965867,1,0.8,11,32,0,1,0,22,0.503080478566284
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0867879723449733,1,0.8,11,32,0,1,0,22,0.367228379337314
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.124441774276996,1,0.8,11,32,0,1,0,22,0.516690913984251
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.127966931041402,1,0.8,11,32,0,1,0,22,0.494512235173312
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.115540599540659,1,0.8,11,32,0,1,0,22,0.455374101437662
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.107186197492155,1,0.8,11,32,0,1,0,22,0.433876976581595
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0946691575530384,1,0.8,11,32,0,1,0,22,0.378856183506165
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0824400607369333,1,0.8,11,32,0,1,0,22,0.319074922216188
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0533650770801015,1,0.8,11,32,0,1,0,22,0.204972219334643
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0567148633887144,1,0.8,11,32,0,1,0,22,0.218306376892304
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0335179641182937,1,0.8,11,32,0,1,0,22,0.127221320835479
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0202270689549639,1,0.8,11,32,0,1,0,22,0.0736153309460963
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00439727502198924,1,0.8,11,32,0,1,0,22,0.0162806499414362
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00437329788785288,1,0.8,11,32,0,1,0,22,0.0159469276464646
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0520934713975727,1,0.8,11,32,0,1,0,22,0.187581776107322
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0700651317509921,1,0.8,11,32,0,1,0,22,0.244972035103069
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0853174882063349,1,0.8,11,32,0,1,0,22,0.295296935336712
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.101881850218804,1,0.8,11,32,0,1,0,22,0.346659298000168
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0835456541933324,1,0.8,11,32,0,1,0,22,0.282727377635846
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0911720429165839,1,0.8,11,32,0,1,0,22,0.319836356757904
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.118538976075546,1,0.8,11,32,0,1,0,22,0.389770324063781
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.103932510382157,1,0.8,11,32,0,1,0,22,0.350029013732899
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0596752594109243,1,0.8,11,32,0,1,0,22,0.204737552759395
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0414741451454883,1,0.8,11,32,0,1,0,22,0.145822688424751
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00078010906811891,1,0.8,11,32,0,1,0,22,0.00269774396155563
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00216904986570643,1,0.8,11,32,0,1,0,22,0.00764822325476103
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0240514438180709,1,0.8,11,32,0,1,0,22,0.0894803858557583
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0202375964889774,1,0.8,11,32,0,1,0,22,0.0755071036795038
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00439301950124116,1,0.8,11,32,0,1,0,22,0.0152730096302952
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0221678437550126,1,0.8,11,32,0,1,0,22,0.0788074980578308
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0204289621793888,1,0.8,11,32,0,1,0,22,0.0749824169772081
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.000231279982258049,1,0.8,11,32,0,1,0,22,0.000879719198915333
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",2.6592399139315e-05,1,0.8,11,32,0,1,0,22,0.000102077154419354
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0114940861718069,1,0.8,11,32,0,1,0,22,0.0461815820204175
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0148273661042893,1,0.8,11,32,0,1,0,22,0.0607101686548906
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0145687067217175,1,0.8,11,32,0,1,0,22,0.0604691167558456
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00703554329344417,1,0.8,11,32,0,1,0,22,0.0282873745508947
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0115521561710757,1,0.8,11,32,0,1,0,22,0.0440062109067303
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.022521516446868,1,0.8,11,32,0,1,0,22,0.0857178795646094
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0317674355479094,1,0.8,11,32,0,1,0,22,0.120134192987993
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0295197146767705,1,0.8,11,32,0,1,0,22,0.115494871726224
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0148004393106371,1,0.8,11,32,0,1,0,22,0.0599220186979491
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00769192346726046,1,0.8,11,32,0,1,0,22,0.0318862489027447
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0203183967663153,1,0.8,11,32,0,1,0,22,0.0835098975913598
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0295553026177433,1,0.8,11,32,0,1,0,22,0.127283415554642
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0364811164890529,1,0.8,11,32,0,1,0,22,0.16254669805329
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0319571170594302,1,0.8,11,32,0,1,0,22,0.142265815912882
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0438731710752711,1,0.8,11,32,0,1,0,22,0.189378146636169
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0445154591691885,1,0.8,11,32,0,1,0,22,0.196281929121758
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0324160511609801,1,0.8,11,32,0,1,0,22,0.142631607253092
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0605312519137392,1,0.8,11,32,0,1,0,22,0.267775201806506
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0580901273956458,1,0.8,11,32,0,1,0,22,0.262411784712932
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0524963836760782,1,0.8,11,32,0,1,0,22,0.239209324255548
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0586614053457987,1,0.8,11,32,0,1,0,22,0.257692923266602
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0616929495130101,1,0.8,11,32,0,1,0,22,0.27396957775274
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0649605721397867,1,0.8,11,32,0,1,0,22,0.282837446828167
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.068465872307338,1,0.8,11,32,0,1,0,22,0.304630571087638
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0678346157087499,1,0.8,11,32,0,1,0,22,0.30594286150741
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.054031028887836,1,0.8,11,32,0,1,0,22,0.225248393571885
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0457744665652889,1,0.8,11,32,0,1,0,22,0.187530085484421
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.04791861174365,1,0.8,11,32,0,1,0,22,0.195246050121076
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.015987067280908,1,0.8,11,32,0,1,0,22,0.0636262059190963
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00888363215239785,1,0.8,11,32,0,1,0,22,0.0352585343180239
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00848909810530358,1,0.8,11,32,0,1,0,22,0.0347883890029731
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00695912469769036,1,0.8,11,32,0,1,0,22,0.0272622197042146
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0151554929652989,1,0.8,11,32,0,1,0,22,0.0594260715298113
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.023702286883521,1,0.8,11,32,0,1,0,22,0.0925222735010935
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0307591031039116,1,0.8,11,32,0,1,0,22,0.116931530877356
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.00272912126277078,1,0.8,11,32,0,1,0,22,0.0106415575977447
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0337297667098948,1,0.8,11,32,0,1,0,22,0.121112478247395
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0216118134535064,1,0.8,11,32,0,1,0,22,0.0809730742660041
+"10.1002/ecs2.3546","2021","Mammals","Vulpes lagopus","Europe","goose abundance","B","all","all",0.0474863038413631,1,0.8,11,32,0,1,0,22,0.17733502823676
