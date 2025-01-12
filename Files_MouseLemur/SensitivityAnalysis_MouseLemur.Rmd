@@ -1,0 +1,1024 @@
+---
+title: "SensitivityAnalysis_MPM"
+author: "Esin Ickin"
+date: "2/23/2023"
+output: html_document
+---
+
+This code is an example on how to parameterize vital-rate functions using coefficients and covariate inputs to then build a matrix population model and compute sensitivities.
+
+## 0) Prepare session
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "~/OneDrive - Universität Zürich UZH/Master Thesis/pert_analyses/mouse lemurs")
+```
+
+```{r}
+library(boot)
+library(popbio)
+library(MASS)
+rm(list=ls())
+set.seed(1234)
+```
+
+## 1) Vital rates
+
+The example is from a paper on gray mouse lemurs: Ozgul et al. 2023
+In the paper, we parameterized five vital rates as a function of population density, rainfall, and temperature.
+
+The vital rates are defined as functions, and we need the coefficients from vital rate models (here GLMs). We would appreciate a similar input on your part. Alternatively, it possible to have GLM models as an object, and then just use the "predict" function, instead of building out own functions. 
+
+```{r}
+# Female adult survival
+intercept.sfa=rnorm(10000,mean=9.95,sd=4.153)
+coef_dens.sfa=rnorm(10000,mean=0.04,sd=0.013)
+coef_rain.sfa=rnorm(10000,mean=0.0031,sd=0.001)
+coef_temp.sfa=rnorm(10000,mean=-0.38,sd=0.135)
+coef_int.sfa=rnorm(10000,mean=-0.00005,sd=0.00001) #densrain
+
+# Female juvenile survival
+intercept.sfj=rnorm(10000,mean=9.95,sd=4.153)-rnorm(10000,mean=-1.86,sd=0.356)
+coef_dens.sfj=rnorm(10000,mean=0.04,sd=0.013)
+coef_densjuv.sfj=rnorm(10000,mean=0.01,sd=0.004)
+coef_rain.sfj=rnorm(10000,mean=0.0031,sd=0.001)
+coef_temp.sfj=rnorm(10000,mean=-0.38,sd=0.135)
+coef_int.sfj=rnorm(10000,mean=-0.00005,sd=0.00001)
+
+# Male adult survival
+intercept.sma=rnorm(10000,mean=9.95,sd=4.153)-rnorm(10000,mean=-1.74,sd=0.465)
+coef_dens.sma=rnorm(10000,mean=0.04,sd=0.013)
+coef_rain.sma=rnorm(10000,mean=0.0031,sd=0.001)
+coef_rainsex.sma=rnorm(10000,mean=0.0013,sd=0.0005)
+coef_temp.sma=rnorm(10000,mean=-0.38,sd=0.135)
+coef_int.sma=rnorm(10000,mean=-0.00005,sd=0.00001)
+
+# Male juvenile survival
+intercept.smj=rnorm(10000,mean=9.95,sd=4.153)-rnorm(10000,mean=-1.74,sd=0.465)-rnorm(10000,mean=-1.86,sd=0.356)  
+coef_dens.smj=rnorm(10000,mean=0.04,sd=0.013)
+coef_densjuv.smj=rnorm(10000,mean=0.01,sd=0.004)
+coef_rain.smj=rnorm(10000,mean=0.0031,sd=0.001)
+coef_rainsex.smj=rnorm(10000,mean=0.0013,sd=0.0005)
+coef_temp.smj=rnorm(10000,mean=-0.38,sd=0.135)
+coef_int.smj=rnorm(10000,mean=-0.00005,sd=0.00001)
+
+# Recruitment
+intercept.rec=rnorm(10000,mean=-10.97,sd=5.32)
+coef_dens.rec=rnorm(10000,mean=-0.024,sd=0.009)
+coef_temp.rec=rnorm(10000,mean=0.364,sd=0.171)
+
+# Functions
+# Female adult survival
+Sfa <- function(dens,rain,temp,i){
+  surv <- inv.logit(
+    intercept.sfa[i] + coef_dens.sfa[i]*dens + coef_rain.sfa[i]*rain + coef_temp.sfa[i]*temp + coef_int.sfa[i]*dens*rain
+  )
+  return(surv)
+}
+
+# Female juvenile survival
+Sfj <- function(dens,rain,temp,i){
+  surv <- inv.logit(
+    intercept.sfj[i] + coef_dens.sfj[i]*dens + coef_densjuv.sfj[i]*dens + coef_rain.sfj[i]*rain + coef_temp.sfj[i]*temp + coef_int.sfj[i]*dens*rain
+  )
+  return(surv)
+}
+
+# Male adult survival
+Sma <- function(dens,rain,temp,i){
+  surv <- inv.logit(
+    intercept.sma[i] + coef_dens.sma[i]*dens + coef_rain.sma[i]*rain + coef_rainsex.sma[i] + coef_temp.sma[i]*temp + coef_int.sma[i]*dens*rain
+  )
+  return(surv)
+}
+
+# Male juvenile survival
+Smj <- function(dens,rain,temp,i){
+  surv <- inv.logit(
+    intercept.smj[i] + coef_dens.smj[i]*dens + coef_densjuv.smj[i] + coef_rain.smj[i]*rain + coef_rainsex.smj[i]*rain + coef_temp.smj[i]*temp + coef_int.smj[i]*dens*rain
+  )
+  return(surv)
+}
+
+# Recruitment
+rec <- function(dens,temp,i){
+  Rec <- exp(
+    intercept.rec[i] + coef_dens.rec[i]*dens + coef_temp.rec[i]*temp
+  )
+  return(Rec)
+}
+
+```
+
+## 2) Covariates
+
+There are the input data for the vital rate functions. Here, we have a time series of data. This is the best format because it allows us to calculate not only means and variances, but also covariances, the latter being important to calculate scaled sensitivities. 
+
+However, it is also possible to send us just the values we are interested in.
+
+```{r}
+cov=read.csv("covariates.csv") # raw data
+
+# Rain
+max.rain=max(cov$rain) # here and elsewhere, this can be calculated from the raw data or a single value can be provided
+min.rain=min(cov$rain)
+mean.rain=mean(cov$rain)
+sd.rain=sd(cov$rain)
+
+# Covariation
+temp_when_rain_max=cov$tmaxc[which(cov$rain==max(cov$rain))][1]
+temp_when_rain_min=cov$tmaxc[which(cov$rain==min(cov$rain))][1]
+
+dens_when_rain_max=cov$pop[which(cov$rain==max(cov$rain))][1]
+dens_when_rain_min=cov$pop[which(cov$rain==min(cov$rain))][1]
+
+# Temperature
+max.temp=max(cov$tmaxc)
+min.temp=min(cov$tmaxc)
+mean.temp=mean(cov$tmaxc)
+sd.temp=sd(cov$tmaxc)
+
+# Covariation
+dens_when_temp_max=cov$pop[which(cov$tmaxc==max(cov$tmaxc))][1]
+dens_when_temp_min=cov$pop[which(cov$tmaxc==min(cov$tmaxc))][1]
+
+rain_when_temp_max=cov$rain[which(cov$tmaxc==max(cov$tmaxc))][1]
+rain_when_temp_min=cov$rain[which(cov$tmaxc==min(cov$tmaxc))][1]
+
+# Density
+max.dens=max(cov$pop)
+min.dens=min(cov$pop)
+mean.dens= mean(cov$pop)
+sd.dens=sd(cov$pop)
+
+# Covariation
+rain_when_dens_max=cov$rain[which(cov$pop==max(cov$pop))][1]
+rain_when_dens_min=cov$rain[which(cov$pop==min(cov$pop))][1]
+
+temp_when_dens_max=cov$tmaxc[which(cov$pop==max(cov$pop))][1]
+temp_when_dens_min=cov$tmaxc[which(cov$pop==min(cov$pop))][1]
+```
+
+## 3) Population model
+
+Here, we use the vital rate function to construct an annual population model that can give us the population growth rate (lambda).
+
+In the following example, the MPM is constructed with mean covariate values.
+In the perturbations, the covariate values are changed.
+
+```{r}
+n.lambda=NULL
+n.stage=4
+
+for(i in 1:100){
+  mpm = matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  n.lambda[i]=lambda(mpm)
+}
+#n.lambda=n.lambda[n.lambda > 0 & n.lambda < 2]
+hist(n.lambda)
+length(n.lambda)
+max(n.lambda)
+min(n.lambda)
+mean(n.lambda)
+
+# filter lambda <3
+n.lambda = n.lambda[n.lambda <= 3]
+#n.lambda
+hist(n.lambda)
+```
+
+## 4) Sensitivtiy analysis
+
+Here, we calculate scaled sensitivities, according to Morris et al. 2020 (DOI: https://doi.org/10.1073/pnas.1918363117)
+
+With the information given in 1-3, we should be able to run these analyses.
+
+```{r}
+# empty vectors for lambdas
+# rain
+l.max.R=NULL
+l.min.R=NULL
+l.max.R2=NULL
+l.min.R2=NULL
+
+# temp
+l.max.T=NULL
+l.min.T=NULL
+l.max.T2=NULL
+l.min.T2=NULL
+
+# dens
+l.max.D=NULL
+l.min.D=NULL
+l.max.D2=NULL
+l.min.D2=NULL
+
+# empty vectors for sensitivities
+# rain
+delta.R=NULL
+deltaR.cov=NULL
+
+# temp
+delta.T=NULL
+deltaT.cov=NULL
+
+# dens
+delta.D=NULL
+deltaD.cov=NULL
+
+# empty vectors for log ratios
+# rain
+l_ratio.R=NULL
+l_ratio.R.cov=NULL
+
+# temp
+l_ratio.T=NULL
+l_ratio.T.cov=NULL
+
+# dens
+l_ratio.D=NULL
+l_ratio.D.cov=NULL
+
+
+for(i in 1:1000){
+  # RAIN
+  # 1. Sensitivity to rain assuming mean temperature and mean density
+  mpm.max = matrix(c(0,Smj(mean.dens,max.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,max.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,max.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,max.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,max.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,max.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,max.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,max.rain,mean.temp,i)),n.stage,n.stage)
+  
+  mpm.min = matrix(c(0,Smj(mean.dens,min.rain,mean.temp,i),0,0,
+                   0,Sma(mean.dens,min.rain,mean.temp,i),0,0,
+                   0.5*Sfj(mean.dens,min.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,min.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,min.rain,mean.temp,i),
+                   0.5*Sfa(mean.dens,min.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,min.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,min.rain,mean.temp,i)),n.stage,n.stage)
+  
+  l.max.R[i]=lambda(mpm.max)
+  l.min.R[i]=lambda(mpm.min)
+ 
+  # 2. Sensitivity to rain assuming covariation among covariates
+  mpm.max = matrix(c(0,Smj(dens_when_rain_max,max.rain,temp_when_rain_max,i),0,0,
+                   0,Sma(dens_when_rain_max,max.rain,temp_when_rain_max,i),0,0,
+                   0.5*Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),0,0.5*Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i),
+                   0.5*Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),0,0.5*Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)),n.stage,n.stage)
+  
+  mpm.min = matrix(c(0,Smj(dens_when_rain_min,min.rain,temp_when_rain_min,i),0,0,
+                   0,Sma(dens_when_rain_min,min.rain,temp_when_rain_min,i),0,0,
+                   0.5*Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),0,0.5*Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i),
+                   0.5*Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),0,0.5*Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)),n.stage,n.stage)
+  
+  l.max.R2[i]=lambda(mpm.max)
+  l.min.R2[i]=lambda(mpm.min)
+  
+
+  
+  # TEMPERATURE
+  # 1. Sensitivity to temperature assuming mean rain and mean density
+  mpm.max = matrix(c(0,Smj(mean.dens,mean.rain,max.temp,i),0,0,
+                   0,Sma(mean.dens,mean.rain,max.temp,i),0,0,
+                   0.5*Sfj(mean.dens,mean.rain,max.temp,i)*rec(mean.dens,max.temp,i),0,0.5*Sfj(mean.dens,mean.rain,max.temp,i)*rec(mean.dens,max.temp,i),Sfj(mean.dens,mean.rain,max.temp,i),
+                   0.5*Sfa(mean.dens,mean.rain,max.temp,i)*rec(mean.dens,max.temp,i),0,0.5*Sfa(mean.dens,mean.rain,max.temp,i)*rec(mean.dens,max.temp,i),Sfa(mean.dens,mean.rain,max.temp,i)),n.stage,n.stage)
+  
+  mpm.min = matrix(c(0,Smj(mean.dens,mean.rain,min.temp,i),0,0,
+                   0,Sma(mean.dens,mean.rain,min.temp,i),0,0,
+                   0.5*Sfj(mean.dens,mean.rain,min.temp,i)*rec(mean.dens,min.temp,i),0,0.5*Sfj(mean.dens,mean.rain,min.temp,i)*rec(mean.dens,min.temp,i),Sfj(mean.dens,mean.rain,min.temp,i),
+                   0.5*Sfa(mean.dens,mean.rain,min.temp,i)*rec(mean.dens,min.temp,i),0,0.5*Sfa(mean.dens,mean.rain,min.temp,i)*rec(mean.dens,min.temp,i),Sfa(mean.dens,mean.rain,min.temp,i)),n.stage,n.stage)
+  
+  l.max.T[i]=lambda(mpm.max)
+  l.min.T[i]=lambda(mpm.min)
+  
+  
+  # 2. Sensitivity to temperature assuming covariation among covariates
+  mpm.max = matrix(c(0,Smj(dens_when_temp_max,rain_when_temp_max,max.temp,i),0,0,
+                   0,Sma(dens_when_temp_max,rain_when_temp_max,max.temp,i),0,0,
+                   0.5*Sfj(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(dens_when_temp_max,max.temp,i),0,0.5*Sfj(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(dens_when_temp_max,max.temp,i),Sfj(dens_when_temp_max,rain_when_temp_max,max.temp,i),
+                   0.5*Sfa(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(dens_when_temp_max,max.temp,i),0,0.5*Sfa(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(dens_when_temp_max,max.temp,i),Sfa(dens_when_temp_max,rain_when_temp_max,max.temp,i)),n.stage,n.stage)
+  
+  mpm.min = matrix(c(0,Smj(dens_when_temp_min,rain_when_temp_min,min.temp,i),0,0,
+                   0,Sma(dens_when_temp_min,rain_when_temp_min,min.temp,i),0,0,
+                   0.5*Sfj(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(dens_when_temp_min,min.temp,i),0,0.5*Sfj(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(dens_when_temp_min,min.temp,i),Sfj(dens_when_temp_min,rain_when_temp_min,min.temp,i),
+                   0.5*Sfa(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(dens_when_temp_min,min.temp,i),0,0.5*Sfa(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(dens_when_temp_min,min.temp,i),Sfa(dens_when_temp_min,rain_when_temp_min,min.temp,i)),n.stage,n.stage)
+  
+  l.max.T2[i]=lambda(mpm.max)
+  l.min.T2[i]=lambda(mpm.min)
+  
+
+  
+  # DENSITY
+  # 1. Sensitivity to density assuming mean rain and mean temperature
+  mpm.max = matrix(c(0,Smj(max.dens,mean.rain,mean.temp,i),0,0,
+                   0,Sma(max.dens,mean.rain,mean.temp,i),0,0,
+                   0.5*Sfj(max.dens,mean.rain,mean.temp,i)*rec(max.dens,mean.temp,i),0,0.5*Sfj(max.dens,mean.rain,mean.temp,i)*rec(max.dens,mean.temp,i),Sfj(max.dens,mean.rain,mean.temp,i),
+                   0.5*Sfa(max.dens,mean.rain,mean.temp,i)*rec(max.dens,mean.temp,i),0,0.5*Sfa(max.dens,mean.rain,mean.temp,i)*rec(max.dens,mean.temp,i),Sfa(max.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+  mpm.min = matrix(c(0,Smj(min.dens,mean.rain,mean.temp,i),0,0,
+                   0,Sma(min.dens,mean.rain,mean.temp,i),0,0,
+                   0.5*Sfj(min.dens,mean.rain,mean.temp,i)*rec(min.dens,mean.temp,i),0,0.5*Sfj(min.dens,mean.rain,mean.temp,i)*rec(min.dens,mean.temp,i),Sfj(min.dens,mean.rain,mean.temp,i),
+                   0.5*Sfa(min.dens,mean.rain,mean.temp,i)*rec(min.dens,mean.temp,i),0,0.5*Sfa(min.dens,mean.rain,mean.temp,i)*rec(min.dens,mean.temp,i),Sfa(min.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+  l.max.D[i]=lambda(mpm.max)
+  l.min.D[i]=lambda(mpm.min)
+  
+
+  
+  # 2. Sensitivity to density assuming covariation among covariates
+  mpm.max = matrix(c(0,Smj(max.dens,rain_when_dens_max,temp_when_dens_max,i),0,0,
+                   0,Sma(max.dens,rain_when_dens_max,temp_when_dens_max,i),0,0,
+                   0.5*Sfj(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(max.dens,temp_when_dens_max,i),0,0.5*Sfj(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(max.dens,temp_when_dens_max,i),Sfj(max.dens,rain_when_dens_max,temp_when_dens_max,i),
+                   0.5*Sfa(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(max.dens,temp_when_dens_max,i),0,0.5*Sfa(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(max.dens,temp_when_dens_max,i),Sfa(max.dens,rain_when_dens_max,temp_when_dens_max,i)),n.stage,n.stage)
+  
+  mpm.min = matrix(c(0,Smj(min.dens,rain_when_dens_min,temp_when_dens_min,i),0,0,
+                   0,Sma(min.dens,rain_when_dens_min,temp_when_dens_min,i),0,0,
+                   0.5*Sfj(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(min.dens,temp_when_dens_min,i),0,0.5*Sfj(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(min.dens,temp_when_dens_min,i),Sfj(min.dens,rain_when_dens_min,temp_when_dens_min,i),
+                   0.5*Sfa(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(min.dens,temp_when_dens_min,i),0,0.5*Sfa(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(min.dens,temp_when_dens_min,i),Sfa(min.dens,rain_when_dens_min,temp_when_dens_min,i)),n.stage,n.stage)
+  
+  l.max.D2[i]=lambda(mpm.max)
+  l.min.D2[i]=lambda(mpm.min)
+  
+}
+
+# filter lambdas & calculate sensitivities ###############
+
+# RAIN
+# filter:
+filter.maxmin.R=unique(c(which(l.max.R>3),which(l.min.R>3)))  
+l.max.R=l.max.R[-filter.maxmin.R]
+l.min.R=l.min.R[-filter.maxmin.R]
+
+filter.maxmin.R2=unique(c(which(l.max.R2>3),which(l.min.R2>3)))
+l.max.R2=l.max.R2[-filter.maxmin.R2]
+l.min.R2=l.min.R2[-filter.maxmin.R2]
+
+# sensitivities:
+delta.R=abs((l.max.R-l.min.R)/((max.rain-min.rain)/sd.rain))
+deltaR.cov=abs((l.max.R2-l.min.R2)/((max.rain-min.rain)/sd.rain))
+
+# log ratios of lambdas
+l_ratio.R=abs(log(l.max.R/l.min.R))
+l_ratio.R.cov=abs(log(l.max.R2/l.min.R2))
+
+# TEMP
+# filter:
+filter.maxmin.T=unique(c(which(l.max.T>3),which(l.min.T>3)))  
+l.max.T=l.max.T[-filter.maxmin.T]
+l.min.T=l.min.T[-filter.maxmin.T]
+
+filter.maxmin.T2=unique(c(which(l.max.T2>3),which(l.min.T2>3)))
+l.max.T2=l.max.T2[-filter.maxmin.T2]
+l.min.T2=l.min.T2[-filter.maxmin.T2]
+
+# sensitivities:
+delta.T=abs((l.max.T-l.min.T)/((max.temp-min.temp)/sd.temp))
+deltaT.cov=abs((l.max.T2-l.min.T2)/((max.temp-min.temp)/sd.temp))
+
+# log ratios of lambdas
+l_ratio.T=abs(log(l.max.T/l.min.T))
+l_ratio.T.cov=abs(log(l.max.T2/l.min.T2))
+
+# DENS
+# filter:
+filter.maxmin.D=unique(c(which(l.max.D>3),which(l.min.D>3)))  
+l.max.D=l.max.D[-filter.maxmin.D]
+l.min.D=l.min.D[-filter.maxmin.D]
+
+filter.maxmin.D2=unique(c(which(l.max.D2>3),which(l.min.D2>3)))
+l.max.D2=l.max.D2[-filter.maxmin.D2]
+l.min.D2=l.min.D2[-filter.maxmin.D2]
+
+# sensitivities:
+delta.D=abs((l.max.D-l.min.D)/((max.dens-min.dens)/sd.dens))
+deltaD.cov=abs((l.max.D2-l.min.D2)/((max.dens-min.dens)/sd.dens))
+
+# log ratios of lambdas
+l_ratio.D=abs(log(l.max.D/l.min.D))
+l_ratio.D.cov=abs(log(l.max.D2/l.min.D2))
+
+# SAVE OUTPUT #################
+# also only get the first 100 iterations so that it matches with the rows
+# quick save
+df=data.frame(delta.R=delta.R[1:100],
+              deltaR.cov=deltaR.cov[1:100],
+              delta.T=delta.T[1:100],
+              deltaT.cov=deltaT.cov[1:100],
+              delta.D=delta.D[1:100],
+              deltaD.cov=deltaD.cov[1:100],
+              
+              l_ratio.R=l_ratio.R[1:100],
+              l_ratio.R.cov=l_ratio.R.cov[1:100],
+              l_ratio.T=l_ratio.T[1:100],
+              l_ratio.T.cov=l_ratio.T.cov[1:100],
+              l_ratio.D=l_ratio.D[1:100],
+              l_ratio.D.cov=l_ratio.D.cov[1:100]
+              )
+write.csv(df, "quicksave_mouselemur.csv",row.names = F)
+
+# actual save
+new_df <- data.frame(study.doi="10.1073/pnas.2214244120",
+                     year.of.publication="2023",
+                     group="Mammals",
+                     species="Microcebus murinus",
+                     continent="Africa",
+                     driver=rep(c("rain","temperature","density"),each=200),
+                     driver.type=rep(c("C","C","D"),each=200),
+                     stage.age="all",
+                     vital.rates="all",
+                     sens=c(df$delta.R,df$deltaR.cov,
+                            df$delta.T,df$deltaT.cov,
+                            df$delta.D,df$deltaD.cov),
+                     cov=rep(c(0,1),each=100),
+                     mat=1, # age at sexual maturity Ozgul et al. 2023
+                     n.vr=5, # number of vital rates with covariates
+                     n.pam=27, # number of parameters
+                     dens=1, # density dependence in it?
+                     biotic_interactions=0, # any biotic interactions?
+                      lambda.sim=0, # lambda analytically calculated
+                      study.length=26,
+                     l_ratio=c(df$l_ratio.R,df$l_ratio.R.cov,
+                            df$l_ratio.T,df$l_ratio.T.cov,
+                            df$l_ratio.D,df$l_ratio.D.cov))
+                     
+
+write.csv(new_df, "Sens_MouseLemurs.csv",row.names = F)
+
+sens_no_cov=dplyr::filter(new_df,cov==0)
+hist(sens_no_cov$sens)
+
+sens_cov=dplyr::filter(new_df,cov==1)
+hist(sens_cov$sens)
+hist(sens_no_cov$sens-sens_cov$sens)
+
+```
+
+
+
+## 5) Vital-rate specific sensitivities
+#### 5.1 Rain
+```{r}
+# empty vectors for lambdas
+l.max.smj=NULL
+l.min.smj=NULL
+
+l.max.sfj=NULL
+l.min.sfj=NULL
+
+l.max.sma=NULL
+l.min.sma=NULL
+
+l.max.sfa=NULL
+l.min.sfa=NULL
+
+# empty vectors for sensitivities
+deltaR.smj=NULL
+deltaR.sfj=NULL
+deltaR.sma=NULL
+deltaR.sfa=NULL
+
+for(i in 1:1000){
+  
+  # perturb male juvenile survival
+  smj.max=matrix(c(0,Smj(dens_when_rain_max,max.rain,temp_when_rain_max,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    smj.min=matrix(c(0,Smj(dens_when_rain_min,min.rain,temp_when_rain_min,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+    
+    l.max.smj[i]=lambda(smj.max)
+    l.min.smj[i]=lambda(smj.min)
+
+# perturb female juvenile survival
+  sfj.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(mean.dens,mean.temp,i),Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+  sfj.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(mean.dens,mean.temp,i),Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+
+  l.max.sfj[i]=lambda(sfj.max)
+  l.min.sfj[i]=lambda(sfj.min)
+  
+  
+deltaR.sfj[i]=abs((lambda(sfj.max)-lambda(sfj.min))/((max.rain-min.rain)/sd.rain))
+
+
+# perturb male adult survival
+  sma.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(dens_when_rain_max,max.rain,temp_when_rain_max,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    sma.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(dens_when_rain_min,min.rain,temp_when_rain_min,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    l.max.sma[i]=lambda(sma.max)
+    l.min.sma[i]=lambda(sma.min)
+    
+    
+deltaR.sma[i]=abs((lambda(sma.max)-lambda(sma.min))/((max.rain-min.rain)/sd.rain))
+
+
+# perturb female adult survival
+  sfa.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(mean.dens,mean.temp,i),Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)),n.stage,n.stage)
+  
+    sfa.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(mean.dens,mean.temp,i),Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)),n.stage,n.stage)
+    
+    l.max.sfa[i]=lambda(sfa.max)
+    l.min.sfa[i]=lambda(sfa.min)
+    
+deltaR.sfa[i]=abs((lambda(sfa.max)-lambda(sfa.min))/((max.rain-min.rain)/sd.rain))
+
+
+# perturb recruitment
+# no rain in recruitment
+
+}
+
+# calculate sensitivities
+# but first need to filter out the super large lambdas
+
+# filter:
+filter.maxmin.smj=unique(c(which(l.max.smj>3),which(l.min.smj>3)))  
+l.max.smj=l.max.smj[-filter.maxmin.smj]
+l.min.smj=l.min.smj[-filter.maxmin.smj]
+# sens:
+deltaR.smj=abs((l.max.smj-l.min.smj)/((max.rain-min.rain)/sd.rain))
+
+
+# filter:
+filter.maxmin.sfj=unique(c(which(l.max.sfj>3),which(l.min.sfj>3)))  
+l.max.sfj=l.max.sfj[-filter.maxmin.sfj]
+l.min.sfj=l.min.sfj[-filter.maxmin.sfj]
+# sens:
+deltaR.sfj=abs((l.max.sfj-l.min.sfj)/((max.rain-min.rain)/sd.rain))
+
+
+# filter:
+filter.maxmin.sma=unique(c(which(l.max.sma>3),which(l.min.sma>3)))  
+l.max.sma=l.max.sma[-filter.maxmin.sma]
+l.min.sma=l.min.sma[-filter.maxmin.sma]
+# sens:
+deltaR.sma=abs((l.max.sma-l.min.sma)/((max.rain-min.rain)/sd.rain))
+
+
+# filter:
+filter.maxmin.sfa=unique(c(which(l.max.sfa>3),which(l.min.sfa>3)))  
+l.max.sfa=l.max.sfa[-filter.maxmin.sfa]
+l.min.sfa=l.min.sfa[-filter.maxmin.sfa]
+# sens:
+deltaR.sfa=abs((l.max.sfa-l.min.sfa)/((max.rain-min.rain)/sd.rain))
+
+
+
+# ALTERNATIVE grouping of vital rates and stages
+# what if we already grouped them??
+
+# perturb juvenile survival (both female and male)
+deltaR.sj=NULL
+for(i in 1:1000){
+  sj.max=matrix(c(0,Smj(dens_when_rain_max,max.rain,temp_when_rain_max,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    sj.min=matrix(c(0,Smj(dens_when_rain_min,min.rain,temp_when_rain_min,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+
+deltaR.sj[i]=abs((lambda(sj.max)-lambda(sj.min))/((max.rain-min.rain)/sd.rain))
+}
+hist(deltaR.sj)
+
+# perturb reproduction (instead of just recruitment rate) of both juvenile and adult
+deltaR.r=NULL
+for(i in 1:1000){
+  r.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),0,0.5*Sfj(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 
+                 0.5*Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),0,0.5*Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)*rec(dens_when_rain_max,temp_when_rain_max,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    r.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),0,0.5*Sfj(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 
+                 0.5*Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),0,0.5*Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)*rec(dens_when_rain_min,temp_when_rain_min,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+deltaR.r[i]=abs((lambda(r.max)-lambda(r.min))/((max.rain-min.rain)/sd.rain))
+}
+hist(deltaR.r)
+
+# perturb adult survival (both female and male)
+deltaR.sa=NULL
+for(i in 1:1000){
+  sa.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(dens_when_rain_max,max.rain,temp_when_rain_max,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(dens_when_rain_max,max.rain,temp_when_rain_max,i)),n.stage,n.stage)
+  
+    sa.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(dens_when_rain_min,min.rain,temp_when_rain_min,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(dens_when_rain_min,min.rain,temp_when_rain_min,i)),n.stage,n.stage)
+  
+
+deltaR.sa[i]=abs((lambda(sa.max)-lambda(sa.min))/((max.rain-min.rain)/sd.rain))
+}
+hist(deltaR.sa)
+
+
+```
+
+
+#### 5.2 Temperature
+```{r}
+# empty vectors for lambdas
+l.max.smj=NULL
+l.min.smj=NULL
+
+l.max.sfj=NULL
+l.min.sfj=NULL
+
+l.max.sma=NULL
+l.min.sma=NULL
+
+l.max.sfa=NULL
+l.min.sfa=NULL
+
+l.max.rec=NULL
+l.min.rec=NULL
+
+
+# empty vectors for sensitivities
+deltaT.smj=NULL
+deltaT.sfj=NULL
+deltaT.sma=NULL
+deltaT.sfa=NULL
+deltaT.rec=NULL
+
+
+
+for(i in 1:1000){
+  
+  # perturb male juvenile survival
+  smj.max=matrix(c(0,Smj(dens_when_temp_max,rain_when_temp_max,max.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    smj.min=matrix(c(0,Smj(dens_when_temp_min,rain_when_temp_min,min.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+
+    l.max.smj[i]=lambda(smj.max)
+    l.min.smj[i]=lambda(smj.min)
+    
+
+
+# perturb female juvenile survival
+  sfj.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(mean.dens,mean.temp,i),Sfj(dens_when_temp_max,rain_when_temp_max,max.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+  sfj.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(mean.dens,mean.temp,i),Sfj(dens_when_temp_min,rain_when_temp_min,min.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    l.max.sfj[i]=lambda(sfj.max)
+    l.min.sfj[i]=lambda(sfj.min)
+
+
+
+# perturb male adult survival
+  sma.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(dens_when_temp_max,rain_when_temp_max,max.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    sma.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(dens_when_temp_min,rain_when_temp_min,min.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+
+    
+    l.max.sma[i]=lambda(sma.max)
+    l.min.sma[i]=lambda(sma.min)
+
+# perturb female adult survival
+  sfa.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(dens_when_temp_max,rain_when_temp_max,max.temp,i)*rec(mean.dens,mean.temp,i),Sfa(dens_when_temp_max,rain_when_temp_max,max.temp,i)),n.stage,n.stage)
+  
+    sfa.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(dens_when_temp_min,rain_when_temp_min,min.temp,i)*rec(mean.dens,mean.temp,i),Sfa(dens_when_temp_min,rain_when_temp_min,min.temp,i)),n.stage,n.stage)
+    
+    l.max.sfa[i]=lambda(sfa.max)
+    l.min.sfa[i]=lambda(sfa.min)
+    
+    
+  # perturb recruitment
+  rec.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_max,max.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_max,max.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_max,max.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_max,max.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    rec.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_min,min.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_min,min.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_min,min.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(dens_when_temp_min,min.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+
+    l.max.rec[i]=lambda(rec.max)
+    l.min.rec[i]=lambda(rec.min)
+    
+}
+# I feel like we have a problem with the recruitment vital rate, the coefficient is way to large (-10.97) and I think this makes large lambdas and thus sensitivities
+
+
+# calculate sensitivities
+# but first need to filter out the super large lambdas
+
+# filter:
+filter.maxmin.smj=unique(c(which(l.max.smj>3),which(l.min.smj>3)))  
+l.max.smj=l.max.smj[-filter.maxmin.smj]
+l.min.smj=l.min.smj[-filter.maxmin.smj]
+# sens:
+deltaT.smj=abs((l.max.smj-l.min.smj)/((max.temp-min.temp)/sd.temp))
+
+
+# filter:
+filter.maxmin.sfj=unique(c(which(l.max.sfj>3),which(l.min.sfj>3)))  
+l.max.sfj=l.max.sfj[-filter.maxmin.sfj]
+l.min.sfj=l.min.sfj[-filter.maxmin.sfj]
+# sens:
+deltaT.sfj=abs((l.max.sfj-l.min.sfj)/((max.temp-min.temp)/sd.temp))
+
+
+# filter:
+filter.maxmin.sma=unique(c(which(l.max.sma>3),which(l.min.sma>3)))  
+l.max.sma=l.max.sma[-filter.maxmin.sma]
+l.min.sma=l.min.sma[-filter.maxmin.sma]
+# sens:
+deltaT.sma=abs((l.max.sma-l.min.sma)/((max.temp-min.temp)/sd.temp))
+
+
+# filter:
+filter.maxmin.sfa=unique(c(which(l.max.sfa>3),which(l.min.sfa>3)))  
+l.max.sfa=l.max.sfa[-filter.maxmin.sfa]
+l.min.sfa=l.min.sfa[-filter.maxmin.sfa]
+# sens:
+deltaT.sfa=abs((l.max.sfa-l.min.sfa)/((max.temp-min.temp)/sd.temp))
+
+
+# filter:
+filter.maxmin.rec=unique(c(which(l.max.rec>3),which(l.min.rec>3)))
+l.max.rec=l.max.rec[-filter.maxmin.rec]
+l.min.rec=l.min.rec[-filter.maxmin.rec]
+# sens:
+deltaT.rec=abs((l.max.rec-l.min.rec)/((max.temp-min.temp)/sd.temp))
+
+
+```
+
+
+#### 5.3 Density
+```{r}
+# empty vectors for lambdas
+l.max.smj=NULL
+l.min.smj=NULL
+
+l.max.sfj=NULL
+l.min.sfj=NULL
+
+l.max.sma=NULL
+l.min.sma=NULL
+
+l.max.sfa=NULL
+l.min.sfa=NULL
+
+l.max.rec=NULL
+l.min.rec=NULL
+
+
+# empty vectors for sensitivities
+deltaD.smj=NULL
+deltaD.sfj=NULL
+deltaD.sma=NULL
+deltaD.sfa=NULL
+deltaD.rec=NULL
+
+
+for(i in 1:1000){
+  # perturb male juvenile survival
+  smj.max=matrix(c(0,Smj(max.dens,rain_when_dens_max,temp_when_dens_max,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    smj.min=matrix(c(0,Smj(min.dens,rain_when_dens_min,temp_when_dens_min,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+    
+    l.max.smj[i]=lambda(smj.max)
+    l.min.smj[i]=lambda(smj.min)
+
+    
+deltaD.smj[i]=abs((lambda(smj.max)-lambda(smj.min))/((max.dens-min.dens)/sd.dens))
+
+
+# perturb female juvenile survival
+  sfj.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(mean.dens,mean.temp,i),Sfj(max.dens,rain_when_dens_max,temp_when_dens_max,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+  sfj.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(mean.dens,mean.temp,i),Sfj(min.dens,rain_when_dens_min,temp_when_dens_min,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    l.max.sfj[i]=lambda(sfj.max)
+    l.min.sfj[i]=lambda(sfj.min)
+
+deltaD.sfj[i]=abs((lambda(sfj.max)-lambda(sfj.min))/((max.dens-min.dens)/sd.dens))
+
+
+# perturb male adult survival
+  sma.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(max.dens,rain_when_dens_max,temp_when_dens_max,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    sma.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(min.dens,rain_when_dens_min,temp_when_dens_min,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+    
+    l.max.sma[i]=lambda(sma.max)
+    l.min.sma[i]=lambda(sma.min)
+  
+deltaD.sma[i]=abs((lambda(sma.max)-lambda(sma.min))/((max.dens-min.dens)/sd.dens))
+
+
+# perturb female adult survival
+  sfa.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(max.dens,rain_when_dens_max,temp_when_dens_max,i)*rec(mean.dens,mean.temp,i),Sfa(max.dens,rain_when_dens_max,temp_when_dens_max,i)),n.stage,n.stage)
+  
+    sfa.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(mean.dens,mean.temp,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(mean.dens,mean.temp,i),0,0.5*Sfa(min.dens,rain_when_dens_min,temp_when_dens_min,i)*rec(mean.dens,mean.temp,i),Sfa(min.dens,rain_when_dens_min,temp_when_dens_min,i)),n.stage,n.stage)
+    
+    l.max.sfa[i]=lambda(sfa.max)
+    l.min.sfa[i]=lambda(sfa.min)
+    
+deltaD.sfa[i]=abs((lambda(sfa.max)-lambda(sfa.min))/((max.dens-min.dens)/sd.dens))
+
+
+  # perturb recruitment
+  rec.max=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(max.dens,temp_when_dens_max,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(max.dens,temp_when_dens_max,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(max.dens,temp_when_dens_max,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(max.dens,temp_when_dens_max,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    rec.min=matrix(c(0,Smj(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0,Sma(mean.dens,mean.rain,mean.temp,i),0,0,
+                 0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(min.dens,temp_when_dens_min,i),0,0.5*Sfj(mean.dens,mean.rain,mean.temp,i)*rec(min.dens,temp_when_dens_min,i),Sfj(mean.dens,mean.rain,mean.temp,i),
+                 0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(min.dens,temp_when_dens_min,i),0,0.5*Sfa(mean.dens,mean.rain,mean.temp,i)*rec(min.dens,temp_when_dens_min,i),Sfa(mean.dens,mean.rain,mean.temp,i)),n.stage,n.stage)
+  
+    l.max.rec[i]=lambda(rec.max)
+    l.min.rec[i]=lambda(rec.min)
+
+deltaD.rec[i]=abs((lambda(rec.max)-lambda(rec.min))/((max.dens-min.dens)/sd.dens))
+
+}
+
+
+# calculate sensitivities
+# but first need to filter out the super large lambdas
+
+# filter:
+filter.maxmin.smj=unique(c(which(l.max.smj>3),which(l.min.smj>3)))  
+l.max.smj=l.max.smj[-filter.maxmin.smj]
+l.min.smj=l.min.smj[-filter.maxmin.smj]
+# sens:
+deltaD.smj=abs((l.max.smj-l.min.smj)/((max.dens-min.dens)/sd.dens))
+
+
+# filter:
+filter.maxmin.sfj=unique(c(which(l.max.sfj>3),which(l.min.sfj>3)))  
+l.max.sfj=l.max.sfj[-filter.maxmin.sfj]
+l.min.sfj=l.min.sfj[-filter.maxmin.sfj]
+# sens:
+deltaD.sfj=abs((l.max.sfj-l.min.sfj)/((max.dens-min.dens)/sd.dens))
+
+
+# filter:
+filter.maxmin.sma=unique(c(which(l.max.sma>3),which(l.min.sma>3)))  
+l.max.sma=l.max.sma[-filter.maxmin.sma]
+l.min.sma=l.min.sma[-filter.maxmin.sma]
+# sens:
+deltaD.sma=abs((l.max.sma-l.min.sma)/((max.dens-min.dens)/sd.dens))
+
+
+# filter:
+filter.maxmin.sfa=unique(c(which(l.max.sfa>3),which(l.min.sfa>3)))  
+l.max.sfa=l.max.sfa[-filter.maxmin.sfa]
+l.min.sfa=l.min.sfa[-filter.maxmin.sfa]
+# sens:
+deltaD.sfa=abs((l.max.sfa-l.min.sfa)/((max.dens-min.dens)/sd.dens))
+
+
+# filter:
+filter.maxmin.rec=unique(c(which(l.max.rec>3),which(l.min.rec>3)))
+l.max.rec=l.max.rec[-filter.maxmin.rec]
+l.min.rec=l.min.rec[-filter.maxmin.rec]
+# sens:
+deltaD.rec=abs((l.max.rec-l.min.rec)/((max.dens-min.dens)/sd.dens))
+
+
+```
+
+#### 5.4 Save Output
+```{r}
+surv_vr=data.frame(study.doi="10.1073/pnas.2214244120",
+                     year.of.publication="2023",
+                     group="Mammals",
+                     species="Microcebus murinus",
+                     continent="Africa",
+                     driver=rep(c("rain","temperature","density"),each=400),
+                     driver.type=rep(c("C","C","D"),each=400),
+                     stage.age=rep(c("male juvenile","female juvenile","male adult","female adult"),each=100),
+                     vital.rates="survival",
+                     sens=c(deltaR.smj[1:100],deltaR.sfj[1:100],deltaR.sma[1:100],deltaR.sfa[1:100],
+                            deltaT.smj[1:100],deltaT.sfj[1:100],deltaT.sma[1:100],deltaT.sfa[1:100],
+                            deltaD.smj[1:100],deltaD.sfj[1:100],deltaD.sma[1:100],deltaD.sfa[1:100]),
+                     mat=1, # age at sexual maturity Ozgul et al. 2023
+                     n.vr=5, # number of vital rates with covariates
+                     n.pam=27, # number of parameters
+                     dens=1, # density dependence in it?
+                     biotic_interactions=0, # any biotic interactions?
+                      lambda.sim=0, # lambda analytically calculated
+                      study.length=26)
+
+rec_vr=data.frame(study.doi="10.1073/pnas.2214244120",
+                     year.of.publication="2023",
+                     group="Mammals",
+                     species="Microcebus murinus",
+                     continent="Africa",
+                     driver=rep(c("temperature","density"),100),
+                     driver.type=rep(c("C","D"),100),
+                     stage.age="reproductive",
+                     vital.rates="recruitment",
+                     sens=c(deltaT.rec[1:100],
+                            deltaD.rec[1:100]),
+                     mat=1, # age at sexual maturity Ozgul et al. 2023
+                     n.vr=5, # number of vital rates with covariates
+                     n.pam=27, # number of parameters
+                     dens=1, # density dependence in it?
+                     biotic_interactions=0, # any biotic interactions?
+                      lambda.sim=0, # lambda analytically calculated
+                      study.length=26)
+
+results_vr=rbind(surv_vr,rec_vr)
+
+write.csv(results_vr,"SensVR_MouseLemurs.csv",row.names = F)
+```
+
+
+
+```{r}
+rm(df)
+df=read.csv("/Users/esinickin/Documents/Master Thesis/pert_analyses/mouse lemurs/SensVR_MouseLemurs.csv")
+names(df)[names(df) == "gen.time"] <- "mat"
+df$mat=1
+df$lambda.sim=0
+df$study.length=26
+write.csv(df,"/Users/esinickin/Documents/Master Thesis/pert_analyses/mouse lemurs/SensVR_MouseLemurs.csv",row.names = F)
+```
+
