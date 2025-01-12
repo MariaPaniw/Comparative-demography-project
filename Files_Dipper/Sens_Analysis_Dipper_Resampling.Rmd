@@ -1,0 +1,610 @@
+---
+title: "SensitivityAnalysis_MPM_Dipper"
+author: "Esin Ickin"
+date: "2/23/2023"
+output: html_document
+---
+
+This code is can be used as an example on how to parameterize vital-rate functions using coefficients and covariate inputs to then build a matrix population model and compute sensitivities.
+
+## 0) Prepare session
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/esinickin/Desktop/Comparative-demography-project-main/Files_Dipper")
+```
+
+```{r}
+rm(list=ls())
+library(boot)
+library(popbio)
+library(tidyverse)
+
+# load data
+cov <- read.csv("cov_Dipper.csv")
+cov$N <- round(cov$N)
+cov2 <- read.csv("Env_cov_dipper.txt", sep="")
+
+# annual number of local birds
+cov$Nlocal <- round(cov2$Nlocal)
+
+# annual number of immigrants
+cov$immigrants <- cov$N - cov$Nlocal
+
+# immigrants per capita
+cov$imm.per.capita <- cov$immigrants/cov$N
+```
+
+
+## 1) Vital rates
+
+The example is from a paper on dippers: Gamelon et al. 2017. 
+The vital rates are defined as functions. To compute the uncertainties around our sensitivity estimates, we need the distributions of the parameters.
+
+```{r}
+set.seed(1234)
+# SURVIVAL
+# Parameter estimates table S2
+mu=rnorm(100,mean=0.456,sd=0.212)
+beta1.1=0
+beta1.2=rnorm(100,mean=0.477,sd=0.048)
+beta1.3=rnorm(100,mean=0.167,sd=0.048)
+beta1.4=rnorm(100,mean=0.196,sd=0.048)
+beta2=rnorm(100,mean=0.16,sd=0.122)
+beta3=rnorm(100,mean=-0.008,sd=0.003)
+beta5.1=0
+beta5.2=rnorm(100,mean=-0.002,sd=0.001)
+beta5.3=rnorm(100,mean=-0.001,sd=0.001)
+beta5.4=rnorm(100,mean=-0.002,sd=0.001)
+kR.all=0.57 
+#beta.year=0.287 # random year effect
+#res.S=0.013 # random residual effects
+
+# age class 1
+S1 <- function(temp, dens, i){
+  surv <- inv.logit(mu[i] + beta1.1*1 + beta2[i]*temp + beta3[i]*dens*exp(-kR.all*temp) + beta5.1*1*dens*exp(-kR.all*temp))
+  return(surv)
+}
+
+# age class 2
+S2 <- function(temp, dens, i){
+  surv <- inv.logit(mu[i] + beta1.2[i]*2 + beta2[i]*temp + beta3[i]*dens*exp(-kR.all*temp) + beta5.2[i]*2*dens*exp(-kR.all*temp))
+  return(surv)
+  }
+
+# age class 3
+S3 <- function(temp, dens, i){
+  surv <- inv.logit(mu[i] + beta1.3[i]*3 + beta2[i]*temp + beta3[i]*dens*exp(-kR.all*temp) + beta5.3[i]*3*dens*exp(-kR.all*temp))
+  return(surv)
+  }
+
+# age class 4
+S4 <- function(temp, dens, i){
+  surv <- inv.logit(mu[i] + beta1.4[i]*4 + beta2[i]*temp + beta3[i]*dens*exp(-kR.all*temp) + beta5.4[i]*4*dens*exp(-kR.all*temp))
+  return(surv)
+}
+
+# test: S4(1.6,100,4)
+
+# RECRUITMENT
+
+# parameter estimates from table S2
+v=rnorm(100,mean=-2.246,sd=0.249)
+beta1.1=0
+beta1.2=rnorm(100,mean=0.433,sd=0.052)
+beta1.3=rnorm(100,mean=0.453,sd=0.052)
+beta1.4=rnorm(100,mean=0.705,sd=0.052)
+beta2=rnorm(100,mean=0.236,sd=0.158)
+beta3=rnorm(100,mean=-0.017,sd=0.003)
+kR.1=0.519
+kR.2=0.403
+kR.3=0.42
+kR.4=0.34
+#beta.year=0.796 # random year effect
+#res.R=0.045 # random residual effects
+
+# age class 1
+
+# mean immigrants per capita rate
+imm <- mean(cov$imm.per.capita)
+
+R1 <- function(temp, dens, i){
+  rec <- exp(v[i] + beta1.1*1 + beta2[i]*temp + beta3[i]*dens*exp(-kR.1*temp)) + imm
+  return(rec)
+}
+
+# age class 2
+R2 <- function(temp, dens, i){
+  rec <- exp(v[i] + beta1.2[i]*2 + beta2[i]*temp + beta3[i]*dens*exp(-kR.2*temp))
+  return(rec)
+}
+
+# age class 3
+R3 <- function(temp, dens, i){
+  rec <- exp(v[i] + beta1.3[i]*3 + beta2[i]*temp + beta3[i]*dens*exp(-kR.3*temp))
+  return(rec)
+}
+
+# age class 4
+R4 <- function(temp, dens, i){
+  rec <- exp(v[i] + beta1.4[i]*4 + beta2[i]*temp + beta3[i]*dens*exp(-kR.4*temp))
+  return(rec)
+}
+
+# IMMIGRATION
+# eq 6
+# without year effect
+#I <- function(Nlocal, temp){
+#  i <- exp(41.145/(1+exp(0.101-0.738*temp)*exp(-0.037*Nlocal)))
+#  return(i)
+#}
+
+#I(mean.Nlocal.scaled, mean.temp)
+#I(mean.Nlocal, mean.temp)
+```
+
+## 2) Covariates
+
+These are the input data for the vital rate functions. Ideally, it should be a time series because it allows us to calculate not only means and variances but also covariances, the latter being important to calculate scaled sensitivities.
+
+```{r}
+# density
+mean.dens=mean(cov$N)
+sd.dens=sd(cov$N)
+min.dens=min(cov$N)
+max.dens=max(cov$N)
+
+# scaled density
+#min.dens.scaled=(min.dens-mean.dens)/sd.dens
+#max.dens.scaled=(max.dens-mean.dens)/sd.dens
+#sd.dens.scaled=1
+#mean.dens.scaled=0
+
+# standardized mean winter temperature
+#mean.temp=0
+#sd.temp=1
+#min.temp=-2
+#max.temp=2
+mean.temp=mean(cov$temp)
+sd.temp=sd(cov$temp)
+min.temp=min(cov$temp)
+max.temp=max(cov$temp)
+
+# covariation
+dens_when_temp_max=cov$N[which(cov$temp==max(cov$temp))][1]
+dens_when_temp_min=cov$N[which(cov$temp==min(cov$temp))][1]
+
+temp_when_dens_max=cov$temp[which(cov$N==max(cov$N))][1]
+temp_when_dens_min=cov$temp[which(cov$N==min(cov$N))][1]
+```
+
+## 3) Population model
+
+Here, we use the vital rate function to construct an annual population model that can give us the population growth rate (lambda).
+
+In the following example, the MPM is constructed with mean covariate values.
+In the perturbations, the covariate values are changed.
+
+```{r}
+n.stage=4
+lam=NULL
+for(i in 1:100){
+  mpm = matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+  lam[i]=lambda(mpm)
+  
+}
+
+hist(lam)
+```
+
+
+## 4) Scaled sensitivity analyses 
+
+Here, we calculate scaled sensitivities, according to Morris et al. 2020 (DOI: https://doi.org/10.1073/pnas.1918363117)
+
+With the information given in 1-3, we should be able to run these analyses.
+
+```{r}
+# empty vectors to store the sensitivities
+delta.T=NULL
+deltaT.cov=NULL
+
+delta.D=NULL
+deltaD.cov=NULL
+
+# l ratios
+l_ratio.T=NULL
+l_ratio.T.cov=NULL
+l_ratio.D=NULL
+l_ratio.D.cov=NULL
+
+# for vital rates
+deltaT.R1=NULL
+deltaT.R2=NULL
+deltaT.R3=NULL
+deltaT.R4=NULL
+deltaT.S1=NULL
+deltaT.S2=NULL
+deltaT.S3=NULL
+deltaT.S4=NULL
+
+deltaD.R1=NULL
+deltaD.R2=NULL
+deltaD.R3=NULL
+deltaD.R4=NULL
+deltaD.S1=NULL
+deltaD.S2=NULL
+deltaD.S3=NULL
+deltaD.S4=NULL
+
+# repeat calculation 100 times and resample parameters each time
+for(i in 1:100){
+  # TEMP
+# 1. Sensitivity to temperature assuming mean density
+mpm.max=matrix(c(R1(max.temp,mean.dens,i),S1(max.temp,mean.dens,i),0,0,
+               R2(max.temp,mean.dens,i),0,S2(max.temp,mean.dens,i),0,
+               R3(max.temp,mean.dens,i),0,0,S3(max.temp,mean.dens,i),
+               R4(max.temp,mean.dens,i),0,0,S4(max.temp,mean.dens,i)),n.stage,n.stage)
+
+mpm.min=matrix(c(R1(min.temp,mean.dens,i),S1(min.temp,mean.dens,i),0,0,
+               R2(min.temp,mean.dens,i),0,S2(min.temp,mean.dens,i),0,
+               R3(min.temp,mean.dens,i),0,0,S3(min.temp,mean.dens,i),
+               R4(min.temp,mean.dens,i),0,0,S4(min.temp,mean.dens,i)),n.stage,n.stage)
+
+delta.T[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.temp-min.temp)/sd.temp))
+
+# abs(log(lambda(mpm.max)/lambda(mpm.min)))
+l_ratio.T[i]=abs(log(lambda(mpm.max)/lambda(mpm.min)))
+
+
+# 2. Sensitivity to temperature assuming covariation among covariates
+mpm.max=matrix(c(R1(max.temp,dens_when_temp_max,i),S1(max.temp,dens_when_temp_max,i),0,0,
+               R2(max.temp,dens_when_temp_max,i),0,S2(max.temp,dens_when_temp_max,i),0,
+               R3(max.temp,dens_when_temp_max,i),0,0,S3(max.temp,dens_when_temp_max,i),
+               R4(max.temp,dens_when_temp_max,i),0,0,S4(max.temp,dens_when_temp_max,i)),n.stage,n.stage)
+
+mpm.min=matrix(c(R1(min.temp,dens_when_temp_min,i),S1(min.temp,dens_when_temp_min,i),0,0,
+               R2(min.temp,dens_when_temp_min,i),0,S2(min.temp,dens_when_temp_min,i),0,
+               R3(min.temp,dens_when_temp_min,i),0,0,S3(min.temp,dens_when_temp_min,i),
+               R4(min.temp,dens_when_temp_min,i),0,0,S4(min.temp,dens_when_temp_min,i)),n.stage,n.stage)
+
+
+deltaT.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.temp-min.temp)/sd.temp))
+
+# abs(log(lambda(mpm.max)/lambda(mpm.min)))
+l_ratio.T.cov[i]=abs(log(lambda(mpm.max)/lambda(mpm.min)))
+
+  
+# DENSITY
+# 1. Sensitivity to density assuming mean temperature
+mpm.max = matrix(c(R1(mean.temp,max.dens,i),S1(mean.temp,max.dens,i),0,0,
+               R2(mean.temp,max.dens,i),0,S2(mean.temp,max.dens,i),0,
+               R3(mean.temp,max.dens,i),0,0,S3(mean.temp,max.dens,i),
+               R4(mean.temp,max.dens,i),0,0,S4(mean.temp,max.dens,i)),n.stage,n.stage)
+
+mpm.min = matrix(c(R1(mean.temp,min.dens,i),S1(mean.temp,min.dens,i),0,0,
+               R2(mean.temp,min.dens,i),0,S2(mean.temp,min.dens,i),0,
+               R3(mean.temp,min.dens,i),0,0,S3(mean.temp,min.dens,i),
+               R4(mean.temp,min.dens,i),0,0,S4(mean.temp,min.dens,i)),n.stage,n.stage)
+
+delta.D[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.dens-min.dens)/sd.dens))
+    
+# abs(log(lambda(mpm.max)/lambda(mpm.min)))
+l_ratio.D[i]=abs(log(lambda(mpm.max)/lambda(mpm.min)))
+
+  
+# 2. Sensitivity to density assuming covariation among covariates
+mpm.max = matrix(c(R1(temp_when_dens_max,max.dens,i),S1(temp_when_dens_max,max.dens,i),0,0,
+               R2(temp_when_dens_max,max.dens,i),0,S2(temp_when_dens_max,max.dens,i),0,
+               R3(temp_when_dens_max,max.dens,i),0,0,S3(temp_when_dens_max,max.dens,i),
+               R4(temp_when_dens_max,max.dens,i),0,0,S4(temp_when_dens_max,max.dens,i)),n.stage,n.stage)
+
+mpm.min = matrix(c(R1(temp_when_dens_max,min.dens,i),S1(temp_when_dens_max,min.dens,i),0,0,
+               R2(temp_when_dens_max,min.dens,i),0,S2(temp_when_dens_max,min.dens,i),0,
+               R3(temp_when_dens_max,min.dens,i),0,0,S3(temp_when_dens_max,min.dens,i),
+               R4(temp_when_dens_max,min.dens,i),0,0,S4(temp_when_dens_max,min.dens,i)),n.stage,n.stage)
+
+deltaD.cov[i]=abs((lambda(mpm.max)-lambda(mpm.min))/((max.dens-min.dens)/sd.dens))
+
+# abs(log(lambda(mpm.max)/lambda(mpm.min)))
+l_ratio.D.cov[i]=abs(log(lambda(mpm.max)/lambda(mpm.min)))
+
+
+# Finally, perturb covariates (temp, rain, dens) in each vital rate to get vital-rate specific sensitivities
+
+# Perturb R1
+
+# TEMP
+
+R1.max=matrix(c(R1(max.temp,dens_when_temp_max,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R1.min=matrix(c(R1(min.temp,dens_when_temp_min,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaT.R1[i]=abs((lambda(R1.max)-lambda(R1.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+R1.max=matrix(c(R1(temp_when_dens_max,max.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R1.min=matrix(c(R1(temp_when_dens_min,min.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaD.R1[i]=abs((lambda(R1.max)-lambda(R1.min))/((max.dens-min.dens)/sd.dens))
+
+
+# Perturb R2
+
+# TEMP
+R2.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(max.temp,dens_when_temp_max,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R2.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.dens,mean.dens,i),0,0,
+               R2(min.temp,dens_when_temp_min,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaT.R2[i]=abs((lambda(R2.max)-lambda(R2.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+R2.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(temp_when_dens_max,max.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R2.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(temp_when_dens_min,min.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaD.R2[i]=abs((lambda(R2.max)-lambda(R2.min))/((max.dens-min.dens)/sd.dens))
+
+
+# Perturb R3
+
+# TEMP
+R3.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(max.temp,dens_when_temp_max,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R3.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(min.temp,dens_when_temp_min,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaT.R3[i]=abs((lambda(R3.max)-lambda(R3.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+R3.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(temp_when_dens_max,max.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R3.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(temp_when_dens_min,min.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaD.R3[i]=abs((lambda(R3.max)-lambda(R3.min))/((max.dens-min.dens)/sd.dens))
+
+
+# Perturb R4
+
+# TEMP
+R4.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(max.temp,dens_when_temp_max,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R4.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(min.temp,dens_when_temp_min,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaT.R4[i]=abs((lambda(R4.max)-lambda(R4.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+R4.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(temp_when_dens_max,max.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+R4.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(temp_when_dens_min,min.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaD.R4[i]=abs((lambda(R4.max)-lambda(R4.min))/((max.dens-min.dens)/sd.dens))
+
+# Perturb S1
+
+# TEMP
+S1.max=matrix(c(R1(mean.temp,mean.dens,i),S1(max.temp,dens_when_temp_max,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+S1.min=matrix(c(R1(mean.temp,mean.dens,i),S1(min.temp,dens_when_temp_min,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaT.S1[i]=abs((lambda(S1.max)-lambda(S1.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+S1.max=matrix(c(R1(mean.temp,mean.dens,i),S1(temp_when_dens_max,max.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+S1.min=matrix(c(R1(mean.temp,mean.dens,i),S1(temp_when_dens_min,min.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaD.S1[i]=abs((lambda(S1.max)-lambda(S1.min))/((max.dens-min.dens)/sd.dens))
+
+
+# Perturb S2
+
+# TEMP
+S2.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(max.temp,dens_when_temp_max,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+S2.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(min.temp,dens_when_temp_min,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaT.S2[i]=abs((lambda(S2.max)-lambda(S2.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+S2.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(temp_when_dens_max,max.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+S2.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(temp_when_dens_min,min.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaD.S2[i]=abs((lambda(S2.max)-lambda(S2.min))/((max.dens-min.dens)/sd.dens))
+
+
+# Perturb S3
+
+# TEMP
+S3.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(max.temp,dens_when_temp_max,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+S3.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(min.temp,dens_when_temp_min,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaT.S3[i]=abs((lambda(S3.max)-lambda(S3.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+S3.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(temp_when_dens_max,max.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+S3.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(temp_when_dens_min,min.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(mean.temp,mean.dens,i)),n.stage,n.stage)
+
+deltaD.S3[i]=abs((lambda(S3.max)-lambda(S3.min))/((max.dens-min.dens)/sd.dens))
+
+
+# Perturb S4
+
+# TEMP
+S4.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(max.temp,dens_when_temp_max,i)),n.stage,n.stage)
+
+S4.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(min.temp,dens_when_temp_min,i)),n.stage,n.stage)
+
+deltaT.S4[i]=abs((lambda(S4.max)-lambda(S4.min))/((max.temp-min.temp)/sd.temp))
+
+# DENS
+S4.max=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(temp_when_dens_max,max.dens,i)),n.stage,n.stage)
+
+S4.min=matrix(c(R1(mean.temp,mean.dens,i),S1(mean.temp,mean.dens,i),0,0,
+               R2(mean.temp,mean.dens,i),0,S2(mean.temp,mean.dens,i),0,
+               R3(mean.temp,mean.dens,i),0,0,S3(mean.temp,mean.dens,i),
+               R4(mean.temp,mean.dens,i),0,0,S4(temp_when_dens_min,min.dens,i)),n.stage,n.stage)
+
+deltaD.S4[i]=abs((lambda(S4.max)-lambda(S4.min))/((max.dens-min.dens)/sd.dens))
+}
+
+hist(delta.T-deltaT.cov) # should be positive
+hist(delta.D-deltaD.cov)
+
+```
+
+
+## 5) Save output
+```{r}
+# sens all VR
+sens <- data.frame(study.doi="10.1126/sciadv.1602298",
+                  year.of.publication="2017",
+                  group="Birds",
+                  species="Cinclus cinclus",
+                  continent="Europe",
+                  driver=c(rep(c("temperature","density"),each=200)),
+                  driver.type=c(rep(c("C","D"),each=200)),
+                  stage.age="all",
+                  vital.rates="all",
+                  sens=c(delta.T,deltaT.cov,delta.D,deltaD.cov),
+                  cov=rep(c(0,1),each=100),
+                  mat=1, # age at sexual maturity [Myhrvold et al. 2015]
+                  n.vr=8, # number of vital rates with covariates
+                  n.pam=44, # number of parameters (per vital rate ca. 5.5)
+                  dens=1, # density dependence in it?
+                  biotic_interactions=0, # any biotic interactions?
+                  lambda.sim=0, # was lambda calculated analytically (0) or using simulation (1)?
+                  study.length=35,
+                  l_ratio=c(l_ratio.T,l_ratio.T.cov,
+                            l_ratio.D,l_ratio.D.cov)) 
+
+write.csv(sens,"Sens_Dipper_Resampling.csv",row.names = F)
+
+
+# sens per VR
+sensVR <- data.frame(study.doi="10.1126/sciadv.1602298",
+                  year.of.publication="2017",
+                  group="Birds",
+                  species="Cinclus cinclus",
+                  continent="Europe",
+                  driver=c(rep(c("temperature","density"),each=800)),
+                  driver.type=c(rep(c("C","D"),each=800)),
+                  stage.age=c(rep(c("Reproduction","Survival"),each=400)),
+                  vital.rates=c(rep(c("1","2","3","4"),each=100)),
+                  sens=c(deltaT.R1,deltaT.R2,deltaT.R3,deltaT.R4,
+                         deltaT.S1,deltaT.S2,deltaT.S3,deltaT.S4,
+                         deltaD.R1,deltaD.R2,deltaD.R3,deltaD.R4,
+                         deltaD.S1,deltaD.S2,deltaD.S3,deltaD.S4),
+                  mat=1, # age at sexual maturity [Myhrvold et al. 2015]
+                  n.vr=8, # number of vital rates with covariates
+                  n.pam=44, # number of parameters (per vital rate ca. 5.5)
+                  dens=1, # density dependence in it?
+                  biotic_interactions=0, # any biotic interactions?
+                  lambda.sim=0, # was lambda calculated analytically (0) or using simulation (1)?
+                  study.length=35) 
+
+
+write.csv(sensVR,"Sens_VR_Dipper_Resampling.csv",row.names = F)
+
+```
+
+ 
+ 
+ 
