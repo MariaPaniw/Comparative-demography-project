@@ -8,7 +8,7 @@ library(Matrix)
 
 rm(list=ls())
 
-setwd("~/OneDrive - Universität Zürich UZH/Master Thesis/pert_analyses/meerkats")
+setwd("~/Documents/Master Thesis/pert_analyses/meerkats")
 
 ##################### Load data ##############
 
@@ -94,6 +94,15 @@ delta.T=NULL
 delta.T.V2=NULL
 delta.D=NULL
 delta.D.V2=NULL
+
+# define empty lists for l ratios
+l_ratio.R=NULL
+l_ratio.R.V2=NULL
+l_ratio.T=NULL
+l_ratio.T.V2=NULL
+l_ratio.D=NULL
+l_ratio.D.V2=NULL
+
 
 # START LOOP ################
 
@@ -1141,6 +1150,7 @@ for(j in 1:2){
 }
 
 delta.R[pi]=abs((lambda.R[2]-lambda.R[1])/((mean(mu.cov$rainSD[mu.cov$year==rain[2]])-mean(mu.cov$rainSD[mu.cov$year==rain[1]]))/1))
+l_ratio.R[pi]=abs(log(lambda.R[2]/lambda.R[1]))
 
 
 
@@ -1506,6 +1516,8 @@ for(j in 1:2){
 }
 
 delta.R.V2[pi]=abs((lambda.R.V2[2]-lambda.R.V2[1])/((mean(mu.cov$rainSD[mu.cov$year==rain[2]])-mean(mu.cov$rainSD[mu.cov$year==rain[1]]))/1))
+
+l_ratio.R.V2[pi]=abs(log(lambda.R.V2/lambda.R.V2[1]))
 
 
 ### 1. Sensitivity to temp no covariation --------------
@@ -1873,6 +1885,8 @@ for(j in 1:2){
 
 delta.T[pi]=abs((lambda.T[2]-lambda.T[1])/((mean(mu.cov$tempSD[mu.cov$year==temp[2]])-mean(mu.cov$tempSD[mu.cov$year==temp[1]]))/1))
 
+l_ratio.T[pi]=abs(log(lambda.T[2]/lambda.T[1]))
+
 ### 2. Sensitivity to temp full covariation -----------------
 lambda.T.V2=NULL
 
@@ -2235,6 +2249,8 @@ for(j in 1:2){
 }
 
 delta.T.V2[pi]=abs((lambda.T.V2[2]-lambda.T.V2[1])/((mean(mu.cov$tempSD[mu.cov$year==temp[2]])-mean(mu.cov$tempSD[mu.cov$year==temp[1]]))/1))
+
+l_ratio.T.V2[pi]=abs(log(lambda.T.V2[2]/lambda.T.V2[1]))
 
 ### 1. Sensitivity to dens no covariation ------------------
 lambda.D=NULL
@@ -2601,6 +2617,8 @@ for(j in 1:2){
 
 delta.D[pi]=abs((lambda.D[2]-lambda.D[1])/((mean(mu.cov$density[mu.cov$year==dens[2]])-mean(mu.cov$density[mu.cov$year==dens[1]]))/sd.density))
 
+l_ratio.D[pi]=abs(log(lambda.D[2]/lambda.D[1]))
+
 ### 2. Sensitivity to dens full covariation ---------------------
 lambda.D.V2=NULL
 
@@ -2964,6 +2982,7 @@ for(j in 1:2){
 
 delta.D.V2[pi]=abs((lambda.D.V2[2]-lambda.D.V2[1])/((mean(mu.cov$density[mu.cov$year==dens[2]])-mean(mu.cov$density[mu.cov$year==dens[1]]))/sd.density))
 
+l_ratio.D.V2[pi]=abs(log(lambda.D.V2[2]/lambda.D.V2[1]))
 }
 
 
@@ -2988,8 +3007,11 @@ Results=data.frame(study.doi="10.1126/science.aau5905",
                    dens=1, # density dependence in it?
                    biotic_interactions=0, # any biotic interactions?
                    lambda.sim=0,
-                   study.length=20)
+                   study.length=20,
+                   l_ratio=c(l_ratio.R,l_ratio.R.V2,
+                             l_ratio.T,l_ratio.T.V2,
+                             l_ratio.D,l_ratio.D.V2))
 
-# write.csv(Results,"Sens_Meerkats.csv",row.names = F)
+write.csv(Results,"Sens_Meerkats.csv",row.names = F)
 
 

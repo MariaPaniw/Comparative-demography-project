@@ -1,0 +1,501 @@
+"study.doi","year.of.publication","group","species","continent","driver","driver.type","stage.age","vital.rates","sens","mat","n.vr","n.pam","dens","biotic_interactions","lambda.sim","study.length"
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","growth",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","survival",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.081036949231758,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.0110414736421206,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","dominant adult","recruitment",0.199631324114701,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","growth",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","survival",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.10571878823131,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0902776733675963,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","helper adult","recruitment",0.0631705025724779,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","growth",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0495970819445477,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","subadult","survival",0.0553548463310652,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","growth",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
+"10.1126/science.aau5905",2019,"Mammals","Suricata suricatta","Africa","density","D","pups","survival",0.0565685010956501,2,28,1422,1,0,0,20
