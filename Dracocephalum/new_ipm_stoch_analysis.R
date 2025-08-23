@@ -20,8 +20,6 @@ VR_FLM <- readRDS("results/rds/VR_FLM.rds")
 state_independent_variables <- readRDS("results/rds/state_independent_VR.rds")
 climate_models <- readRDS("results/rds/ARIMA_clim_mods.rds")
 CHELSA_data = "data/CHELSA_data.csv"
-data_for_modeling = "data/Dracocephalum_with_vital_rates.csv"
-
 
 lag = 24
 n_it = 1 #5000
@@ -100,8 +98,8 @@ params <- list(
 
 
 ## Set integration params
-L <- min(VR_FLM$growth$model$ln_stems_t0, na.rm = T)
-U <- max(VR_FLM$growth$model$ln_stems_t0, na.rm = T) * 1.1
+L <- 0 
+U <- 4.672829 * 1.1   # Max observed size + 10%
 n = 100
 
 
@@ -251,11 +249,9 @@ clim_sim <- lapply(clim_mod, function(x)
 # which means we want to set the other climatic driver pet to its observed value when precipitation was at its maximum and then later at its minimum
 # but here I thought I could do it with the ipm_loop() function where I set the year to the year where precip was max or min
 
-demo_data <- read.csv(data_for_modeling)
 clim_data <- read.csv(CHELSA_data) %>%
   climate_wider_for_gam(clim_data = ., 
                         variables = c("pr_scaled", "pet_scaled", "tas_scaled"), 
-                        demo_data = demo_data, 
                         response_t1 = T,
                         lag = 24)
 
