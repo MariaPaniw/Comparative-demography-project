@@ -1,5 +1,7 @@
 This readme.md file was generated on 2023-03-20 by Esin Ickin
 
+This repository has been archived on Zenodo. Please follow the link for citation: [![DOI](https://zenodo.org/badge/817721746.svg)](https://doi.org/10.5281/zenodo.16992231)
+
 🌎🐧🦒🌿🌍
 
 **GENERAL INFORMATION**
