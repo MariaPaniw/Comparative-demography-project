@@ -2,7 +2,7 @@
 # The Pontic Dragonhead
 
 Corresponding authors: Sanne M. Evers, Tomáš Dostálek, Zuzana Münzbergová  
-Study DOI: in Preparation
+Study DOI: 10.5281/zenodo.16942068
 
 ## Species
 
